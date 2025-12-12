@@ -1,0 +1,161 @@
+/* Append to existing CSS or replace if significant refactor needed. 
+   For cleanliness, I'll rewrite the necessary parts but keep the core vars. 
+*/
+
+:root {
+    --bg-dark: #050505;
+    --primary: #D6001C;
+    --text-white: #ffffff;
+    --font-main: 'Outfit', sans-serif;
+    --font-display: 'Anton', sans-serif;
+    /* Using Anton for the big titles */
+}
+
+/* ... (Previous Reset & Navbar styles remain similar, adjusting Global) ... */
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    margin: 0;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.navbar .logo img {
+    height: 40px;
+}
+
+/* Vertical Sections */
+.hero-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    /* Almost full screen per section */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    border-bottom: 10px solid #000;
+    /* "Space every section" */
+}
+
+/* Background Handling */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Darker overlay for readability */
+    transition: background 0.5s;
+    z-index: 2;
+}
+
+/* Content */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 2rem;
+    color: var(--text-white);
+}
+
+.hero-link h2 {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #ddd;
+    opacity: 0;
+    /* Hidden by default, reveal on hover or simple static */
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* Always show desc if preferred, or on hover. 
+   User said "insert it in the page", implying visibility. 
+   Let's make it visible by default but animated.
+*/
+.hero-desc {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 1rem 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.hero-btn:hover {
+    transform: scale(1.05);
+    background: var(--primary-bright);
+}
+
+/* Hover Effects */
+.hero-link:hover .hero-bg {
+    transform: scale(1.05);
+}
+
+.hero-link:hover .hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-link:hover h2 {
+    color: var(--text-white);
+    -webkit-text-stroke: 0;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero-link {
+        height: auto;
+        padding: 6rem 0;
+    }
+
+    .hero-link h2 {
+        font-size: 3rem;
+    }
+}
