@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachata Sensual Lab | MasteryLab</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&family=Anton&display=swap"
+        rel="stylesheet">
+</head>
+
+<body style="background: #050505; color: white; overflow-x: hidden;">
+
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="MasteryLab">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="nav-auth">
+            <a href="#" class="nav-link">Login</a>
+            <a href="#" class="btn-primary btn-sm">Sign Up</a>
+        </div>
+    </nav>
+
+    <!-- Side Navigation -->
+    <div class="side-nav">
+        <ul>
+            <li><a href="#for-dancers" data-target="for-dancers">For Dancers</a></li>
+            <li><a href="#for-teachers" data-target="for-teachers">For Teachers</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+        style="position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <!-- Background (Placeholder Gradient until image provided) -->
+        <div
+            style="position: absolute; inset: 0; background: linear-gradient(135deg, #220000 0%, #000000 100%); z-index: -2;">
+        </div>
+        <div class="hero-overlay"
+            style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, #050505 90%);">
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2; max-width: 1000px; text-align: center;">
+            <p
+                style="font-size: 1.2rem; letter-spacing: 5px; color: #D6001C; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;">
+                Master The Technique</p>
+            <h1 class="scroll-reveal"
+                style="font-family: 'Anton'; font-size: clamp(3rem, 6vw, 6rem); line-height: 1; margin-bottom: 2rem; text-transform: uppercase;">
+                BACHATA SENSUAL<br><span style="color: transparent; -webkit-text-stroke: 2px white;">LAB</span>
+            </h1>
+            <p class="scroll-reveal"
+                style="font-size: 1.4rem; max-width: 700px; margin: 0 auto 2rem; color: #ddd; font-weight: 300;">
+                A comprehensive training program to master Bachata Sensual with two expert couples.
+            </p>
+            <p class="scroll-reveal"
+                style="color: #D6001C; font-weight: 600; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px;">
+                * Registration required to access this program
+            </p>
+            <button class="btn-primary scroll-reveal" onclick="openModal()"
+                style="padding: 1rem 3rem; font-size: 1.2rem; clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%); border-radius: 0;">
+                JOIN THE LAB
+            </button>
+        </div>
+    </section>
+
+    <!-- Intro Text -->
+    <section class="container" style="max-width: 900px; margin: 3rem auto; text-align: center;">
+        <p style="font-size: 1.3rem; line-height: 1.6; color: #ccc; font-weight: 300;">
+            Led by the incredible <strong style="color: white; border-bottom: 2px solid #D6001C;">Ale & Xidan</strong>
+            and <strong style="color: white; border-bottom: 2px solid #D6001C;">Cristina & Rebecca</strong>, this lab is
+            designed to take your dance to the next level through structured, progressive learning.
+        </p>
+    </section>
+
+    <!-- The Instructors (Grid Layout) -->
+    <section style="padding: 2rem 0; background: linear-gradient(to bottom, #050505, #110000, #050505);">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 4rem; color: white;">
+                THE INSTRUCTORS</h2>
+
+            <!-- Ale & Xidan -->
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; margin-bottom: 6rem;">
+                <!-- Image Placeholder -->
+                <div
+                    style="flex: 1; min-width: 300px; height: 350px; background: #222; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <span style="color: #555; font-size: 1.2rem;">Ale & Xidan Image</span>
+                    <div
+                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                    </div>
+                </div>
+                <!-- Text -->
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem;">ALE & XIDAN</h3>
+                    <a href="#" target="_blank"
+                        style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                        Discover their Art
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-left: 8px;">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb; margin-bottom: 2rem;">
+                        The founders of Mastery Lab and pioneers in the Bachata Sensual style in Switzerland. They bring
+                        a perfect blend of technical precision and passionate expression, focusing on the distinct roles
+                        of leader and follower.
+                    </p>
+                    <ul style="list-style: none; padding: 0; color: #ddd;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: #D6001C;">✓</span> Foundations & Technique
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: #D6001C;">✓</span> Connection & Flow
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Cristina & Rebecca -->
+            <div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 3rem;">
+                <!-- Text -->
+                <div style="flex: 1; min-width: 300px; text-align: right;">
+                    <h3 style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem;">CRISTINA & REBECCA</h3>
+                    <a href="#" target="_blank"
+                        style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                        Discover their Art
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-left: 8px;">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb; margin-bottom: 2rem;">
+                        Known for their dynamic energy and intricate musicality. They specialize in modern fusion and
+                        creative styling, pushing the boundaries of traditional Bachata to help you find your unique
+                        voice on the dance floor.
+                    </p>
+                    <ul
+                        style="list-style: none; padding: 0; color: #ddd; display: flex; flex-direction: column; align-items: flex-end;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            Creative Styling <span style="color: #D6001C;">✓</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            Musicality & Dynamics <span style="color: #D6001C;">✓</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Image Placeholder -->
+                <div
+                    style="flex: 1; min-width: 300px; height: 350px; background: #222; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <span style="color: #555; font-size: 1.2rem;">Cristina & Rebecca Image</span>
+                    <div
+                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Dancers Section -->
+    <section id="for-dancers" class="track-section" style="padding: 5rem 0; background: #080808;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 1rem; color: white;">
+                FOR DANCERS</h2>
+            <p style="text-align: center; color: #aaa; margin-bottom: 4rem; font-size: 1.2rem;">Repetition is key to
+                mastery.</p>
+
+            <div class="benefits-list">
+                <!-- Module 1 -->
+                <div class="benefit-item">
+                    <span class="benefit-index">01</span>
+                    <span class="benefit-title">MODULE 1</span>
+                    <div class="benefit-details">
+                        <div class="benefit-text">
+                            <div class="benefit-desc">Fundamentals & Core Technique in repetition cycles.</div>
+                        </div>
+                        <div class="benefit-icon">🔄</div>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="benefit-item">
+                    <span class="benefit-index">02</span>
+                    <span class="benefit-title">MODULE 2</span>
+                    <div class="benefit-details">
+                        <div class="benefit-text">
+                            <div class="benefit-desc">Advanced combinations & Styling flows in repetition cycles.</div>
+                        </div>
+                        <div class="benefit-icon">🔁</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Teachers Section -->
+    <section id="for-teachers" class="track-section container" style="max-width: 1200px; margin: 5rem auto;">
+        <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 1rem; color: white;">FOR
+            TEACHERS</h2>
+        <p style="text-align: center; color: #aaa; margin-bottom: 4rem; font-size: 1.2rem;">A structured professional
+            path.</p>
+
+        <div class="benefits-list">
+            <!-- Item 1 -->
+            <div class="benefit-item">
+                <span class="benefit-index">01</span>
+                <span class="benefit-title">3 EDITIONS PER YEAR</span>
+                <div class="benefit-details">
+                    <div class="benefit-text">
+                        <div class="benefit-desc">Consistent training opportunities spread throughout the year to ensure
+                            steady progress.</div>
+                    </div>
+                    <div class="benefit-icon">📅</div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="benefit-item">
+                <span class="benefit-index">02</span>
+                <span class="benefit-title">LEVEL 1: FOUNDATION</span>
+                <div class="benefit-details">
+                    <div class="benefit-text">
+                        <div class="benefit-desc">Master the essentials. Perfect for beginners or those refining their
+                            core technique.</div>
+                    </div>
+                    <div class="benefit-icon">🧱</div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="benefit-item">
+                <span class="benefit-index">03</span>
+                <span class="benefit-title">LEVEL 2: ADVANCED</span>
+                <div class="benefit-details">
+                    <div class="benefit-text">
+                        <div class="benefit-desc">Unlock complex moves. *Prerequisite: Successful completion of Level 1
+                            is required.*</div>
+                    </div>
+                    <div class="benefit-icon">🚀</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section style="text-align: center; padding: 5rem 1rem; background: linear-gradient(to top, #110000, #050505);">
+        <h2 class="scroll-reveal"
+            style="font-family: 'Anton'; font-size: 4rem; color: white; margin-bottom: 1rem; line-height: 1;">
+            READY TO LEVEL UP?</h2>
+        <p class="scroll-reveal" style="color: #bbb; margin-bottom: 2rem; font-size: 1.2rem;">Join the next edition of
+            Bachata Sensual Lab.</p>
+        <button class="btn-primary scroll-reveal" onclick="openModal()">SECURE YOUR SPOT</button>
+    </section>
+
+    <!-- Modal for Registration (Hidden by default) -->
+    <div id="regModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 style="font-family: 'Anton'; color: white; margin-bottom: 1rem;">JOIN THE LAB</h2>
+            <p style="color: #aaa; margin-bottom: 2rem;">Secure your spot for the upcoming workshops.</p>
+
+            <form id="registrationForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="text" id="firstName" placeholder="First Name" required
+                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; border-radius: 5px;">
+                <input type="text" id="lastName" placeholder="Last Name" required
+                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; border-radius: 5px;">
+                <input type="email" id="email" placeholder="Email Address" required
+                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; border-radius: 5px;">
+                <input type="tel" id="whatsapp" placeholder="WhatsApp Number" required
+                    style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; border-radius: 5px;">
+
+                <button type="submit" class="btn-primary" style="margin-top: 1rem; width: 100%;">CONTINUE TO
+                    PAYMENT</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

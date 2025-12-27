@@ -15,18 +15,63 @@
 <body>
 
     <nav class="navbar">
-        <a href="index.html" class="logo">
-            <img src="logo.png" alt="MasteryLab">
-        </a>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#subscribe">Membership</a>
-            <a href="#contact" class="btn-primary btn-sm">Join Now</a>
+        <div class="nav-left">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="MasteryLab">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="nav-auth">
+            <a href="#" class="nav-link">Login</a>
+            <a href="#" class="btn-primary btn-sm">Sign Up</a>
         </div>
     </nav>
 
+    <!-- Side Navigation -->
+    <div class="side-nav">
+        <ul>
+            <li><a href="#what-is-masterylab" class="active" data-target="what-is-masterylab">The Vision</a></li>
+            <li><a href="#mym-lab" data-target="mym-lab">MyM Lab</a></li>
+            <li><a href="#bachata-sensual-lab" data-target="bachata-sensual-lab">BS Lab</a></li>
+            <li><a href="#lady-style-lab" data-target="lady-style-lab">Lady Style Lab</a></li>
+        </ul>
+    </div>
+
+    <!-- Section 0: What is Mastery Lab (New Hero) -->
+    <section id="what-is-masterylab" class="hero-link" style="border-bottom: none;">
+        <div class="hero-bg"
+            style="background-image: url('mastery_lab_particles_hero.png'); background-position: center; filter: brightness(0.8);">
+        </div>
+        <div class="hero-overlay"
+            style="background: radial-gradient(circle at center, transparent 0%, #050505 100%); opacity: 0.6;"></div>
+        <div class="hero-content" style="max-width: 1200px; width: 100%; padding: 0 4rem; text-align: left;">
+            <p class="scroll-reveal"
+                style="font-family: 'Outfit'; font-weight: 700; color: #D6001C; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 1rem;">
+                LOREM IPSUM SUBTITLE</p>
+            <h1 class="scroll-reveal" style="font-family: 'Anton'; font-size: clamp(4rem, 8vw, 10rem); line-height: 0.9; margin-bottom: 2rem;
+            background: linear-gradient(to right, #fff, #aaa); background-clip: text; -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;">
+                WHAT IS<br>MASTERY LAB?
+            </h1>
+            <div class="scroll-reveal glass-card"
+                style="padding: 2rem; max-width: 600px; border-left: 4px solid #D6001C; backdrop-filter: blur(20px); background: rgba(255,255,255,0.02);">
+                <p style="font-size: 1.2rem; line-height: 1.6; color: #ddd; margin-bottom: 0;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Where <strong style="color: white;">art
+                        meets
+                        technology</strong>, and tradition fuses with the future. Sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.
+                </p>
+            </div>
+        </div>
+        <!-- Decorative Particle Overlay (CSS Animation) -->
+        <div class="particles-overlay"></div>
+    </section>
+
     <!-- Section 1: Michael y Mayra -->
-    <section class="hero-link">
+    <section id="mym-lab" class="hero-link">
         <div class="hero-bg" style="background-image: url('michael_mayra.jpg');"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -39,23 +84,23 @@
         </div>
     </section>
 
-    <!-- Section 2: Ale y Xidan -->
-    <section class="hero-link">
+    <!-- Section 2: Bachata Sensual Lab -->
+    <section id="bachata-sensual-lab" class="hero-link">
         <!-- Placeholder gradient/color since no image provided yet -->
         <div class="hero-bg" style="background: linear-gradient(45deg, #220000, #550000);"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h2>Ale y Xidan</h2>
+            <h2>Bachata Sensual Lab</h2>
             <p class="hero-desc">
-                Secure your tickets effortlessly by booking an appointment with our dedicated team. Experience a
-                streamlined ticket purchasing process designed to meet your event-going needs with precision and care.
+                Master the art of connection with our core team: Ale & Xidan and Cristina & Rebecca. A comprehensive
+                multi-level program designed to take you from foundation to mastery.
             </p>
-            <a href="ale-xidan.html" class="hero-btn">BOOK NOW</a>
+            <a href="bachata-sensual-lab.html" class="hero-btn">BOOK NOW</a>
         </div>
     </section>
 
     <!-- Section 3: Ladies Mastery -->
-    <section class="hero-link">
+    <section id="lady-style-lab" class="hero-link">
         <div class="hero-bg" style="background: linear-gradient(45deg, #000000, #333333);"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
