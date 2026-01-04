@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | MasteryLab Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-auth">
+                <a href="login.html" class="auth-link">Login</a>
+                <a href="register.html" class="auth-link btn-auth-highlight">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-page" style="display: flex; align-items: center; min-height: 100vh; padding-top: 0;">
+        <div class="container">
+
+            <div class="auth-form-container" style="margin-top: 0; margin-bottom: 0;">
+                <h2 class="text-center text-primary" style="margin-bottom: 2rem;">WELCOME BACK</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="password" class="form-input" required>
+                    </div>
+
+                    <div class="form-group" style="text-align: right; margin-bottom: 2rem;">
+                        <a href="#" style="font-size: 0.85rem; color: #aaa; text-decoration: none;">Forgot Password?</a>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" id="submitBtn" class="btn btn-primary"
+                            style="width: 100%; border-radius: 8px;">Login</button>
+                    </div>
+                </form>
+
+                <div class="auth-footer">
+                    Don't have an account? <a href="register.html">Register here</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+
+    <script>
+        const loginForm = document.querySelector('form');
+        const submitBtn = document.getElementById('submitBtn');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // UI Loading State
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Logging in...";
+            submitBtn.disabled = true;
+
+            // Collect Data
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // Call Supabase Helper
+                const { data, error } = await loginUser(email, password);
+
+                if (error) {
+                    throw error;
+                }
+
+                // Redirect on success (e.g. to home or dashboard)
+                window.location.href = 'index.html';
+
+            } catch (err) {
+                console.error("Login Error:", err);
+                alert("Login Failed: " + err.message);
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>

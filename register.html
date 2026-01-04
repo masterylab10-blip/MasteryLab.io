@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | MasteryLab Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="nav-auth">
+                <a href="login.html" class="auth-link">Login</a>
+                <a href="register.html" class="auth-link btn-auth-highlight">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-page">
+        <div class="container">
+            <!-- Benefits Section -->
+            <div class="auth-benefits">
+                <h1 class="text-gradient">WHY JOIN MASTERYLAB?</h1>
+                <p class="hero-desc">Create your dancer profile to unlock exclusive resources and track your progress.
+                </p>
+
+                <div class="benefit-grid">
+                    <div class="benefit-card">
+                        <h3>Track Progress</h3>
+                        <p>Keep a record of all the labs and workshops you've completed.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Exclusive Content</h3>
+                        <p>Access study materials, music playlists, and technique notes.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Community</h3>
+                        <p>Connect with other dedicated dancers and instructors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="auth-form-container">
+                <h2 class="text-center text-primary" style="margin-bottom: 2rem;">CREATE ACCOUNT</h2>
+                <form action="#" method="POST">
+                    <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0;">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" id="firstName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" id="lastName" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+
+                    <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0;">
+                        <div class="form-group">
+                            <label class="form-label">City of Residence</label>
+                            <input type="text" id="city" class="form-input" required placeholder="e.g. Zurich">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Role in Community</label>
+                            <select id="role" class="form-input"
+                                style="-webkit-appearance: none; appearance: none; cursor: pointer;">
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="performer">Performer</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Whatsapp Number</label>
+                        <input type="tel" id="whatsapp" class="form-input" placeholder="+41 79 123 45 67">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="password" class="form-input" required>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <button type="submit" id="submitBtn" class="btn btn-primary"
+                            style="width: 100%; border-radius: 8px;">Register Now</button>
+                    </div>
+                </form>
+
+                <div class="auth-footer">
+                    Already have an account? <a href="login.html">Log in here</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-logo text-primary">MASTERYLAB</div>
+            <p class="copy">&copy; 2024 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+
+    <script>
+        const registerForm = document.querySelector('form');
+        const submitBtn = document.getElementById('submitBtn');
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // UI Loading State
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Creating Account...";
+            submitBtn.disabled = true;
+
+            // Collect Data
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const city = document.getElementById('city').value;
+            const role = document.getElementById('role').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const password = document.getElementById('password').value;
+
+            // Metadata object
+            const metadata = {
+                first_name: firstName,
+                last_name: lastName,
+                city: city,
+                role: role,
+                whatsapp: whatsapp
+            };
+
+            try {
+                // Call Supabase Helper
+                const { data, error } = await registerUser(email, password, metadata);
+
+                if (error) {
+                    throw error;
+                }
+
+                alert("Registration Successful! Please check your email to confirm your account.");
+                // Optional: Redirect to login or home
+                window.location.href = 'login.html';
+
+            } catch (err) {
+                console.error("Registration Error:", err);
+                alert("Error: " + err.message);
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
