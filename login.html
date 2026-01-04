@@ -88,7 +88,7 @@
 
             try {
                 // Call Supabase Helper
-                const { data, error } = await loginUser(email, password);
+                const { data, error } = await window.loginUser(email, password);
 
                 if (error) {
                     throw error;

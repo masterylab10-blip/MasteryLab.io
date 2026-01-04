@@ -161,7 +161,7 @@
 
             try {
                 // Call Supabase Helper
-                const { data, error } = await registerUser(email, password, metadata);
+                const { data, error } = await window.registerUser(email, password, metadata);
 
                 if (error) {
                     throw error;
