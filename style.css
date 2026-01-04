@@ -103,6 +103,7 @@ h6 {
 .text-gradient {
     background: linear-gradient(135deg, #FFFFFF 0%, #AAAAAA 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -720,6 +721,50 @@ textarea.form-input {
 .auth-footer a {
     color: white;
     text-decoration: underline;
+}
+
+/* Futuristic Text Effect */
+.text-futuristic {
+    font-family: var(--font-heading);
+    font-size: var(--text-h1);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.text-futuristic::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: var(--color-primary);
+    overflow: hidden;
+    white-space: nowrap;
+    animation: fillText 3s linear infinite alternate;
+    border-right: 2px solid var(--color-primary);
+    filter: drop-shadow(0 0 5px var(--color-primary));
+}
+
+@keyframes fillText {
+    0% {
+        width: 0;
+        opacity: 0.5;
+    }
+
+    50% {
+        width: 50%;
+        opacity: 1;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
 }
 
 @media (max-width: 768px) {

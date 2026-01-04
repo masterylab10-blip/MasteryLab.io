@@ -5,8 +5,8 @@
 
 // --- CONFIGURATION ---
 // REPLACE THESE WITH YOUR ACTUAL SUPABASE CREDENTIALS
-const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_gfFO5p9hUe2UIoGn3dRYWg_bDqKgbSj';
 
 // Initialize the client
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -38,8 +38,21 @@ async function getCurrentUser() {
     return user;
 }
 
+// Helper: Protect Routes (Redirect if not logged in)
+async function requireAuth() {
+    const user = await getCurrentUser();
+    if (!user) {
+        window.location.href = 'login.html';
+        return null;
+    }
+    return user;
+}
+
 // Helper: Logout
 async function logoutUser() {
     const { error } = await supabase.auth.signOut();
+    if (!error) {
+        window.location.href = 'index.html';
+    }
     return error;
 }
