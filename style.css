@@ -4,10 +4,13 @@
 
 :root {
     /* --- Colors --- */
-    --color-primary: #D6001C;        /* Signature Red */
+    --color-primary: #D6001C;
+    /* Signature Red */
     --color-primary-dark: #A50014;
-    --color-bg: #050505;             /* Deep Black */
-    --color-bg-alt: #0F0F0F;         /* Slightly Lighter Black */
+    --color-bg: #050505;
+    /* Deep Black */
+    --color-bg-alt: #0F0F0F;
+    /* Slightly Lighter Black */
     --color-text-main: #FFFFFF;
     --color-text-muted: #B0B0B0;
     --color-border: rgba(255, 255, 255, 0.1);
@@ -15,7 +18,7 @@
     /* --- Typography --- */
     --font-heading: 'Anton', sans-serif;
     --font-body: 'Outfit', sans-serif;
-    
+
     --text-hero: clamp(3rem, 8vw, 6rem);
     --text-h1: clamp(2.5rem, 5vw, 4rem);
     --text-h2: clamp(2rem, 4vw, 3rem);
@@ -24,12 +27,17 @@
     --text-small: 0.875rem;
 
     /* --- Spacing --- */
-    --spacing-xs: 0.5rem;   /* 8px */
-    --spacing-sm: 1rem;     /* 16px */
-    --spacing-md: 2rem;     /* 32px */
-    --spacing-lg: 4rem;     /* 64px */
-    --spacing-xl: 8rem;     /* 128px */
-    
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 2rem;
+    /* 32px */
+    --spacing-lg: 4rem;
+    /* 64px */
+    --spacing-xl: 8rem;
+    /* 128px */
+
     --container-width: 1400px;
     --border-radius: 12px;
 }
@@ -38,7 +46,9 @@
    RESET & BASE STYLES
    ========================================= */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -78,7 +88,12 @@ ul {
    TYPOGRAPHY
    ========================================= */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     text-transform: uppercase;
     line-height: 1.1;
@@ -95,8 +110,13 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-primary);
 }
 
-.text-center { text-align: center; }
-.text-uppercase { text-transform: uppercase; }
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
 
 /* =========================================
    LAYOUT UTILITIES
@@ -129,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
     .grid-3 {
         grid-template-columns: 1fr;
     }
-    
+
     :root {
         --spacing-xl: 4rem;
         --spacing-lg: 3rem;
@@ -171,14 +191,67 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-outline {
     background: transparent;
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: #fff;
 }
 
 .btn-outline:hover {
     border-color: #fff;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
 }
+
+
+/* Artistic Hero Button */
+.btn-hero-artistic {
+    position: relative;
+    /* Electric Red Gradient */
+    background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    color: #fff;
+    /* Smaller size */
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 100, 100, 0.4);
+    overflow: hidden;
+    z-index: 1;
+    /* Electric Glow */
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.6),
+        0 0 30px rgba(255, 0, 51, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+    letter-spacing: 2px;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-hero-artistic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            /* Brighter shine */
+            transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn-hero-artistic:hover {
+    transform: scale(1.05) translateY(-2px);
+    /* Intensified Electric Glow */
+    box-shadow: 0 0 25px rgba(255, 0, 51, 0.8),
+        0 0 50px rgba(255, 0, 51, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-hero-artistic:hover::before {
+    left: 100%;
+}
+
 
 /* Cards */
 .card {
@@ -192,7 +265,7 @@ h1, h2, h3, h4, h5, h6 {
 .card:hover {
     transform: translateY(-5px);
     border-color: var(--color-primary);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* =========================================
@@ -208,7 +281,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: var(--spacing-sm) 0;
     background: rgba(5, 5, 5, 0.9);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .navbar .container {
@@ -234,7 +307,8 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.8;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
     opacity: 1;
     color: var(--color-primary);
 }
@@ -251,7 +325,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding-top: 80px; /* Offset for navbar */
+    padding-top: 80px;
+    /* Offset for navbar */
 }
 
 .hero-bg {
@@ -313,10 +388,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-card {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     padding: 2rem;
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -324,7 +399,10 @@ h1, h2, h3, h4, h5, h6 {
 .hero-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 4px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
     background: var(--color-primary);
     transform: scaleX(0);
     transition: transform 0.4s ease;
@@ -379,7 +457,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .lab-image img {
@@ -392,10 +470,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lab-section.alt .lab-content {
-    direction: rtl; /* Flip order visually */
+    direction: rtl;
+    /* Flip order visually */
 }
+
 .lab-section.alt .lab-info {
-    direction: ltr; /* Reset text direction */
+    direction: ltr;
+    /* Reset text direction */
 }
 
 @media (max-width: 968px) {
@@ -403,6 +484,7 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
+
     .lab-section.alt .lab-content {
         direction: ltr;
     }
@@ -443,13 +525,27 @@ footer {
    ========================================= */
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .glitch-effect {
@@ -498,7 +594,7 @@ footer {
     font-weight: 700;
     font-size: 0.85rem;
     box-shadow: 0 4px 15px rgba(214, 0, 28, 0.3);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-auth-highlight:hover {
@@ -531,10 +627,10 @@ footer {
 }
 
 .benefit-card {
-    background: rgba(255,255,255,0.03);
+    background: rgba(255, 255, 255, 0.03);
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .benefit-card h3 {
@@ -549,8 +645,8 @@ footer {
     backdrop-filter: blur(10px);
     padding: 3rem;
     border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .form-group {
@@ -569,8 +665,8 @@ footer {
 
 .form-input {
     width: 100%;
-    background: rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
     padding: 1rem;
     border-radius: 8px;
@@ -582,8 +678,36 @@ footer {
 .form-input:focus {
     outline: none;
     border-color: var(--color-primary);
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 15px rgba(214, 0, 28, 0.2);
+}
+
+textarea.form-input {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Contact Section */
+#contact {
+    background: radial-gradient(circle at center, #1a0003 0%, #050505 100%);
+    position: relative;
+    border-top: 1px solid var(--color-border);
+}
+
+.contact-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 2rem;
+    }
 }
 
 .auth-footer {
@@ -602,6 +726,7 @@ footer {
     .benefit-grid {
         grid-template-columns: 1fr;
     }
+
     .auth-form-container {
         padding: 2rem;
     }

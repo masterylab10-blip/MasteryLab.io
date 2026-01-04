@@ -27,11 +27,10 @@
     <nav class="navbar">
         <div class="container">
             <a href="#" class="logo">
-                <img src="logo.png" alt="MasteryLab Logo">
+                <img src="logo.webp" alt="MasteryLab Logo">
             </a>
             <div class="nav-links">
                 <a href="#about" class="active">Home</a>
-                <a href="projects.html">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
             <!-- Auth Buttons -->
@@ -45,7 +44,7 @@
     <main>
         <!-- Hero Section -->
         <section id="about" class="hero">
-            <img src="mastery_lab_particles_hero.png" alt="MasteryLab Hero Background" class="hero-bg">
+            <img src="mastery_lab_particles_hero.webp" alt="MasteryLab Hero Background" class="hero-bg">
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
@@ -76,8 +75,7 @@
 
                 <!-- Register Button -->
                 <div style="margin-top: 4rem;">
-                    <a href="#contact" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.2rem 3rem;">Register
-                        Now</a>
+                    <a href="#contact" class="btn btn-hero-artistic">Register Now</a>
                 </div>
             </div>
         </section>
@@ -97,10 +95,10 @@
                         musicality, and the seamless connection that defines their unique style. Perfect for couples
                         looking to elevate their partnership.
                     </p>
-                    <a href="#contact" class="btn btn-outline">Apply for MyM Lab</a>
+                    <a href="michael-mayra.html" class="btn btn-outline">Apply for MyM Lab</a>
                 </div>
                 <div class="lab-image">
-                    <img src="michael_mayra.jpg" alt="Michael and Mayra Dance Lab">
+                    <img src="michael_mayra.webp" alt="Michael and Mayra Dance Lab">
                 </div>
             </div>
         </section>
@@ -109,7 +107,7 @@
         <section id="bs-lab" class="lab-section alt">
             <div class="container lab-content">
                 <div class="lab-image">
-                    <img src="bachata_sensual.jpg" alt="Bachata Sensual Lab">
+                    <img src="bachata_sensual.webp" alt="Bachata Sensual Lab">
                 </div>
                 <div class="lab-info">
                     <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Sensual
@@ -144,15 +142,64 @@
                     <a href="#contact" class="btn btn-outline">Apply for Lady Style</a>
                 </div>
                 <div class="lab-image">
-                    <img src="lady_style.jpg" alt="Lady Style Dance Lab">
+                    <img src="lady_style.webp" alt="Lady Style Dance Lab">
                 </div>
             </div>
         </section>
 
     </main>
 
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Get In
+                    Touch</span>
+                <h2 style="font-size: var(--text-h1);">Contact Us</h2>
+                <p style="color: var(--color-text-muted); max-width: 600px; margin: 1rem auto;">
+                    Have questions about our labs? Want to book a private session? We'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="contact-form-container">
+                <form action="https://formsubmit.co/masterylab@outlook.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New Submission from MasteryLab Website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://masterylab.io/index.html">
+
+                    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="name" class="form-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-input" placeholder="Your Email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" name="subject" class="form-input" placeholder="What is this regarding?"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea name="message" class="form-input" placeholder="Your Message..." required></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" style="min-width: 200px;">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-logo text-primary">MASTERYLAB</div>
             <div class="social-links">
