@@ -8,11 +8,18 @@
 const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_gfFO5p9hUe2UIoGn3dRYWg_bDqKgbSj';
 
-// Initialize the client
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+// Initialize the client with safety check
+let supabase;
+if (window.supabase && window.supabase.createClient) {
+    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+} else {
+    console.error("Supabase SDK not loaded. Check your internet connection or script tags.");
+    alert("Error: Supabase SDK could not be loaded.");
+}
 
 // Helper function to handle Registration
-async function registerUser(email, password, metadata) {
+window.registerUser = async function (email, password, metadata) {
+    if (!supabase) return { error: { message: "Supabase not initialized" } };
     const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
@@ -24,7 +31,8 @@ async function registerUser(email, password, metadata) {
 }
 
 // Helper function to handle Login
-async function loginUser(email, password) {
+window.loginUser = async function (email, password) {
+    if (!supabase) return { error: { message: "Supabase not initialized" } };
     const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password
@@ -33,14 +41,15 @@ async function loginUser(email, password) {
 }
 
 // Helper: Check if user is logged in
-async function getCurrentUser() {
+window.getCurrentUser = async function () {
+    if (!supabase) return null;
     const { data: { user } } = await supabase.auth.getUser();
     return user;
 }
 
 // Helper: Protect Routes (Redirect if not logged in)
-async function requireAuth() {
-    const user = await getCurrentUser();
+window.requireAuth = async function () {
+    const user = await window.getCurrentUser();
     if (!user) {
         window.location.href = 'login.html';
         return null;
@@ -49,7 +58,8 @@ async function requireAuth() {
 }
 
 // Helper: Logout
-async function logoutUser() {
+window.logoutUser = async function () {
+    if (!supabase) return;
     const { error } = await supabase.auth.signOut();
     if (!error) {
         window.location.href = 'index.html';
