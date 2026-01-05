@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful | MasteryLab</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thank-you-container {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 80px;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(214, 0, 28, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.webp" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="nav-auth">
+                <a href="login.html" class="auth-link">Login</a>
+                <a href="register.html" class="auth-link btn-auth-highlight">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container thank-you-container">
+            <div class="success-icon">✓</div>
+            <h1 class="text-gradient" style="margin-bottom: 1rem;">WELCOME TO THE LAB</h1>
+            <p class="hero-desc" style="max-width: 600px; margin: 0 auto 2rem auto;">
+                Your registration was successful. Please check your email to verify your account and complete your
+                profile setup.
+            </p>
+            <a href="login.html" class="btn btn-hero-artistic">Login to Portal</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo text-primary">MASTERYLAB</div>
+            <p class="copy">&copy; 2024 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

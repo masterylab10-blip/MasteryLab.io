@@ -767,12 +767,109 @@ textarea.form-input {
     }
 }
 
+/* =========================================
+   BENEFITS GRID (Redesign)
+   ========================================= */
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.benefit-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 3rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-primary);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.benefit-card:hover::before {
+    opacity: 1;
+}
+
+/* Large Background Number */
+.benefit-index {
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+    font-size: 8rem;
+    font-family: var(--font-heading);
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    z-index: 0;
+    transition: all 0.4s ease;
+    user-select: none;
+}
+
+.benefit-card:hover .benefit-index {
+    color: rgba(214, 0, 28, 0.1);
+    transform: scale(1.1);
+}
+
+.benefit-content {
+    position: relative;
+    z-index: 1;
+}
+
+.benefit-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.benefit-icon {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    filter: drop-shadow(0 0 5px var(--color-primary));
+}
+
+.benefit-desc {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    max-width: 90%;
+}
+
 @media (max-width: 768px) {
-    .benefit-grid {
+    .benefits-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .auth-form-container {
+    .benefit-card {
         padding: 2rem;
+    }
+
+    .benefit-index {
+        font-size: 6rem;
     }
 }
