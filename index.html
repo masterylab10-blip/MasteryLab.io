@@ -160,7 +160,7 @@
             </div>
 
             <div class="contact-form-container">
-                <form id="contactForm">
+                <form id="contactForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
                     <!-- FormSubmit Configuration -->
                     <input type="hidden" name="_subject" value="New Submission from MasteryLab Website">
                     <input type="hidden" name="_captcha" value="false">
@@ -243,32 +243,8 @@
             observer.observe(section);
         });
 
-        // Handle Contact Form Submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const btn = document.getElementById('contactSubmitBtn');
-            const originalText = btn.innerText;
-            btn.innerText = "Sending...";
-            btn.disabled = true;
-
-            const scriptURL = 'https://formsubmit.co/labmastery@outlook.com';
-            const formData = new FormData(contactForm);
-
-            fetch(scriptURL, { method: 'POST', body: formData })
-                .then(response => {
-                    // Google Apps Script usually returns a redirect or JSON. 
-                    // Even if opaque, we treat it as success for this straightforward form.
-                    window.location.href = 'thank-you.html';
-                })
-                .catch(error => {
-                    console.error('Error!', error.message);
-                    alert("There was an error sending your message. Please try again.");
-                    btn.innerText = originalText;
-                    btn.disabled = false;
-                });
-        });
+        // FormSubmit.co handles the submission natively. 
+        // We just need to ensure the form has the correct action and method.
     </script>
 </body>
 
