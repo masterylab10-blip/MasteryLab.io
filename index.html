@@ -243,8 +243,35 @@
             observer.observe(section);
         });
 
-        // FormSubmit.co handles the submission natively. 
-        // We just need to ensure the form has the correct action and method.
+        // Dual Submission: Google Sheets + FormSubmit.co
+        const contactForm = document.getElementById('contactForm');
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxWGH0S2tI1Pa03TKZs0tCN9-bJA8ZFefqKB5NXEnrWn1YW2e48tcaKNphN3DuC_Z7D/exec';
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const btn = document.getElementById('contactSubmitBtn');
+                const originalText = btn.innerText;
+                btn.innerText = 'Sending...';
+                btn.disabled = true;
+
+                // 1. Send to Google Sheets (Fire and Forget)
+                const formData = new FormData(contactForm);
+                fetch(googleScriptURL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors' // Important for Google Apps Script
+                }).then(() => {
+                    console.log('Saved to Google Sheets');
+                }).catch(err => console.error('Sheet Error:', err));
+
+                // 2. Submit to FormSubmit.co (Email + Redirect)
+                // Small delay to ensure fetch fires before navigation
+                setTimeout(() => {
+                    contactForm.submit();
+                }, 500);
+            });
+        }
     </script>
 </body>
 
