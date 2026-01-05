@@ -256,20 +256,29 @@
                 btn.disabled = true;
 
                 // 1. Send to Google Sheets (Fire and Forget)
+                // We use URLSearchParams to send data as application/x-www-form-urlencoded,
+                // which is natively parsed by Google Apps Script's e.parameter.
                 const formData = new FormData(contactForm);
+                const data = new URLSearchParams();
+                for (const pair of formData) {
+                    data.append(pair[0], pair[1]);
+                }
+
+                // Add timestamp
+                data.append('timestamp', new Date().toISOString());
+
                 fetch(googleScriptURL, {
                     method: 'POST',
-                    body: formData,
-                    mode: 'no-cors' // Important for Google Apps Script
-                }).then(() => {
-                    console.log('Saved to Google Sheets');
+                    body: data,
+                    mode: 'no-cors',
+                    keepalive: true // Crucial: allows request to complete after page unloads
                 }).catch(err => console.error('Sheet Error:', err));
 
                 // 2. Submit to FormSubmit.co (Email + Redirect)
-                // Small delay to ensure fetch fires before navigation
+                // No delay needed if keepalive works, but a tiny buffer feels safer for UX feedback
                 setTimeout(() => {
                     contactForm.submit();
-                }, 500);
+                }, 100);
             });
         }
     </script>
