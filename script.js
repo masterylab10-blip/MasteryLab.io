@@ -59,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formData = {
                     firstName: document.getElementById('firstName').value,
                     lastName: document.getElementById('lastName').value,
+                    city: document.getElementById('city').value,
+                    role: document.getElementById('role').value,
                     email: document.getElementById('email').value,
                     whatsapp: document.getElementById('whatsapp').value
                 };
