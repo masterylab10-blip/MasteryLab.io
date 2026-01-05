@@ -75,7 +75,7 @@
 
                 <!-- Register Button -->
                 <div style="margin-top: 4rem;">
-                    <a href="#contact" class="btn btn-hero-artistic">Register Now</a>
+                    <a href="register.html" class="btn btn-hero-artistic">Register Now</a>
                 </div>
             </div>
         </section>
@@ -120,7 +120,7 @@
                         Understand body mechanics, isolation, and flow. This lab is rigorous, detailed,
                         and designed for those who want to truly master the movement.
                     </p>
-                    <a href="#contact" class="btn btn-outline">Apply for BS Lab</a>
+                    <a href="#contact" class="btn btn-outline">Coming Soon...</a>
                 </div>
             </div>
         </section>
@@ -139,7 +139,7 @@
                         and musical interpretation. This is about finding your own voice and confidence on the dance
                         floor.
                     </p>
-                    <a href="#contact" class="btn btn-outline">Apply for Lady Style</a>
+                    <a href="#contact" class="btn btn-outline">Coming Soon...</a>
                 </div>
                 <div class="lab-image">
                     <img src="lady_style.webp" alt="Lady Style Dance Lab">
@@ -164,7 +164,7 @@
                     <!-- FormSubmit Configuration -->
                     <input type="hidden" name="_subject" value="New Submission from MasteryLab Website">
                     <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://masterylab.io/index.html">
+                    <input type="hidden" name="_next" value="https://masterylab.io/thank-you.html">
 
                     <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                         <div class="form-group">
@@ -253,7 +253,7 @@
             btn.innerText = "Sending...";
             btn.disabled = true;
 
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxWGH0S2tI1Pa03TKZs0tCN9-bJA8ZFefqKB5NXEnrWn1YW2e48tcaKNphN3DuC_Z7D/exec';
+            const scriptURL = 'https://formsubmit.co/labmastery@outlook.com';
             const formData = new FormData(contactForm);
 
             fetch(scriptURL, { method: 'POST', body: formData })
