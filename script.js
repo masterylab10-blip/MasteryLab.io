@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             // DATA SAVING: Send to Google Sheets
-            const googleSheetUrl = "https://script.google.com/macros/s/AKfycbzOvTm3Hf2P_s3vVvyyLUoORIXn7e-P7292E0NbBHmwgI5eWx3yx-SyYnVw5NAHrXbG/exec";
+            const googleSheetUrl = "https://script.google.com/macros/s/AKfycbxbleUuZYNKhQhW87bakoOiRSCKB2cW-AiH0dxnoq7J9y43Q8feTvY1Sji_9_wm_T8/exec";
 
             fetch(googleSheetUrl, {
                 method: 'POST',
