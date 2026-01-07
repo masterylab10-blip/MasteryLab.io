@@ -92,25 +92,30 @@
                     MICHAEL & MAYRA INTENSIVE - BASEL 2026
                 </p>
 
-                <form id="regForm">
+                <form id="regForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New M&M Intensive Registration!">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://buy.stripe.com/00wcN47fZ3F269rceD8og00">
                     <div class="form-group">
                         <label for="firstName" class="form-label">First Name</label>
-                        <input type="text" id="firstName" class="form-input" required>
+                        <input type="text" id="firstName" name="first_name" class="form-input" required>
                     </div>
 
                     <div class="form-group">
                         <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" id="lastName" class="form-input" required>
+                        <input type="text" id="lastName" name="last_name" class="form-input" required>
                     </div>
 
                     <div class="form-group">
                         <label for="city" class="form-label">City of Residence</label>
-                        <input type="text" id="city" class="form-input" required>
+                        <input type="text" id="city" name="city" class="form-input" required>
                     </div>
 
                     <div class="form-group">
                         <label for="role" class="form-label">Role in Scene</label>
-                        <select id="role" class="form-input" required style="appearance: none;">
+                        <select id="role" name="role" class="form-input" required style="appearance: none;">
                             <option value="" disabled selected>Select your role</option>
                             <option value="Dancer" style="color: black;">Dancer</option>
                             <option value="Teacher" style="color: black;">Teacher</option>
@@ -119,12 +124,12 @@
 
                     <div class="form-group">
                         <label for="email" class="form-label">Email Address</label>
-                        <input type="email" id="email" class="form-input" required>
+                        <input type="email" id="email" name="email" class="form-input" required>
                     </div>
 
                     <div class="form-group">
                         <label for="whatsapp" class="form-label">WhatsApp Number</label>
-                        <input type="tel" id="whatsapp" class="form-input" required>
+                        <input type="tel" id="whatsapp" name="whatsapp" class="form-input" required>
                     </div>
 
                     <button type="submit" class="btn-primary"

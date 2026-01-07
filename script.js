@@ -56,8 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Form Submission (Standalone or Modal)
     if (regForm) {
-        regForm.addEventListener('submit', (e) => {
+        regForm.addEventListener('submit', function (e) {
             e.preventDefault();
+
             const formData = {
                 firstName: document.getElementById('firstName').value,
                 lastName: document.getElementById('lastName').value,
@@ -67,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 whatsapp: document.getElementById('whatsapp').value
             };
 
-            // DATA SAVING: Send to Google Sheets
+            // 1. DATA SAVING: Send to Google Sheets (Silent Background)
             const googleSheetUrl = "https://script.google.com/macros/s/AKfycbxbleUuZYNKhQhW87bakoOiRSCKB2cW-AiH0dxnoq7J9y43Q8feTvY1Sji_9_wm_T8/exec";
 
             fetch(googleSheetUrl, {
@@ -78,19 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json'
                 },
                 redirect: 'follow',
-                body: JSON.stringify(formData)
-            }).then(() => {
-                console.log('Data sent to sheet');
-            }).catch(err => {
-                console.error('Error sending to sheet:', err);
+                body: JSON.stringify(formData),
+                keepalive: true
             });
 
-            // REDIRECT TO STRIPE
-            const stripeUrl = "https://buy.stripe.com/00wcN47fZ3F269rceD8og00";
-
+            // 2. EMAIL & REDIRECT: Trigger Native FormSubmit (Visual Foreground)
+            // This ensures you get the email even if Google Sheets has an issue.
             setTimeout(() => {
-                window.location.href = stripeUrl;
-            }, 1000);
+                this.submit();
+            }, 300);
         });
     }
 

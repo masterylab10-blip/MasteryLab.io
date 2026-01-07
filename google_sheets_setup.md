@@ -60,14 +60,29 @@ function doPost(e) {
 }
 ```
 
-## 3. Deploy as a Web App
-1. Click the blue **Deploy** button > **New deployment**.
-2. Select **Web app**.
-3. Description: `MasteryLab Reg System`.
-4. Execute as: **Me**.
-5. Who has access: **Anyone** (This is critical for the form to work).
-6. Click **Deploy** and authorize the script.
-7. **Copy the "Web App URL"**.
+## 4. NEW: Dual Submission Strategy (Highly Recommended)
+To ensure 100% reliable email delivery and automatic redirects, we now use **FormSubmit.co** alongside Google Sheets.
 
-## 4. Link to the Website
+### How it works:
+1.  **Google Sheets (Background)**: Data is sent silently to your sheet.
+2.  **FormSubmit (Foreground)**: The form then submits normally to FormSubmit, which:
+    *   Sends a beautifully formatted email to `labmastery@outlook.com`.
+    *   Redirects the user to your Stripe payment link.
+    *   Handles SPAM protection (CAPTCHA can be disabled).
+
+### Steps to update your HTML:
+Ensure your `<form>` tag looks like this:
+```html
+<form action="https://formsubmit.co/labmastery@outlook.com" method="POST">
+  <input type="hidden" name="_next" value="YOUR_STRIPE_URL">
+  <!-- ... your inputs ... -->
+</form>
+```
+
+## 5. Link to the Website
 Once you have the URL, please paste it here so I can update the code for you, or you can update the `googleSheetUrl` variable in `script.js` yourself.
+
+## 6. Troubleshooting Emails
+- **Check Spam**: The email from `labmastery@outlook.com` might be in your Junk folder.
+- **Sent Folder**: Check the **Sent** folder of the Gmail account you used to deploy the script. If the email is there, it means Google sent it successfully.
+- **Authorizations**: If prompted, ensure you granted the script permission to **"Send email on your behalf"**.
