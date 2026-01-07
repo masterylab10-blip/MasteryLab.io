@@ -16,7 +16,8 @@ Follow these steps to link your registration form to a Google Sheet.
 ```javascript
 /*
   MasteryLab Registration Handler
-  Handles POST requests and appends data to the active sheet.
+  Handles POST requests, appends data to the active sheet,
+  and sends a confirmation email.
 */
 
 function doPost(e) {
@@ -27,7 +28,7 @@ function doPost(e) {
     // Create timestamp
     var timestamp = new Date();
     
-    // Append the row in the specific order
+    // Append the row
     sheet.appendRow([
       timestamp,
       data.firstName,
@@ -37,6 +38,19 @@ function doPost(e) {
       data.email,
       data.whatsapp
     ]);
+    
+    // Send automatic email notification
+    var adminEmail = "labmastery@outlook.com";
+    var subject = "New M&M Registration: " + data.firstName + " " + data.lastName;
+    var body = "You have a new registration for the M&M Lab!\n\n" +
+               "Name: " + data.firstName + " " + data.lastName + "\n" +
+               "Email: " + data.email + "\n" +
+               "WhatsApp: " + data.whatsapp + "\n" +
+               "City: " + data.city + "\n" +
+               "Role: " + data.role + "\n\n" +
+               "This data has also been saved to your Google Sheet.";
+               
+    MailApp.sendEmail(adminEmail, subject, body);
     
     return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
     
