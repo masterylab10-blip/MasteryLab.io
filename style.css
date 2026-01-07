@@ -279,8 +279,9 @@ h6 {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: var(--spacing-sm) 0;
-    background: rgba(5, 5, 5, 0.9);
+    padding: 0.75rem 0;
+    /* Slightly tighter navbar */
+    background: rgba(5, 5, 5, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -292,11 +293,11 @@ h6 {
 }
 
 .logo img {
-    height: 180px;
-    /* Way bigger as requested */
-    margin-bottom: -80px;
-    /* Dramatic hanging effect */
-    filter: drop-shadow(0 0 15px rgba(214, 0, 28, 0.6));
+    height: 120px;
+    /* Balanced size */
+    margin-bottom: -45px;
+    /* Clean hanging effect */
+    filter: drop-shadow(0 0 12px rgba(214, 0, 28, 0.5));
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     z-index: 1001;
