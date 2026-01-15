@@ -338,8 +338,8 @@ h6 {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding-top: 80px;
-    /* Offset for navbar */
+    padding-top: 450px;
+    /* Massive offset to move content way lower for top visibility */
 }
 
 .hero-bg {
