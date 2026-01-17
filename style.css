@@ -328,12 +328,15 @@ h6 {
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 0.25rem 0;
+        padding-top: 0.25rem;
+        padding-bottom: 0.75rem;
+        /* Added pad below as requested */
     }
 
     .logo img {
         height: 80px;
-        margin-top: -5px;
+        margin-top: -15px;
+        /* Moved higher */
         margin-bottom: -25px;
     }
 }
