@@ -435,13 +435,24 @@ h6 {
     .hero {
         height: auto;
         min-height: 100vh;
-        padding-top: 15rem;
-        /* Reduced from 450px (~28rem) but still keeping space */
-        padding-bottom: 4rem;
+        padding-top: 12rem;
+        /* Adjusted for better spacing */
+        padding-bottom: 10rem;
+        /* Increased to ensure last card is fully visible */
+        overflow: visible;
+        /* CRITICAL: Allows content to scroll if it exceeds viewport */
+        display: block;
+        /* Disable flex centering on mobile to prevent alignment issues */
+    }
+
+    .hero-content {
+        padding-top: 2rem;
+        /* Add internal padding */
     }
 
     .hero-cards {
         grid-template-columns: 1fr;
+        padding-bottom: 2rem;
     }
 }
 
