@@ -401,16 +401,19 @@ h6 {
 }
 
 .hero-desc {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    /* Significantly bigger / modern */
-    color: var(--color-text-main);
-    /* White instead of muted */
-    max-width: 900px;
-    /* Wider to accommodate larger text */
+    font-size: 1.35rem;
+    /* Larger for better readability */
+    color: rgba(255, 255, 255, 0.9);
+    /* Brighter than muted grey */
+    max-width: 700px;
+    /* Slightly wider to let text breathe */
     margin: 0 auto var(--spacing-lg) auto;
-    font-weight: 300;
-    /* Keep it elegant/thin but big */
-    line-height: 1.3;
+    font-weight: 400;
+    /* Increased from 300 to 400 for better legibility */
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    /* separation from bg */
     animation: fadeInUp 1s ease 0.4s backwards;
 }
 
