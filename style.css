@@ -295,6 +295,8 @@ h6 {
 .logo img {
     height: 90px;
     /* Smaller premium size */
+    margin-top: -15px;
+    /* Moved higher on desktop too */
     margin-bottom: -30px;
     /* Clean hanging effect */
     filter: drop-shadow(0 0 12px rgba(214, 0, 28, 0.5));
