@@ -279,7 +279,7 @@ h6 {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 0.75rem 0;
+    padding: 0.5rem 0;
     /* Slightly tighter navbar */
     background: rgba(5, 5, 5, 0.95);
     backdrop-filter: blur(10px);
@@ -293,9 +293,9 @@ h6 {
 }
 
 .logo img {
-    height: 120px;
-    /* Balanced size */
-    margin-bottom: -45px;
+    height: 90px;
+    /* Smaller premium size */
+    margin-bottom: -30px;
     /* Clean hanging effect */
     filter: drop-shadow(0 0 12px rgba(214, 0, 28, 0.5));
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -432,6 +432,14 @@ h6 {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 15rem;
+        /* Reduced from 450px (~28rem) but still keeping space */
+        padding-bottom: 4rem;
+    }
+
     .hero-cards {
         grid-template-columns: 1fr;
     }
