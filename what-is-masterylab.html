@@ -41,6 +41,15 @@
             text-transform: uppercase;
         }
 
+        .hero-subtitle {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            letter-spacing: 5px;
+        }
+
         .manifesto-quote {
             font-size: clamp(1.5rem, 3vw, 2.5rem);
             font-family: 'Outfit';
@@ -74,23 +83,46 @@
         .progression-line {
             position: relative;
             padding-left: 3rem;
-            border-left: 2px solid var(--color-primary);
             margin: 4rem 0;
+        }
+
+        .progression-line::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(214, 0, 28, 0.2);
+        }
+
+        .active-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            background: var(--color-primary);
+            height: 0;
+            transition: height 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 0 15px var(--color-primary);
         }
 
         .progression-step {
             margin-bottom: 5rem;
-            opacity: 0.8;
-            transition: opacity 0.5s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.8s ease;
         }
 
-        .progression-step:hover {
+        .progression-step.visible {
             opacity: 1;
+            transform: translateX(0);
         }
 
         .progression-step h4 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 1rem;
+            color: #fff;
         }
 
         .concept-footer {
@@ -99,18 +131,13 @@
             background: linear-gradient(to bottom, transparent, #0f0f0f);
         }
 
-        .reveal-text {
-            overflow: hidden;
-        }
-
-        .reveal-text span {
-            display: block;
-            transform: translateY(100%);
-            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-        }
-
-        .reveal-text.visible span {
-            transform: translateY(0);
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -131,13 +158,10 @@
 
     <main>
         <!-- Vision Hero -->
-        <section class="hero" style="height: 100vh;">
-            <video autoplay muted loop playsinline class="hero-bg">
-                <source src="TV teaser MasteryLab.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="hero-overlay"></div>
-            <div class="container" style="position: relative; z-index: 2; text-align: center;">
+        <section class="hero" style="height: 100vh; position: relative; background: #050505; overflow: hidden;">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-overlay" style="z-index: 2;"></div>
+            <div class="container" style="position: relative; z-index: 3; text-align: center;">
                 <span class="hero-subtitle" style="letter-spacing: 15px; margin-bottom: 2rem;">THE MANIFESTO</span>
                 <h1 class="manifesto-title text-gradient">MASTERY <br>IS NOT <br>A DESTINATION</h1>
                 <p class="manifesto-quote">It is a relentless pursuit of technical and emotional excellence.</p>
@@ -172,6 +196,7 @@
                 <h2 class="section-title" style="text-align: left;">THE ARCHITECTURE <br>OF MASTERY</h2>
 
                 <div class="progression-line">
+                    <div class="active-line" id="progress-line"></div>
                     <div class="progression-step">
                         <h4>01. DECONSTRUCTION</h4>
                         <p>We strip away the ego and the habit. We analyze the physics of your weight, the tension of
