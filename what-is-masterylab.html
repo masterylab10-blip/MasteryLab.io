@@ -17,53 +17,100 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <style>
-        .philosophy-section {
-            padding: 120px 0 80px;
-            background: #050505;
+        .concept-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 0;
+            position: relative;
         }
 
-        .highlight-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 20px;
+        .concept-text {
+            max-width: 900px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .manifesto-title {
+            font-family: 'Anton';
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
             margin-bottom: 2rem;
-            transition: transform 0.3s ease;
+            color: #fff;
+            text-transform: uppercase;
         }
 
-        .highlight-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--color-primary);
+        .manifesto-quote {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-family: 'Outfit';
+            font-weight: 300;
+            color: var(--color-text-muted);
+            line-height: 1.4;
+            margin-bottom: 3rem;
+            font-style: italic;
         }
 
-        .comparison-grid {
+        .comparison-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: rgba(255, 255, 255, 0.1);
             margin-top: 4rem;
         }
 
-        .comparison-item {
+        .comparison-pane {
+            background: #050505;
+            padding: 5rem 3rem;
             text-align: center;
-            padding: 2rem;
-            background: rgba(214, 0, 28, 0.05);
-            border-radius: 15px;
-            border-top: 3px solid var(--color-primary);
         }
 
-        .method-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
-            margin-bottom: 3rem;
+        .comparison-pane h3 {
+            color: var(--color-primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        .step-number {
-            font-family: 'Anton';
-            font-size: 4rem;
-            line-height: 1;
-            color: rgba(214, 0, 28, 0.2);
-            -webkit-text-stroke: 1px var(--color-primary);
+        .progression-line {
+            position: relative;
+            padding-left: 3rem;
+            border-left: 2px solid var(--color-primary);
+            margin: 4rem 0;
+        }
+
+        .progression-step {
+            margin-bottom: 5rem;
+            opacity: 0.8;
+            transition: opacity 0.5s ease;
+        }
+
+        .progression-step:hover {
+            opacity: 1;
+        }
+
+        .progression-step h4 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .concept-footer {
+            padding: 15rem 0;
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, #0f0f0f);
+        }
+
+        .reveal-text {
+            overflow: hidden;
+        }
+
+        .reveal-text span {
+            display: block;
+            transform: translateY(100%);
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .reveal-text.visible span {
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -73,113 +120,86 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/logo-wings.png" alt="MasteryLab Logo">
             </a>
             <div class="nav-links">
+                <a href="index.html" class="nav-btn-outline">Back to Home</a>
             </div>
         </div>
     </nav>
 
     <main>
         <!-- Vision Hero -->
-        <section class="hero" style="height: 70vh; min-height: 500px;">
+        <section class="hero" style="height: 100vh;">
             <video autoplay muted loop playsinline class="hero-bg">
                 <source src="TV teaser MasteryLab.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="hero-overlay"></div>
             <div class="container" style="position: relative; z-index: 2; text-align: center;">
-                <span class="hero-subtitle">OUR PHILOSOPHY</span>
-                <h1 class="hero-title text-gradient">BEYOND <br>THE BASICS</h1>
-                <p class="hero-desc" style="max-width: 800px; margin: 0 auto;">
-                    This is not about workshops. This is not about bootcamps. MasteryLab is the ultimate place to master
-                    the art of dance.
-                </p>
+                <span class="hero-subtitle" style="letter-spacing: 15px; margin-bottom: 2rem;">THE MANIFESTO</span>
+                <h1 class="manifesto-title text-gradient">MASTERY <br>IS NOT <br>A DESTINATION</h1>
+                <p class="manifesto-quote">It is a relentless pursuit of technical and emotional excellence.</p>
             </div>
         </section>
 
-        <!-- Core Philosophy -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="grid-2"
-                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
-                    <div>
-                        <span class="text-primary text-uppercase" style="letter-spacing: 2px;">The Standard</span>
-                        <h2 style="font-family: 'Anton'; font-size: 3rem; margin: 1rem 0;">ELEVATING DANCE FOR DANCERS
-                        </h2>
-                        <p style="color: #ccc; font-size: 1.1rem; line-height: 1.8;">
-                            MasteryLab was born out of a frustration with the "festival culture." In festivals, you
-                            learn broad, shallow movements in a crowded room. You get a video for Instagram, but your
-                            dance remains the same.
-                        </p>
-                        <p style="color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-top: 1.5rem;">
-                            We do the opposite. We limit spots. We intensify the focus. We demand technical excellence.
-                            This is the lab where we experiment with body mechanics until the movement becomes part of
-                            you.
-                        </p>
+        <!-- The Concept -->
+        <section class="concept-section">
+            <div class="container concept-text">
+                <h2 class="section-title">THE CONCEPT</h2>
+                <p style="font-size: 1.5rem; color: #ccc; margin-top: 2rem;">
+                    MasteryLab was created for the dedicated. For those who realize that "steps" are just the alphabet,
+                    but movement is the language.
+                </p>
+
+                <div class="comparison-layout">
+                    <div class="comparison-pane">
+                        <h3>NOT A WORKSHOP</h3>
+                        <p>Workshops are for collecting information. We are for refining execution.</p>
                     </div>
-                    <div>
-                        <div class="highlight-card">
-                            <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Not a Workshop</h3>
-                            <p>Workshops are about consumption. MasteryLab is about transformation.</p>
-                        </div>
-                        <div class="highlight-card">
-                            <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Not a Podcamp</h3>
-                            <p>Podcamps are about volume. MasteryLab is about individual refinement and technical depth.
-                            </p>
-                        </div>
+                    <div class="comparison-pane">
+                        <h3>NOT A BOOTCAMP</h3>
+                        <p>Bootcamps are for volume. We are for individual, technical depth.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- The Method -->
-        <section class="section-padding" style="background: rgba(255,255,255,0.02);">
-            <div class="container">
-                <h2 style="font-family: 'Anton'; font-size: 3.5rem; text-align: center; margin-bottom: 4rem;">THE LAB
-                    METHODOLOGY</h2>
+        <!-- The Journey -->
+        <section class="concept-section" style="background: #0a0a0a;">
+            <div class="container" style="max-width: 800px;">
+                <h2 class="section-title" style="text-align: left;">THE ARCHITECTURE <br>OF MASTERY</h2>
 
-                <div style="max-width: 800px; margin: 0 auto;">
-                    <div class="method-step">
-                        <div class="step-number">01</div>
-                        <div>
-                            <h3 style="font-family: 'Anton'; margin-bottom: 0.5rem;">DECONSTRUCTION</h3>
-                            <p style="color: #aaa;">We break down complex body mechanics into their rawest components.
-                                We isolate why a movement works, not just how it looks.</p>
-                        </div>
+                <div class="progression-line">
+                    <div class="progression-step">
+                        <h4>01. DECONSTRUCTION</h4>
+                        <p>We strip away the ego and the habit. We analyze the physics of your weight, the tension of
+                            your frame, and the mechanics of your core. You cannot build a cathedral on a swamp.</p>
                     </div>
-
-                    <div class="method-step">
-                        <div class="step-number">02</div>
-                        <div>
-                            <h3 style="font-family: 'Anton'; margin-bottom: 0.5rem;">PRECISION DRILLING</h3>
-                            <p style="color: #aaa;">Intensity through repetition. We drill the fundamentals until they
-                                happen without thought, allowing artistry to flow from a solid foundation.</p>
-                        </div>
+                    <div class="progression-step">
+                        <h4>02. PRECISION</h4>
+                        <p>The difference between good and elite is measured in millimeters. We drill the
+                            micro-movements until they become subconscious, creating a foundation that never breaks
+                            under pressure.</p>
                     </div>
-
-                    <div class="method-step">
-                        <div class="step-number">03</div>
-                        <div>
-                            <h3 style="font-family: 'Anton'; margin-bottom: 0.5rem;">ARTISTIC INTENT</h3>
-                            <p style="color: #aaa;">Connection isn't just physical; it's emotional and musical. We teach
-                                you how to use your technical mastery to express yourself uniquely.</p>
-                        </div>
+                    <div class="progression-step">
+                        <h4>03. EXPRESSION</h4>
+                        <p>Artistry is the goal. Technique is the tool. Once the body is mastered, the mind is free to
+                            interpret, to connect, and to disappear into the music.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Final CTA -->
-        <section class="section-padding" style="text-align: center;">
+        <!-- Final Statement -->
+        <section class="concept-footer">
             <div class="container">
-                <h2 style="font-family: 'Anton'; font-size: 4rem; margin-bottom: 2rem;">READY TO TRANSFORM?</h2>
-                <p style="color: #ccc; margin-bottom: 3rem; max-width: 600px; margin-inline: auto;">
-                    Seats are strictly limited to ensure quality coaching and personal attention. Don't just attend
-                    another class. Enter the lab.
-                </p>
-                <a href="register.html" class="btn btn-hero-artistic">Start Your Journey</a>
+                <h2 class="manifesto-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">ENTER THE LAB. <br>LEAVE
+                    CHANGED.</h2>
+                <p style="color: var(--color-text-muted); margin: 2rem 0 4rem;">Seats are strictly limited to ensure the
+                    quality of development.</p>
+                <a href="register.html" class="btn btn-hero-artistic">Start Your Transformation</a>
             </div>
         </section>
     </main>
@@ -192,7 +212,125 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // --- Canvas Particle Animation ---
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null };
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+
+                // Interaction
+                if (mouse.x && mouse.y) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 100) {
+                        this.x -= dx * 0.01;
+                        this.y -= dy * 0.01;
+                    }
+                }
+            }
+            draw() {
+                ctx.fillStyle = `rgba(214, 0, 28, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            resize();
+            particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            // Draw connections
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(214, 0, 28, ${0.15 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        // --- Intersection Observer for elements ---
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const progressLine = document.getElementById('progress-line');
+        const steps = document.querySelectorAll('.progression-step');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Specific logic for the progress line animation
+                    if (entry.target.classList.contains('progression-step')) {
+                        const allSteps = Array.from(steps);
+                        const index = allSteps.indexOf(entry.target);
+                        const percent = ((index + 1) / allSteps.length) * 100;
+                        progressLine.style.height = `${percent}%`;
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.progression-step, .concept-text, .concept-footer').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 
 </html>

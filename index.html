@@ -41,12 +41,10 @@
 
     <main>
         <!-- Hero Section -->
-        <section id="about" class="hero">
-            <video autoplay muted loop playsinline poster="mastery_lab_particles_hero.webp" class="hero-bg">
-                <source src="TV teaser MasteryLab.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="hero-overlay"></div>
+        <section id="about" class="hero" style="background: #050505; overflow: hidden; position: relative;">
+            <canvas id="hero-canvas"
+                style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; opacity: 0.6; pointer-events: none;"></canvas>
+            <div class="hero-overlay" style="z-index: 2;"></div>
 
 
             <!-- Lab Navigation at Bottom -->
@@ -225,6 +223,93 @@
 
     <!-- Scripts -->
     <script>
+        // --- Canvas Particle Animation ---
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null };
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        window.onmousemove = (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        };
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+
+                if (mouse.x && mouse.y) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 150) {
+                        this.x -= dx * 0.01;
+                        this.y -= dy * 0.01;
+                    }
+                }
+            }
+            draw() {
+                ctx.fillStyle = `rgba(214, 0, 28, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            resize();
+            particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < 150) {
+                        ctx.strokeStyle = `rgba(214, 0, 28, ${0.15 * (1 - distance / 150)})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
         // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -260,27 +345,20 @@
                 btn.innerText = 'Sending...';
                 btn.disabled = true;
 
-                // 1. Send to Google Sheets (Fire and Forget)
-                // We use URLSearchParams to send data as application/x-www-form-urlencoded,
-                // which is natively parsed by Google Apps Script's e.parameter.
                 const formData = new FormData(contactForm);
                 const data = new URLSearchParams();
                 for (const pair of formData) {
                     data.append(pair[0], pair[1]);
                 }
-
-                // Add timestamp
                 data.append('timestamp', new Date().toISOString());
 
                 fetch(googleScriptURL, {
                     method: 'POST',
                     body: data,
                     mode: 'no-cors',
-                    keepalive: true // Crucial: allows request to complete after page unloads
+                    keepalive: true
                 }).catch(err => console.error('Sheet Error:', err));
 
-                // 2. Submit to FormSubmit.co (Email + Redirect)
-                // No delay needed if keepalive works, but a tiny buffer feels safer for UX feedback
                 setTimeout(() => {
                     contactForm.submit();
                 }, 100);
