@@ -39,17 +39,17 @@
     <main>
         <!-- Hero Section -->
         <section id="about" class="hero">
-            <img src="mastery_lab_particles_hero.webp" alt="MasteryLab Hero Background" class="hero-bg">
+            <video autoplay muted loop playsinline poster="mastery_lab_particles_hero.webp" class="hero-bg">
+                <source src="Teaser%20TV%202.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div class="hero-overlay"></div>
 
             <div class="hero-content">
-                <h1 class="hero-title text-gradient">MASTER YOUR CRAFT.<br><span class="text-primary">UNLEASH YOUR
-                        ART.</span>
-                </h1>
-                <p class="hero-desc">
-                    This is not about workshops. This is not about bootcamps. MasteryLab is the ultimate place to
-                    master the art of dance.
-                </p>
+                <!-- Spacer to preserve layout and show video -->
+                <div class="hero-spacer" style="height: 150px;"></div>
+                <!-- Spacer for description to maintain layout -->
+                <div class="hero-desc-spacer" style="height: 80px;"></div>
 
                 <!-- 3-Column Lab Navigation -->
                 <div class="hero-cards">
@@ -68,7 +68,8 @@
                 </div>
 
                 <!-- CTA Buttons -->
-                <div style="margin-top: 4rem; display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <div
+                    style="margin-top: 4rem; display: flex; gap: 1.5rem; justify-content: flex-start; flex-wrap: wrap;">
                     <a href="register.html" class="btn btn-hero-artistic">Register Now</a>
                     <a href="what-is-masterylab.html" class="btn btn-outline" style="min-width: 250px;">What is
                         MasteryLab?</a>
