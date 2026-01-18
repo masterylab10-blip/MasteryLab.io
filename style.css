@@ -154,6 +154,11 @@ h6 {
     :root {
         --spacing-xl: 4rem;
         --spacing-lg: 3rem;
+        --spacing-md: 1.5rem;
+    }
+
+    html {
+        font-size: 14px;
     }
 }
 
@@ -396,15 +401,27 @@ h6 {
 @media (max-width: 768px) {
     .navbar {
         padding-top: 0.25rem;
-        padding-bottom: 0.75rem;
-        /* Added pad below as requested */
+        padding-bottom: 0.25rem;
+    }
+
+    .navbar .container {
+        height: 60px;
     }
 
     .logo img {
-        height: 80px;
-        margin-top: -15px;
-        /* Moved higher */
-        margin-bottom: -25px;
+        height: 100px;
+        margin-top: -20px;
+        margin-bottom: -30px;
+    }
+
+    .nav-links {
+        gap: 0.5rem;
+    }
+
+    .nav-btn-primary,
+    .nav-btn-outline {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -520,25 +537,35 @@ h6 {
 @media (max-width: 768px) {
     .hero {
         height: auto;
-        min-height: 100vh;
-        padding-top: 10rem;
-        padding-bottom: 8rem;
+        min-height: 90vh;
+        padding-top: 8rem;
+        padding-bottom: 5rem;
         overflow: visible;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .hero-bg {
-        object-position: center 0%;
+        object-position: center 15%;
     }
 
     .hero-content {
-        padding-top: 2rem;
-        /* Add internal padding */
+        padding: 0 1rem;
+        margin-bottom: 3rem;
     }
 
     .hero-cards {
-        grid-template-columns: 1fr;
-        padding-bottom: 2rem;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        padding: 0 1rem;
+    }
+
+    .hero-footer {
+        position: relative;
+        padding: 2rem 1rem;
+        background: none;
     }
 }
 
