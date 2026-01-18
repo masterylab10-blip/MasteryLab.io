@@ -1,8 +1,8 @@
-# MasterzLab
+# MasteryLab (masterylab.ch)
 
-Welcome to **MasterzLab** - Where Movement Meets Passion.
+Welcome to **MasteryLab** - Where Movement Meets Passion.
 
-This is the official website for MasterzLab, a premier dancing studio and community.
+This is the official website for MasteryLab, a premier dancing studio and community based in Switzerland.
 
 ## Tech Stack
 - HTML5
