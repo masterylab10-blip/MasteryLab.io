@@ -609,7 +609,7 @@ h6 {
 
 @media (max-width: 768px) {
     .hero {
-        height: 85vh;
+        height: 75vh;
         min-height: auto;
         padding-top: 5rem;
         padding-bottom: 2rem;
@@ -639,7 +639,7 @@ h6 {
     .scroll-indicator {
         display: flex;
         opacity: 0.8;
-        bottom: 5rem;
+        bottom: 1.5rem;
     }
 }
 
