@@ -1167,7 +1167,7 @@ textarea.form-input {
 .bio-hero-bg {
     position: absolute;
     inset: 0;
-    background: url('images/isma-irene-hero.jpg') center bottom / cover no-repeat;
+    background: url('images/isma-irene-hero.jpg') center top / cover no-repeat;
     opacity: 0.5;
     transform: scale(1.1);
     animation: zoomIn 20s infinite alternate;
