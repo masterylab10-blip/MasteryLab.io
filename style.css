@@ -348,16 +348,7 @@ h6 {
     color: var(--color-primary);
 }
 
-.bio-hero-bg {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    background-image: url('images/isma-irene-hero.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -2;
-}
+
 
 .nav-btn-primary {
     position: relative;
@@ -1176,7 +1167,7 @@ textarea.form-input {
 .bio-hero-bg {
     position: absolute;
     inset: 0;
-    background: url('michael_mayra.webp') center 0% / cover no-repeat;
+    background: url('images/isma-irene-hero.jpg') center / cover no-repeat;
     opacity: 0.5;
     transform: scale(1.1);
     animation: zoomIn 20s infinite alternate;
