@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is MasteryLab? | Our Philosophy</title>
+    <title>Mission, Vision & Values | MasteryLab</title>
     <meta name="description"
-        content="Discover the MasteryLab philosophy. This is not about workshops. This is not about bootcamps. MasteryLab is the ultimate place to master the art of dance.">
+        content="MasteryLab Mission, Vision and Values. Bringing back strong dance fundamentals, authenticity, and quality into the dance scene.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,148 +16,6 @@
     <link rel="icon" href="images/favicon.png" type="image/png">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-    <style>
-        .concept-section {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .concept-text {
-            max-width: 900px;
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        .manifesto-title {
-            font-family: 'Anton';
-            font-size: clamp(3rem, 10vw, 8rem);
-            line-height: 0.9;
-            margin-bottom: 2rem;
-            color: #fff;
-            text-transform: uppercase;
-        }
-
-        .hero-subtitle {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
-            letter-spacing: 5px;
-        }
-
-        .manifesto-quote {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            font-family: 'Outfit';
-            font-weight: 300;
-            color: var(--color-text-muted);
-            line-height: 1.4;
-            margin-bottom: 3rem;
-            font-style: italic;
-        }
-
-        .comparison-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-            background: rgba(255, 255, 255, 0.1);
-            margin-top: 4rem;
-        }
-
-        .comparison-pane {
-            background: #050505;
-            padding: 5rem 3rem;
-            text-align: center;
-        }
-
-        .comparison-pane h3 {
-            color: var(--color-primary);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .progression-line {
-            position: relative;
-            padding-left: 3rem;
-            margin: 4rem 0;
-        }
-
-        .progression-line::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: rgba(214, 0, 28, 0.2);
-        }
-
-        .active-line {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 2px;
-            background: var(--color-primary);
-            height: 0;
-            transition: height 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 0 15px var(--color-primary);
-        }
-
-        .progression-step {
-            margin-bottom: 5rem;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: all 0.8s ease;
-        }
-
-        .progression-step.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .progression-step h4 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .concept-footer {
-            padding: 15rem 0;
-            text-align: center;
-            background: linear-gradient(to bottom, transparent, #0f0f0f);
-        }
-
-        #hero-canvas {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            opacity: 0.6;
-        }
-
-        @media (max-width: 768px) {
-            .manifesto-title {
-                font-size: 4rem;
-            }
-
-            .comparison-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .concept-section {
-                padding: 60px 0;
-            }
-
-            .progression-line {
-                padding-left: 1.5rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -175,76 +33,160 @@
     </nav>
 
     <main>
-        <!-- Vision Hero -->
+        <!-- Hero Section -->
         <section class="hero" style="height: 100vh; position: relative; background: #050505; overflow: hidden;">
             <canvas id="hero-canvas"></canvas>
-            <div class="hero-overlay" style="z-index: 2;"></div>
-            <div class="container" style="position: relative; z-index: 3; text-align: center;">
-                <span class="hero-subtitle" style="letter-spacing: 15px; margin-bottom: 2rem;">THE MANIFESTO</span>
-                <h1 class="manifesto-title text-gradient">MASTERY <br>IS NOT <br>A DESTINATION</h1>
-                <p class="manifesto-quote">It is a relentless pursuit of technical and emotional excellence.</p>
+            <!-- Stronger overlay for better text contrast -->
+            <div class="hero-overlay-strong" style="z-index: 2;"></div>
+
+            <!-- Hero Text Container with high z-index and shadow -->
+            <div class="container hero-text-container" style="position: relative; z-index: 3; text-align: center;">
+                <span class="text-primary text-uppercase"
+                    style="letter-spacing: 5px; font-weight: 700; margin-bottom: 2rem; display: block; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Our
+                    Philosophy</span>
+                <!-- Replaced text-gradient with neon-text-animated -->
+                <h1 style="font-family: 'Anton'; font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 2rem;"
+                    class="neon-text-animated">MISSION,<br>VISION & VALUES</h1>
+                <p
+                    style="font-size: 1.5rem; color: #fff; max-width: 800px; margin: 0 auto; font-weight: 400; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">
+                    Refining the art of dance through authenticity and high-quality education.
+                </p>
+                <div class="scroll-indicator">
+                    <span>SCROLL</span>
+                    <div class="arrow"></div>
+                </div>
             </div>
         </section>
 
-        <!-- The Concept -->
-        <section class="concept-section">
-            <div class="container concept-text">
-                <h2 class="section-title">THE CONCEPT</h2>
-                <p style="font-size: 1.5rem; color: #ccc; margin-top: 2rem;">
-                    MasteryLab was created for the dedicated. For those who realize that "steps" are just the alphabet,
-                    but movement is the language.
+        <!-- Intro -->
+        <section class="about-section">
+            <div class="container">
+                <p class="about-intro-text">
+                    MasteryLab is an academy style focused on high-quality dance education and workshops, led by
+                    well-trusted and internationally recognized artists. Our focus lies in partner dance, solo dance and
+                    artistic fitness education.
                 </p>
 
-                <div class="comparison-layout">
-                    <div class="comparison-pane">
-                        <h3>NOT A WORKSHOP</h3>
-                        <p>Workshops are for collecting information. We are for refining execution.</p>
+                <div class="grid-2">
+                    <div class="about-mission-box">
+                        <h3 class="about-mission-title">Our Mission</h3>
+                        <p style="color: #ccc; line-height: 1.6; font-size: 1.1rem;">
+                            To bring back strong dance fundamentals, authenticity, and quality into the dance scene -
+                            empowering dancers not only to move well, but to truly understand their art.
+                        </p>
                     </div>
-                    <div class="comparison-pane">
-                        <h3>NOT A BOOTCAMP</h3>
-                        <p>Bootcamps are for volume. We are for individual, technical depth.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- The Journey -->
-        <section class="concept-section" style="background: #0a0a0a;">
-            <div class="container" style="max-width: 800px;">
-                <h2 class="section-title" style="text-align: left;">THE ARCHITECTURE <br>OF MASTERY</h2>
-
-                <div class="progression-line">
-                    <div class="active-line" id="progress-line"></div>
-                    <div class="progression-step">
-                        <h4>01. DECONSTRUCTION</h4>
-                        <p>We strip away the ego and the habit. We analyze the physics of your weight, the tension of
-                            your frame, and the mechanics of your core. You cannot build a cathedral on a swamp.</p>
-                    </div>
-                    <div class="progression-step">
-                        <h4>02. PRECISION</h4>
-                        <p>The difference between good and elite is measured in millimeters. We drill the
-                            micro-movements until they become subconscious, creating a foundation that never breaks
-                            under pressure.</p>
-                    </div>
-                    <div class="progression-step">
-                        <h4>03. EXPRESSION</h4>
-                        <p>Artistry is the goal. Technique is the tool. Once the body is mastered, the mind is free to
-                            interpret, to connect, and to disappear into the music.</p>
+                    <div class="about-mission-box" style="border-color: var(--color-primary);">
+                        <h3 class="about-mission-title">We Believe</h3>
+                        <p style="color: #ccc; line-height: 1.6; font-size: 1.1rem;">
+                            That dance is more than choreography: it is technique, connection, musicality, expression,
+                            and personal growth. We create a space where dancers of all levels can learn, evolve, and
+                            refine their skills in a supportive and inspiring environment.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Final Statement -->
-        <section class="concept-footer">
+        <!-- Goal Concept -->
+        <section class="about-section" style="background: rgba(255,255,255,0.02);">
+            <div class="container text-center">
+                <h2 style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 2rem;">THE GOAL</h2>
+                <p style="font-size: 1.3rem; line-height: 1.8; color: #bbb; max-width: 800px; margin: 0 auto;">
+                    The goal of this concept is to bring back the pure quality of Bachata Sensual to the dance scene.
+                    Over time, education has slowly become secondary to teaching, causing a loss of depth, clarity and
+                    technical quality in Bachata, salsa and dance in general.
+                </p>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section class="about-section">
             <div class="container">
-                <h2 class="manifesto-title" style="font-size: clamp(2.5rem, 6vw, 5rem);">ENTER THE LAB. <br>LEAVE
-                    CHANGED.</h2>
-                <p style="color: var(--color-text-muted); margin: 2rem 0 4rem;">Seats are strictly limited to ensure the
-                    quality of development.</p>
-                <a href="register.html" class="btn btn-hero-artistic">Start Your Transformation</a>
+                <div class="text-center" style="margin-bottom: 3rem;">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 3px; font-weight: 700;">Core
+                        Principles</span>
+                    <h2 style="font-family: 'Anton'; font-size: 3.5rem;">OUR VALUES</h2>
+                </div>
+
+                <div class="about-values-grid">
+                    <div class="value-card">
+                        <div class="value-text">Excellence in teaching and technique</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-text">Strong foundations and technical precision</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-text">Clear methodology and structured learning</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-text">Responsibility and reliability in teaching</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-text">Long-term dancer development</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-text">Supportive, respectful and inclusive community</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-text">Quality over quantity</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-text">Technique before tricks</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-text">Connection before performance</div>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-text">Respect, consent, and safety</div>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <!-- Programs & Teachers -->
+        <section class="section-padding" style="background: linear-gradient(to bottom, #050505, #111);">
+            <div class="container">
+                <div class="grid-2">
+                    <!-- Programs -->
+                    <div>
+                        <h2 style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 2rem; color: white;">PROGRAMS
+                        </h2>
+                        <p style="color: #aaa; margin-bottom: 2rem;">
+                            We offer a wide range of programs designed for different levels and interests:
+                        </p>
+                        <div class="programs-grid">
+                            <div class="program-item">Bachata Sensual</div>
+                            <div class="program-item">Salsa</div>
+                            <div class="program-item">Contemporary</div>
+                            <div class="program-item">Solo Dance</div>
+                            <div class="program-item">Ladies Styling</div>
+                            <div class="program-item">Men Styling</div>
+                            <div class="program-item">Reggaeton</div>
+                            <div class="program-item">Artistic Fitness</div>
+                            <div class="program-item">Group Fitness</div>
+                        </div>
+                    </div>
+
+                    <!-- Teachers -->
+                    <div style="text-align: center; padding-top: 2rem;">
+                        <h2 style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 2rem; color: white;">
+                            QUALIFIED TEACHERS</h2>
+                        <p style="color: #aaa; margin-bottom: 2rem; text-align: left;">
+                            Our team consists of highly qualified, experienced, and passionate professionals. Each
+                            teacher brings a unique background, teaching style, and artistic vision.
+                        </p>
+                        <div class="teachers-list">
+                            <div class="teacher-name">Michael y Mayra</div>
+                            <div class="teacher-name">Ale y Xidan</div>
+                            <div class="teacher-name">Christina y Rebeca</div>
+                            <div class="teacher-name">Ismael y Irene</div>
+                            <div class="teacher-name text-primary" style="border: none;">And more...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -351,26 +293,20 @@
             threshold: 0.2
         };
 
-        const progressLine = document.getElementById('progress-line');
-        const steps = document.querySelectorAll('.progression-step');
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-
-                    // Specific logic for the progress line animation
-                    if (entry.target.classList.contains('progression-step')) {
-                        const allSteps = Array.from(steps);
-                        const index = allSteps.indexOf(entry.target);
-                        const percent = ((index + 1) / allSteps.length) * 100;
-                        progressLine.style.height = `${percent}%`;
-                    }
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.progression-step, .concept-text, .concept-footer').forEach(el => {
+        // Apply fade-in animation to sections
+        document.querySelectorAll('.about-mission-box, .value-card, .program-item, .about-intro-text').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
         });
     </script>
