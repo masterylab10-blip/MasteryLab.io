@@ -348,6 +348,17 @@ h6 {
     color: var(--color-primary);
 }
 
+.bio-hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    background-image: url('images/isma-irene-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
 .nav-btn-primary {
     position: relative;
     background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
