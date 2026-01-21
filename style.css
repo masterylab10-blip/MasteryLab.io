@@ -1173,6 +1173,11 @@ textarea.form-input {
     animation: zoomIn 20s infinite alternate;
 }
 
+.bio-hero-bg.michael-mayra {
+    background-image: url('images/michael_mayra_hero_new.jpg');
+    background-position: center top;
+}
+
 .bio-hero-overlay {
     position: absolute;
     inset: 0;
