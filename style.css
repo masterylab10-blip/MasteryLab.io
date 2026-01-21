@@ -140,6 +140,14 @@ h6 {
     gap: var(--spacing-md);
 }
 
+.bio-section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 4rem auto;
+    width: 80%;
+    max-width: 1000px;
+}
+
 @media (max-width: 1024px) {
     .grid-3 {
         grid-template-columns: repeat(2, 1fr);
@@ -265,6 +273,52 @@ h6 {
 }
 
 .btn-hero-artistic:hover::before {
+    left: 100%;
+}
+
+.btn-cta-inviting {
+    display: inline-block;
+    background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 1.5rem 4rem;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(255, 0, 51, 0.4),
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.btn-cta-inviting::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.6s;
+}
+
+.btn-cta-inviting:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 0 50px rgba(255, 0, 51, 0.7),
+        0 15px 40px rgba(0, 0, 0, 0.6),
+        inset 0 0 30px rgba(255, 255, 255, 0.3);
+    border-color: #fff;
+}
+
+.btn-cta-inviting:hover::before {
     left: 100%;
 }
 
@@ -471,7 +525,10 @@ h6 {
     opacity: 0.6;
     animation: fadeIn 2s ease forwards;
     z-index: 15;
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
+    text-decoration: none;
+    /* Remove underline from link */
 }
 
 .scroll-indicator span {
@@ -941,7 +998,7 @@ footer {
 }
 
 .auth-form-container {
-    max-width: 600px;
+    max-width: 950px;
     margin: 0 auto 4rem auto;
     background: rgba(20, 20, 20, 0.8);
     backdrop-filter: blur(10px);
@@ -1277,6 +1334,42 @@ textarea.form-input {
     margin-right: auto;
 }
 
+
+
+.bio-cta-subtitle {
+    display: inline-block;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 3rem;
+    /* More space below */
+    text-transform: uppercase;
+    position: relative;
+    padding: 0 20px;
+}
+
+.bio-cta-subtitle::before,
+.bio-cta-subtitle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    /* Longer lines */
+    height: 1px;
+    background: var(--color-primary);
+}
+
+.bio-cta-subtitle::before {
+    left: -40px;
+    /* Adjust position */
+}
+
+.bio-cta-subtitle::after {
+    right: -40px;
+    /* Adjust position */
+}
+
 .bio-cta-note {
     margin-top: 3rem;
     font-size: 0.9rem;
@@ -1311,6 +1404,30 @@ textarea.form-input {
     border-radius: 20px;
     margin-bottom: 3rem;
     text-align: left;
+}
+
+.bio-info-card {
+    background: linear-gradient(135deg, rgba(214, 0, 28, 0.1) 0%, rgba(214, 0, 28, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(214, 0, 28, 0.3);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    height: 100%;
+    /* Ensures card fills the grid cell height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Align content to top */
+    align-items: center;
+}
+
+.bio-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(214, 0, 28, 0.2);
+    border-color: rgba(214, 0, 28, 0.6);
 }
 
 .about-mission-title {
@@ -1586,6 +1703,15 @@ textarea.form-input {
     color: var(--color-primary);
 }
 
+.benefit-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .placeholder-image {
     width: 100%;
     height: 300px;
@@ -1692,4 +1818,14 @@ textarea.form-input {
     /* Behind overlay(2) and text(3) */
     pointer-events: none;
     /* Let clicks pass through */
+}
+
+/* Title Font Standardization */
+.bio-approach-header {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    color: white;
 }

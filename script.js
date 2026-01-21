@@ -9,6 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Logo Click Behavior: Smooth Scroll to Top if on Home Page
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.addEventListener('click', function (e) {
+            const currentPath = window.location.pathname;
+            const isHomePage = currentPath === '/' || currentPath.endsWith('index.html');
+
+            if (isHomePage) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+
     // Mobile Menu Toggle (Simple version)
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');

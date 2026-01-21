@@ -20,7 +20,7 @@
     <!-- Navigation -->
     <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
         <div class="container">
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/logo-wings.png" alt="MasteryLab Logo">
             </a>
             <div class="nav-links">
@@ -29,76 +29,78 @@
         </div>
     </nav>
 
-    <!-- Side Navigation -->
-    <div class="side-nav">
-        <ul>
-            <li><a href="#for-dancers" data-target="for-dancers">For Dancers</a></li>
-            <li><a href="#for-teachers" data-target="for-teachers">For Teachers</a></li>
-        </ul>
-    </div>
+    <!-- Premium Hero Section -->
+    <header class="bio-hero">
+        <div class="bio-hero-bg" style="background: linear-gradient(135deg, #220000 0%, #000000 100%);"></div>
+        <!-- Temp BG until image -->
+        <div class="bio-hero-overlay"></div>
 
-    <!-- Hero Section -->
-    <section
-        style="position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-        <!-- Background (Placeholder Gradient until image provided) -->
-        <div
-            style="position: absolute; inset: 0; background: linear-gradient(135deg, #220000 0%, #000000 100%); z-index: -2;">
-        </div>
-        <div class="hero-overlay"
-            style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, #050505 90%);">
-        </div>
-
-        <div class="container" style="position: relative; z-index: 2; max-width: 1000px; text-align: center;">
-            <p
-                style="font-size: 1.2rem; letter-spacing: 5px; color: #D6001C; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;">
-                Master The Technique</p>
-            <h1 class="scroll-reveal"
-                style="font-family: 'Anton'; font-size: clamp(3rem, 6vw, 6rem); line-height: 1; margin-bottom: 2rem; text-transform: uppercase;">
-                BACHATA SENSUAL<br><span style="color: transparent; -webkit-text-stroke: 2px white;">LAB</span>
+        <div class="container bio-hero-content">
+            <p class="bio-hero-subtitle">Master The Technique</p>
+            <h1 class="bio-hero-title">
+                <span class="text-gradient">BACHATA</span><br>
+                <span class="text-gradient-red">SENSUAL LAB</span>
             </h1>
-            <p class="scroll-reveal"
-                style="font-size: 1.4rem; max-width: 700px; margin: 0 auto 2rem; color: #ddd; font-weight: 300;">
+            <p class="bio-hero-desc">
                 A comprehensive training program to master Bachata Sensual with two expert couples.
+                <br><strong>Ale & Xidan | Cristina & Rebecca</strong>
             </p>
-            <p class="scroll-reveal"
-                style="color: #D6001C; font-weight: 600; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px;">
-                * Registration required to access this program
-            </p>
-            <button class="btn-primary scroll-reveal" onclick="openModal()"
-                style="padding: 1rem 3rem; font-size: 1.2rem; clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%); border-radius: 0;">
-                JOIN THE LAB
-            </button>
+            <a href="#schedule" class="btn-primary btn-hero-lg">JOIN THE LAB</a>
         </div>
-    </section>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span style="font-size: 2rem; color: rgba(255,255,255,0.5);">↓</span>
+        </div>
+    </header>
 
     <!-- Intro Text -->
-    <section class="container" style="max-width: 900px; margin: 3rem auto; text-align: center;">
-        <p style="font-size: 1.3rem; line-height: 1.6; color: #ccc; font-weight: 300;">
-            Led by the incredible <strong style="color: white; border-bottom: 2px solid #D6001C;">Ale & Xidan</strong>
-            and <strong style="color: white; border-bottom: 2px solid #D6001C;">Cristina & Rebecca</strong>, this lab is
+    <section class="container bio-intro">
+        <h2>NEXT LEVEL TRAINING</h2>
+        <p>
+            Led by the incredible <strong style="color: white;">Ale & Xidan</strong>
+            and <strong style="color: white;">Cristina & Rebecca</strong>, this lab is
             designed to take your dance to the next level through structured, progressive learning.
+        </p>
+        <p style="margin-bottom: 0;">
+            * Registration required to access this program
         </p>
     </section>
 
-    <!-- The Instructors (Grid Layout) -->
-    <section style="padding: 2rem 0; background: linear-gradient(to bottom, #050505, #110000, #050505);">
-        <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 4rem; color: white;">
-                THE INSTRUCTORS</h2>
+    <!-- Artist Introductions -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="bio-approach-header" style="text-align: center; margin-bottom: 3rem;">THE INSTRUCTORS</h2>
 
             <!-- Ale & Xidan -->
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; margin-bottom: 6rem;">
-                <!-- Image Placeholder -->
-                <div
-                    style="flex: 1; min-width: 300px; height: 350px; background: #222; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                    <span style="color: #555; font-size: 1.2rem;">Ale & Xidan Image</span>
+            <div class="grid-2" style="margin-bottom: 4rem; gap: 3rem;">
+                <div class="lab-image bio-image-wrapper">
                     <div
-                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                        style="background: white; padding: 15px 15px 40px 15px; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); position: relative; transform: rotate(-2deg); transition: transform 0.3s ease; width: 85%; margin: 0 auto;">
+                        <!-- Corner Accents -->
+                        <div
+                            style="position: absolute; top: 10px; left: 10px; width: 50px; height: 50px; border-top: 4px solid #FF0033; border-left: 4px solid #FF0033; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; top: 10px; right: 10px; width: 50px; height: 50px; border-top: 4px solid #FF4500; border-right: 4px solid #FF4500; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 50px; left: 10px; width: 50px; height: 50px; border-bottom: 4px solid #FF6B00; border-left: 4px solid #FF6B00; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 50px; right: 10px; width: 50px; height: 50px; border-bottom: 4px solid #FF8C00; border-right: 4px solid #FF8C00; z-index: 10;">
+                        </div>
+
+                        <!-- Placeholder Image (Using M&M style wrapper but text for now or generic if available) -->
+                        <div
+                            style="background: #222; width: 100%; height: 300px; display: flex; align-items: center; justify-content: center; color: #555;">
+                            Ale & Xidan
+                        </div>
                     </div>
                 </div>
-                <!-- Text -->
-                <div style="flex: 1; min-width: 300px;">
-                    <h3 style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem;">ALE & XIDAN</h3>
+                <div class="lab-info"
+                    style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+                    <h2 class="bio-approach-header" style="font-size: 2.5rem;">ALE & XIDAN</h2>
                     <a href="#" target="_blank"
                         style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
                         Discover their Art
@@ -110,27 +112,22 @@
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg>
                     </a>
-                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb; margin-bottom: 2rem;">
+                    <p class="bio-approach-text" style="margin-bottom: 1rem;">
                         The founders of Mastery Lab and pioneers in the Bachata Sensual style in Switzerland. They bring
-                        a perfect blend of technical precision and passionate expression, focusing on the distinct roles
-                        of leader and follower.
+                        a perfect blend of technical precision and passionate expression.
                     </p>
-                    <ul style="list-style: none; padding: 0; color: #ddd;">
-                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
-                            <span style="color: #D6001C;">✓</span> Foundations & Technique
-                        </li>
-                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
-                            <span style="color: #D6001C;">✓</span> Connection & Flow
-                        </li>
+                    <ul style="list-style: none; padding: 0; color: #ccc;">
+                        <li style="margin-bottom: 0.5rem;">✓ Foundations & Technique</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Connection & Flow</li>
                     </ul>
                 </div>
             </div>
 
             <!-- Cristina & Rebecca -->
-            <div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 3rem;">
-                <!-- Text -->
-                <div style="flex: 1; min-width: 300px; text-align: right;">
-                    <h3 style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem;">CRISTINA & REBECCA</h3>
+            <div class="grid-2" style="gap: 3rem;">
+                <div class="lab-info"
+                    style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+                    <h2 class="bio-approach-header" style="font-size: 2.5rem;">CRISTINA & REBECCA</h2>
                     <a href="#" target="_blank"
                         style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
                         Discover their Art
@@ -142,126 +139,177 @@
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg>
                     </a>
-                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb; margin-bottom: 2rem;">
+                    <p class="bio-approach-text" style="margin-bottom: 1rem;">
                         Known for their dynamic energy and intricate musicality. They specialize in modern fusion and
-                        creative styling, pushing the boundaries of traditional Bachata to help you find your unique
-                        voice on the dance floor.
+                        creative styling, pushing the boundaries of traditional Bachata.
                     </p>
-                    <ul
-                        style="list-style: none; padding: 0; color: #ddd; display: flex; flex-direction: column; align-items: flex-end;">
-                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
-                            Creative Styling <span style="color: #D6001C;">✓</span>
-                        </li>
-                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
-                            Musicality & Dynamics <span style="color: #D6001C;">✓</span>
-                        </li>
+                    <ul style="list-style: none; padding: 0; color: #ccc;">
+                        <li style="margin-bottom: 0.5rem;">✓ Creative Styling</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Musicality & Dynamics</li>
                     </ul>
                 </div>
-                <!-- Image Placeholder -->
-                <div
-                    style="flex: 1; min-width: 300px; height: 350px; background: #222; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
-                    <span style="color: #555; font-size: 1.2rem;">Cristina & Rebecca Image</span>
+                <div class="lab-image bio-image-wrapper">
                     <div
-                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                        style="background: white; padding: 15px 15px 40px 15px; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); position: relative; transform: rotate(2deg); transition: transform 0.3s ease; width: 85%; margin: 0 auto;">
+                        <!-- Corner Accents -->
+                        <div
+                            style="position: absolute; top: 10px; left: 10px; width: 50px; height: 50px; border-top: 4px solid #FF0033; border-left: 4px solid #FF0033; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; top: 10px; right: 10px; width: 50px; height: 50px; border-top: 4px solid #FF4500; border-right: 4px solid #FF4500; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 50px; left: 10px; width: 50px; height: 50px; border-bottom: 4px solid #FF6B00; border-left: 4px solid #FF6B00; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 50px; right: 10px; width: 50px; height: 50px; border-bottom: 4px solid #FF8C00; border-right: 4px solid #FF8C00; z-index: 10;">
+                        </div>
+
+                        <!-- Placeholder Image -->
+                        <div
+                            style="background: #222; width: 100%; height: 300px; display: flex; align-items: center; justify-content: center; color: #555;">
+                            Cristina & Rebecca
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- For Dancers Section -->
-    <section id="for-dancers" class="track-section" style="padding: 5rem 0; background: #080808;">
-        <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 1rem; color: white;">
-                FOR DANCERS</h2>
-            <p style="text-align: center; color: #aaa; margin-bottom: 4rem; font-size: 1.2rem;">Repetition is key to
-                mastery.</p>
-
-            <div class="benefits-list">
-                <!-- Module 1 -->
-                <div class="benefit-item">
-                    <span class="benefit-index">01</span>
-                    <span class="benefit-title">MODULE 1</span>
-                    <div class="benefit-details">
-                        <div class="benefit-text">
-                            <div class="benefit-desc">Fundamentals & Core Technique in repetition cycles.</div>
-                        </div>
-                        <div class="benefit-icon">🔄</div>
-                    </div>
-                </div>
-
-                <!-- Module 2 -->
-                <div class="benefit-item">
-                    <span class="benefit-index">02</span>
-                    <span class="benefit-title">MODULE 2</span>
-                    <div class="benefit-details">
-                        <div class="benefit-text">
-                            <div class="benefit-desc">Advanced combinations & Styling flows in repetition cycles.</div>
-                        </div>
-                        <div class="benefit-icon">🔁</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- For Teachers Section -->
-    <section id="for-teachers" class="track-section container" style="max-width: 1200px; margin: 5rem auto;">
-        <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 1rem; color: white;">FOR
-            TEACHERS</h2>
-        <p style="text-align: center; color: #aaa; margin-bottom: 4rem; font-size: 1.2rem;">A structured professional
-            path.</p>
-
-        <div class="benefits-list">
-            <!-- Item 1 -->
-            <div class="benefit-item">
+    <!-- Technical Pillars (Glassmorphism Grid) -->
+    <section class="container bio-pillars-container">
+        <h2 class="bio-pillars-title">
+            TECHNICAL PILLARS</h2>
+        <div class="benefits-grid">
+            <!-- Item 1: Dancers Module 1 -->
+            <div class="benefit-card">
                 <span class="benefit-index">01</span>
-                <span class="benefit-title">3 EDITIONS PER YEAR</span>
-                <div class="benefit-details">
-                    <div class="benefit-text">
-                        <div class="benefit-desc">Consistent training opportunities spread throughout the year to ensure
-                            steady progress.</div>
-                    </div>
-                    <div class="benefit-icon">📅</div>
+                <div class="benefit-content">
+                    <h3 class="benefit-title">
+                        <span class="benefit-icon">🔄</span>
+                        Fundamentals (For Dancers)
+                    </h3>
+                    <p class="benefit-desc">Module 1: Deep dive into Fundamentals & Core Technique through rigorous
+                        repetition cycles.</p>
                 </div>
             </div>
 
-            <!-- Item 2 -->
-            <div class="benefit-item">
+            <!-- Item 2: Dancers Module 2 -->
+            <div class="benefit-card">
                 <span class="benefit-index">02</span>
-                <span class="benefit-title">LEVEL 1: FOUNDATION</span>
-                <div class="benefit-details">
-                    <div class="benefit-text">
-                        <div class="benefit-desc">Master the essentials. Perfect for beginners or those refining their
-                            core technique.</div>
-                    </div>
-                    <div class="benefit-icon">🧱</div>
+                <div class="benefit-content">
+                    <h3 class="benefit-title">
+                        <span class="benefit-icon">🌀</span>
+                        Advanced Styling (For Dancers)
+                    </h3>
+                    <p class="benefit-desc">Module 2: Advanced combinations & Styling flows designed to challenge and
+                        refine your movement.</p>
                 </div>
             </div>
 
-            <!-- Item 3 -->
-            <div class="benefit-item">
+            <!-- Item 3: Teachers Level 1 -->
+            <div class="benefit-card">
                 <span class="benefit-index">03</span>
-                <span class="benefit-title">LEVEL 2: ADVANCED</span>
-                <div class="benefit-details">
-                    <div class="benefit-text">
-                        <div class="benefit-desc">Unlock complex moves. *Prerequisite: Successful completion of Level 1
-                            is required.*</div>
+            </div>
+            <div class="benefit-icon">🚀</div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="bio-section-divider"></div>
+
+    <!-- Dates, Schedule & Location -->
+    <section id="schedule" class="bio-schedule-section" style="padding-top: 4rem;">
+        <div class="container">
+            <h2
+                style="text-align: center; font-family: 'Anton'; font-size: 3rem; text-transform: uppercase; margin-bottom: 3rem;">
+                DATES & LOCATION
+            </h2>
+
+            <div class="grid-2 bio-schedule-grid">
+                <!-- Schedule Card -->
+                <div class="schedule-info">
+                    <div style="background: linear-gradient(135deg, rgba(214, 0, 28, 0.1) 0%, rgba(214, 0, 28, 0.05) 100%);
+                                backdrop-filter: blur(10px);
+                                border: 1px solid rgba(214, 0, 28, 0.3);
+                                border-radius: 20px;
+                                padding: 3rem;
+                                text-align: center;
+                                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                                transition: all 0.3s ease;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">📅</div>
+                        <h3
+                            style="font-family: 'Anton'; font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; text-transform: uppercase;">
+                            Dates & Schedule
+                        </h3>
+                        <div style="height: 2px; width: 60px; background: var(--color-primary); margin: 0 auto 1.5rem;">
+                        </div>
+                        <p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
+                            Coming Soon
+                        </p>
+                        <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+                            Workshop dates will be announced shortly. Stay tuned for updates!
+                        </p>
                     </div>
-                    <div class="benefit-icon">🚀</div>
+                </div>
+
+                <!-- Location Card -->
+                <div class="location-info">
+                    <div style="background: linear-gradient(135deg, rgba(214, 0, 28, 0.1) 0%, rgba(214, 0, 28, 0.05) 100%);
+                                backdrop-filter: blur(10px);
+                                border: 1px solid rgba(214, 0, 28, 0.3);
+                                border-radius: 20px;
+                                padding: 3rem;
+                                text-align: center;
+                                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                                transition: all 0.3s ease;">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">📍</div>
+                        <h3
+                            style="font-family: 'Anton'; font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; text-transform: uppercase;">
+                            Location
+                        </h3>
+                        <div style="height: 2px; width: 60px; background: var(--color-primary); margin: 0 auto 1.5rem;">
+                        </div>
+                        <p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
+                            Coming Soon
+                        </p>
+                        <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+                            Venue details will be announced shortly.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer CTA -->
-    <section style="text-align: center; padding: 5rem 1rem; background: linear-gradient(to top, #110000, #050505);">
-        <h2 class="scroll-reveal"
-            style="font-family: 'Anton'; font-size: 3.5rem; color: white; margin-bottom: 1rem; line-height: 1;">
-            READY TO LEVEL UP?</h2>
-        <p class="scroll-reveal" style="color: #bbb; margin-bottom: 2rem; font-size: 1.2rem;">Join the next edition of
-            Bachata Sensual Lab.</p>
-        <button class="btn-primary scroll-reveal" onclick="openModal()">SECURE YOUR SPOT</button>
+    <!-- Final CTA -->
+    <section id="registration" class="bio-cta-section">
+        <!-- Background Glow -->
+        <div class="bio-cta-glow"></div>
+
+        <div class="container"
+            style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2; padding-top: 4rem;">
+            <div class="text-center">
+                <p class="bio-cta-subtitle">
+                    LIMITED SPOTS AVAILABLE</p>
+            </div>
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <span class="text-futuristic" data-text="TRANSFORM"
+                    style="display: inline-block; margin-bottom: 0;">Transform</span>
+                <h2 class="bio-cta-title">
+                    YOUR DANCE</h2>
+            </div>
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="register.html" class="btn-cta-inviting">
+                    <span style="position: relative; z-index: 2;">🎟️ SECURE YOUR TICKET</span>
+                </a>
+            </div>
+            <p class="bio-cta-note">
+                Join the waitlist or register to secure your spot.
+            </p>
+        </div>
     </section>
 
     <style>
