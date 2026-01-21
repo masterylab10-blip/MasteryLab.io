@@ -611,10 +611,11 @@ h6 {
 
 @media (max-width: 768px) {
     .hero {
-        height: 90vh;
+        height: 100dvh;
+        /* Dynamic viewport height for mobile browsers */
         min-height: auto;
-        padding-top: 5rem;
-        padding-bottom: 2rem;
+        padding-top: 60px;
+        padding-bottom: 0;
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -627,21 +628,72 @@ h6 {
 
     .hero-content {
         padding: 0 1rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        flex-grow: 1;
+        /* Allow content to take available space */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Show footer/cards on mobile now */
+    .hero-footer {
+        display: block;
+        position: relative;
+        /* Change from absolute to relative if needed, or keep absolute bottom */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0.5rem 2rem 0.5rem;
+        /* Reduce padding */
+        background: linear-gradient(to top, var(--color-bg) 10%, transparent 100%);
     }
 
     .hero-cards {
-        display: none !important;
+        display: grid !important;
+        /* Force grid display */
+        grid-template-columns: 1fr 1fr;
+        /* 2x2 Grid */
+        gap: 0.5rem;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        animation: fadeInUp 1s ease 0.5s backwards;
     }
 
-    .hero-footer {
+    .hero-card {
+        padding: 0.75rem;
+        /* Smaller padding */
+        text-align: center;
+    }
+
+    .hero-card h3 {
+        font-size: 0.9rem;
+        /* Smaller font */
+        margin-bottom: 0.2rem;
+    }
+
+    .hero-card p {
+        font-size: 0.75rem;
+        /* Smaller font */
+        margin-bottom: 0;
         display: none;
+        /* Optionally hide subtitle to save space, or keep it tiny */
     }
 
+    /* Adjust Scroll Indicator position */
     .scroll-indicator {
         display: flex;
         opacity: 0.8;
-        bottom: 1.5rem;
+        bottom: 0.5rem;
+        /* Move lower */
+        z-index: 20;
+    }
+
+    .scroll-indicator span {
+        font-size: 0.7rem;
+        /* Smaller text */
     }
 }
 
