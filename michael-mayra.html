@@ -16,6 +16,12 @@
             <a href="index.html" class="logo">
                 <img src="images/logo-wings.png" alt="MasteryLab Logo">
             </a>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
                 <a href="index.html" class="nav-btn-outline">Back to Home</a>
                 <a href="register.html" class="nav-btn-primary">Register Now</a>
@@ -29,26 +35,26 @@
         <div class="bio-hero-overlay"></div>
 
         <div class="container bio-hero-content">
-            <p class="bio-hero-subtitle">Exclusively in Basel</p>
+            <p class="bio-hero-subtitle text-gold-shiny">Exclusively in Basel</p>
             <h1 class="bio-hero-title">
                 <span class="text-gradient">BACHATA</span><br>
-                <span class="text-gradient-red">TECHNIQUE LAB</span>
+                <span class="text-gold-shiny">TECHNIQUE LAB</span>
             </h1>
             <p class="bio-hero-desc">
                 For the First Time in Switzerland! Join international stars <strong>Michael & Mayra</strong> for a
                 weekend of precision, healing, and mastery.
             </p>
-            <a href="#schedule" class="btn-primary btn-hero-lg">VIEW DETAILS</a>
+            <a href="#schedule" class="btn-primary btn-hero-lg btn-gold-shiny">VIEW DETAILS</a>
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <span style="font-size: 2rem; color: rgba(255,255,255,0.5);">↓</span>
-        </div>
+        <a href="#bio-intro" class="scroll-indicator" style="text-decoration: none; cursor: pointer;">
+            <span style="font-size: 3rem; color: #eb9604;">↓</span>
+        </a>
     </header>
 
     <!-- Intro Text -->
-    <section class="container bio-intro">
+    <section id="bio-intro" class="container bio-intro">
         <h2>BEYOND TYPICAL WORKSHOPS</h2>
         <p>
             For the very first time in Switzerland, internationally renowned artists <strong
@@ -61,13 +67,61 @@
             understanding,
             body mechanics, and quality of movement.
         </p>
+        <div class="text-center" style="margin-top: 2rem;">
+            <a href="registration-michael-mayra.html" class="btn-cta-inviting btn-gold-shiny"
+                style="padding: 1rem 3rem; font-size: 1.2rem;">
+                <span style="position: relative; z-index: 2;">🎟️ SECURE YOUR TICKET</span>
+            </a>
+        </div>
     </section>
+
+    <!-- The Approach (Text + Image Side) -->
+    <!-- Artist Introductions -->
+
 
     <!-- The Approach (Text + Image Side) -->
     <!-- Artist Introductions -->
     <section class="section-padding">
         <div class="container">
             <h2 class="bio-approach-header" style="text-align: center; margin-bottom: 3rem;">MEET THE ARTISTS</h2>
+
+            <!-- Joint Bio & Logo Section (Moved) -->
+            <div class="bio-joint-section-inner"
+                style="position: relative; padding: 0 0 4rem 0; overflow: hidden; margin-bottom: 4rem;">
+                <!-- Logo Background -->
+                <div class="joint-bio-bg"
+                    style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); width: 100%; max-width: 900px; opacity: 0.2; z-index: 0; pointer-events: none;">
+                    <img src="images/mym-symbol-bg-final.png" alt="M&M Logo Symbol"
+                        style="width: 100%; display: block;">
+                </div>
+
+                <div class="container" style="position: relative; z-index: 2; max-width: 900px; text-align: center;">
+                    <p
+                        style="font-size: 1.3rem; line-height: 1.6; color: #f0f0f0; font-weight: 300; font-family: 'Outfit', sans-serif;">
+                        <span style="font-weight: 700; color: #e6af15;">Michael & Mayra</span> are top world-recognized
+                        international Bachata artists, choreographers, and newlyweds from Lebanon and Argentina.
+                        Sub-champions of the South American Bachata Open, they are known for blending high technical
+                        precision with elegance, emotion, and artistic expression.
+                        <br><br>
+                        Having traveled to over 60 countries, they share their unique methodology, <span
+                            style="font-weight: 600; color: #e6af15;">Dance Healing</span>—a holistic approach combining
+                        dance, psychology, and coaching to inspire transformation worldwide. As founders of the Dance
+                        Healing Program, they redefine dance as both art and healing.
+                    <div style="margin-top: 2rem;">
+                        <a href="https://www.instagram.com/michaelymayra?igsh=MWY1Y2d4cmFnejExdQ==" target="_blank"
+                            style="color: #e6af15; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; letter-spacing: 1px; font-size: 1.2rem;">
+                            Discover their Art
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" style="margin-left: 8px;">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <!-- Michael -->
             <div class="grid-2" style="margin-bottom: 4rem; gap: 3rem;">
@@ -94,8 +148,8 @@
                 <div class="lab-info"
                     style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
                     <h2 class="bio-approach-header" style="font-size: 2.5rem;">MICHAEL</h2>
-                    <a href="#" target="_blank"
-                        style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                    <a href="https://www.instagram.com/michaelmrad_bachata?igsh=MTR3N3h1aW1hcDJ5bg==" target="_blank"
+                        style="color: #e6af15; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
                         Discover their Art
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -106,8 +160,12 @@
                         </svg>
                     </a>
                     <p class="bio-approach-text" style="margin-bottom: 0;">
-                        Renowned for his precision and analytical teaching style. Michael helps students unlock tension,
-                        gain awareness, and build unshakeable confidence in their bodies.
+                        Michael has been a Latin and Ballroom dancer since he was a teenager, and has been Lebanese
+                        Latin
+                        and Ballroom Dancing Champion. <br><br> He has always been a highly technical dancer, and this
+                        has helped his teaching, something he has been doing since he was only 16 years old. <br><br>
+                        With his love for teaching and a lifetime of experience, he can help students transform and
+                        rapidly achieve their goals.
                     </p>
                 </div>
             </div>
@@ -117,8 +175,8 @@
                 <div class="lab-info"
                     style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
                     <h2 class="bio-approach-header" style="font-size: 2.5rem;">MAYRA</h2>
-                    <a href="#" target="_blank"
-                        style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                    <a href="https://www.instagram.com/mayracigliutti?igsh=MmphdGJ4N2c0Mmpk" target="_blank"
+                        style="color: #e6af15; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
                         Discover their Art
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -129,8 +187,11 @@
                         </svg>
                     </a>
                     <p class="bio-approach-text" style="margin-bottom: 0;">
-                        Known worldwide for her artistry and the unique M&M Technique and Dance Healing concept. She
-                        fosters deep learning and clearer body intelligence.
+                        Mayra became familiar with a wide variety of styles: from classical ballet to bachata, from
+                        aerial acrobatics to hip-hop, from flamenco to contemporary, and from jazz to ice skating. This
+                        latter has been a big influence on their dance, since spins are incorporated in most of Michael
+                        and Mayra’s routines. <br><br> As well as a dancer, Mayra also worked as a model and actress in
+                        her native Argentina.
                     </p>
                 </div>
                 <div class="lab-image bio-image-wrapper">
@@ -156,6 +217,8 @@
             </div>
         </div>
     </section>
+
+    <!-- MOVED_SECTION -->
 
     <!-- Technical Pillars (Glassmorphism Grid) -->
     <section class="container bio-pillars-container">
@@ -226,38 +289,35 @@
 
                 <!-- Schedule Card -->
                 <div class="schedule-info">
-                    <div class="bio-info-card">
+                    <div class="bio-info-card-gold">
                         <div style="font-size: 4rem; margin-bottom: 1rem;">📅</div>
-                        <h3
-                            style="font-family: 'Anton'; font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; text-transform: uppercase;">
-                            Dates & Schedule
+                        <h3 class="text-gold-shiny"
+                            style="font-family: 'Anton'; font-size: 2rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            23-24 May 2026
                         </h3>
-                        <div style="height: 2px; width: 60px; background: var(--color-primary); margin: 0 auto 1.5rem;">
+                        <div class="line-gold-shiny" style="height: 2px; width: 60px; margin: 0 auto 1.5rem;">
                         </div>
                         <p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
                             Coming Soon
                         </p>
                         <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
-                            Workshop dates will be announced shortly. Stay tuned for updates!
+                            Detailed timetable is coming soon. Stay tuned for updates!
                         </p>
                     </div>
                 </div>
 
                 <!-- Location Card -->
                 <div class="location-info">
-                    <div class="bio-info-card">
+                    <div class="bio-info-card-gold">
                         <div style="font-size: 4rem; margin-bottom: 1rem;">📍</div>
-                        <h3
-                            style="font-family: 'Anton'; font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; text-transform: uppercase;">
-                            Location
+                        <h3 class="text-gold-shiny"
+                            style="font-family: 'Anton'; font-size: 2rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            Basel
                         </h3>
-                        <div style="height: 2px; width: 60px; background: var(--color-primary); margin: 0 auto 1.5rem;">
+                        <div class="line-gold-shiny" style="height: 2px; width: 60px; margin: 0 auto 1.5rem;">
                         </div>
                         <p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
-                            Coming Soon
-                        </p>
-                        <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
-                            Venue details will be announced shortly.
+                            Exact address coming soon.
                         </p>
                     </div>
                 </div>
@@ -273,7 +333,7 @@
         <div class="container"
             style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2; padding-top: 3rem;">
             <div class="text-center">
-                <p class="bio-cta-subtitle">
+                <p class="bio-cta-subtitle text-gold-shiny">
                     LIMITED SPOTS AVAILABLE</p>
             </div>
             <div class="text-center" style="margin-bottom: 2rem;">
@@ -283,7 +343,7 @@
                     YOUR DANCE</h2>
             </div>
             <div class="text-center">
-                <a href="registration-michael-mayra.html" class="btn-cta-inviting">
+                <a href="registration-michael-mayra.html" class="btn-cta-inviting btn-gold-shiny">
                     <span style="position: relative; z-index: 2;">🎟️ SECURE YOUR TICKET</span>
                 </a>
             </div>

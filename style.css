@@ -57,6 +57,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -583,7 +584,7 @@ h6 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 15%;
+    object-position: center center;
     z-index: -2;
 }
 
@@ -1263,7 +1264,7 @@ textarea.form-input {
 
 .bio-hero {
     position: relative;
-    height: 85vh;
+    height: 100vh;
     min-height: 600px;
     display: flex;
     align-items: center;
@@ -1829,3 +1830,221 @@ textarea.form-input {
     margin-bottom: 2rem;
     color: white;
 }
+
+/* =========================================
+   RESPONSIVE OPTIMIZATION
+   ========================================= */
+
+/* --- Tablet (768px - 1024px) --- */
+@media (min-width: 768px) and (max-width: 1024px) {
+    :root {
+        --text-hero: 4rem;
+        --text-h1: 3rem;
+        --container-width: 90%;
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- Mobile (< 768px) --- */
+@media (max-width: 767px) {
+    :root {
+        --text-hero: 2.5rem;
+        --text-h1: 2rem;
+        --text-h2: 1.75rem;
+        --text-body: 0.95rem;
+        --spacing-xl: 4rem;
+        --spacing-lg: 3rem;
+        --spacing-md: 1.5rem;
+        --container-width: 100%;
+    }
+
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    /* Force Single Column Grids */
+    .grid-3,
+    .grid-2,
+    .partners-grid,
+    .benefits-grid,
+    .bio-schedule-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+
+    /* Hero Section Adjustments */
+    .bio-hero {
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+        height: auto;
+        min-height: 85vh;
+        /* Ensure it covers enough screen but allows scrolling */
+    }
+
+    .bio-hero-content {
+        padding-top: 2rem;
+    }
+
+    .btn-hero-lg {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem 2rem;
+    }
+
+    /* Navigation Responsive */
+    .mobile-menu-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        cursor: pointer;
+        z-index: 100;
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .mobile-menu-btn span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* Navigation */
+    .navbar .container {
+        padding: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .nav-links {
+        display: none;
+        /* Hidden by default on mobile, toggled by JS */
+    }
+
+    .nav-btn-outline,
+    .nav-btn-primary {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .logo img {
+        height: 40px;
+        /* Resize logo for mobile */
+    }
+
+    /* Artist Profiles & Cards */
+    .bio-image-wrapper {
+        margin-bottom: 1.5rem;
+        transform: none !important;
+        /* Remove rotation on mobile for cleaner look */
+    }
+
+    .bio-image-wrapper>div {
+        transform: none !important;
+        /* Remove internal rotation */
+    }
+
+    .lab-info {
+        text-align: center !important;
+        align-items: center !important;
+    }
+
+    .bio-approach-header {
+        font-size: 2rem !important;
+        text-align: center;
+    }
+
+    /* Forms */
+    .auth-form-container,
+    .registration-container {
+        padding: 1.5rem;
+        width: 95% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex !important;
+        /* Always show on desktop */
+    }
+}
+
+/* =========================================
+   GOLD SHINY EFFECTS
+   ========================================= */
+
+.text-gold-shiny {
+    background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    background-size: 200% auto;
+    animation: shine 5s linear infinite;
+}
+
+.btn-gold-shiny {
+    background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) !important;
+    background-size: 200% auto !important;
+    color: #000 !important;
+    border: none !important;
+    box-shadow: 0 0 20px rgba(179, 135, 40, 0.4);
+    animation: shine 5s linear infinite;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.btn-gold-shiny:hover {
+    background-position: right center !important;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(179, 135, 40, 0.6);
+}
+
+.line-gold-shiny {
+    background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C) !important;
+    background-size: 200% auto !important;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+/* Gold Variant of Bio Info Card */
+.bio-info-card-gold {
+    background: linear-gradient(135deg, rgba(235, 150, 4, 0.1) 0%, rgba(235, 150, 4, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(235, 150, 4, 0.3);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.bio-info-card-gold:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(235, 150, 4, 0.2);
+    border-color: rgba(235, 150, 4, 0.6);
+}
+
