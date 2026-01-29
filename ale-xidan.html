@@ -13,34 +13,128 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="background: #050505; color: white;">
-    <nav class="navbar" style="position: relative; background: black;">
+<body>
+    <nav class="navbar">
         <div class="container">
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/logo-wings.png" alt="MasteryLab Logo">
             </a>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
+                <a href="index.html" class="nav-btn-outline">Back to Home</a>
+                <a href="register.html" class="nav-btn-primary">Register Now</a>
             </div>
-            <!-- Auth Buttons -->
         </div>
     </nav>
 
-    <div class="container" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto; text-align: center;">
-        <h1 style="font-family: 'Anton'; font-size: 4rem; margin-bottom: 2rem; color: #D6001C;">Ale y Xidan</h1>
-        <div
-            style="width: 100%; height: 300px; background: #220000; margin-bottom: 2rem; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-            <span style="color: #555;">Image Placeholder</span>
+    <div class="container page-content-centered">
+        <h1 class="page-title-lg">Ale y Xidan</h1>
+        <div class="placeholder-image">
+            <span>Image Placeholder</span>
         </div>
 
-        <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc; margin-bottom: 3rem;">
-            Secure your tickets effortlessly by booking an appointment with our dedicated team. Experience a streamlined
-            ticket purchasing process designed to meet your event-going needs with precision and care.
-        </p>
+        <!-- Divider -->
+        <div class="bio-section-divider"></div>
 
-        <a href="#" class="btn-primary"
-            style="background: #D6001C; color: white; padding: 1rem 3rem; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 1.2rem; display: inline-block;">BOOK
-            NOW</a>
-    </div>
+        <!-- Dates, Schedule & Location -->
+        <section id="schedule" class="bio-schedule-section" style="padding-top: 4rem;">
+            <div class="container">
+                <h2
+                    style="text-align: center; font-family: 'Anton'; font-size: 3rem; text-transform: uppercase; margin-bottom: 3rem;">
+                    DATES & LOCATION
+                </h2>
+
+                <div class="grid-2 bio-schedule-grid">
+                    <!-- Schedule Card -->
+                    <div class="schedule-info">
+                        <div style="background: linear-gradient(135deg, rgba(214, 0, 28, 0.1) 0%, rgba(214, 0, 28, 0.05) 100%);
+                                backdrop-filter: blur(10px);
+                                border: 1px solid rgba(214, 0, 28, 0.3);
+                                border-radius: 20px;
+                                padding: 3rem;
+                                text-align: center;
+                                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                                transition: all 0.3s ease;">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">📅</div>
+                            <h3
+                                style="font-family: 'Anton'; font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; text-transform: uppercase;">
+                                Dates & Schedule
+                            </h3>
+                            <div
+                                style="height: 2px; width: 60px; background: var(--color-primary); margin: 0 auto 1.5rem;">
+                            </div>
+                            <p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
+                                Coming Soon
+                            </p>
+                            <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+                                Workshop dates will be announced shortly. Stay tuned for updates!
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="location-info">
+                        <div style="background: linear-gradient(135deg, rgba(214, 0, 28, 0.1) 0%, rgba(214, 0, 28, 0.05) 100%);
+                                backdrop-filter: blur(10px);
+                                border: 1px solid rgba(214, 0, 28, 0.3);
+                                border-radius: 20px;
+                                padding: 3rem;
+                                text-align: center;
+                                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                                transition: all 0.3s ease;">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">📍</div>
+                            <h3
+                                style="font-family: 'Anton'; font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; text-transform: uppercase;">
+                                Location
+                            </h3>
+                            <div
+                                style="height: 2px; width: 60px; background: var(--color-primary); margin: 0 auto 1.5rem;">
+                            </div>
+                            <p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
+                                Coming Soon
+                            </p>
+                            <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+                                Venue details will be announced shortly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section id="registration" class="bio-cta-section">
+            <!-- Background Glow -->
+            <div class="bio-cta-glow"></div>
+
+            <div class="container"
+                style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2; padding-top: 4rem;">
+                <div class="text-center">
+                    <p class="bio-cta-subtitle">
+                        LIMITED SPOTS AVAILABLE</p>
+                </div>
+                <div class="text-center" style="margin-bottom: 4rem;">
+                    <span class="text-futuristic" data-text="TRANSFORM"
+                        style="display: inline-block; margin-bottom: 0;">Transform</span>
+                    <h2 class="bio-cta-title">
+                        YOUR DANCE</h2>
+                </div>
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <a href="register.html" class="btn-cta-inviting">
+                        <span style="position: relative; z-index: 2;">🎟️ SECURE YOUR TICKET</span>
+                    </a>
+                </div>
+                <p class="bio-cta-note">
+                    Join the waitlist or register to secure your spot.
+                </p>
+            </div>
+        </section>
+        <script src="script.js"></script>
 </body>
 
 </html>

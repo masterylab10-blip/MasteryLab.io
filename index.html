@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MasteryLab | Elite Dance Training Switzerland</title>
+    <title>MasteryLab | Exclusive Weekend Dance Intensives in Switzerland</title>
     <meta name="description"
-        content="Elevating dance for dancers. MasteryLab offers intensive weekend labs in Bachata, Sensual, and Lady Style in Basel.">
+        content="MasteryLab offers professional dance workshops and weekend intensives led by world-renowned artists. Join us in Switzerland to master your craft.">
+    <meta name="keywords"
+        content="MasteryLab, dance workshops, Switzerland, Latin dance, intensive programs, professional dance training, masterylab.ch">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
@@ -26,29 +27,54 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/logo-wings.png" alt="MasteryLab Logo">
             </a>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
+                <a href="what-is-masterylab" class="nav-btn-outline">What is MasteryLab?</a>
+                <a href="register" class="nav-btn-primary">Register Now</a>
             </div>
             <!-- Auth Buttons -->
             <!-- Auth Buttons Removed as per request -->
+        </div>
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <button class="lang-btn" aria-label="Switch Language">
+                <span class="current-lang">EN</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </button>
+            <div class="lang-dropdown">
+                <button class="lang-option active" data-lang="en">English</button>
+                <button class="lang-option" data-lang="de">Deutsch</button>
+                <button class="lang-option" data-lang="fr">Français</button>
+                <button class="lang-option" data-lang="it">Italiano</button>
+                <button class="lang-option" data-lang="es">Español</button>
+            </div>
+        </div>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
         <section id="about" class="hero">
-            <video autoplay muted loop playsinline poster="mastery_lab_particles_hero.webp" class="hero-bg">
-                <source src="Teaser%20TV%202.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline class="hero-bg">
+                <source src="Masteerylab teaserTV Glitch.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="hero-overlay"></div>
 
-            <div class="hero-content">
 
-
-                <!-- 3-Column Lab Navigation -->
+            <!-- Lab Navigation at Bottom -->
+            <div class="hero-footer">
                 <div class="hero-cards">
                     <a href="#mym-lab" class="hero-card">
                         <h3 class="text-primary">MyM Lab</h3>
@@ -58,20 +84,21 @@
                         <h3 class="text-primary">Bachata Sensual Lab</h3>
                         <p>Bachata Sensual</p>
                     </a>
+                    <a href="#isma-irene-lab" class="hero-card">
+                        <h3 class="text-primary">Partner & Solo Training</h3>
+                        <p>Isma & Irene</p>
+                    </a>
                     <a href="#lady-lab" class="hero-card">
                         <h3 class="text-primary">Lady Style</h3>
                         <p>Solo Mastery</p>
                     </a>
                 </div>
-
-                <!-- CTA Buttons -->
-                <div
-                    style="margin-top: 4rem; display: flex; gap: 1.5rem; justify-content: flex-start; flex-wrap: wrap;">
-                    <a href="register" class="btn btn-hero-artistic">Register Now</a>
-                    <a href="what-is-masterylab" class="btn btn-outline" style="min-width: 250px;">What is
-                        MasteryLab?</a>
-                </div>
             </div>
+
+            <a href="#mym-lab" class="scroll-indicator">
+                <span>DIVE IN</span>
+                <div class="arrow"></div>
+            </a>
         </section>
 
         <!-- Lab Details Section 1: MyM Lab -->
@@ -114,14 +141,40 @@
                         Understand body mechanics, isolation, and flow. This lab is rigorous, detailed,
                         and designed for those who want to truly master the movement.
                     </p>
-                    <a href="#contact" class="btn btn-outline">Coming Soon...</a>
+                    <a href="bachata-sensual-lab" class="btn btn-outline">More Info</a>
                 </div>
             </div>
         </section>
 
-        <!-- Lab Details Section 3: Lady Style Lab -->
-        <section id="lady-lab" class="lab-section">
+        <!-- Lab Details Section 3: Isma & Irene Lab -->
+        <section id="isma-irene-lab" class="lab-section">
             <div class="container lab-content">
+                <div class="lab-info">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Partner
+                        Connection</span>
+                    <h2>Dance Partner and Solo Dancer Training</h2>
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">With
+                        Isma & Irene</h3>
+                    <p>
+                        This academic dance training prepares partner dancers (bachata & salsa) and solo dancers by
+                        building correct muscle memory, proper body posture, and solid foundations—supporting confidence
+                        and meaningful progress without shortcuts.
+                    </p>
+                    <a href="isma-irene" class="btn btn-outline">More Info</a>
+                </div>
+                <div class="lab-image">
+                    <img src="images/isma-irene.jpg" alt="Isma and Irene Dance Partner Training"
+                        style="object-position: top;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Lab Details Section 4: Lady Style Lab -->
+        <section id="lady-lab" class="lab-section alt">
+            <div class="container lab-content">
+                <div class="lab-image">
+                    <img src="mastery_lab_coming_soon.webp" alt="Lady Style Dance Lab Coming Soon">
+                </div>
                 <div class="lab-info">
                     <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Solo
                         Expression</span>
@@ -134,9 +187,6 @@
                         floor.
                     </p>
                     <a href="#contact" class="btn btn-outline">Coming Soon...</a>
-                </div>
-                <div class="lab-image">
-                    <img src="mastery_lab_coming_soon.webp" alt="Lady Style Dance Lab Coming Soon">
                 </div>
             </div>
         </section>
@@ -160,7 +210,7 @@
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://masterylab.ch/contact-thank-you">
 
-                    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="grid-2">
                         <div class="form-group">
                             <label class="form-label">First Name</label>
                             <input type="text" name="first_name" class="form-input" placeholder="First Name" required>
@@ -196,17 +246,134 @@
         </div>
     </section>
 
+    <!-- Partners Section -->
+    <section id="partners">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <span class="text-primary text-uppercase"
+                    style="letter-spacing: 2px; font-weight: 700;">Collaboration</span>
+                <h2 style="font-family: 'Anton'; font-size: 3rem; text-transform: uppercase;">Our Partners</h2>
+            </div>
+
+            <div class="partners-grid">
+                <!-- Partner 1 -->
+                <div class="partner-card">
+                    <div class="partner-logo-container">
+                        <img src="images/partner-axcent-logo.webp" alt="Axcent Dance" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Axcent Dance</h3>
+                    <p class="partner-desc">
+                        A dance school dedicated to fostering talent and technique.
+                    </p>
+                    <div class="partner-socials">
+                        <!-- Website -->
+                        <a href="https://axcentdance.com/" target="_blank" class="social-btn-small" title="Website">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                            </svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/axcent_dance?igsh=MWxiZno2ZDhka2t0bw==" target="_blank"
+                            class="social-btn-small" title="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                            </svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/share/1BioqT1WnY/?mibextid=wwXIfr" target="_blank"
+                            class="social-btn-small" title="Facebook">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Partner 2 -->
+                <div class="partner-card">
+                    <div class="partner-logo-container">
+                        <img src="images/partner-matrik-new.png" alt="MatrikStudio" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">MatrikStudio</h3>
+                    <p class="partner-desc">
+                        Specializing in artistic photography and cinematic videography for dance, events, and weddings.
+                        Capturing the essence of movement.
+                    </p>
+                    <div class="partner-socials">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/matrikstudio.101?igsh=MTQwbHlvNGRrN2Z0bg%3D%3D&utm_source=qr"
+                            target="_blank" class="social-btn-small" title="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                            </svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="https://youtube.com/@matrikstudio?si=UPYtPe3K3BGV_8sm" target="_blank"
+                            class="social-btn-small" title="YouTube">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Partner 3 -->
+                <div class="partner-card">
+                    <div class="partner-logo-container">
+                        <img src="images/story-unfold-logo.png" alt="Story Unfold" class="partner-logo">
+                    </div>
+                    <h3 class="partner-name">Story Unfold</h3>
+                    <p class="partner-desc">
+                        Capturing artist stories, success journeys, interviews, and documentaries.
+                    </p>
+                    <div class="partner-socials">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/storyunfold.neo?igsh=aGZkeWd6N203end1&utm_source=qr"
+                            target="_blank" class="social-btn-small" title="Instagram">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-logo text-primary">MASTERYLAB</div>
             <div class="social-links">
-                <a href="#" class="btn-outline"
-                    style="width: 40px; height: 40px; padding: 0; border-radius: 50%;">IG</a>
-                <a href="#" class="btn-outline"
-                    style="width: 40px; height: 40px; padding: 0; border-radius: 50%;">FB</a>
-                <a href="#" class="btn-outline"
-                    style="width: 40px; height: 40px; padding: 0; border-radius: 50%;">YT</a>
+                <a href="https://www.instagram.com/masterylab_official?igsh=MWZsMTdrcTZjOGc3cg%3D%3D&utm_source=qr"
+                    class="btn-outline social-icon" target="_blank" rel="noopener noreferrer"
+                    style="width: 40px; height: 40px; padding: 0; border-radius: 50%;">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path
+                            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61583504608619&mibextid=wwXIfr&rdid=QUklf6J7nAVyyMVr&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17iq83iPgM%2F%3Fmibextid%3DwwXIfr%26ref%3D1"
+                    class="btn-outline social-icon" target="_blank" rel="noopener noreferrer"
+                    style="width: 40px; height: 40px; padding: 0; border-radius: 50%;">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@Matrikstudio" class="btn-outline social-icon" target="_blank"
+                    rel="noopener noreferrer" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.017 3.017 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                </a>
             </div>
             <p class="copy">&copy; 2024 MasteryLab. All rights reserved. <br>Designed for Dancers.</p>
         </div>
@@ -249,27 +416,20 @@
                 btn.innerText = 'Sending...';
                 btn.disabled = true;
 
-                // 1. Send to Google Sheets (Fire and Forget)
-                // We use URLSearchParams to send data as application/x-www-form-urlencoded,
-                // which is natively parsed by Google Apps Script's e.parameter.
                 const formData = new FormData(contactForm);
                 const data = new URLSearchParams();
                 for (const pair of formData) {
                     data.append(pair[0], pair[1]);
                 }
-
-                // Add timestamp
                 data.append('timestamp', new Date().toISOString());
 
                 fetch(googleScriptURL, {
                     method: 'POST',
                     body: data,
                     mode: 'no-cors',
-                    keepalive: true // Crucial: allows request to complete after page unloads
+                    keepalive: true
                 }).catch(err => console.error('Sheet Error:', err));
 
-                // 2. Submit to FormSubmit.co (Email + Redirect)
-                // No delay needed if keepalive works, but a tiny buffer feels safer for UX feedback
                 setTimeout(() => {
                     contactForm.submit();
                 }, 100);

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Your Spot | Bachata Sensual Lab | MasteryLab</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .registration-page {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 0 60px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #050505;
+        }
+
+        .bg-image {
+            position: absolute;
+            inset: 0;
+            background: url('mastery_lab_elegant_lights.webp') center center/cover no-repeat;
+            opacity: 0.4;
+            filter: blur(5px);
+            z-index: 1;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, #050505 100%);
+            z-index: 2;
+        }
+
+        .registration-container {
+            position: relative;
+            z-index: 3;
+            max-width: 950px;
+            margin: 0 auto;
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 15px rgba(214, 0, 28, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .registration-container {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+            </div>
+        </div>
+    </nav>
+
+    <main class="registration-page">
+        <div class="bg-image"></div>
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="registration-container">
+                <!-- Benefits Section (Replicated) -->
+                <div class="auth-benefits" style="margin-bottom: 3rem; text-align: center;">
+                    <h1 class="text-gradient"
+                        style="font-family: 'Anton'; font-size: 3.5rem; text-transform: uppercase; margin-bottom: 1rem;">
+                        WHY JOIN MASTERYLAB?</h1>
+                    <p style="color: #ccc; margin-bottom: 2rem;">Create your dancer profile to unlock exclusive
+                        resources and track your progress.</p>
+
+                    <div class="benefit-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: left;">
+                        <div class="benefit-card"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <h3>Track Progress</h3>
+                            <p style="font-size: 0.9rem; color: #aaa;">Keep a record of all the labs and workshops
+                                you've completed.</p>
+                        </div>
+                        <div class="benefit-card"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <h3>Exclusive Content</h3>
+                            <p style="font-size: 0.9rem; color: #aaa;">Access study materials, music playlists, and
+                                technique notes.</p>
+                        </div>
+                        <div class="benefit-card"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <h3>Community</h3>
+                            <p style="font-size: 0.9rem; color: #aaa;">Connect with other dedicated dancers and
+                                instructors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;"></div>
+
+                <h1 class="text-gradient-red"
+                    style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 0.5rem; text-transform: uppercase;">
+                    SECURE YOUR SPOT
+                </h1>
+                <p style="text-align: center; color: #aaa; margin-bottom: 2.5rem; font-size: 1.1rem; font-weight: 300;">
+                    BACHATA SENSUAL LAB - BASEL 2026
+                </p>
+
+                <form id="regForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New BSL Registration!">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://buy.stripe.com/00wcN47fZ3F269rceD8og00">
+                    <div class="form-group">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" id="firstName" name="first_name" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" id="lastName" name="last_name" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city" class="form-label">City of Residence</label>
+                        <input type="text" id="city" name="city" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role" class="form-label">Role in Scene</label>
+                        <select id="role" name="role" class="form-input" required style="appearance: none;">
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="Dancer" style="color: black;">Dancer</option>
+                            <option value="Teacher" style="color: black;">Teacher</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whatsapp" class="form-label">WhatsApp Number</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" class="form-input" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary"
+                        style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4);">
+                        PROCEED TO PAYMENT
+                    </button>
+
+                    <p
+                        style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 1.5rem; line-height: 1.4;">
+                        By proceeding, you agree to our Terms & Conditions. <br>
+                        You will be redirected to Stripe for secure payment.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+        style="padding: 3rem 0; text-align: center; background: #000; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <p style="color: #444;">&copy; 2025 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

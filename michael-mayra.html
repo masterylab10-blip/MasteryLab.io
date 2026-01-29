@@ -5,112 +5,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michael y Mayra | MasteryLab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="background: #050505; color: white;">
+<body>
     <nav class="navbar">
         <div class="container">
-            <a href="/" class="logo">
+            <a href="index.html" class="logo">
                 <img src="images/logo-wings.png" alt="MasteryLab Logo">
             </a>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
+                <a href="/" class="nav-btn-outline">Back to Home</a>
+                <a href="register" class="nav-btn-primary">Register Now</a>
             </div>
-            <!-- Auth Buttons -->
         </div>
     </nav>
 
     <!-- Premium Hero Section -->
-    <header
-        style="position: relative; height: 85vh; min-height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; margin-bottom: 0;">
-        <div
-            style="position: absolute; inset: 0; background: url('michael_mayra.webp') center 0%/cover; opacity: 0.5; transform: scale(1.1); animation: zoomIn 20s infinite alternate;">
-        </div>
-        <div
-            style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, #050505 90%);">
-        </div>
+    <header class="bio-hero">
+        <div class="bio-hero-bg michael-mayra"></div>
+        <div class="bio-hero-overlay"></div>
 
-        <div class="container" style="position: relative; z-index: 2; max-width: 1100px;">
-            <p
-                style="font-size: 1.2rem; letter-spacing: 5px; color: #D6001C; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;">
-                Exclusively in Basel</p>
-            <h1
-                style="font-family: 'Anton'; font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1.5rem; line-height: 0.95;">
+        <div class="container bio-hero-content">
+            <p class="bio-hero-subtitle text-gold-shiny">Exclusively in Basel</p>
+            <h1 class="bio-hero-title">
                 <span class="text-gradient">BACHATA</span><br>
-                <span class="text-gradient-red" style="text-shadow: 0 0 50px rgba(214,0,28,0.5);">TECHNIQUE LAB</span>
+                <span class="text-gold-shiny">TECHNIQUE LAB</span>
             </h1>
-            <p
-                style="font-size: 1.5rem; color: #ddd; margin-bottom: 3rem; font-weight: 300; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p class="bio-hero-desc">
                 For the First Time in Switzerland! Join international stars <strong>Michael & Mayra</strong> for a
                 weekend of precision, healing, and mastery.
             </p>
-            <a href="#schedule" class="btn-primary"
-                style="padding: 1.2rem 4rem; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 0 30px rgba(214, 0, 28, 0.6); border: 1px solid rgba(255,255,255,0.2);">VIEW
-                DETAILS</a>
+            <a href="#schedule" class="btn-primary btn-hero-lg btn-gold-shiny">VIEW DETAILS</a>
         </div>
 
         <!-- Scroll Indicator -->
-        <div
-            style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
-            <span style="font-size: 2rem; color: rgba(255,255,255,0.5);">↓</span>
-        </div>
+        <a href="#bio-intro" class="scroll-indicator" style="text-decoration: none; cursor: pointer;">
+            <span style="font-size: 3rem; color: #eb9604;">↓</span>
+        </a>
     </header>
 
     <!-- Intro Text -->
-    <section class="container" style="max-width: 900px; margin: 4rem auto; text-align: center;">
-        <h2 style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 2rem; color: white;">BEYOND TYPICAL WORKSHOPS
-        </h2>
-        <p style="font-size: 1.3rem; line-height: 1.8; color: #ccc; font-weight: 300; margin-bottom: 2rem;">
+    <section id="bio-intro" class="container bio-intro">
+        <h2>BEYOND TYPICAL WORKSHOPS</h2>
+        <p>
             For the very first time in Switzerland, internationally renowned artists <strong
                 style="color:white;">Michael &
                 Myra</strong> present an exclusive Bachata Technique Lab in Basel!
         </p>
-        <p style="font-size: 1.3rem; line-height: 1.8; color: #ccc; font-weight: 300;">
+        <p style="margin-bottom: 0;">
             This intensive weekend goes beyond typical workshops. Instead of choreography-focused classes, you will
             experience an <strong>academic and structured approach</strong> to Bachata technique, aimed at refining
             understanding,
             body mechanics, and quality of movement.
         </p>
+        <div class="text-center" style="margin-top: 2rem;">
+            <a href="registration-michael-mayra" class="btn-cta-inviting btn-gold-shiny"
+                style="padding: 1rem 3rem; font-size: 1.2rem;">
+                <span style="position: relative; z-index: 2;">🎟️ SECURE YOUR TICKET</span>
+            </a>
+        </div>
     </section>
 
     <!-- The Approach (Text + Image Side) -->
-    <section style="padding: 2rem 0;">
-        <div class="container" style="max-width: 1200px; margin: 0 auto;">
-            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4rem;">
-                <div style="flex: 1; min-width: 300px;">
-                    <h2 style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 2rem; color: white;">
-                        THE M&M METHOD</h2>
-                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb; margin-bottom: 2rem;">
-                        Michael & Myra are known worldwide not only for their artistry, but for their <strong>precision,
-                            analytical
-                            teaching style</strong>, and their unique <strong style="color:#D6001C;">M&M Technique and
-                            Dance Healing concept</strong>.
-                    </p>
-                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb;">
-                        They help students unlock tension, gain awareness, and build unshakeable confidence in their
-                        bodies. This format is designed for dancers seeking deep learning, clearer body intelligence,
-                        and a
-                        more refined, academic understanding of Bachata movement.
+    <!-- Artist Introductions -->
+
+
+    <!-- The Approach (Text + Image Side) -->
+    <!-- Artist Introductions -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="bio-approach-header" style="text-align: center; margin-bottom: 3rem;">MEET THE ARTISTS</h2>
+
+            <!-- Joint Bio & Logo Section (Moved) -->
+            <div class="bio-joint-section-inner"
+                style="position: relative; padding: 0 0 4rem 0; overflow: hidden; margin-bottom: 4rem;">
+                <!-- Logo Background -->
+                <div class="joint-bio-bg"
+                    style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); width: 100%; max-width: 900px; opacity: 0.2; z-index: 0; pointer-events: none;">
+                    <img src="images/mym-symbol-bg-final.png" alt="M&M Logo Symbol"
+                        style="width: 100%; display: block;">
+                </div>
+
+                <div class="container" style="position: relative; z-index: 2; max-width: 900px; text-align: center;">
+                    <p
+                        style="font-size: 1.3rem; line-height: 1.6; color: #f0f0f0; font-weight: 300; font-family: 'Outfit', sans-serif;">
+                        <span style="font-weight: 700; color: #e6af15;">Michael & Mayra</span> are top world-recognized
+                        international Bachata artists, choreographers, and newlyweds from Lebanon and Argentina.
+                        Sub-champions of the South American Bachata Open, they are known for blending high technical
+                        precision with elegance, emotion, and artistic expression.
+                        <br><br>
+                        Having traveled to over 60 countries, they share their unique methodology, <span
+                            style="font-weight: 600; color: #e6af15;">Dance Healing</span>—a holistic approach combining
+                        dance, psychology, and coaching to inspire transformation worldwide. As founders of the Dance
+                        Healing Program, they redefine dance as both art and healing.
+                    <div style="margin-top: 2rem;">
+                        <a href="https://www.instagram.com/michaelymayra?igsh=MWY1Y2d4cmFnejExdQ==" target="_blank"
+                            style="color: #e6af15; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; letter-spacing: 1px; font-size: 1.2rem;">
+                            Discover their Art
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" style="margin-left: 8px;">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Michael -->
+            <div class="grid-2" style="margin-bottom: 4rem; gap: 3rem;">
+                <div class="lab-image bio-image-wrapper">
+                    <div
+                        style="background: white; padding: 15px 15px 40px 15px; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); position: relative; transform: rotate(-2deg); transition: transform 0.3s ease; width: 85%; margin: 0 auto;">
+                        <!-- Corner Accents -->
+                        <div
+                            style="position: absolute; top: 10px; left: 10px; width: 50px; height: 50px; border-top: 4px solid #FF0033; border-left: 4px solid #FF0033; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; top: 10px; right: 10px; width: 50px; height: 50px; border-top: 4px solid #FF4500; border-right: 4px solid #FF4500; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 50px; left: 10px; width: 50px; height: 50px; border-bottom: 4px solid #FF6B00; border-left: 4px solid #FF6B00; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 50px; right: 10px; width: 50px; height: 50px; border-bottom: 4px solid #FF8C00; border-right: 4px solid #FF8C00; z-index: 10;">
+                        </div>
+
+                        <img src="michael.webp" alt="Michael" style="display: block; width: 100%; height: auto;">
+                    </div>
+                </div>
+                <div class="lab-info"
+                    style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+                    <h2 class="bio-approach-header" style="font-size: 2.5rem;">MICHAEL</h2>
+                    <a href="https://www.instagram.com/michaelmrad_bachata?igsh=MTR3N3h1aW1hcDJ5bg==" target="_blank"
+                        style="color: #e6af15; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                        Discover their Art
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-left: 8px;">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <p class="bio-approach-text" style="margin-bottom: 0;">
+                        Michael has been a Latin and Ballroom dancer since he was a teenager, and has been Lebanese
+                        Latin
+                        and Ballroom Dancing Champion. <br><br> He has always been a highly technical dancer, and this
+                        has helped his teaching, something he has been doing since he was only 16 years old. <br><br>
+                        With his love for teaching and a lifetime of experience, he can help students transform and
+                        rapidly achieve their goals.
                     </p>
                 </div>
-                <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-                    <div style="position: relative; max-width: 500px;">
-                        <img src="michael.webp" alt="Michael"
-                            style="width: 48%; border-radius: 10px; display: inline-block; vertical-align: middle;">
-                        <img src="mayra.webp" alt="Mayra"
-                            style="width: 48%; border-radius: 10px; display: inline-block; vertical-align: middle; margin-left: 2%;">
+            </div>
+
+            <!-- Mayra -->
+            <div class="grid-2" style="gap: 3rem;">
+                <div class="lab-info"
+                    style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+                    <h2 class="bio-approach-header" style="font-size: 2.5rem;">MAYRA</h2>
+                    <a href="https://www.instagram.com/mayracigliutti?igsh=MmphdGJ4N2c0Mmpk" target="_blank"
+                        style="color: #e6af15; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                        Discover their Art
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-left: 8px;">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <p class="bio-approach-text" style="margin-bottom: 0;">
+                        Mayra became familiar with a wide variety of styles: from classical ballet to bachata, from
+                        aerial acrobatics to hip-hop, from flamenco to contemporary, and from jazz to ice skating. This
+                        latter has been a big influence on their dance, since spins are incorporated in most of Michael
+                        and Mayra’s routines. <br><br> As well as a dancer, Mayra also worked as a model and actress in
+                        her native Argentina.
+                    </p>
+                </div>
+                <div class="lab-image bio-image-wrapper">
+                    <div
+                        style="background: white; padding: 15px 15px 40px 15px; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); position: relative; transform: rotate(2deg); transition: transform 0.3s ease; width: 85%; margin: 0 auto;">
+                        <!-- Corner Accents -->
                         <div
-                            style="position: absolute; z-index: -1; top: -20px; right: -20px; width: 100px; height: 100px; border-top: 5px solid #D6001C; border-right: 5px solid #D6001C;">
+                            style="position: absolute; top: 10px; left: 10px; width: 50px; height: 50px; border-top: 4px solid #FF0033; border-left: 4px solid #FF0033; z-index: 10;">
                         </div>
+                        <div
+                            style="position: absolute; top: 10px; right: 10px; width: 50px; height: 50px; border-top: 4px solid #FF4500; border-right: 4px solid #FF4500; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 50px; left: 10px; width: 50px; height: 50px; border-bottom: 4px solid #FF6B00; border-left: 4px solid #FF6B00; z-index: 10;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 50px; right: 10px; width: 50px; height: 50px; border-bottom: 4px solid #FF8C00; border-right: 4px solid #FF8C00; z-index: 10;">
+                        </div>
+
+                        <img src="mayra.webp" alt="Mayra" style="display: block; width: 100%; height: auto;">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- MOVED_SECTION -->
+
     <!-- Technical Pillars (Glassmorphism Grid) -->
-    <section class="container" style="max-width: 1200px; margin: 5rem auto;">
-        <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 3rem; color: white;">
+    <section class="container bio-pillars-container">
+        <h2 class="bio-pillars-title">
             TECHNICAL PILLARS</h2>
         <div class="benefits-grid">
             <!-- Item 1 -->
@@ -167,66 +279,46 @@
         </div>
     </section>
 
+    <!-- Divider -->
+    <div class="bio-section-divider"></div>
+
     <!-- Dates, Schedule & Location -->
-    <section id="schedule" style="padding: 4rem 0; background: rgba(255,255,255,0.02);">
-        <div class="container" style="max-width: 1000px;">
-            <div style="display: flex; flex-wrap: wrap; gap: 4rem;">
+    <section id="schedule" class="bio-schedule-section">
+        <div class="container">
+            <div class="grid-2 bio-schedule-grid">
 
-                <!-- Schedule -->
-                <div style="flex: 1; min-width: 300px;">
-                    <h2
-                        style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 2rem; color: white; border-left: 5px solid #D6001C; padding-left: 1rem;">
-                        DATES & SCHEDULE</h2>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h3 style="font-size: 1.5rem; color: #D6001C; margin-bottom: 0.5rem;">Saturday, 23 May 2026</h3>
-                        <div
-                            style="display: flex; align-items: center; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">
-                            <span
-                                style="font-size: 1.2rem; font-weight: 700; color: white; min-width: 80px;">10:00</span>
-                            <span style="font-size: 1.1rem; color: #ccc;">Start</span>
+                <!-- Schedule Card -->
+                <div class="schedule-info">
+                    <div class="bio-info-card-gold">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">📅</div>
+                        <h3 class="text-gold-shiny"
+                            style="font-family: 'Anton'; font-size: 2rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            23-24 May 2026
+                        </h3>
+                        <div class="line-gold-shiny" style="height: 2px; width: 60px; margin: 0 auto 1.5rem;">
                         </div>
-                        <div
-                            style="display: flex; align-items: center; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
-                            <span
-                                style="font-size: 1.2rem; font-weight: 700; color: white; min-width: 80px;">17:00</span>
-                            <span style="font-size: 1.1rem; color: #ccc;">End</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 style="font-size: 1.5rem; color: #D6001C; margin-bottom: 0.5rem;">Sunday, 24 May 2026</h3>
-                        <div
-                            style="display: flex; align-items: center; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">
-                            <span
-                                style="font-size: 1.2rem; font-weight: 700; color: white; min-width: 80px;">10:00</span>
-                            <span style="font-size: 1.1rem; color: #ccc;">Start</span>
-                        </div>
-                        <div
-                            style="display: flex; align-items: center; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
-                            <span
-                                style="font-size: 1.2rem; font-weight: 700; color: white; min-width: 80px;">20:00</span>
-                            <span style="font-size: 1.1rem; color: #ccc;">End</span>
-                        </div>
+                        <p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
+                            Coming Soon
+                        </p>
+                        <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+                            Detailed timetable is coming soon. Stay tuned for updates!
+                        </p>
                     </div>
                 </div>
 
-                <!-- Location -->
-                <div style="flex: 1; min-width: 300px;">
-                    <h2
-                        style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 2rem; color: white; border-left: 5px solid #D6001C; padding-left: 1rem;">
-                        LOCATION</h2>
-
-                    <div
-                        style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-                        <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: white;">Basel Jitterbugs</h3>
-                        <p style="font-size: 1.2rem; color: #ccc; margin-bottom: 0.5rem;">Austrasse 19</p>
-                        <p style="font-size: 1.2rem; color: #ccc; margin-bottom: 2rem;">4051 Basel</p>
-
-                        <a href="https://maps.google.com/?q=Basel+Jitterbugs+Austrasse+19+Basel" target="_blank"
-                            style="display: inline-flex; align-items: center; gap: 0.5rem; color: #D6001C; text-decoration: none; font-weight: bold; font-size: 1.1rem;">
-                            📍 Open in Maps
-                        </a>
+                <!-- Location Card -->
+                <div class="location-info">
+                    <div class="bio-info-card-gold">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">📍</div>
+                        <h3 class="text-gold-shiny"
+                            style="font-family: 'Anton'; font-size: 2rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            Basel
+                        </h3>
+                        <div class="line-gold-shiny" style="height: 2px; width: 60px; margin: 0 auto 1.5rem;">
+                        </div>
+                        <p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
+                            Exact address coming soon.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -234,28 +326,28 @@
     </section>
 
     <!-- Final CTA -->
-    <section id="registration"
-        style="background: linear-gradient(to bottom, #050505, #1a0000 50%, #050505); padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden;">
+    <section id="registration" class="bio-cta-section">
         <!-- Background Glow -->
-        <div
-            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(214,0,28,0.15) 0%, transparent 70%); pointer-events: none;">
-        </div>
+        <div class="bio-cta-glow"></div>
 
-        <div class="container" style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
-            <p
-                style="font-size: 1.2rem; color: #ff8fa3; font-weight: bold; margin-bottom: 1.5rem; letter-spacing: 2px;">
-                LIMITED SPOTS AVAILABLE</p>
-            <div class="text-center" style="margin-bottom: 4rem;">
+        <div class="container"
+            style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2; padding-top: 3rem;">
+            <div class="text-center">
+                <p class="bio-cta-subtitle text-gold-shiny">
+                    LIMITED SPOTS AVAILABLE</p>
+            </div>
+            <div class="text-center" style="margin-bottom: 2rem;">
                 <span class="text-futuristic" data-text="TRANSFORM"
                     style="display: inline-block; margin-bottom: 0;">Transform</span>
-                <h2 style="font-family: 'Anton'; font-size: 3.5rem; margin-top: -0.5rem; line-height: 1; color: white;">
+                <h2 class="bio-cta-title">
                     YOUR DANCE</h2>
             </div>
-            <a href="registration-michael-mayra" class="btn-primary"
-                style="padding: 1.5rem 5rem; font-size: 1.5rem; border-radius: 50px; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 40px rgba(214,0,28,0.4); text-decoration: none;">SECURE
-                YOUR TICKET</a>
-            <p
-                style="margin-top: 3rem; font-size: 0.9rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+            <div class="text-center">
+                <a href="registration-michael-mayra" class="btn-cta-inviting btn-gold-shiny">
+                    <span style="position: relative; z-index: 2;">🎟️ SECURE YOUR TICKET</span>
+                </a>
+            </div>
+            <p class="bio-cta-note">
                 Prerequisite: Vol. 1 completion, M&M Inline Program member, or approved application.
             </p>
         </div>
