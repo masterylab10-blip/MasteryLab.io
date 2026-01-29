@@ -356,8 +356,8 @@ h6 {
     justify-content: flex-start;
     /* Changed from center to move content to the left side */
     overflow: hidden;
-    padding-top: 450px;
-    padding-left: 8%;
+    padding-top: 150px;
+    padding-left: 4%;
     /* Added padding to keep content near the left edge but not touching it */
 }
 

@@ -1,0 +1,3292 @@
+--- FILE: ale-xidan.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ale y Xidan | MasteryLab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background: #050505; color: white;">
+    <nav class="navbar" style="position: relative; background: black;">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+            <!-- Auth Buttons -->
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto; text-align: center;">
+        <h1 style="font-family: 'Anton'; font-size: 4rem; margin-bottom: 2rem; color: #D6001C;">Ale y Xidan</h1>
+        <div
+            style="width: 100%; height: 300px; background: #220000; margin-bottom: 2rem; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #555;">Image Placeholder</span>
+        </div>
+
+        <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc; margin-bottom: 3rem;">
+            Secure your tickets effortlessly by booking an appointment with our dedicated team. Experience a streamlined
+            ticket purchasing process designed to meet your event-going needs with precision and care.
+        </p>
+
+        <a href="#" class="btn-primary"
+            style="background: #D6001C; color: white; padding: 1rem 3rem; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 1.2rem; display: inline-block;">BOOK
+            NOW</a>
+    </div>
+</body>
+
+</html>
+
+--- FILE: bachata-sensual-lab.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachata Sensual Lab | MasteryLab</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&family=Anton&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+</head>
+
+<body style="background: #050505; color: white; overflow-x: hidden;">
+
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+            <!-- Auth Buttons -->
+        </div>
+    </nav>
+
+    <!-- Side Navigation -->
+    <div class="side-nav">
+        <ul>
+            <li><a href="#for-dancers" data-target="for-dancers">For Dancers</a></li>
+            <li><a href="#for-teachers" data-target="for-teachers">For Teachers</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+        style="position: relative; height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <!-- Background (Placeholder Gradient until image provided) -->
+        <div
+            style="position: absolute; inset: 0; background: linear-gradient(135deg, #220000 0%, #000000 100%); z-index: -2;">
+        </div>
+        <div class="hero-overlay"
+            style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, #050505 90%);">
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2; max-width: 1000px; text-align: center;">
+            <p
+                style="font-size: 1.2rem; letter-spacing: 5px; color: #D6001C; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;">
+                Master The Technique</p>
+            <h1 class="scroll-reveal"
+                style="font-family: 'Anton'; font-size: clamp(3rem, 6vw, 6rem); line-height: 1; margin-bottom: 2rem; text-transform: uppercase;">
+                BACHATA SENSUAL<br><span style="color: transparent; -webkit-text-stroke: 2px white;">LAB</span>
+            </h1>
+            <p class="scroll-reveal"
+                style="font-size: 1.4rem; max-width: 700px; margin: 0 auto 2rem; color: #ddd; font-weight: 300;">
+                A comprehensive training program to master Bachata Sensual with two expert couples.
+            </p>
+            <p class="scroll-reveal"
+                style="color: #D6001C; font-weight: 600; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 1px;">
+                * Registration required to access this program
+            </p>
+            <button class="btn-primary scroll-reveal" onclick="openModal()"
+                style="padding: 1rem 3rem; font-size: 1.2rem; clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%); border-radius: 0;">
+                JOIN THE LAB
+            </button>
+        </div>
+    </section>
+
+    <!-- Intro Text -->
+    <section class="container" style="max-width: 900px; margin: 3rem auto; text-align: center;">
+        <p style="font-size: 1.3rem; line-height: 1.6; color: #ccc; font-weight: 300;">
+            Led by the incredible <strong style="color: white; border-bottom: 2px solid #D6001C;">Ale & Xidan</strong>
+            and <strong style="color: white; border-bottom: 2px solid #D6001C;">Cristina & Rebecca</strong>, this lab is
+            designed to take your dance to the next level through structured, progressive learning.
+        </p>
+    </section>
+
+    <!-- The Instructors (Grid Layout) -->
+    <section style="padding: 2rem 0; background: linear-gradient(to bottom, #050505, #110000, #050505);">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 4rem; color: white;">
+                THE INSTRUCTORS</h2>
+
+            <!-- Ale & Xidan -->
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 3rem; margin-bottom: 6rem;">
+                <!-- Image Placeholder -->
+                <div
+                    style="flex: 1; min-width: 300px; height: 350px; background: #222; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <span style="color: #555; font-size: 1.2rem;">Ale & Xidan Image</span>
+                    <div
+                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                    </div>
+                </div>
+                <!-- Text -->
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem;">ALE & XIDAN</h3>
+                    <a href="#" target="_blank"
+                        style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                        Discover their Art
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-left: 8px;">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb; margin-bottom: 2rem;">
+                        The founders of Mastery Lab and pioneers in the Bachata Sensual style in Switzerland. They bring
+                        a perfect blend of technical precision and passionate expression, focusing on the distinct roles
+                        of leader and follower.
+                    </p>
+                    <ul style="list-style: none; padding: 0; color: #ddd;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: #D6001C;">✓</span> Foundations & Technique
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            <span style="color: #D6001C;">✓</span> Connection & Flow
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Cristina & Rebecca -->
+            <div style="display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 3rem;">
+                <!-- Text -->
+                <div style="flex: 1; min-width: 300px; text-align: right;">
+                    <h3 style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem;">CRISTINA & REBECCA</h3>
+                    <a href="#" target="_blank"
+                        style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;">
+                        Discover their Art
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-left: 8px;">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb; margin-bottom: 2rem;">
+                        Known for their dynamic energy and intricate musicality. They specialize in modern fusion and
+                        creative styling, pushing the boundaries of traditional Bachata to help you find your unique
+                        voice on the dance floor.
+                    </p>
+                    <ul
+                        style="list-style: none; padding: 0; color: #ddd; display: flex; flex-direction: column; align-items: flex-end;">
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            Creative Styling <span style="color: #D6001C;">✓</span>
+                        </li>
+                        <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;">
+                            Musicality & Dynamics <span style="color: #D6001C;">✓</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Image Placeholder -->
+                <div
+                    style="flex: 1; min-width: 300px; height: 350px; background: #222; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <span style="color: #555; font-size: 1.2rem;">Cristina & Rebecca Image</span>
+                    <div
+                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Dancers Section -->
+    <section id="for-dancers" class="track-section" style="padding: 5rem 0; background: #080808;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 1rem; color: white;">
+                FOR DANCERS</h2>
+            <p style="text-align: center; color: #aaa; margin-bottom: 4rem; font-size: 1.2rem;">Repetition is key to
+                mastery.</p>
+
+            <div class="benefits-list">
+                <!-- Module 1 -->
+                <div class="benefit-item">
+                    <span class="benefit-index">01</span>
+                    <span class="benefit-title">MODULE 1</span>
+                    <div class="benefit-details">
+                        <div class="benefit-text">
+                            <div class="benefit-desc">Fundamentals & Core Technique in repetition cycles.</div>
+                        </div>
+                        <div class="benefit-icon">🔄</div>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="benefit-item">
+                    <span class="benefit-index">02</span>
+                    <span class="benefit-title">MODULE 2</span>
+                    <div class="benefit-details">
+                        <div class="benefit-text">
+                            <div class="benefit-desc">Advanced combinations & Styling flows in repetition cycles.</div>
+                        </div>
+                        <div class="benefit-icon">🔁</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Teachers Section -->
+    <section id="for-teachers" class="track-section container" style="max-width: 1200px; margin: 5rem auto;">
+        <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 1rem; color: white;">FOR
+            TEACHERS</h2>
+        <p style="text-align: center; color: #aaa; margin-bottom: 4rem; font-size: 1.2rem;">A structured professional
+            path.</p>
+
+        <div class="benefits-list">
+            <!-- Item 1 -->
+            <div class="benefit-item">
+                <span class="benefit-index">01</span>
+                <span class="benefit-title">3 EDITIONS PER YEAR</span>
+                <div class="benefit-details">
+                    <div class="benefit-text">
+                        <div class="benefit-desc">Consistent training opportunities spread throughout the year to ensure
+                            steady progress.</div>
+                    </div>
+                    <div class="benefit-icon">📅</div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="benefit-item">
+                <span class="benefit-index">02</span>
+                <span class="benefit-title">LEVEL 1: FOUNDATION</span>
+                <div class="benefit-details">
+                    <div class="benefit-text">
+                        <div class="benefit-desc">Master the essentials. Perfect for beginners or those refining their
+                            core technique.</div>
+                    </div>
+                    <div class="benefit-icon">🧱</div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="benefit-item">
+                <span class="benefit-index">03</span>
+                <span class="benefit-title">LEVEL 2: ADVANCED</span>
+                <div class="benefit-details">
+                    <div class="benefit-text">
+                        <div class="benefit-desc">Unlock complex moves. *Prerequisite: Successful completion of Level 1
+                            is required.*</div>
+                    </div>
+                    <div class="benefit-icon">🚀</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section style="text-align: center; padding: 5rem 1rem; background: linear-gradient(to top, #110000, #050505);">
+        <h2 class="scroll-reveal"
+            style="font-family: 'Anton'; font-size: 4rem; color: white; margin-bottom: 1rem; line-height: 1;">
+            READY TO LEVEL UP?</h2>
+        <p class="scroll-reveal" style="color: #bbb; margin-bottom: 2rem; font-size: 1.2rem;">Join the next edition of
+            Bachata Sensual Lab.</p>
+        <button class="btn-primary scroll-reveal" onclick="openModal()">SECURE YOUR SPOT</button>
+    </section>
+
+    <!-- Modal for Registration (Hidden by default) -->
+    <div id="regModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 style="font-family: 'Anton'; color: white; margin-bottom: 1rem;">JOIN THE LAB</h2>
+            <p style="color: #aaa; margin-bottom: 2rem;">Secure your spot for the upcoming workshops.</p>
+
+            <form id="registrationForm">
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="firstName" class="form-label"
+                        style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #B0B0B0;">First
+                        Name</label>
+                    <input type="text" id="firstName" class="form-input" required
+                        style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; border-radius: 5px; outline: none;">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="lastName" class="form-label"
+                        style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #B0B0B0;">Last
+                        Name</label>
+                    <input type="text" id="lastName" class="form-input" required
+                        style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; border-radius: 5px; outline: none;">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="email" class="form-label"
+                        style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #B0B0B0;">Email
+                        Address</label>
+                    <input type="email" id="email" class="form-input" required
+                        style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; border-radius: 5px; outline: none;">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="whatsapp" class="form-label"
+                        style="display: block; margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #B0B0B0;">WhatsApp
+                        Number</label>
+                    <input type="tel" id="whatsapp" class="form-input" required
+                        style="width: 100%; background: rgba(255,255,100,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; border-radius: 5px; outline: none;">
+                </div>
+
+                <button type="submit" class="btn-primary"
+                    style="margin-top: 1rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer;">CONTINUE
+                    TO
+                    PAYMENT</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+--- FILE: contact-thank-you.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | MasteryLab</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thank-you-container {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(214, 0, 28, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container thank-you-container">
+            <div class="success-icon">✓</div>
+            <h1 class="text-gradient" style="margin-bottom: 1rem;">MESSAGE RECEIVED</h1>
+            <p class="hero-desc" style="max-width: 600px; margin: 0 auto 2rem auto;">
+                Thank you for reaching out to MasteryLab. We have received your message and will get back to you
+                shortly.
+            </p>
+            <a href="/" class="btn btn-hero-artistic">Return to Home</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo text-primary">MASTERYLAB</div>
+            <p class="copy">&copy; 2024 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+--- FILE: index.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasteryLab | Elite Dance Training Switzerland</title>
+    <meta name="description"
+        content="Elevating dance for dancers. MasteryLab offers intensive weekend labs in Bachata, Sensual, and Lady Style in Basel.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+            <!-- Auth Buttons -->
+            <!-- Auth Buttons Removed as per request -->
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="about" class="hero">
+            <video autoplay muted loop playsinline poster="mastery_lab_particles_hero.webp" class="hero-bg">
+                <source src="Teaser%20TV%202.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+
+
+                <!-- 3-Column Lab Navigation -->
+                <div class="hero-cards">
+                    <a href="#mym-lab" class="hero-card">
+                        <h3 class="text-primary">MyM Lab</h3>
+                        <p>Michael & Mayra</p>
+                    </a>
+                    <a href="#bs-lab" class="hero-card">
+                        <h3 class="text-primary">Bachata Sensual Lab</h3>
+                        <p>Bachata Sensual</p>
+                    </a>
+                    <a href="#lady-lab" class="hero-card">
+                        <h3 class="text-primary">Lady Style</h3>
+                        <p>Solo Mastery</p>
+                    </a>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div
+                    style="margin-top: 4rem; display: flex; gap: 1.5rem; justify-content: flex-start; flex-wrap: wrap;">
+                    <a href="register" class="btn btn-hero-artistic">Register Now</a>
+                    <a href="what-is-masterylab" class="btn btn-outline" style="min-width: 250px;">What is
+                        MasteryLab?</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lab Details Section 1: MyM Lab -->
+        <section id="mym-lab" class="lab-section">
+            <div class="container lab-content">
+                <div class="lab-info">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Intensive
+                        Training</span>
+                    <h2>MyM Lab</h2>
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">With
+                        Michael & Mayra</h3>
+                    <p>
+                        Experience the precision and passion of Michael and Mayra. This lab focuses on technical
+                        excellence,
+                        musicality, and the seamless connection that defines their unique style. Perfect for couples
+                        looking to elevate their partnership.
+                    </p>
+                    <a href="michael-mayra" class="btn btn-outline">Apply for MyM Lab</a>
+                </div>
+                <div class="lab-image">
+                    <img src="michael_mayra.webp" alt="Michael and Mayra Dance Lab">
+                </div>
+            </div>
+        </section>
+
+        <!-- Lab Details Section 2: BS Lab -->
+        <section id="bs-lab" class="lab-section alt">
+            <div class="container lab-content">
+                <div class="lab-image">
+                    <img src="mastery_lab_coming_soon.webp" alt="Bachata Sensual Lab Coming Soon">
+                </div>
+                <div class="lab-info">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Sensual
+                        Mastery</span>
+                    <h2>Bachata Sensual Lab</h2>
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">Bachata
+                        Sensual</h3>
+                    <p>
+                        Dive deep into the fundamentals and advanced techniques of Bachata Sensual.
+                        Understand body mechanics, isolation, and flow. This lab is rigorous, detailed,
+                        and designed for those who want to truly master the movement.
+                    </p>
+                    <a href="#contact" class="btn btn-outline">Coming Soon...</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lab Details Section 3: Lady Style Lab -->
+        <section id="lady-lab" class="lab-section">
+            <div class="container lab-content">
+                <div class="lab-info">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Solo
+                        Expression</span>
+                    <h2>Lady Style Lab</h2>
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">Empower
+                        Your Dance</h3>
+                    <p>
+                        Unleash your potential with our Lady Style Lab. Focus on styling, armwork, body movement,
+                        and musical interpretation. This is about finding your own voice and confidence on the dance
+                        floor.
+                    </p>
+                    <a href="#contact" class="btn btn-outline">Coming Soon...</a>
+                </div>
+                <div class="lab-image">
+                    <img src="mastery_lab_coming_soon.webp" alt="Lady Style Dance Lab Coming Soon">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <span class="text-futuristic" data-text="GET IN TOUCH">Get In Touch</span>
+                <p style="color: var(--color-text-muted); max-width: 600px; margin: 1rem auto;">
+                    Have questions about our labs? Want to book a private session? We'd love to hear from you.
+                </p>
+            </div>
+
+            <div class="contact-form-container">
+                <form id="contactForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New Submission from MasteryLab Website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://masterylab.ch/contact-thank-you">
+
+                    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" name="first_name" class="form-input" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" name="last_name" class="form-input" placeholder="Last Name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Telephone Number</label>
+                        <input type="tel" name="phone" class="form-input" placeholder="+41 79 000 00 00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" name="subject" class="form-input" placeholder="What is this regarding?"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea name="message" class="form-input" placeholder="Your Message..." required></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" id="contactSubmitBtn" class="btn btn-primary"
+                            style="min-width: 200px;">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo text-primary">MASTERYLAB</div>
+            <div class="social-links">
+                <a href="#" class="btn-outline"
+                    style="width: 40px; height: 40px; padding: 0; border-radius: 50%;">IG</a>
+                <a href="#" class="btn-outline"
+                    style="width: 40px; height: 40px; padding: 0; border-radius: 50%;">FB</a>
+                <a href="#" class="btn-outline"
+                    style="width: 40px; height: 40px; padding: 0; border-radius: 50%;">YT</a>
+            </div>
+            <p class="copy">&copy; 2024 MasteryLab. All rights reserved. <br>Designed for Dancers.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.lab-section').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Dual Submission: Google Sheets + FormSubmit.co
+        const contactForm = document.getElementById('contactForm');
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxWGH0S2tI1Pa03TKZs0tCN9-bJA8ZFefqKB5NXEnrWn1YW2e48tcaKNphN3DuC_Z7D/exec';
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const btn = document.getElementById('contactSubmitBtn');
+                const originalText = btn.innerText;
+                btn.innerText = 'Sending...';
+                btn.disabled = true;
+
+                // 1. Send to Google Sheets (Fire and Forget)
+                // We use URLSearchParams to send data as application/x-www-form-urlencoded,
+                // which is natively parsed by Google Apps Script's e.parameter.
+                const formData = new FormData(contactForm);
+                const data = new URLSearchParams();
+                for (const pair of formData) {
+                    data.append(pair[0], pair[1]);
+                }
+
+                // Add timestamp
+                data.append('timestamp', new Date().toISOString());
+
+                fetch(googleScriptURL, {
+                    method: 'POST',
+                    body: data,
+                    mode: 'no-cors',
+                    keepalive: true // Crucial: allows request to complete after page unloads
+                }).catch(err => console.error('Sheet Error:', err));
+
+                // 2. Submit to FormSubmit.co (Email + Redirect)
+                // No delay needed if keepalive works, but a tiny buffer feels safer for UX feedback
+                setTimeout(() => {
+                    contactForm.submit();
+                }, 100);
+            });
+        }
+    </script>
+</body>
+
+</html>
+
+--- FILE: ladies-mastery.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ladies Mastery | MasteryLab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background: #050505; color: white;">
+    <nav class="navbar" style="position: relative; background: black;">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+            <!-- Auth Buttons -->
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto; text-align: center;">
+        <h1 style="font-family: 'Anton'; font-size: 4rem; margin-bottom: 2rem; color: #D6001C;">Ladies Mastery</h1>
+        <div
+            style="width: 100%; height: 300px; background: #111; margin-bottom: 2rem; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #555;">Image Placeholder</span>
+        </div>
+
+        <p style="font-size: 1.2rem; line-height: 1.8; color: #ccc; margin-bottom: 3rem;">
+            Secure your tickets effortlessly by booking an appointment with our dedicated team. Experience a streamlined
+            ticket purchasing process designed to meet your event-going needs with precision and care.
+        </p>
+
+        <a href="#" class="btn-primary"
+            style="background: #D6001C; color: white; padding: 1rem 3rem; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 1.2rem; display: inline-block;">BOOK
+            NOW</a>
+    </div>
+</body>
+
+</html>
+
+--- FILE: login.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | MasteryLab Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-page" style="display: flex; align-items: center; min-height: 100vh; padding-top: 0;">
+        <div class="container">
+
+            <div class="auth-form-container" style="margin-top: 0; margin-bottom: 0;">
+                <h2 class="text-center text-primary" style="margin-bottom: 2rem;">WELCOME BACK</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="password" class="form-input" required>
+                    </div>
+
+                    <div class="form-group" style="text-align: right; margin-bottom: 2rem;">
+                        <a href="#" style="font-size: 0.85rem; color: #aaa; text-decoration: none;">Forgot Password?</a>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" id="submitBtn" class="btn btn-primary"
+                            style="width: 100%; border-radius: 8px;">Login</button>
+                    </div>
+                </form>
+
+                <div class="auth-footer">
+                    Don't have an account? <a href="register">Register here</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+
+    <script>
+        const loginForm = document.querySelector('form');
+        const submitBtn = document.getElementById('submitBtn');
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // UI Loading State
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Logging in...";
+            submitBtn.disabled = true;
+
+            // Collect Data
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                // Call Supabase Helper
+                const { data, error } = await window.loginUser(email, password);
+
+                if (error) {
+                    throw error;
+                }
+
+                // Redirect on success (e.g. to home or dashboard)
+                window.location.href = 'portal';
+
+            } catch (err) {
+                console.error("Login Error:", err);
+                alert("Login Failed: " + err.message);
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+--- FILE: michael-mayra.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael y Mayra | MasteryLab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background: #050505; color: white;">
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+            <!-- Auth Buttons -->
+        </div>
+    </nav>
+
+    <!-- Premium Hero Section -->
+    <header
+        style="position: relative; height: 85vh; min-height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; margin-bottom: 0;">
+        <div
+            style="position: absolute; inset: 0; background: url('michael_mayra.webp') center 0%/cover; opacity: 0.5; transform: scale(1.1); animation: zoomIn 20s infinite alternate;">
+        </div>
+        <div
+            style="position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, #050505 90%);">
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2; max-width: 1100px;">
+            <p
+                style="font-size: 1.2rem; letter-spacing: 5px; color: #D6001C; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;">
+                Exclusively in Basel</p>
+            <h1
+                style="font-family: 'Anton'; font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 1.5rem; line-height: 0.95;">
+                <span class="text-gradient">BACHATA</span><br>
+                <span class="text-gradient-red" style="text-shadow: 0 0 50px rgba(214,0,28,0.5);">TECHNIQUE LAB</span>
+            </h1>
+            <p
+                style="font-size: 1.5rem; color: #ddd; margin-bottom: 3rem; font-weight: 300; max-width: 800px; margin-left: auto; margin-right: auto;">
+                For the First Time in Switzerland! Join international stars <strong>Michael & Mayra</strong> for a
+                weekend of precision, healing, and mastery.
+            </p>
+            <a href="#schedule" class="btn-primary"
+                style="padding: 1.2rem 4rem; font-size: 1.2rem; border-radius: 50px; box-shadow: 0 0 30px rgba(214, 0, 28, 0.6); border: 1px solid rgba(255,255,255,0.2);">VIEW
+                DETAILS</a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+            style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
+            <span style="font-size: 2rem; color: rgba(255,255,255,0.5);">↓</span>
+        </div>
+    </header>
+
+    <!-- Intro Text -->
+    <section class="container" style="max-width: 900px; margin: 4rem auto; text-align: center;">
+        <h2 style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 2rem; color: white;">BEYOND TYPICAL WORKSHOPS
+        </h2>
+        <p style="font-size: 1.3rem; line-height: 1.8; color: #ccc; font-weight: 300; margin-bottom: 2rem;">
+            For the very first time in Switzerland, internationally renowned artists <strong
+                style="color:white;">Michael &
+                Myra</strong> present an exclusive Bachata Technique Lab in Basel!
+        </p>
+        <p style="font-size: 1.3rem; line-height: 1.8; color: #ccc; font-weight: 300;">
+            This intensive weekend goes beyond typical workshops. Instead of choreography-focused classes, you will
+            experience an <strong>academic and structured approach</strong> to Bachata technique, aimed at refining
+            understanding,
+            body mechanics, and quality of movement.
+        </p>
+    </section>
+
+    <!-- The Approach (Text + Image Side) -->
+    <section style="padding: 2rem 0;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4rem;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h2 style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 2rem; color: white;">
+                        THE M&M METHOD</h2>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb; margin-bottom: 2rem;">
+                        Michael & Myra are known worldwide not only for their artistry, but for their <strong>precision,
+                            analytical
+                            teaching style</strong>, and their unique <strong style="color:#D6001C;">M&M Technique and
+                            Dance Healing concept</strong>.
+                    </p>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: #bbb;">
+                        They help students unlock tension, gain awareness, and build unshakeable confidence in their
+                        bodies. This format is designed for dancers seeking deep learning, clearer body intelligence,
+                        and a
+                        more refined, academic understanding of Bachata movement.
+                    </p>
+                </div>
+                <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+                    <div style="position: relative; max-width: 500px;">
+                        <img src="michael.webp" alt="Michael"
+                            style="width: 48%; border-radius: 10px; display: inline-block; vertical-align: middle;">
+                        <img src="mayra.webp" alt="Mayra"
+                            style="width: 48%; border-radius: 10px; display: inline-block; vertical-align: middle; margin-left: 2%;">
+                        <div
+                            style="position: absolute; z-index: -1; top: -20px; right: -20px; width: 100px; height: 100px; border-top: 5px solid #D6001C; border-right: 5px solid #D6001C;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Pillars (Glassmorphism Grid) -->
+    <section class="container" style="max-width: 1200px; margin: 5rem auto;">
+        <h2 style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 3rem; color: white;">
+            TECHNICAL PILLARS</h2>
+        <div class="benefits-grid">
+            <!-- Item 1 -->
+            <div class="benefit-card">
+                <span class="benefit-index">01</span>
+                <div class="benefit-content">
+                    <h3 class="benefit-title">
+                        <span class="benefit-icon">🧬</span>
+                        Posture & Alignment
+                    </h3>
+                    <p class="benefit-desc">Master the foundation of all movement. Learn correct body alignment to dance
+                        with elegance, balance, and longevity.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="benefit-card">
+                <span class="benefit-index">02</span>
+                <div class="benefit-content">
+                    <h3 class="benefit-title">
+                        <span class="benefit-icon">🌀</span>
+                        Spins & Turns
+                    </h3>
+                    <p class="benefit-desc">Deep dive into turn mechanics. Improve your spotting, axis, and control for
+                        effortless multiple spins.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="benefit-card">
+                <span class="benefit-index">03</span>
+                <div class="benefit-content">
+                    <h3 class="benefit-title">
+                        <span class="benefit-icon">🌊</span>
+                        Waves & Flow
+                    </h3>
+                    <p class="benefit-desc">Unlock fluid body movement. Understand the mechanics of 'Ondas' and
+                        directional flow for seamless transitions.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="benefit-card">
+                <span class="benefit-index">04</span>
+                <div class="benefit-content">
+                    <h3 class="benefit-title">
+                        <span class="benefit-icon">🤝</span>
+                        Connection
+                    </h3>
+                    <p class="benefit-desc">Refine your frame and responsiveness. Enhance the non-verbal communication
+                        that makes social dancing magical.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dates, Schedule & Location -->
+    <section id="schedule" style="padding: 4rem 0; background: rgba(255,255,255,0.02);">
+        <div class="container" style="max-width: 1000px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 4rem;">
+
+                <!-- Schedule -->
+                <div style="flex: 1; min-width: 300px;">
+                    <h2
+                        style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 2rem; color: white; border-left: 5px solid #D6001C; padding-left: 1rem;">
+                        DATES & SCHEDULE</h2>
+
+                    <div style="margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.5rem; color: #D6001C; margin-bottom: 0.5rem;">Saturday, 23 May 2026</h3>
+                        <div
+                            style="display: flex; align-items: center; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                            <span
+                                style="font-size: 1.2rem; font-weight: 700; color: white; min-width: 80px;">10:00</span>
+                            <span style="font-size: 1.1rem; color: #ccc;">Start</span>
+                        </div>
+                        <div
+                            style="display: flex; align-items: center; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                            <span
+                                style="font-size: 1.2rem; font-weight: 700; color: white; min-width: 80px;">17:00</span>
+                            <span style="font-size: 1.1rem; color: #ccc;">End</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="font-size: 1.5rem; color: #D6001C; margin-bottom: 0.5rem;">Sunday, 24 May 2026</h3>
+                        <div
+                            style="display: flex; align-items: center; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                            <span
+                                style="font-size: 1.2rem; font-weight: 700; color: white; min-width: 80px;">10:00</span>
+                            <span style="font-size: 1.1rem; color: #ccc;">Start</span>
+                        </div>
+                        <div
+                            style="display: flex; align-items: center; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+                            <span
+                                style="font-size: 1.2rem; font-weight: 700; color: white; min-width: 80px;">20:00</span>
+                            <span style="font-size: 1.1rem; color: #ccc;">End</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location -->
+                <div style="flex: 1; min-width: 300px;">
+                    <h2
+                        style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 2rem; color: white; border-left: 5px solid #D6001C; padding-left: 1rem;">
+                        LOCATION</h2>
+
+                    <div
+                        style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                        <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: white;">Basel Jitterbugs</h3>
+                        <p style="font-size: 1.2rem; color: #ccc; margin-bottom: 0.5rem;">Austrasse 19</p>
+                        <p style="font-size: 1.2rem; color: #ccc; margin-bottom: 2rem;">4051 Basel</p>
+
+                        <a href="https://maps.google.com/?q=Basel+Jitterbugs+Austrasse+19+Basel" target="_blank"
+                            style="display: inline-flex; align-items: center; gap: 0.5rem; color: #D6001C; text-decoration: none; font-weight: bold; font-size: 1.1rem;">
+                            📍 Open in Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="registration"
+        style="background: linear-gradient(to bottom, #050505, #1a0000 50%, #050505); padding: 4rem 2rem; text-align: center; position: relative; overflow: hidden;">
+        <!-- Background Glow -->
+        <div
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(214,0,28,0.15) 0%, transparent 70%); pointer-events: none;">
+        </div>
+
+        <div class="container" style="max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
+            <p
+                style="font-size: 1.2rem; color: #ff8fa3; font-weight: bold; margin-bottom: 1.5rem; letter-spacing: 2px;">
+                LIMITED SPOTS AVAILABLE</p>
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <span class="text-futuristic" data-text="TRANSFORM"
+                    style="display: inline-block; margin-bottom: 0;">Transform</span>
+                <h2 style="font-family: 'Anton'; font-size: 3.5rem; margin-top: -0.5rem; line-height: 1; color: white;">
+                    YOUR DANCE</h2>
+            </div>
+            <a href="registration-michael-mayra" class="btn-primary"
+                style="padding: 1.5rem 5rem; font-size: 1.5rem; border-radius: 50px; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 40px rgba(214,0,28,0.4); text-decoration: none;">SECURE
+                YOUR TICKET</a>
+            <p
+                style="margin-top: 3rem; font-size: 0.9rem; color: #666; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Prerequisite: Vol. 1 completion, M&M Inline Program member, or approved application.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer"
+        style="padding: 3rem 0; text-align: center; background: #000; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <p style="color: #444;">&copy; 2025 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+--- FILE: portal.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portal | MasteryLab</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .portal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .data-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+                <a href="#">Portal</a>
+                <a href="#" onclick="logoutUser()">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-page" style="padding-top: 120px; align-items: flex-start;">
+        <div class="container">
+            <div class="portal-header">
+                <div>
+                    <h1 class="text-gradient">Welcome, <span id="userName">Dancer</span></h1>
+                    <p class="hero-desc" style="margin: 0; font-size: 1.1rem;">Your MasteryLab Journey</p>
+                </div>
+                <div class="user-avatar" id="userInitial">D</div>
+            </div>
+
+            <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div class="data-card">
+                    <h3 class="text-primary">Your Profile</h3>
+                    <div style="margin-top: 1rem; color: #ccc;">
+                        <p><strong>Email:</strong> <span id="displayEmail">...</span></p>
+                        <p><strong>City:</strong> <span id="displayCity">...</span></p>
+                        <p><strong>Role:</strong> <span id="displayRole">...</span></p>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <h3 class="text-primary">Your Labs</h3>
+                    <p style="margin-top: 1rem;">You have not registered for any labs yet.</p>
+                    <a href="/#contact" class="btn btn-primary" style="margin-top: 1rem;">Browse Labs</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+
+    <script>
+        // Protect Route & Load Data
+        window.addEventListener('load', async () => {
+            const user = await requireAuth();
+
+            if (user) {
+                // Populate UI
+                const metadata = user.user_metadata || {};
+
+                document.getElementById('userName').innerText = metadata.first_name || 'Dancer';
+                document.getElementById('userInitial').innerText = (metadata.first_name || 'D')[0].toUpperCase();
+
+                document.getElementById('displayEmail').innerText = user.email;
+                document.getElementById('displayCity').innerText = metadata.city || 'Not set';
+                document.getElementById('displayRole').innerText = metadata.role || 'Student';
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+--- FILE: projects.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | MasteryLab</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+
+<body style="background-color: var(--bg-dark); color: white;">
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+            <!-- Auth Buttons -->
+        </div>
+    </nav>
+    <div class="container" style="padding: 8rem 2rem; max-width: 1200px; margin: 0 auto;">
+        <h1 style="font-family: 'Anton'; font-size: 4rem; color: #D6001C; text-align: center; margin-bottom: 4rem;">Our
+            Projects</h1>
+
+        <div class="projects-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <!-- Bachata Sensual Lab -->
+            <div class="project-card"
+                style="background: rgba(255, 255, 255, 0.05); border-radius: 10px; overflow: hidden; transition: transform 0.3s;">
+                <div
+                    style="height: 200px; background: linear-gradient(45deg, #220000, #550000); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 3rem;">💃</span>
+                </div>
+                <div style="padding: 2rem;">
+                    <h3 style="font-family: 'Anton'; font-size: 2rem; margin-bottom: 1rem;">Bachata Sensual Lab</h3>
+                    <p style="color: #ccc; margin-bottom: 2rem; line-height: 1.6;">Join Ale and Xidan for an immersive
+                        experience in Bachata Sensual techniques and musicality.</p>
+                    <a href="ale-xidan" class="btn-primary" style="display: inline-block;">View Details</a>
+                </div>
+            </div>
+
+            <!-- Michael y Mayra Lab -->
+            <div class="project-card"
+                style="background: rgba(255, 255, 255, 0.05); border-radius: 10px; overflow: hidden; transition: transform 0.3s;">
+                <div style="height: 200px; background: url('michael_mayra.webp') center/cover;"></div>
+                <div style="padding: 2rem;">
+                    <h3 style="font-family: 'Anton'; font-size: 2rem; margin-bottom: 1rem;">Michael y Mayra Lab</h3>
+                    <p style="color: #ccc; margin-bottom: 2rem; line-height: 1.6;">Learn from the world-renowned masters
+                        Michael and Mayra in this exclusive intense workshop.</p>
+                    <a href="michael-mayra" class="btn-primary" style="display: inline-block;">View Details</a>
+                </div>
+            </div>
+
+            <!-- Lady Style Lab -->
+            <div class="project-card"
+                style="background: rgba(255, 255, 255, 0.05); border-radius: 10px; overflow: hidden; transition: transform 0.3s; position: relative;">
+                <div
+                    style="position: absolute; top: 1rem; right: 1rem; background: #D6001C; color: white; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">
+                    COMING SOON</div>
+                <div
+                    style="height: 200px; background: linear-gradient(45deg, #000000, #333333); display: flex; align-items: center; justify-content: center;">
+                    <span style="font-size: 3rem;">👠</span>
+                </div>
+                <div style="padding: 2rem;">
+                    <h3 style="font-family: 'Anton'; font-size: 2rem; margin-bottom: 1rem;">Lady Style Lab</h3>
+                    <p style="color: #ccc; margin-bottom: 2rem; line-height: 1.6;">Refine your styling, body movement,
+                        and expression in our upcoming Lady Style intensive.</p>
+                    <a href="ladies-mastery" class="btn-primary" style="display: inline-block; opacity: 0.7;">Learn
+                        More</a>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem;">
+            <a href="/" class="btn-primary" style="background: transparent; border: 2px solid #D6001C;">Back
+                Home</a>
+        </div>
+    </div>
+</body>
+
+</html>
+
+--- FILE: register.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | MasteryLab Portal</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-page">
+        <div class="container">
+            <!-- Benefits Section -->
+            <div class="auth-benefits">
+                <h1 class="text-gradient">WHY JOIN MASTERYLAB?</h1>
+                <p class="hero-desc">Create your dancer profile to unlock exclusive resources and track your progress.
+                </p>
+
+                <div class="benefit-grid">
+                    <div class="benefit-card">
+                        <h3>Track Progress</h3>
+                        <p>Keep a record of all the labs and workshops you've completed.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Exclusive Content</h3>
+                        <p>Access study materials, music playlists, and technique notes.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Community</h3>
+                        <p>Connect with other dedicated dancers and instructors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="auth-form-container">
+                <h2 class="text-center text-primary" style="margin-bottom: 2rem;">CREATE ACCOUNT</h2>
+                <form action="#" method="POST">
+                    <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0;">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" id="firstName" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" id="lastName" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+
+                    <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0;">
+                        <div class="form-group">
+                            <label class="form-label">City of Residence</label>
+                            <input type="text" id="city" class="form-input" required placeholder="e.g. Basel">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Role in Community</label>
+                            <select id="role" class="form-input"
+                                style="-webkit-appearance: none; appearance: none; cursor: pointer;">
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="performer">Performer</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Whatsapp Number</label>
+                        <input type="tel" id="whatsapp" class="form-input" placeholder="+41 79 123 45 67">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="password" class="form-input" required>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <button type="submit" id="submitBtn" class="btn btn-primary"
+                            style="width: 100%; border-radius: 8px;">Register Now</button>
+                    </div>
+                </form>
+
+                <div class="auth-footer">
+                    Already have an account? <a href="login">Log in here</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-logo text-primary">MASTERYLAB</div>
+            <p class="copy">&copy; 2024 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+
+    <script>
+        const registerForm = document.querySelector('form');
+        const submitBtn = document.getElementById('submitBtn');
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // UI Loading State
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Creating Account...";
+            submitBtn.disabled = true;
+
+            // Collect Data
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const city = document.getElementById('city').value;
+            const role = document.getElementById('role').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const password = document.getElementById('password').value;
+
+            // Metadata object
+            const metadata = {
+                first_name: firstName,
+                last_name: lastName,
+                city: city,
+                role: role,
+                whatsapp: whatsapp
+            };
+
+            try {
+                // Call Supabase Helper
+                const { data, error } = await window.registerUser(email, password, metadata);
+
+                if (error) {
+                    throw error;
+                }
+
+                alert("Registration Successful! Please check your email to confirm your account.");
+                // Optional: Redirect to login or home
+                window.location.href = 'login';
+
+            } catch (err) {
+                console.error("Registration Error:", err);
+                alert("Error: " + err.message);
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+--- FILE: registration-michael-mayra.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Your Spot | Michael & Mayra Intensive | MasteryLab</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .registration-page {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 0 60px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #050505;
+        }
+
+        .bg-image {
+            position: absolute;
+            inset: 0;
+            background: url('michael_mayra.webp') center 20%/cover no-repeat;
+            opacity: 0.4;
+            filter: blur(5px);
+            z-index: 1;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, #050505 100%);
+            z-index: 2;
+        }
+
+        .registration-container {
+            position: relative;
+            z-index: 3;
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 15px rgba(214, 0, 28, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .registration-container {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+        </div>
+    </nav>
+
+    <main class="registration-page">
+        <div class="bg-image"></div>
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="registration-container">
+                <h1 class="text-gradient-red"
+                    style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 0.5rem; text-transform: uppercase;">
+                    SECURE YOUR SPOT
+                </h1>
+                <p style="text-align: center; color: #aaa; margin-bottom: 2.5rem; font-size: 1.1rem; font-weight: 300;">
+                    MICHAEL & MAYRA INTENSIVE - BASEL 2026
+                </p>
+
+                <form id="regForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New M&M Intensive Registration!">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://buy.stripe.com/00wcN47fZ3F269rceD8og00">
+                    <div class="form-group">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" id="firstName" name="first_name" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" id="lastName" name="last_name" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city" class="form-label">City of Residence</label>
+                        <input type="text" id="city" name="city" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role" class="form-label">Role in Scene</label>
+                        <select id="role" name="role" class="form-input" required style="appearance: none;">
+                            <option value="" disabled selected>Select your role</option>
+                            <option value="Dancer" style="color: black;">Dancer</option>
+                            <option value="Teacher" style="color: black;">Teacher</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whatsapp" class="form-label">WhatsApp Number</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" class="form-input" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary"
+                        style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4);">
+                        PROCEED TO PAYMENT
+                    </button>
+
+                    <p
+                        style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 1.5rem; line-height: 1.4;">
+                        By proceeding, you agree to our Terms & Conditions. <br>
+                        You will be redirected to Stripe for secure payment.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+        style="padding: 3rem 0; text-align: center; background: #000; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <p style="color: #444;">&copy; 2025 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+--- FILE: registration-thank-you.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful | MasteryLab</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .thank-you-container {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 80px;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(214, 0, 28, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container thank-you-container">
+            <div class="success-icon">✓</div>
+            <h1 class="text-gradient" style="margin-bottom: 1rem;">WELCOME TO THE LAB</h1>
+            <p class="hero-desc" style="max-width: 600px; margin: 0 auto 2rem auto;">
+                Your registration was successful. Please check your email to verify your account and complete your
+                profile setup.
+            </p>
+            <a href="login" class="btn btn-hero-artistic">Login to Portal</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo text-primary">MASTERYLAB</div>
+            <p class="copy">&copy; 2024 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+--- FILE: what-is-masterylab.html ---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is MasteryLab? | Our Philosophy</title>
+    <meta name="description"
+        content="Discover the MasteryLab philosophy. This is not about workshops. This is not about bootcamps. MasteryLab is the ultimate place to master the art of dance.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .philosophy-section {
+            padding: 120px 0 80px;
+            background: #050505;
+        }
+
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .comparison-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(214, 0, 28, 0.05);
+            border-radius: 15px;
+            border-top: 3px solid var(--color-primary);
+        }
+
+        .method-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .step-number {
+            font-family: 'Anton';
+            font-size: 4rem;
+            line-height: 1;
+            color: rgba(214, 0, 28, 0.2);
+            -webkit-text-stroke: 1px var(--color-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <img src="images/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Vision Hero -->
+        <section class="hero" style="height: 70vh; min-height: 500px;">
+            <div class="container" style="position: relative; z-index: 2; text-align: center;">
+                <span class="hero-subtitle">OUR PHILOSOPHY</span>
+                <h1 class="hero-title text-gradient">BEYOND <br>THE BASICS</h1>
+                <p class="hero-desc" style="max-width: 800px; margin: 0 auto;">
+                    This is not about workshops. This is not about bootcamps. MasteryLab is the ultimate place to master
+                    the art of dance.
+                </p>
+            </div>
+        </section>
+
+        <!-- Core Philosophy -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="grid-2"
+                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                    <div>
+                        <span class="text-primary text-uppercase" style="letter-spacing: 2px;">The Standard</span>
+                        <h2 style="font-family: 'Anton'; font-size: 3rem; margin: 1rem 0;">ELEVATING DANCE FOR DANCERS
+                        </h2>
+                        <p style="color: #ccc; font-size: 1.1rem; line-height: 1.8;">
+                            MasteryLab was born out of a frustration with the "festival culture." In festivals, you
+                            learn broad, shallow movements in a crowded room. You get a video for Instagram, but your
+                            dance remains the same.
+                        </p>
+                        <p style="color: #ccc; font-size: 1.1rem; line-height: 1.8; margin-top: 1.5rem;">
+                            We do the opposite. We limit spots. We intensify the focus. We demand technical excellence.
+                            This is the lab where we experiment with body mechanics until the movement becomes part of
+                            you.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="highlight-card">
+                            <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Not a Workshop</h3>
+                            <p>Workshops are about consumption. MasteryLab is about transformation.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Not a Podcamp</h3>
+                            <p>Podcamps are about volume. MasteryLab is about individual refinement and technical depth.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Method -->
+        <section class="section-padding" style="background: rgba(255,255,255,0.02);">
+            <div class="container">
+                <h2 style="font-family: 'Anton'; font-size: 3.5rem; text-align: center; margin-bottom: 4rem;">THE LAB
+                    METHODOLOGY</h2>
+
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="method-step">
+                        <div class="step-number">01</div>
+                        <div>
+                            <h3 style="font-family: 'Anton'; margin-bottom: 0.5rem;">DECONSTRUCTION</h3>
+                            <p style="color: #aaa;">We break down complex body mechanics into their rawest components.
+                                We isolate why a movement works, not just how it looks.</p>
+                        </div>
+                    </div>
+
+                    <div class="method-step">
+                        <div class="step-number">02</div>
+                        <div>
+                            <h3 style="font-family: 'Anton'; margin-bottom: 0.5rem;">PRECISION DRILLING</h3>
+                            <p style="color: #aaa;">Intensity through repetition. We drill the fundamentals until they
+                                happen without thought, allowing artistry to flow from a solid foundation.</p>
+                        </div>
+                    </div>
+
+                    <div class="method-step">
+                        <div class="step-number">03</div>
+                        <div>
+                            <h3 style="font-family: 'Anton'; margin-bottom: 0.5rem;">ARTISTIC INTENT</h3>
+                            <p style="color: #aaa;">Connection isn't just physical; it's emotional and musical. We teach
+                                you how to use your technical mastery to express yourself uniquely.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="section-padding" style="text-align: center;">
+            <div class="container">
+                <h2 style="font-family: 'Anton'; font-size: 4rem; margin-bottom: 2rem;">READY TO TRANSFORM?</h2>
+                <p style="color: #ccc; margin-bottom: 3rem; max-width: 600px; margin-inline: auto;">
+                    Seats are strictly limited to ensure quality coaching and personal attention. Don't just attend
+                    another class. Enter the lab.
+                </p>
+                <a href="register" class="btn btn-hero-artistic">Start Your Journey</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo text-primary">MASTERYLAB</div>
+            <p class="copy">&copy; 2025 MasteryLab. All rights reserved. <br>Designed for Dancers.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+--- FILE: style.css ---
+/* =========================================
+   MASTERY LAB - PREMIUM DESIGN SYSTEM
+   ========================================= */
+
+:root {
+    /* --- Colors --- */
+    --color-primary: #D6001C;
+    /* Signature Red */
+    --color-primary-dark: #A50014;
+    --color-bg: #050505;
+    /* Deep Black */
+    --color-bg-alt: #0F0F0F;
+    /* Slightly Lighter Black */
+    --color-text-main: #FFFFFF;
+    --color-text-muted: #B0B0B0;
+    --color-border: rgba(255, 255, 255, 0.1);
+
+    /* --- Typography --- */
+    --font-heading: 'Anton', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+
+    --text-hero: clamp(3rem, 8vw, 6rem);
+    --text-h1: clamp(2.5rem, 5vw, 4rem);
+    --text-h2: clamp(2rem, 4vw, 3rem);
+    --text-h3: 1.5rem;
+    --text-body: 1rem;
+    --text-small: 0.875rem;
+
+    /* --- Spacing --- */
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 2rem;
+    /* 32px */
+    --spacing-lg: 4rem;
+    /* 64px */
+    --spacing-xl: 8rem;
+    /* 128px */
+
+    --container-width: 1400px;
+    --border-radius: 12px;
+}
+
+/* =========================================
+   RESET & BASE STYLES
+   ========================================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   TYPOGRAPHY
+   ========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #FFFFFF 0%, #AAAAAA 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+/* =========================================
+   LAYOUT UTILITIES
+   ========================================= */
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section-padding {
+    padding: var(--spacing-xl) 0;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+@media (max-width: 1024px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    :root {
+        --spacing-xl: 4rem;
+        --spacing-lg: 3rem;
+    }
+}
+
+/* =========================================
+   COMPONENTS
+   ========================================= */
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: #fff;
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 4px 15px rgba(214, 0, 28, 0.4);
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(214, 0, 28, 0.6);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.btn-outline:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* Artistic Hero Button */
+.btn-hero-artistic {
+    position: relative;
+    /* Electric Red Gradient */
+    background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    color: #fff;
+    /* Smaller size */
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 100, 100, 0.4);
+    overflow: hidden;
+    z-index: 1;
+    /* Electric Glow */
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.6),
+        0 0 30px rgba(255, 0, 51, 0.3),
+        inset 0 0 10px rgba(255, 255, 255, 0.2);
+    letter-spacing: 2px;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-hero-artistic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            /* Brighter shine */
+            transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn-hero-artistic:hover {
+    transform: scale(1.05) translateY(-2px);
+    /* Intensified Electric Glow */
+    box-shadow: 0 0 25px rgba(255, 0, 51, 0.8),
+        0 0 50px rgba(255, 0, 51, 0.5),
+        inset 0 0 20px rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-hero-artistic:hover::before {
+    left: 100%;
+}
+
+
+/* Cards */
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    transition: all 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* =========================================
+   HEADER & NAVIGATION
+   ========================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0.5rem 0;
+    /* Slightly tighter navbar */
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 90px;
+    /* Smaller premium size */
+    margin-top: -15px;
+    /* Moved higher on desktop too */
+    margin-bottom: -30px;
+    /* Clean hanging effect */
+    filter: drop-shadow(0 0 12px rgba(214, 0, 28, 0.5));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 1001;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.nav-links a {
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    opacity: 1;
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding-top: 0.25rem;
+        padding-bottom: 0.75rem;
+        /* Added pad below as requested */
+    }
+
+    .logo img {
+        height: 80px;
+        margin-top: -15px;
+        /* Moved higher */
+        margin-bottom: -25px;
+    }
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Changed from center to move content to the left side */
+    overflow: hidden;
+    padding-top: 150px;
+    padding-left: 4%;
+    /* Added padding to keep content near the left edge but not touching it */
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    /* Removed brightness filter to clear "dark mist" as requested */
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 0%, var(--color-bg) 95%);
+    z-index: -1;
+    opacity: 0.3;
+    /* Significantly reduced to clear the "mist" while keeping a subtle edge shadow */
+}
+
+.hero-content {
+    text-align: left;
+    /* Changed from center to align left */
+    max-width: 900px;
+    z-index: 1;
+    padding: 0 var(--spacing-sm);
+    margin-left: 0;
+    /* Ensure it stays to the left */
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-title {
+    font-size: var(--text-hero);
+    margin-bottom: var(--spacing-md);
+    line-height: 1;
+    animation: fadeInUp 1s ease 0.2s backwards;
+}
+
+.hero-desc {
+    font-size: 1.35rem;
+    /* Larger for better readability */
+    color: rgba(255, 255, 255, 0.9);
+    /* Brighter than muted grey */
+    max-width: 700px;
+    /* Slightly wider to let text breathe */
+    margin: 0 auto var(--spacing-lg) auto;
+    font-weight: 400;
+    /* Increased from 300 to 400 for better legibility */
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    /* separation from bg */
+    animation: fadeInUp 1s ease 0.4s backwards;
+}
+
+.hero-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Changed to single column for vertical stacking */
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    max-width: 350px;
+    /* Keep cards compact vertically */
+    animation: fadeInUp 1s ease 0.6s backwards;
+}
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+}
+
+.hero-card:hover::before {
+    transform: scaleX(1);
+}
+
+.hero-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 12rem;
+        /* Adjusted for better spacing */
+        padding-bottom: 10rem;
+        /* Increased to ensure last card is fully visible */
+        overflow: visible;
+        /* CRITICAL: Allows content to scroll if it exceeds viewport */
+        display: block;
+        /* Disable flex centering on mobile to prevent alignment issues */
+    }
+
+    .hero-content {
+        padding-top: 2rem;
+        /* Add internal padding */
+    }
+
+    .hero-cards {
+        grid-template-columns: 1fr;
+        padding-bottom: 2rem;
+    }
+}
+
+/* =========================================
+   LAB SECTIONS
+   ========================================= */
+
+.lab-section {
+    position: relative;
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+}
+
+.lab-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.lab-info h2 {
+    font-size: var(--text-h1);
+    margin-bottom: var(--spacing-sm);
+}
+
+.lab-info p {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+}
+
+.lab-image {
+    position: relative;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.lab-image img {
+    width: 100%;
+    transition: transform 0.6s ease;
+}
+
+.lab-section:hover .lab-image img {
+    transform: scale(1.05);
+}
+
+.lab-section.alt .lab-content {
+    direction: rtl;
+    /* Flip order visually */
+}
+
+.lab-section.alt .lab-info {
+    direction: ltr;
+    /* Reset text direction */
+}
+
+@media (max-width: 968px) {
+    .lab-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .lab-section.alt .lab-content {
+        direction: ltr;
+    }
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    padding: var(--spacing-lg) 0;
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    display: inline-block;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.copy {
+    color: var(--color-text-muted);
+    font-size: var(--text-small);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.glitch-effect {
+    position: relative;
+}
+
+.glitch-effect::before,
+.glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================================
+   AUTH & FORMS
+   ========================================= */
+
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-left: 2rem;
+}
+
+.auth-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-link:hover {
+    opacity: 1;
+    color: var(--color-primary);
+}
+
+.btn-auth-highlight {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #B00017 100%);
+    color: white !important;
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 15px rgba(214, 0, 28, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-auth-highlight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(214, 0, 28, 0.5);
+}
+
+/* Authentication Pages */
+.auth-page {
+    min-height: 100vh;
+    padding-top: 120px;
+    background: radial-gradient(circle at top right, #1a0003 0%, #050505 60%);
+}
+
+.auth-benefits {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.auth-benefits h1 {
+    font-size: var(--text-h1);
+    margin-bottom: var(--spacing-md);
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.benefit-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.auth-form-container {
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(214, 0, 28, 0.2);
+}
+
+textarea.form-input {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Contact Section */
+#contact {
+    background: radial-gradient(circle at center, #1a0003 0%, #050505 100%);
+    position: relative;
+    border-top: 1px solid var(--color-border);
+}
+
+.contact-form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 2rem;
+    }
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Futuristic Text Effect */
+.text-futuristic {
+    font-family: var(--font-heading);
+    font-size: var(--text-h1);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.text-futuristic::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: var(--color-primary);
+    overflow: hidden;
+    white-space: nowrap;
+    animation: fillText 3s linear infinite alternate;
+    border-right: 2px solid var(--color-primary);
+    filter: drop-shadow(0 0 5px var(--color-primary));
+}
+
+@keyframes fillText {
+    0% {
+        width: 0;
+        opacity: 0.5;
+    }
+
+    50% {
+        width: 50%;
+        opacity: 1;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+/* =========================================
+   BENEFITS GRID (Redesign)
+   ========================================= */
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+.benefit-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 3rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-primary);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.benefit-card:hover::before {
+    opacity: 1;
+}
+
+/* Large Background Number */
+.benefit-index {
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+    font-size: 8rem;
+    font-family: var(--font-heading);
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    z-index: 0;
+    transition: all 0.4s ease;
+    user-select: none;
+}
+
+.benefit-card:hover .benefit-index {
+    color: rgba(214, 0, 28, 0.1);
+    transform: scale(1.1);
+}
+
+.benefit-content {
+    position: relative;
+    z-index: 1;
+}
+
+.benefit-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.benefit-icon {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    filter: drop-shadow(0 0 5px var(--color-primary));
+}
+
+.benefit-desc {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+@media (max-width: 768px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .benefit-card {
+        padding: 2rem;
+    }
+
+    .benefit-index {
+        font-size: 6rem;
+    }
+}
+
+/* =========================================
+   MODAL STYLES
+   ========================================= */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+--- FILE: script.js ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Mobile Menu Toggle (Simple version)
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'rgba(10, 10, 15, 0.95)';
+                navLinks.style.padding = '2rem';
+            }
+        });
+    }
+
+    // Modal Logic
+    const modal = document.getElementById('regModal');
+    const openBtns = document.querySelectorAll('a[href="#book"]');
+    const closeBtn = document.getElementById('closeModal');
+    const regForm = document.getElementById('regForm');
+
+    if (modal) {
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+    }
+
+    // Form Submission (Standalone or Modal)
+    if (regForm) {
+        regForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                city: document.getElementById('city').value,
+                role: document.getElementById('role').value,
+                email: document.getElementById('email').value,
+                whatsapp: document.getElementById('whatsapp').value
+            };
+
+            // 1. DATA SAVING: Send to Google Sheets (Silent Background)
+            const googleSheetUrl = "https://script.google.com/macros/s/AKfycbxbleUuZYNKhQhW87bakoOiRSCKB2cW-AiH0dxnoq7J9y43Q8feTvY1Sji_9_wm_T8/exec";
+
+            fetch(googleSheetUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                cache: 'no-cache',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                redirect: 'follow',
+                body: JSON.stringify(formData),
+                keepalive: true
+            });
+
+            // 2. EMAIL & REDIRECT: Trigger Native FormSubmit (Visual Foreground)
+            // This ensures you get the email even if Google Sheets has an issue.
+            setTimeout(() => {
+                this.submit();
+            }, 300);
+        });
+    }
+
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+
+    // Add visible class styling dynamically
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Scrollspy for Homepage Side Nav
+    const sideNavLinks = document.querySelectorAll('.side-nav a');
+    const sections = document.querySelectorAll('section.hero-link, section.track-section');
+
+    if (sideNavLinks.length > 0 && sections.length > 0) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px', // Trigger when section is in middle of viewport
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    sideNavLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.dataset.target === id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    }
+});
+
+
+--- FILE: supabase.js ---
+
+// Import Supabase from the CDN (Available because we added the script tag in HTML)
+// We will assume the script tag is added in the HTML files: 
+// <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    // --- CONFIGURATION ---
+    const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_gfFO5p9hUe2UIoGn3dRYWg_bDqKgbSj';
+
+    // Initialize the client with safety check
+    let supabase;
+    if (window.supabase && window.supabase.createClient) {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    } else {
+        console.error("Supabase SDK not loaded inside supabase.js. Checking if script tag exists...");
+    }
+
+    // Helper functions attached to window
+    window.registerUser = async function (email, password, metadata) {
+        if (!supabase) return { error: { message: "Supabase not initialized" } };
+        return await supabase.auth.signUp({
+            email, password, options: { data: metadata }
+        });
+    }
+
+    window.loginUser = async function (email, password) {
+        if (!supabase) return { error: { message: "Supabase not initialized" } };
+        return await supabase.auth.signInWithPassword({ email, password });
+    }
+
+    window.getCurrentUser = async function () {
+        if (!supabase) return null;
+        const { data: { user } } = await supabase.auth.getUser();
+        return user;
+    }
+
+    window.requireAuth = async function () {
+        const user = await window.getCurrentUser();
+        if (!user) {
+            window.location.href = 'login';
+            return null;
+        }
+        return user;
+    }
+
+    window.logoutUser = async function () {
+        if (!supabase) return;
+        const { error } = await supabase.auth.signOut();
+        if (!error) window.location.href = '/';
+        return error;
+    }
+
+    console.log("Supabase helpers initialized.");
+});
+
+
+--- FILE: google_sheets_setup.md ---
+# Google Sheets Automation Setup Guide
+
+Follow these steps to link your registration form to a Google Sheet.
+
+## 1. Create the Google Sheet
+1. Open [sheets.new](https://sheets.new).
+2. Name the sheet (e.g., `M&M Registration 2026`).
+3. In the first row, add these exact headers:
+| Timestamp | First Name | Last Name | City | Role | Email | WhatsApp |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+
+## 2. Add the Automation Script
+1. In your Google Sheet, go to **Extensions** > **Apps Script**.
+2. Delete any code in the editor and paste the following:
+
+```javascript
+/*
+  MasteryLab Registration Handler
+  Handles POST requests, appends data to the active sheet,
+  and sends a confirmation email.
+*/
+
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = JSON.parse(e.postData.contents);
+    
+    // Create timestamp
+    var timestamp = new Date();
+    
+    // Append the row
+    sheet.appendRow([
+      timestamp,
+      data.firstName,
+      data.lastName,
+      data.city,
+      data.role,
+      data.email,
+      data.whatsapp
+    ]);
+    
+    // Send automatic email notification
+    var adminEmail = "labmastery@outlook.com";
+    var subject = "New M&M Registration: " + data.firstName + " " + data.lastName;
+    var body = "You have a new registration for the M&M Lab!\n\n" +
+               "Name: " + data.firstName + " " + data.lastName + "\n" +
+               "Email: " + data.email + "\n" +
+               "WhatsApp: " + data.whatsapp + "\n" +
+               "City: " + data.city + "\n" +
+               "Role: " + data.role + "\n\n" +
+               "This data has also been saved to your Google Sheet.";
+               
+    MailApp.sendEmail(adminEmail, subject, body);
+    
+    return ContentService.createTextOutput("Success").setMimeType(ContentService.MimeType.TEXT);
+    
+  } catch (error) {
+    return ContentService.createTextOutput("Error: " + error.toString()).setMimeType(ContentService.MimeType.TEXT);
+  }
+}
+```
+
+## 4. NEW: Dual Submission Strategy (Highly Recommended)
+To ensure 100% reliable email delivery and automatic redirects, we now use **FormSubmit.co** alongside Google Sheets.
+
+### How it works:
+1.  **Google Sheets (Background)**: Data is sent silently to your sheet.
+2.  **FormSubmit (Foreground)**: The form then submits normally to FormSubmit, which:
+    *   Sends a beautifully formatted email to `labmastery@outlook.com`.
+    *   Redirects the user to your Stripe payment link.
+    *   Handles SPAM protection (CAPTCHA can be disabled).
+
+### Steps to update your HTML:
+Ensure your `<form>` tag looks like this:
+```html
+<form action="https://formsubmit.co/labmastery@outlook.com" method="POST">
+  <input type="hidden" name="_next" value="YOUR_STRIPE_URL">
+  <!-- ... your inputs ... -->
+</form>
+```
+
+## 5. Link to the Website
+Once you have the URL, please paste it here so I can update the code for you, or you can update the `googleSheetUrl` variable in `script.js` yourself.
+
+## 6. Troubleshooting Emails
+- **Check Spam**: The email from `labmastery@outlook.com` might be in your Junk folder.
+- **Sent Folder**: Check the **Sent** folder of the Gmail account you used to deploy the script. If the email is there, it means Google sent it successfully.
+- **Authorizations**: If prompted, ensure you granted the script permission to **"Send email on your behalf"**.
+
+
+--- FILE: README.md ---
+# MasterzLab
+
+Welcome to **MasterzLab** - Where Movement Meets Passion.
+
+This is the official website for MasterzLab, a premier dancing studio and community.
+
+## Tech Stack
+- HTML5
+- CSS3 (Custom Design)
+- JavaScript
+
+## Setup
+Simply open `index.html` in your web browser to view the site.
+
+

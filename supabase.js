@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.requireAuth = async function () {
         const user = await window.getCurrentUser();
         if (!user) {
-            window.location.href = 'login.html';
+            window.location.href = 'login';
             return null;
         }
         return user;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.logoutUser = async function () {
         if (!supabase) return;
         const { error } = await supabase.auth.signOut();
-        if (!error) window.location.href = 'index.html';
+        if (!error) window.location.href = '/';
         return error;
     }
 
