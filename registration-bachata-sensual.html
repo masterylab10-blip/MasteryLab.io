@@ -168,9 +168,16 @@
                     </div>
 
                     <button type="submit" class="btn-primary"
-                        style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4);">
-                        PROCEED TO PAYMENT
+                        style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4); transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); transform-style: preserve-3d; perspective: 1000px; position: relative;">
+                        <span style="display: block; transform: translateZ(10px);">PROCEED TO PAYMENT</span>
                     </button>
+
+                    <style>
+                        .btn-primary:hover {
+                            transform: rotateX(10deg) rotateY(5deg) scale(1.02) translateY(-5px);
+                            box-shadow: -5px 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(214, 0, 28, 0.4);
+                        }
+                    </style>
 
                     <p
                         style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 1.5rem; line-height: 1.4;">

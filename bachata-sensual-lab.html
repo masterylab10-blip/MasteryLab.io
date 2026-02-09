@@ -258,7 +258,7 @@
                     </div>
                     <h4 class="card-title">DATES & SCHEDULE</h4>
                     <div class="card-divider"></div>
-                    <div class="card-info">Weekend 1: Sept 25 - 27, 2026</div>
+                    <div class="card-info">Weekend 1: June 26 - 28, 2026</div>
                     <div class="card-info" style="font-size: 1rem; margin-top: 0.5rem; opacity: 0.6;">Location: Olten,
                         Switzerland</div>
                 </div>
@@ -324,11 +324,11 @@
                 <div class="schedule-card bronze">
                     <div class="calendar-icon">
                         <div class="cal-header"></div>
-                        <div class="cal-body">30</div>
+                        <div class="cal-body">16</div>
                     </div>
                     <h4 class="card-title">DATES & SCHEDULE</h4>
                     <div class="card-divider"></div>
-                    <div class="card-info">Weekend 2: Oct 30 - Nov 1, 2026</div>
+                    <div class="card-info">Weekend 2: Oct 16 - 18, 2026</div>
                     <div class="card-info" style="font-size: 1rem; margin-top: 0.5rem; opacity: 0.6;">Location: Olten,
                         Switzerland</div>
                 </div>
@@ -395,11 +395,11 @@
                 <div class="schedule-card gold">
                     <div class="calendar-icon">
                         <div class="cal-header"></div>
-                        <div class="cal-body">27</div>
+                        <div class="cal-body">?</div>
                     </div>
                     <h4 class="card-title">DATES & SCHEDULE</h4>
                     <div class="card-divider"></div>
-                    <div class="card-info">Weekend 3: Nov 27 - 29, 2026</div>
+                    <div class="card-info">Weekend 3: Coming Soon</div>
                     <div class="card-info" style="font-size: 1rem; margin-top: 0.5rem; opacity: 0.6;">Location: Olten,
                         Switzerland</div>
                 </div>
@@ -880,12 +880,28 @@
             letter-spacing: 2px;
             position: relative;
             z-index: 1;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             border-radius: 100px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 0 20px rgba(255, 0, 51, 0.2);
             margin-top: 1rem;
-            overflow: hidden;
+            overflow: visible;
+            /* Changed to visible to show depth */
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        /* Depth Layer */
+        .btn-book-now::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 100px;
+            transform: translateZ(-10px);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0;
+            z-index: -1;
         }
 
         .btn-book-now::before {
@@ -910,6 +926,10 @@
             padding-left: 4rem;
             /* Match parent padding to align text */
             box-sizing: border-box;
+            border-radius: 100px;
+            /* Ensure match */
+            transform: translateZ(10px);
+            /* Lift the scanned text */
         }
 
         .btn-book-now .ticket-icon {
@@ -919,6 +939,8 @@
             position: relative;
             z-index: 3;
             filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+            transform: translateZ(15px);
+            /* Highest lift */
         }
 
         @keyframes fillBtn {
@@ -932,9 +954,16 @@
         }
 
         .btn-book-now:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 0 40px rgba(255, 0, 51, 0.6);
+            transform: rotateX(10deg) rotateY(15deg) scale(1.05) translateY(-5px);
+            box-shadow:
+                -10px 10px 30px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(255, 0, 51, 0.6);
             border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-book-now:hover::after {
+            opacity: 1;
+            transform: translateZ(-20px) translateY(10px) translateX(-5px);
         }
 
 
