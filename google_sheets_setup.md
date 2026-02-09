@@ -2,10 +2,12 @@
 
 Follow these steps to link your registration form to a Google Sheet.
 
-## 1. Create the Google Sheet
-1. Open [sheets.new](https://sheets.new).
-2. Name the sheet (e.g., `M&M Registration 2026`).
-3. In the first row, add these exact headers:
+## 1. Open Your Sheet
+You have provided this specific sheet:
+[M&M Registration Sheet](https://docs.google.com/spreadsheets/d/1Pql2BUqT-V_2HWOdRPB-R57z88hRZa1k07I-dcNY_bI/edit?gid=0#gid=0)
+
+1. Open the link above.
+2. Ensure the first row has these exact headers:
 | Timestamp | First Name | Last Name | City | Role | Email | WhatsApp |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 
