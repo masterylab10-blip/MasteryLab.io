@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | MasteryLab</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Anton&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="media/favicon.png" type="image/png">
+    <style>
+        .profile-container {
+            max-width: 800px;
+            margin: 120px auto 60px;
+            padding: 2rem;
+            color: #fff;
+        }
+
+        .profile-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        input:disabled {
+            color: #666;
+            cursor: not-allowed;
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-save {
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-save:hover {
+            background: #b00018;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(214, 0, 28, 0.3);
+        }
+
+        .btn-logout {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #aaa;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        #messageBox {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="media/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn-outline">Home</a>
+                <button onclick="handleLogout()" class="nav-btn-outline"
+                    style="border-color: #ff6b6b; color: #ff6b6b;">Sign Out</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div>
+                    <h1 style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 0.5rem;">MY PROFILE</h1>
+                    <p style="color: #888;">Manage your personal information</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <form id="profileForm">
+                    <div class="form-grid">
+                        <div class="full-width">
+                            <label>Email Address</label>
+                            <input type="email" id="email" disabled>
+                        </div>
+
+                        <div>
+                            <label>First Name</label>
+                            <input type="text" id="firstName">
+                        </div>
+                        <div>
+                            <label>Last Name</label>
+                            <input type="text" id="lastName">
+                        </div>
+
+                        <div>
+                            <label>City of Residence</label>
+                            <input type="text" id="city">
+                        </div>
+                        <div>
+                            <label>Role In Community</label>
+                            <select id="role">
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Dancer">Dancer</option>
+                                <option value="Performer">Performer</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="full-width">
+                            <label>WhatsApp Number</label>
+                            <input type="tel" id="whatsapp">
+                        </div>
+                    </div>
+
+                    <div id="messageBox"></div>
+
+                    <div style="text-align: right;">
+                        <button type="submit" class="btn-save" id="saveBtn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase Client -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        // --- Supabase Config ---
+        const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQxRI';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        let currentUser = null;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check Session
+            const { data: { session } } = await supabaseClient.auth.getSession();
+
+            if (!session) {
+                window.location.href = 'auth.html';
+                return;
+            }
+
+            currentUser = session.user;
+            document.getElementById('email').value = currentUser.email;
+
+            // Load Profile Data
+            const { data: profile, error } = await supabaseClient
+                .from('profiles')
+                .select('*')
+                .eq('id', currentUser.id)
+                .single();
+
+            if (profile) {
+                document.getElementById('firstName').value = profile.first_name || '';
+                document.getElementById('lastName').value = profile.last_name || '';
+                document.getElementById('city').value = profile.city || '';
+                document.getElementById('role').value = profile.role || 'Student';
+                document.getElementById('whatsapp').value = profile.whatsapp || '';
+            } else if (error && error.code !== 'PGRST116') { // PGRST116 = not found
+                console.error('Error fetching profile:', error);
+            }
+        });
+
+        // Handle Update
+        document.getElementById('profileForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('saveBtn');
+            const msgBox = document.getElementById('messageBox');
+
+            btn.disabled = true;
+            btn.innerText = 'Saving...';
+            msgBox.style.display = 'none';
+
+            const updates = {
+                id: currentUser.id,
+                first_name: document.getElementById('firstName').value,
+                last_name: document.getElementById('lastName').value,
+                city: document.getElementById('city').value,
+                role: document.getElementById('role').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                updated_at: new Date()
+            };
+
+            const { error } = await supabaseClient
+                .from('profiles')
+                .upsert(updates);
+
+            btn.disabled = false;
+            btn.innerText = 'Save Changes';
+            msgBox.style.display = 'block';
+
+            if (error) {
+                msgBox.innerText = 'Error saving profile: ' + error.message;
+                msgBox.style.backgroundColor = 'rgba(255, 107, 107, 0.2)';
+                msgBox.style.color = '#ff6b6b';
+            } else {
+                msgBox.innerText = 'Profile updated successfully!';
+                msgBox.style.backgroundColor = 'rgba(76, 175, 80, 0.2)';
+                msgBox.style.color = '#4cd137';
+            }
+        });
+
+        // Handle Logout
+        async function handleLogout() {
+            await supabaseClient.auth.signOut();
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+
+</html>

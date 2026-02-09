@@ -116,7 +116,13 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script>
+        // --- Supabase Config ---
+        const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQxRI';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
         // --- Authentication Logic ---
 
         // Get redirect parameters
@@ -159,16 +165,6 @@
             el.style.display = 'block';
         }
 
-        // Hashing
-        async function hashPassword(password) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password);
-            const hash = await crypto.subtle.digest('SHA-256', data);
-            return Array.from(new Uint8Array(hash))
-                .map(b => b.toString(16).padStart(2, '0'))
-                .join('');
-        }
-
         // --- Sign Up ---
         document.getElementById('signUpForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -187,38 +183,53 @@
                 return;
             }
 
-            // Check existing user
-            const users = JSON.parse(localStorage.getItem('masterylab_users') || '{}');
-            if (users[email]) {
-                showMessage('An account with this email already exists.', true);
+            // 1. Sign Up Auth User
+            const { data, error } = await supabaseClient.auth.signUp({
+                email: email,
+                password: password
+            });
+
+            if (error) {
+                showMessage(error.message, true);
                 return;
             }
 
-            // Create User Object
-            const hashedPassword = await hashPassword(password);
-            const newUser = {
-                firstName,
-                lastName,
-                email,
-                city,
-                role,
-                whatsapp,
-                password: hashedPassword,
-                createdAt: new Date().toISOString()
-            };
+            // 2. Insert into Profiles Table
+            if (data.user) {
+                const { error: profileError } = await supabaseClient
+                    .from('profiles')
+                    .insert([
+                        {
+                            id: data.user.id,
+                            first_name: firstName,
+                            last_name: lastName,
+                            city: city,
+                            role: role,
+                            whatsapp: whatsapp
+                        }
+                    ]);
 
-            // Save
-            users[email] = newUser;
-            localStorage.setItem('masterylab_users', JSON.stringify(users));
+                if (profileError) {
+                    console.error('Profile creation error:', profileError);
+                    // We continue anyway, as the account is created
+                    if (profileError.code === '42P01') {
+                        // Table doesn't exist hint
+                        showMessage('Account created, but profile failed (Table missing). Contact admin.', true);
+                        return;
+                    }
+                }
+            }
 
-            // Set Current Session
-            // We strip the password from the session object for safety
-            const sessionUser = { ...newUser };
-            delete sessionUser.password;
+            showMessage('Account created! checking for confirmation...');
+            // Check if session is established (if email confirmation is off)
+            const { data: sessionData } = await supabaseClient.auth.getSession();
 
-            localStorage.setItem('masterylab_current_user', JSON.stringify(sessionUser));
+            if (!sessionData.session && !error) {
+                showMessage('Please check your email to confirm your account!', false);
+                return;
+            }
 
-            showMessage('Account created! Redirecting...');
+            showMessage('Account active! Redirecting...');
 
             // Redirect
             let redirectUrl = redirectTo;
@@ -242,24 +253,15 @@
             const email = document.getElementById('signInEmail').value.trim().toLowerCase();
             const password = document.getElementById('signInPassword').value;
 
-            const users = JSON.parse(localStorage.getItem('masterylab_users') || '{}');
-            const user = users[email];
+            const { data, error } = await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
 
-            if (!user) {
-                showMessage('No account found with this email.', true);
+            if (error) {
+                showMessage(error.message, true);
                 return;
             }
-
-            const hashedPassword = await hashPassword(password);
-            if (user.password !== hashedPassword) {
-                showMessage('Incorrect password.', true);
-                return;
-            }
-
-            // Set Session
-            const sessionUser = { ...user };
-            delete sessionUser.password;
-            localStorage.setItem('masterylab_current_user', JSON.stringify(sessionUser));
 
             showMessage('Sign in successful! Redirecting...');
 

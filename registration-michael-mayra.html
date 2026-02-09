@@ -192,6 +192,78 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
+        // --- Supabase Config ---
+        const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQxRI';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check for authentication
+            const { data: { session } } = await supabaseClient.auth.getSession();
+
+            if (!session) {
+                // User not logged in, redirect to auth page
+                const currentUrl = window.location.href;
+                const urlObj = new URL(currentUrl);
+                const params = new URLSearchParams(urlObj.search);
+
+                // Construct redirect URL to auth page
+                let authUrl = `auth.html?redirect=registration-michael-mayra.html`;
+
+                if (params.has('track')) authUrl += `&track=${params.get('track')}`;
+                if (params.has('level')) authUrl += `&level=${params.get('level')}`;
+
+                window.location.href = authUrl;
+                return;
+            }
+
+            // User is logged in, fetch profile and pre-fill form
+            let currentUser = session.user;
+
+            // Fetch Profile Data
+            const { data: profile } = await supabaseClient
+                .from('profiles')
+                .select('*')
+                .eq('id', currentUser.id)
+                .single();
+
+            // Merge Auth User and Profile
+            if (profile) {
+                currentUser = { ...currentUser, ...profile };
+            }
+
+            if (currentUser) {
+                // Pre-fill fields
+                const fields = {
+                    'firstName': currentUser.first_name || currentUser.user_metadata?.first_name,
+                    'lastName': currentUser.last_name || currentUser.user_metadata?.last_name,
+                    'email': currentUser.email,
+                    'city': currentUser.city || currentUser.user_metadata?.city,
+                    'role': currentUser.role || currentUser.user_metadata?.role,
+                    'whatsapp': currentUser.whatsapp || currentUser.user_metadata?.whatsapp
+                };
+
+                // Apply to inputs
+                for (const [id, value] of Object.entries(fields)) {
+                    const input = document.getElementById(id);
+                    if (input && value) {
+                        input.value = value;
+                    }
+                }
+            }
+
+            // Show welcome message
+            const container = document.querySelector('.registration-container');
+            if (container) {
+                const displayName = currentUser.first_name || currentUser.email;
+                const welcomeMsg = document.createElement('div');
+                welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${displayName}</strong></p>`;
+                container.insertBefore(welcomeMsg, container.firstChild);
+            }
+        });
+    </script>
 </body>
 
 </html>

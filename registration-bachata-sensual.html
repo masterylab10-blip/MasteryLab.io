@@ -198,20 +198,24 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Check for authentication
-            const currentUser = JSON.parse(localStorage.getItem('masterylab_current_user'));
+        // --- Supabase Config ---
+        const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQiRI';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-            if (!currentUser) {
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check for authentication
+            const { data: { session } } = await supabaseClient.auth.getSession();
+
+            if (!session) {
                 // User not logged in, redirect to auth page
                 const currentUrl = window.location.href;
                 const urlObj = new URL(currentUrl);
                 const params = new URLSearchParams(urlObj.search);
 
                 // Construct redirect URL to auth page
-                // We encode the current page as the 'redirect' parameter
-                // We also pass through any 'track' or 'level' parameters
                 let authUrl = `auth.html?redirect=registration-bachata-sensual.html`;
 
                 if (params.has('track')) authUrl += `&track=${params.get('track')}`;
@@ -221,24 +225,31 @@
                 return;
             }
 
-            // User is logged in, pre-fill form
-            if (currentUser) {
-                // Pre-fill fields if they exist in the user object
-                const fields = {
-                    'firstName': currentUser.firstName,
-                    'lastName': currentUser.lastName,
-                    'email': currentUser.email,
-                    'city': currentUser.city,
-                    'role': currentUser.role,
-                    'whatsapp': currentUser.whatsapp
-                };
+            // User is logged in, fetch profile and pre-fill form
+            let currentUser = session.user;
 
-                // Handle legacy 'name' field if firstName is missing
-                if (!fields['firstName'] && currentUser.name) {
-                    const nameParts = currentUser.name.split(' ');
-                    fields['firstName'] = nameParts[0];
-                    fields['lastName'] = nameParts.slice(1).join(' ') || '';
-                }
+            // Fetch Profile Data
+            const { data: profile } = await supabaseClient
+                .from('profiles')
+                .select('*')
+                .eq('id', currentUser.id)
+                .single();
+
+            // Merge Auth User and Profile
+            if (profile) {
+                currentUser = { ...currentUser, ...profile };
+            }
+
+            if (currentUser) {
+                // Pre-fill fields
+                const fields = {
+                    'firstName': currentUser.first_name || currentUser.user_metadata?.first_name,
+                    'lastName': currentUser.last_name || currentUser.user_metadata?.last_name,
+                    'email': currentUser.email,
+                    'city': currentUser.city || currentUser.user_metadata?.city,
+                    'role': currentUser.role || currentUser.user_metadata?.role,
+                    'whatsapp': currentUser.whatsapp || currentUser.user_metadata?.whatsapp
+                };
 
                 // Apply to inputs
                 for (const [id, value] of Object.entries(fields)) {
@@ -252,7 +263,7 @@
             // Show welcome message
             const container = document.querySelector('.registration-container');
             if (container) {
-                const displayName = currentUser.firstName || currentUser.name || currentUser.email;
+                const displayName = currentUser.first_name || currentUser.email;
                 const welcomeMsg = document.createElement('div');
                 welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${displayName}</strong></p>`;
                 container.insertBefore(welcomeMsg, container.firstChild);
