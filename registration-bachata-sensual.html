@@ -222,33 +222,39 @@
             }
 
             // User is logged in, pre-fill form
-            if (currentUser.name) {
-                // Split name into first and last name (simple split)
-                const nameParts = currentUser.name.split(' ');
-                const firstName = nameParts[0];
-                const lastName = nameParts.slice(1).join(' ') || '';
+            if (currentUser) {
+                // Pre-fill fields if they exist in the user object
+                const fields = {
+                    'firstName': currentUser.firstName,
+                    'lastName': currentUser.lastName,
+                    'email': currentUser.email,
+                    'city': currentUser.city,
+                    'role': currentUser.role,
+                    'whatsapp': currentUser.whatsapp
+                };
 
-                const firstNameInput = document.getElementById('firstName');
-                const lastNameInput = document.getElementById('lastName');
+                // Handle legacy 'name' field if firstName is missing
+                if (!fields['firstName'] && currentUser.name) {
+                    const nameParts = currentUser.name.split(' ');
+                    fields['firstName'] = nameParts[0];
+                    fields['lastName'] = nameParts.slice(1).join(' ') || '';
+                }
 
-                if (firstNameInput) firstNameInput.value = firstName;
-                if (lastNameInput) lastNameInput.value = lastName;
-            }
-
-            if (currentUser.email) {
-                const emailInput = document.getElementById('email');
-                if (emailInput) {
-                    emailInput.value = currentUser.email;
-                    // Optional: Make read-only to prevent changing email if desired
-                    // emailInput.readOnly = true; 
+                // Apply to inputs
+                for (const [id, value] of Object.entries(fields)) {
+                    const input = document.getElementById(id);
+                    if (input && value) {
+                        input.value = value;
+                    }
                 }
             }
 
             // Show welcome message
             const container = document.querySelector('.registration-container');
-            if (container && currentUser.name) {
+            if (container) {
+                const displayName = currentUser.firstName || currentUser.name || currentUser.email;
                 const welcomeMsg = document.createElement('div');
-                welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${currentUser.name}</strong></p>`;
+                welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${displayName}</strong></p>`;
                 container.insertBefore(welcomeMsg, container.firstChild);
             }
 

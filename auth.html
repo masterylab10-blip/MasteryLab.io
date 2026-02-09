@@ -8,150 +8,124 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&family=Anton&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Anton&display=swap"
         rel="stylesheet">
     <link rel="icon" href="media/favicon.png" type="image/png">
 </head>
 
-<body style="background: #050505; color: white; overflow-x: hidden;">
+<body>
 
     <!-- Navigation -->
-    <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+    <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="media/logo-wings.png" alt="MasteryLab Logo">
             </a>
+            <div class="nav-links">
+                <!-- Additional nav links if needed -->
+            </div>
         </div>
     </nav>
 
-    <!-- Auth Section -->
-    <section
-        style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px 50px;">
-        <div class="glass-card" style="max-width: 500px; width: 100%; padding: 3rem;">
-            <h1 style="font-family: 'Anton'; font-size: 2.5rem; text-align: center; margin-bottom: 1rem;">
-                <span class="text-gradient">WELCOME TO</span><br>
-                <span class="text-gradient-red">MASTERYLAB</span>
-            </h1>
-            <p style="text-align: center; color: #aaa; margin-bottom: 2.5rem;">
-                Sign in or create an account to continue with your registration
-            </p>
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <div class="auth-card-dark">
 
-            <!-- Tab Switcher -->
-            <div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
-                <button id="signInTab" class="auth-tab active" onclick="switchTab('signIn')">Sign In</button>
-                <button id="signUpTab" class="auth-tab" onclick="switchTab('signUp')">Create Account</button>
+            <!-- Sign In View -->
+            <div id="signInView">
+                <h1 class="auth-title">SIGN IN</h1>
+
+                <form id="signInForm">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label class="auth-label-dark" for="signInEmail">EMAIL ADDRESS</label>
+                        <input type="email" id="signInEmail" class="auth-input-dark" required>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label class="auth-label-dark" for="signInPassword">PASSWORD</label>
+                        <input type="password" id="signInPassword" class="auth-input-dark" required>
+                    </div>
+
+                    <button type="submit" class="btn-auth-red">SIGN IN</button>
+                </form>
+
+                <p class="auth-switch-text">
+                    Don't have an account?
+                    <a href="#" class="auth-switch-link" onclick="switchView('signUp')">Create Account</a>
+                </p>
             </div>
 
-            <!-- Sign In Form -->
-            <form id="signInForm" class="auth-form">
-                <div class="form-group">
-                    <label for="signInEmail">Email</label>
-                    <input type="email" id="signInEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="signInPassword">Password</label>
-                    <input type="password" id="signInPassword" required>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1.5rem;">
-                    SIGN IN
-                </button>
-            </form>
+            <!-- Sign Up View -->
+            <div id="signUpView" style="display: none;">
+                <h1 class="auth-title">CREATE ACCOUNT</h1>
 
-            <!-- Sign Up Form -->
-            <form id="signUpForm" class="auth-form" style="display: none;">
-                <div class="form-group">
-                    <label for="signUpName">Full Name</label>
-                    <input type="text" id="signUpName" required>
-                </div>
-                <div class="form-group">
-                    <label for="signUpEmail">Email</label>
-                    <input type="email" id="signUpEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="signUpPassword">Password</label>
-                    <input type="password" id="signUpPassword" required minlength="6">
-                    <small style="color: #aaa; font-size: 0.85rem;">Minimum 6 characters</small>
-                </div>
-                <div class="form-group">
-                    <label for="signUpPasswordConfirm">Confirm Password</label>
-                    <input type="password" id="signUpPasswordConfirm" required minlength="6">
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1.5rem;">
-                    CREATE ACCOUNT
-                </button>
-            </form>
+                <form id="signUpForm">
+                    <div class="auth-form-grid">
+                        <!-- Row 1: Names -->
+                        <div>
+                            <label class="auth-label-dark" for="signUpFirstName">FIRST NAME</label>
+                            <input type="text" id="signUpFirstName" class="auth-input-dark" required>
+                        </div>
+                        <div>
+                            <label class="auth-label-dark" for="signUpLastName">LAST NAME</label>
+                            <input type="text" id="signUpLastName" class="auth-input-dark" required>
+                        </div>
 
-            <!-- Error/Success Messages -->
-            <div id="authMessage" style="margin-top: 1.5rem; padding: 1rem; border-radius: 10px; display: none;"></div>
+                        <!-- Row 2: Email -->
+                        <div class="auth-field-full">
+                            <label class="auth-label-dark" for="signUpEmail">EMAIL ADDRESS</label>
+                            <input type="email" id="signUpEmail" class="auth-input-dark" required>
+                        </div>
+
+                        <!-- Row 3: City & Role -->
+                        <div>
+                            <label class="auth-label-dark" for="signUpCity">CITY OF RESIDENCE</label>
+                            <input type="text" id="signUpCity" class="auth-input-dark" placeholder="e.g. Basel"
+                                required>
+                        </div>
+                        <div>
+                            <label class="auth-label-dark" for="signUpRole">ROLE In Community</label>
+                            <select id="signUpRole" class="auth-input-dark" required style="cursor: pointer;">
+                                <option value="" disabled selected>Select Role</option>
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Dancer">Dancer</option>
+                                <option value="Performer">Performer</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Row 4: WhatsApp -->
+                        <div class="auth-field-full">
+                            <label class="auth-label-dark" for="signUpWhatsapp">WHATSAPP NUMBER</label>
+                            <input type="tel" id="signUpWhatsapp" class="auth-input-dark"
+                                placeholder="+41 79 123 45 67">
+                        </div>
+
+                        <!-- Row 5: Password -->
+                        <div class="auth-field-full">
+                            <label class="auth-label-dark" for="signUpPassword">PASSWORD</label>
+                            <input type="password" id="signUpPassword" class="auth-input-dark" required minlength="6">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-auth-red">REGISTER NOW</button>
+                </form>
+
+                <p class="auth-switch-text">
+                    Already have an account?
+                    <a href="#" class="auth-switch-link" onclick="switchView('signIn')">Sign In</a>
+                </p>
+            </div>
+
+            <!-- Messages -->
+            <div id="authMessage" style="margin-top: 1.5rem; text-align: center; font-weight: 600; display: none;">
+            </div>
+
         </div>
-    </section>
-
-    <style>
-        .auth-tab {
-            flex: 1;
-            padding: 1rem;
-            background: transparent;
-            border: none;
-            color: #aaa;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
-        }
-
-        .auth-tab.active {
-            color: var(--color-primary);
-            border-bottom-color: var(--color-primary);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #ccc;
-            font-weight: 600;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 0.875rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .auth-message-success {
-            background: rgba(0, 255, 0, 0.1);
-            border: 1px solid rgba(0, 255, 0, 0.3);
-            color: #0f0;
-        }
-
-        .auth-message-error {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            color: #ff6b6b;
-        }
-    </style>
+    </div>
 
     <script>
-        // Simple local storage authentication (temporary solution)
-        // This stores user data in browser's localStorage
-        // Replace with Firebase when ready
+        // --- Authentication Logic ---
 
         // Get redirect parameters
         const urlParams = new URLSearchParams(window.location.search);
@@ -159,35 +133,32 @@
         const track = urlParams.get('track');
         const level = urlParams.get('level');
 
-        // Tab switching
-        function switchTab(tab) {
-            const signInForm = document.getElementById('signInForm');
-            const signUpForm = document.getElementById('signUpForm');
-            const signInTab = document.getElementById('signInTab');
-            const signUpTab = document.getElementById('signUpTab');
+        // View Switching
+        function switchView(view) {
+            const signInView = document.getElementById('signInView');
+            const signUpView = document.getElementById('signUpView');
+            const authMessage = document.getElementById('authMessage');
 
-            if (tab === 'signIn') {
-                signInForm.style.display = 'block';
-                signUpForm.style.display = 'none';
-                signInTab.classList.add('active');
-                signUpTab.classList.remove('active');
+            authMessage.style.display = 'none';
+
+            if (view === 'signIn') {
+                signInView.style.display = 'block';
+                signUpView.style.display = 'none';
             } else {
-                signInForm.style.display = 'none';
-                signUpForm.style.display = 'block';
-                signInTab.classList.remove('active');
-                signUpTab.classList.add('active');
+                signInView.style.display = 'none';
+                signUpView.style.display = 'block';
             }
         }
 
-        // Show message
-        function showMessage(message, isError = false) {
-            const messageDiv = document.getElementById('authMessage');
-            messageDiv.textContent = message;
-            messageDiv.className = isError ? 'auth-message-error' : 'auth-message-success';
-            messageDiv.style.display = 'block';
+        // Message Helper
+        function showMessage(msg, isError = false) {
+            const el = document.getElementById('authMessage');
+            el.textContent = msg;
+            el.style.color = isError ? '#ff6b6b' : '#4cd137';
+            el.style.display = 'block';
         }
 
-        // Hash password (simple hashing for demo - use proper hashing in production)
+        // Hashing
         async function hashPassword(password) {
             const encoder = new TextEncoder();
             const data = encoder.encode(password);
@@ -197,82 +168,115 @@
                 .join('');
         }
 
-        // Sign Up
+        // --- Sign Up ---
         document.getElementById('signUpForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const name = document.getElementById('signUpName').value;
-            const email = document.getElementById('signUpEmail').value;
-            const password = document.getElementById('signUpPassword').value;
-            const confirmPassword = document.getElementById('signUpPasswordConfirm').value;
 
-            if (password !== confirmPassword) {
-                showMessage('Passwords do not match', true);
+            const firstName = document.getElementById('signUpFirstName').value.trim();
+            const lastName = document.getElementById('signUpLastName').value.trim();
+            const email = document.getElementById('signUpEmail').value.trim().toLowerCase();
+            const city = document.getElementById('signUpCity').value.trim();
+            const role = document.getElementById('signUpRole').value;
+            const whatsapp = document.getElementById('signUpWhatsapp').value.trim();
+            const password = document.getElementById('signUpPassword').value;
+
+            // Simple validation
+            if (!firstName || !lastName || !email || !password || !city || !role) {
+                showMessage('Please fill in all required fields.', true);
                 return;
             }
 
-            // Check if user already exists
+            // Check existing user
             const users = JSON.parse(localStorage.getItem('masterylab_users') || '{}');
             if (users[email]) {
-                showMessage('An account with this email already exists', true);
+                showMessage('An account with this email already exists.', true);
                 return;
             }
 
-            // Create new user
+            // Create User Object
             const hashedPassword = await hashPassword(password);
-            users[email] = {
-                name: name,
-                email: email,
+            const newUser = {
+                firstName,
+                lastName,
+                email,
+                city,
+                role,
+                whatsapp,
                 password: hashedPassword,
                 createdAt: new Date().toISOString()
             };
 
+            // Save
+            users[email] = newUser;
             localStorage.setItem('masterylab_users', JSON.stringify(users));
-            localStorage.setItem('masterylab_current_user', JSON.stringify({ name, email }));
 
-            showMessage('Account created successfully! Redirecting...', false);
+            // Set Current Session
+            // We strip the password from the session object for safety
+            const sessionUser = { ...newUser };
+            delete sessionUser.password;
 
-            // Build redirect URL
+            localStorage.setItem('masterylab_current_user', JSON.stringify(sessionUser));
+
+            showMessage('Account created! Redirecting...');
+
+            // Redirect
             let redirectUrl = redirectTo;
-            if (track) redirectUrl += `?track=${track}`;
-            if (level) redirectUrl += `${track ? '&' : '?'}level=${level}`;
+            const params = [];
+            if (track) params.push(`track=${track}`);
+            if (level) params.push(`level=${level}`);
+
+            if (params.length > 0) {
+                redirectUrl += (redirectUrl.includes('?') ? '&' : '?') + params.join('&');
+            }
 
             setTimeout(() => {
                 window.location.href = redirectUrl;
             }, 1500);
         });
 
-        // Sign In
+        // --- Sign In ---
         document.getElementById('signInForm').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const email = document.getElementById('signInEmail').value;
+
+            const email = document.getElementById('signInEmail').value.trim().toLowerCase();
             const password = document.getElementById('signInPassword').value;
 
             const users = JSON.parse(localStorage.getItem('masterylab_users') || '{}');
             const user = users[email];
 
             if (!user) {
-                showMessage('No account found with this email', true);
+                showMessage('No account found with this email.', true);
                 return;
             }
 
             const hashedPassword = await hashPassword(password);
             if (user.password !== hashedPassword) {
-                showMessage('Incorrect password', true);
+                showMessage('Incorrect password.', true);
                 return;
             }
 
-            localStorage.setItem('masterylab_current_user', JSON.stringify({ name: user.name, email: user.email }));
-            showMessage('Sign in successful! Redirecting...', false);
+            // Set Session
+            const sessionUser = { ...user };
+            delete sessionUser.password;
+            localStorage.setItem('masterylab_current_user', JSON.stringify(sessionUser));
 
-            // Build redirect URL
+            showMessage('Sign in successful! Redirecting...');
+
+            // Redirect
             let redirectUrl = redirectTo;
-            if (track) redirectUrl += `?track=${track}`;
-            if (level) redirectUrl += `${track ? '&' : '?'}level=${level}`;
+            const params = [];
+            if (track) params.push(`track=${track}`);
+            if (level) params.push(`level=${level}`);
+
+            if (params.length > 0) {
+                redirectUrl += (redirectUrl.includes('?') ? '&' : '?') + params.join('&');
+            }
 
             setTimeout(() => {
                 window.location.href = redirectUrl;
-            }, 1500);
+            }, 1000);
         });
+
     </script>
 
 </body>
