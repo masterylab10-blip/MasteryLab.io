@@ -200,6 +200,59 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Check for authentication
+            const currentUser = JSON.parse(localStorage.getItem('masterylab_current_user'));
+
+            if (!currentUser) {
+                // User not logged in, redirect to auth page
+                const currentUrl = window.location.href;
+                const urlObj = new URL(currentUrl);
+                const params = new URLSearchParams(urlObj.search);
+
+                // Construct redirect URL to auth page
+                // We encode the current page as the 'redirect' parameter
+                // We also pass through any 'track' or 'level' parameters
+                let authUrl = `auth.html?redirect=registration-bachata-sensual.html`;
+
+                if (params.has('track')) authUrl += `&track=${params.get('track')}`;
+                if (params.has('level')) authUrl += `&level=${params.get('level')}`;
+
+                window.location.href = authUrl;
+                return;
+            }
+
+            // User is logged in, pre-fill form
+            if (currentUser.name) {
+                // Split name into first and last name (simple split)
+                const nameParts = currentUser.name.split(' ');
+                const firstName = nameParts[0];
+                const lastName = nameParts.slice(1).join(' ') || '';
+
+                const firstNameInput = document.getElementById('firstName');
+                const lastNameInput = document.getElementById('lastName');
+
+                if (firstNameInput) firstNameInput.value = firstName;
+                if (lastNameInput) lastNameInput.value = lastName;
+            }
+
+            if (currentUser.email) {
+                const emailInput = document.getElementById('email');
+                if (emailInput) {
+                    emailInput.value = currentUser.email;
+                    // Optional: Make read-only to prevent changing email if desired
+                    // emailInput.readOnly = true; 
+                }
+            }
+
+            // Show welcome message
+            const container = document.querySelector('.registration-container');
+            if (container && currentUser.name) {
+                const welcomeMsg = document.createElement('div');
+                welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${currentUser.name}</strong></p>`;
+                container.insertBefore(welcomeMsg, container.firstChild);
+            }
+
+            // Existing logic for Stripe links
             const urlParams = new URLSearchParams(window.location.search);
             const level = urlParams.get('level');
             const stripeLinks = {
@@ -211,7 +264,7 @@
             const nextInput = document.querySelector('input[name="_next"]');
             if (level && stripeLinks[level] && nextInput) {
                 nextInput.value = stripeLinks[level];
-                console.log('Payment level detected:', level, '- Link updated.');
+                console.log('Payment level detected:', level, '- Link updated to:', stripeLinks[level]);
             }
         });
     </script>
