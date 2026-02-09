@@ -31,10 +31,14 @@
     <div class="auth-container">
         <div class="auth-card-dark">
 
+            <!-- Tabs -->
+            <div class="auth-tabs">
+                <button id="tabSignIn" class="auth-tab active" onclick="switchView('signIn')">Sign In</button>
+                <button id="tabSignUp" class="auth-tab" onclick="switchView('signUp')">Create Account</button>
+            </div>
+
             <!-- Sign In View -->
             <div id="signInView">
-                <h1 class="auth-title">SIGN IN</h1>
-
                 <form id="signInForm">
                     <div style="margin-bottom: 1.5rem;">
                         <label class="auth-label-dark" for="signInEmail">EMAIL ADDRESS</label>
@@ -47,17 +51,10 @@
 
                     <button type="submit" class="btn-auth-red">SIGN IN</button>
                 </form>
-
-                <p class="auth-switch-text">
-                    Don't have an account?
-                    <a href="#" class="auth-switch-link" onclick="switchView('signUp')">Create Account</a>
-                </p>
             </div>
 
             <!-- Sign Up View -->
             <div id="signUpView" style="display: none;">
-                <h1 class="auth-title">CREATE ACCOUNT</h1>
-
                 <form id="signUpForm">
                     <div class="auth-form-grid">
                         <!-- Row 1: Names -->
@@ -110,11 +107,6 @@
 
                     <button type="submit" class="btn-auth-red">REGISTER NOW</button>
                 </form>
-
-                <p class="auth-switch-text">
-                    Already have an account?
-                    <a href="#" class="auth-switch-link" onclick="switchView('signIn')">Sign In</a>
-                </p>
             </div>
 
             <!-- Messages -->
@@ -139,14 +131,23 @@
             const signUpView = document.getElementById('signUpView');
             const authMessage = document.getElementById('authMessage');
 
+            const tabSignIn = document.getElementById('tabSignIn');
+            const tabSignUp = document.getElementById('tabSignUp');
+
             authMessage.style.display = 'none';
 
             if (view === 'signIn') {
                 signInView.style.display = 'block';
                 signUpView.style.display = 'none';
+
+                tabSignIn.classList.add('active');
+                tabSignUp.classList.remove('active');
             } else {
                 signInView.style.display = 'none';
                 signUpView.style.display = 'block';
+
+                tabSignIn.classList.remove('active');
+                tabSignUp.classList.add('active');
             }
         }
 

@@ -2314,3 +2314,51 @@ textarea.form-input {
         padding: 2rem;
     }
 }
+
+/* =========================================
+   AUTH TABS (NEW)
+   ========================================= */
+
+.auth-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0;
+}
+
+.auth-tab {
+    background: transparent;
+    border: none;
+    color: #888;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding-bottom: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.auth-tab:hover {
+    color: #fff;
+}
+
+.auth-tab.active {
+    color: var(--color-primary);
+    text-shadow: 0 0 20px rgba(214, 0, 28, 0.3);
+}
+
+.auth-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Overlap border */
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--color-primary);
+    box-shadow: 0 0 10px rgba(214, 0, 28, 0.5);
+}
+
