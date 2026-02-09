@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | MasteryLab</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&family=Anton&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="media/favicon.png" type="image/png">
+</head>
+
+<body style="background: #050505; color: white; overflow-x: hidden;">
+
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="media/logo-wings.png" alt="MasteryLab Logo">
+            </a>
+        </div>
+    </nav>
+
+    <!-- Auth Section -->
+    <section
+        style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px 50px;">
+        <div class="glass-card" style="max-width: 500px; width: 100%; padding: 3rem;">
+            <h1 style="font-family: 'Anton'; font-size: 2.5rem; text-align: center; margin-bottom: 1rem;">
+                <span class="text-gradient">WELCOME TO</span><br>
+                <span class="text-gradient-red">MASTERYLAB</span>
+            </h1>
+            <p style="text-align: center; color: #aaa; margin-bottom: 2.5rem;">
+                Sign in or create an account to continue with your registration
+            </p>
+
+            <!-- Tab Switcher -->
+            <div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+                <button id="signInTab" class="auth-tab active" onclick="switchTab('signIn')">Sign In</button>
+                <button id="signUpTab" class="auth-tab" onclick="switchTab('signUp')">Create Account</button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form id="signInForm" class="auth-form">
+                <div class="form-group">
+                    <label for="signInEmail">Email</label>
+                    <input type="email" id="signInEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signInPassword">Password</label>
+                    <input type="password" id="signInPassword" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1.5rem;">
+                    SIGN IN
+                </button>
+                <p style="text-align: center; margin-top: 1rem; color: #aaa; font-size: 0.9rem;">
+                    <a href="#" onclick="resetPassword(); return false;"
+                        style="color: var(--color-primary); text-decoration: none;">Forgot password?</a>
+                </p>
+            </form>
+
+            <!-- Sign Up Form -->
+            <form id="signUpForm" class="auth-form" style="display: none;">
+                <div class="form-group">
+                    <label for="signUpName">Full Name</label>
+                    <input type="text" id="signUpName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signUpEmail">Email</label>
+                    <input type="email" id="signUpEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signUpPassword">Password</label>
+                    <input type="password" id="signUpPassword" required minlength="6">
+                    <small style="color: #aaa; font-size: 0.85rem;">Minimum 6 characters</small>
+                </div>
+                <div class="form-group">
+                    <label for="signUpPasswordConfirm">Confirm Password</label>
+                    <input type="password" id="signUpPasswordConfirm" required minlength="6">
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1.5rem;">
+                    CREATE ACCOUNT
+                </button>
+            </form>
+
+            <!-- Error/Success Messages -->
+            <div id="authMessage" style="margin-top: 1.5rem; padding: 1rem; border-radius: 10px; display: none;"></div>
+        </div>
+    </section>
+
+    <style>
+        .auth-tab {
+            flex: 1;
+            padding: 1rem;
+            background: transparent;
+            border: none;
+            color: #aaa;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .auth-tab.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ccc;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .auth-message-success {
+            background: rgba(0, 255, 0, 0.1);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            color: #0f0;
+        }
+
+        .auth-message-error {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            color: #ff6b6b;
+        }
+    </style>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, updateProfile } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
+        // Firebase configuration - YOU NEED TO REPLACE THIS WITH YOUR FIREBASE CONFIG
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Get redirect parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectTo = urlParams.get('redirect') || 'registration-bachata-sensual.html';
+        const track = urlParams.get('track');
+        const level = urlParams.get('level');
+
+        // Tab switching
+        window.switchTab = function (tab) {
+            const signInForm = document.getElementById('signInForm');
+            const signUpForm = document.getElementById('signUpForm');
+            const signInTab = document.getElementById('signInTab');
+            const signUpTab = document.getElementById('signUpTab');
+
+            if (tab === 'signIn') {
+                signInForm.style.display = 'block';
+                signUpForm.style.display = 'none';
+                signInTab.classList.add('active');
+                signUpTab.classList.remove('active');
+            } else {
+                signInForm.style.display = 'none';
+                signUpForm.style.display = 'block';
+                signInTab.classList.remove('active');
+                signUpTab.classList.add('active');
+            }
+        };
+
+        // Show message
+        function showMessage(message, isError = false) {
+            const messageDiv = document.getElementById('authMessage');
+            messageDiv.textContent = message;
+            messageDiv.className = isError ? 'auth-message-error' : 'auth-message-success';
+            messageDiv.style.display = 'block';
+        }
+
+        // Sign In
+        document.getElementById('signInForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('signInEmail').value;
+            const password = document.getElementById('signInPassword').value;
+
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                showMessage('Sign in successful! Redirecting...', false);
+
+                // Build redirect URL with parameters
+                let redirectUrl = redirectTo;
+                if (track) redirectUrl += `?track=${track}`;
+                if (level) redirectUrl += `${track ? '&' : '?'}level=${level}`;
+
+                setTimeout(() => {
+                    window.location.href = redirectUrl;
+                }, 1500);
+            } catch (error) {
+                showMessage(error.message, true);
+            }
+        });
+
+        // Sign Up
+        document.getElementById('signUpForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('signUpName').value;
+            const email = document.getElementById('signUpEmail').value;
+            const password = document.getElementById('signUpPassword').value;
+            const confirmPassword = document.getElementById('signUpPasswordConfirm').value;
+
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match', true);
+                return;
+            }
+
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                await updateProfile(userCredential.user, { displayName: name });
+
+                showMessage('Account created successfully! Redirecting...', false);
+
+                // Build redirect URL with parameters
+                let redirectUrl = redirectTo;
+                if (track) redirectUrl += `?track=${track}`;
+                if (level) redirectUrl += `${track ? '&' : '?'}level=${level}`;
+
+                setTimeout(() => {
+                    window.location.href = redirectUrl;
+                }, 1500);
+            } catch (error) {
+                showMessage(error.message, true);
+            }
+        });
+
+        // Password Reset
+        window.resetPassword = async function () {
+            const email = document.getElementById('signInEmail').value;
+            if (!email) {
+                showMessage('Please enter your email address first', true);
+                return;
+            }
+
+            try {
+                await sendPasswordResetEmail(auth, email);
+                showMessage('Password reset email sent! Check your inbox.', false);
+            } catch (error) {
+                showMessage(error.message, true);
+            }
+        };
+    </script>
+
+</body>
+
+</html>
