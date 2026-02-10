@@ -206,27 +206,14 @@
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         document.addEventListener('DOMContentLoaded', async () => {
-            // Check for authentication
+            // Check for authentication (Optional now)
             const { data: { session } } = await supabaseClient.auth.getSession();
 
-            if (!session) {
-                // User not logged in, redirect to auth page
-                const currentUrl = window.location.href;
-                const urlObj = new URL(currentUrl);
-                const params = new URLSearchParams(urlObj.search);
-
-                // Construct redirect URL to auth page
-                let authUrl = `auth.html?redirect=registration-bachata-sensual.html`;
-
-                if (params.has('track')) authUrl += `&track=${params.get('track')}`;
-                if (params.has('level')) authUrl += `&level=${params.get('level')}`;
-
-                window.location.href = authUrl;
-                return;
-            }
+            // Logic to handle potential query params for redirects is NO LONGER NEEDED for mandatory auth
+            // We just let them fill the form.
 
             // User is logged in, fetch profile and pre-fill form
-            let currentUser = session.user;
+            let currentUser = session?.user;
 
             // Fetch Profile Data
             const { data: profile } = await supabaseClient

@@ -39,11 +39,8 @@
             </button>
             <div class="nav-links">
                 <a href="what-is-masterylab.html" class="nav-btn-outline">What is MasteryLab?</a>
-                <a href="register.html" class="nav-btn-primary">Register Now</a>
-                <div id="authButtons" style="display: contents;">
-                    <!-- Will be populated by JS -->
-                    <a href="auth.html" class="nav-btn-outline" style="margin-left: 1rem;">Sign In</a>
-                </div>
+                <!-- <a href="register.html" class="nav-btn-primary">Register Now</a> -->
+                <!-- <a href="register.html" class="nav-btn-primary">Register Now</a> -->
             </div>
         </div>
     </nav>
@@ -55,22 +52,7 @@
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQxRI';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        async function updateAuthUI() {
-            const { data: { session } } = await supabaseClient.auth.getSession();
-            const authContainer = document.getElementById('authButtons');
-
-            if (session) {
-                authContainer.innerHTML = `
-                    <a href="profile.html" class="nav-btn-outline" style="margin-left: 1rem; border-color: #4CAF50; color: #4CAF50;">My Account</a>
-                `;
-            } else {
-                authContainer.innerHTML = `
-                    <a href="auth.html" class="nav-btn-outline" style="margin-left: 1rem;">Sign In</a>
-                `;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', updateAuthUI);
+        // Auth UI update removed as requested
     </script>
 
     <main>
