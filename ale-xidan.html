@@ -33,13 +33,18 @@
 
     <div class="container page-content-centered">
         <h1 class="page-title-lg">Ale y Xidan</h1>
-        <div class="photo-frame" style="max-width: 500px; margin: 0 auto;">
-            <div class="corner top-left"></div>
-            <div class="corner top-right"></div>
-            <div class="corner bottom-left"></div>
-            <div class="corner bottom-right"></div>
-            <div class="placeholder-image" style="margin-bottom: 0;">
-                <span>Image Placeholder</span>
+        <div class="custom-frame-wrapper" style="position: relative; width: 100%; max-width: 600px; margin: 0 auto;">
+            <!-- Frame Background -->
+            <img src="media/DSC07408.jpeg" alt="Frame"
+                style="width: 100%; display: block; position: relative; z-index: 10;">
+
+            <!-- Artist Photo (Positioned inside frame) -->
+            <!-- Note: Positioning is estimated to fit the 'dark area' of the frame. 
+                 Assuming roughly centered with some padding. Adjusting to 5% top/left/right/bottom based on typical frame thickness. -->
+            <div
+                style="position: absolute; top: 4.5%; left: 4.5%; width: 91%; height: 86%; z-index: 5; overflow: hidden; background: #000;">
+                <img src="media/Ale y Xidan photo.png" alt="Ale y Xidan"
+                    style="width: 100%; height: 100%; object-fit: cover; opacity: 0.9;">
             </div>
         </div>
 

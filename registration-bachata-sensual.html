@@ -388,16 +388,35 @@
             // Existing logic for Stripe links
             const urlParams = new URLSearchParams(window.location.search);
             const level = urlParams.get('level');
+            const track = urlParams.get('track'); // 'teachers' or 'dancers'
+
+            // Default generic links (placeholders)
+            let finalLink = 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g';
+
             const stripeLinks = {
-                'silver': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g',
-                'bronze': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g',
-                'gold': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g'
+                'teachers': {
+                    'silver': 'https://buy.stripe.com/14A3cx9Se0tS6ZkaD8dEs0c', // Perfect Start
+                    'bronze': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g',
+                    'gold': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g'
+                },
+                'dancers': {
+                    'silver': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g',
+                    'bronze': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g',
+                    'gold': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g'
+                }
             };
 
+            if (track && stripeLinks[track] && stripeLinks[track][level]) {
+                finalLink = stripeLinks[track][level];
+            } else if (stripeLinks['dancers'][level]) {
+                // Fallback if track is missing but level exists (assume dancer/generic)
+                finalLink = stripeLinks['dancers'][level];
+            }
+
             const nextInput = document.querySelector('input[name="_next"]');
-            if (level && stripeLinks[level] && nextInput) {
-                nextInput.value = stripeLinks[level];
-                console.log('Payment level detected:', level, '- Link updated to:', stripeLinks[level]);
+            if (nextInput) {
+                nextInput.value = finalLink;
+                console.log('Payment setup:', { track, level, url: finalLink });
             }
         });
     </script>
@@ -429,6 +448,32 @@
             const closeBtn = document.getElementById('closeInfoModal');
             const actionBtn = document.getElementById('paramsCloseBtn');
 
+            const urlParams = new URLSearchParams(window.location.search);
+            const track = urlParams.get('track');
+
+            // Custom Content for Dancers Track
+            if (track === 'dancers') {
+                const modalTitle = infoModal.querySelector('h2');
+                const modalText = infoModal.querySelector('p');
+
+                if (modalTitle) modalTitle.textContent = "PRICES COMING SOON";
+                if (modalText) modalText.innerHTML = "The prices are coming the next couple of days.<br><br>We are looking forward to having you with us! 💃🕺";
+
+                if (actionBtn) {
+                    actionBtn.textContent = "BACK TO LAB";
+                    actionBtn.onclick = (e) => {
+                        e.preventDefault();
+                        window.location.href = 'bachata-dancers-lab.html';
+                    };
+                }
+
+                // Hide the X close button to enforce the action
+                if (closeBtn) closeBtn.style.display = 'none';
+
+                // Prevent closing by clicking outside
+                window.blockClose = true;
+            }
+
             // Show modal on load
             if (infoModal) {
                 setTimeout(() => {
@@ -436,15 +481,26 @@
                 }, 500); // Small delay for effect
 
                 const closeModal = () => {
+                    // If blocked (Dancers track), don't close, redirect instead
+                    if (window.blockClose) {
+                        window.location.href = 'bachata-dancers-lab.html';
+                        return;
+                    }
                     infoModal.style.display = 'none';
                 };
 
-                closeBtn.addEventListener('click', closeModal);
-                actionBtn.addEventListener('click', closeModal);
+                if (closeBtn && closeBtn.style.display !== 'none') {
+                    closeBtn.addEventListener('click', closeModal);
+                }
+
+                // Only add standard close listener if not overridden
+                if (!actionBtn.onclick) {
+                    actionBtn.addEventListener('click', closeModal);
+                }
 
                 // Close on click outside
                 infoModal.addEventListener('click', (e) => {
-                    if (e.target === infoModal) {
+                    if (e.target === infoModal && !window.blockClose) {
                         closeModal();
                     }
                 });

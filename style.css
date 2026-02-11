@@ -537,13 +537,23 @@ h6 {
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: auto;
+    /* Ensure it doesn't span full width */
+    max-width: 100px;
+    /* Constrain width */
     gap: 0.5rem;
-    opacity: 0.6;
+    opacity: 0.8;
+    /* Increased base opacity for clarity */
     animation: fadeIn 2s ease forwards;
-    z-index: 15;
+    z-index: 999;
+    /* Ensure it's above everything including footer */
     pointer-events: auto;
     cursor: pointer;
     text-decoration: none;
@@ -860,10 +870,12 @@ h6 {
     /* Adjust Scroll Indicator position */
     .scroll-indicator {
         display: flex;
-        opacity: 0.8;
-        bottom: 0.5rem;
-        /* Move lower */
-        z-index: 20;
+        opacity: 0.9;
+        bottom: 1rem;
+        /* Lift slightly for better clearance */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
     }
 
     .scroll-indicator span {
