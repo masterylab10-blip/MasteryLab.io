@@ -72,7 +72,13 @@ function doPost(e) {
 
 function handleRegistration(data) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet();
-    var sheetName = data.type === 'MM' ? 'M&M' : 'BSL';
+    var sheetName = 'BSL'; // Default
+
+    if (data.type === 'MM') sheetName = 'M&M';
+    else if (data.type === 'BSL') sheetName = 'BSL';
+    else if (data.type === 'II') sheetName = 'I&I';
+    else if (data.type === 'LM') sheetName = 'LM';
+    else if (data.sheetName) sheetName = data.sheetName;
     var targetSheet = sheet.getSheetByName(sheetName);
 
     if (!targetSheet) {

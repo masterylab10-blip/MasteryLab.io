@@ -200,15 +200,8 @@
                     DANCE BOOSTER - ISMAEL & IRENE 2026
                 </p>
 
-                <form id="regForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New Ismael & Irene Registration!">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <!-- Stripe Link -->
-                    <input type="hidden" name="_next" value="https://buy.stripe.com/4gMaEZd4q1xWcjE3aGdEs09">
-                    <!-- Google Sheet Name -->
-                    <input type="hidden" name="sheetName" value="Dance Booster">
+                <form id="regForm">
+                    <input type="hidden" name="type" value="II">
 
                     <div class="form-group">
                         <label for="firstName" class="form-label">First Name</label>
@@ -265,42 +258,31 @@
 
                 <script>
                     const regForm = document.getElementById('regForm');
-                    // Google Apps Script URL from index.html
-                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxWGH0S2tI1Pa03TKZs0tCN9-bJA8ZFefqKB5NXEnrWn1YW2e48tcaKNphN3DuC_Z7D/exec';
+                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw86Um-oG2ikJG9jbtCITpwls_LcMGt8AnwcH7FYpuBhDlEqCvcG_01AxpbitNvGJXL/exec';
+                    const stripePaymentLink = 'https://buy.stripe.com/4gMaEZd4q1xWcjE3aGdEs09';
 
                     if (regForm) {
                         regForm.addEventListener('submit', function (e) {
-                            // 1. Prevent default to handle Google Sheet submission first
                             e.preventDefault();
-
                             const btn = document.getElementById('submitBtn');
-                            btn.innerText = 'Processing...';
-                            btn.disabled = true;
-
-                            // 2. Prepare Data
-                            const formData = new FormData(regForm);
-                            const data = new URLSearchParams();
-                            for (const pair of formData) {
-                                data.append(pair[0], pair[1]);
+                            if (btn) {
+                                btn.innerText = 'Processing...';
+                                btn.disabled = true;
                             }
 
-                            // 3. Send to Google Sheets (No-CORS mode)
+                            const formData = new FormData(regForm);
+
                             fetch(googleScriptURL, {
                                 method: 'POST',
-                                body: data,
-                                mode: 'no-cors',
-                                keepalive: true
+                                body: formData,
+                                mode: 'no-cors'
                             })
                                 .then(() => {
-                                    // 4. Submit to FormSubmit/Stripe after short delay
-                                    setTimeout(() => {
-                                        regForm.submit();
-                                    }, 500);
+                                    window.location.href = stripePaymentLink;
                                 })
-                                .catch(err => {
-                                    console.error('Sheet Error:', err);
-                                    // Fallback: Submit anyway
-                                    regForm.submit();
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    window.location.href = stripePaymentLink;
                                 });
                         });
                     }

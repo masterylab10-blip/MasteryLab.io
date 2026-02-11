@@ -127,12 +127,8 @@
                     LADIES MASTERY LAB - BASEL 2026
                 </p>
 
-                <form id="regForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New Ladies Mastery Registration!">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://buy.stripe.com/00wcN47fZ3F269rceD8og00">
+                <form id="regForm">
+                    <input type="hidden" name="type" value="LM">
                     <div class="form-group">
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" id="firstName" name="first_name" class="form-input" required>
@@ -167,7 +163,7 @@
                         <input type="tel" id="whatsapp" name="whatsapp" class="form-input" required>
                     </div>
 
-                    <button type="submit" class="btn-primary"
+                    <button type="submit" id="submitBtn" class="btn-primary"
                         style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4);">
                         PROCEED TO PAYMENT
                     </button>
@@ -178,6 +174,38 @@
                         You will be redirected to Stripe for secure payment.
                     </p>
                 </form>
+
+                <script>
+                    const regForm = document.getElementById('regForm');
+                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbw86Um-oG2ikJG9jbtCITpwls_LcMGt8AnwcH7FYpuBhDlEqCvcG_01AxpbitNvGJXL/exec';
+                    const stripePaymentLink = 'https://buy.stripe.com/00wcN47fZ3F269rceD8og00';
+
+                    if (regForm) {
+                        regForm.addEventListener('submit', function (e) {
+                            e.preventDefault();
+                            const btn = document.getElementById('submitBtn');
+                            if (btn) {
+                                btn.innerText = 'Processing...';
+                                btn.disabled = true;
+                            }
+
+                            const formData = new FormData(regForm);
+
+                            fetch(googleScriptURL, {
+                                method: 'POST',
+                                body: formData,
+                                mode: 'no-cors'
+                            })
+                                .then(() => {
+                                    window.location.href = stripePaymentLink;
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    window.location.href = stripePaymentLink;
+                                });
+                        });
+                    }
+                </script>
             </div>
         </div>
     </main>
