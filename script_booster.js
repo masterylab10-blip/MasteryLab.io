@@ -35,12 +35,13 @@ function doPost(e) {
 function handleRegistration(data) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var timestamp = new Date();
-    var fullName = data.first_name + " " + data.last_name;
+    var fullName = data.first_name + " " + (data.last_name || "");
 
     sheet.appendRow([
         timestamp.toLocaleDateString(),
         timestamp.toLocaleTimeString(),
         fullName,
+        data.address || 'Not Provided',
         data.city || 'Not Provided',
         data.whatsapp || 'Not Provided',
         data.email,
@@ -59,6 +60,7 @@ function handleRegistration(data) {
         htmlBody: '<h2 style="color: #F59E0B;">New Booster Lab Registration</h2>' +
             '<p><strong>Name:</strong> ' + fullName + '</p>' +
             '<p><strong>Email:</strong> ' + data.email + '</p>' +
+            '<p><strong>Address:</strong> ' + (data.address || 'N/A') + '</p>' +
             '<p style="color: orange;">⏳ Status: Pending Payment</p>'
     });
 
@@ -78,30 +80,54 @@ function handleStripeWebhook(event) {
     var data = sheet.getDataRange().getValues();
     var found = false;
 
+    // FUZZY SEARCH: Scan all rows to find the email (handles column shifts)
     for (var i = data.length - 1; i >= 1; i--) {
-        if (data[i][5] && data[i][5].toString().toLowerCase() === customerEmail.toLowerCase() && data[i][7] === 'Pending') {
-            var ticketNumber = 'ML-DBL1-' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + '-' + Math.floor(100 + Math.random() * 900);
-            sheet.getRange(i + 1, 8).setValue('✅ Paid');
-            sheet.getRange(i + 1, 9).setValue(currency + ' ' + amountPaid);
-            sheet.getRange(i + 1, 10).setValue(new Date().toLocaleString());
-            sheet.getRange(i + 1, 11).setValue(ticketNumber);
+        var row = data[i];
+        var emailInRow = "";
 
-            var attendeeName = data[i][2] || customerName;
-            var ticketType = data[i][11] || 'ADMISSION';
+        // Find email in current row (looking specifically in typical email columns)
+        if (row[6] && row[6].toString().includes('@')) emailInRow = row[6].toString().toLowerCase();
+        else if (row[5] && row[5].toString().includes('@')) emailInRow = row[5].toString().toLowerCase();
+
+        if (emailInRow === customerEmail.toLowerCase() && (row[8] === 'Pending' || row[8] === '')) {
+            var ticketNumber = 'ML-DBL1-' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + '-' + Math.floor(100 + Math.random() * 900);
+
+            // Update the row (adjusting for the new Address column)
+            sheet.getRange(i + 1, 9).setValue('✅ Paid');
+            sheet.getRange(i + 1, 10).setValue(currency + ' ' + amountPaid);
+            sheet.getRange(i + 1, 11).setValue(new Date().toLocaleString());
+            sheet.getRange(i + 1, 12).setValue(ticketNumber);
+
+            var attendeeName = row[2] || customerName;
+            var attendeeAddress = row[3] || 'On File';
+            var ticketType = row[12] || 'ADMISSION';
 
             MailApp.sendEmail({
                 to: customerEmail,
                 subject: 'Your MasteryLab Ticket - ' + EVENT.name,
-                htmlBody: buildTicketEmail(attendeeName, customerEmail, ticketNumber, amountPaid, currency, ticketType)
+                htmlBody: buildTicketEmail(attendeeName, customerEmail, ticketNumber, amountPaid, currency, ticketType, attendeeAddress)
             });
             found = true;
             break;
         }
     }
+
+    if (!found) {
+        MailApp.sendEmail({
+            to: 'labmastery@outlook.com',
+            subject: '⚠️ PAYMENT MISMATCH: ' + customerName,
+            htmlBody: '<h3>A payment was received but no matching registration was found.</h3>' +
+                '<p><strong>Customer:</strong> ' + customerName + '</p>' +
+                '<p><strong>Email:</strong> ' + customerEmail + '</p>' +
+                '<p><strong>Amount:</strong> ' + currency + ' ' + amountPaid + '</p>' +
+                '<p>Please check the spreadsheet manually.</p>'
+        });
+    }
+
     return ContentService.createTextOutput(JSON.stringify({ "received": true, "found": found })).setMimeType(ContentService.MimeType.JSON);
 }
 
-function buildTicketEmail(name, email, ticketNum, amount, currency, ticketType) {
+function buildTicketEmail(name, email, ticketNum, amount, currency, ticketType, address) {
     var accentColor = EVENT.color || '#F59E0B';
     var firstName = name.split(' ')[0];
 
@@ -147,6 +173,12 @@ function buildTicketEmail(name, email, ticketNum, amount, currency, ticketType) 
         '<td style="padding:12px;">' +
         '<p style="margin:0; font-size:9px; color:#777; text-transform:uppercase;">Type: ✨</p>' +
         '<p style="margin:4px 0 0; font-weight:bold; font-size:12px; color:#aaa;">' + ticketType + '</p>' +
+        '</td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td colspan="2" style="padding:12px; border-top:1px solid #333; background:rgba(255,255,255,0.02);">' +
+        '<p style="margin:0; font-size:9px; color:#777; text-transform:uppercase;">Home Address: 🏠</p>' +
+        '<p style="margin:4px 0 0; font-size:12px; color:#ccc;">' + (address || 'On File') + '</p>' +
         '</td>' +
         '</tr>' +
         '</table>' +
