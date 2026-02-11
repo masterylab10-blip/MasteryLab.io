@@ -14,7 +14,7 @@ var EVENT_DETAILS = {
         date: '23-24 May 2026',
         venue: 'Basel, Switzerland',
         color: '#D6001C',
-        image: SITE_URL + '/media/michael_mayra.jpg'
+        image: SITE_URL + '/media/michael_mayra_hero_new.jpg'
     },
     'BSL': {
         name: 'Bachata Sensual Lab',
