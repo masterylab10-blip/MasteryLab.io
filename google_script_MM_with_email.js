@@ -205,7 +205,7 @@ function handleStripeWebhook(event) {
 
         MailApp.sendEmail({
             to: customerEmail,
-            subject: '�️ Your MasteryLab Ticket — ' + eventInfo.name,
+            subject: 'Your MasteryLab Ticket - ' + eventInfo.name,
             htmlBody: ticketHtml
         });
     }
