@@ -55,9 +55,82 @@
         }
 
         @media (max-width: 768px) {
+            .registration-page {
+                padding: 80px 0 40px;
+            }
+
             .registration-container {
-                padding: 2rem;
-                margin: 0 1rem;
+                padding: 1.5rem;
+                margin: 0 0.75rem;
+                border-radius: 15px;
+            }
+
+            .auth-benefits h1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .auth-benefits p {
+                font-size: 0.9rem !important;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .benefit-card {
+                padding: 1rem !important;
+            }
+
+            .benefit-card h3 {
+                font-size: 1.1rem !important;
+            }
+
+            .text-gradient-red {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-label {
+                font-size: 0.9rem;
+            }
+
+            .form-input {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+
+            .btn-primary {
+                font-size: 1rem !important;
+                padding: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .registration-container {
+                padding: 1rem;
+                margin: 0 0.5rem;
+            }
+
+            .auth-benefits h1 {
+                font-size: 1.75rem !important;
+            }
+
+            .text-gradient-red {
+                font-size: 1.75rem !important;
+            }
+
+            .benefit-card h3 {
+                font-size: 1rem !important;
+            }
+
+            .benefit-card p {
+                font-size: 0.85rem !important;
             }
         }
     </style>
@@ -133,15 +206,59 @@
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://buy.stripe.com/00wcN47fZ3F269rceD8og00">
+
                     <div class="form-group">
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" id="firstName" name="first_name" class="form-input" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="lastName" class="form-label">Last Name</label>
-                        <input type="text" id="lastName" name="last_name" class="form-input" required>
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" id="address" name="address" class="form-input" required>
                     </div>
+
+                    <script>
+                        const regForm = document.getElementById('regForm');
+                        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxWGH0S2tI1Pa03TKZs0tCN9-bJA8ZFefqKB5NXEnrWn1YW2e48tcaKNphN3DuC_Z7D/exec';
+
+                        if (regForm) {
+                            regForm.addEventListener('submit', function (e) {
+                                e.preventDefault();
+                                const btn = document.getElementById('submitBtn');
+                                btn.innerText = 'Processing...';
+                                btn.disabled = true;
+
+                                const formData = new FormData(regForm);
+                                const data = new URLSearchParams();
+                                for (const pair of formData) {
+                                    data.append(pair[0], pair[1]);
+                                }
+
+                                // Add track and level from URL
+                                const urlParams = new URLSearchParams(window.location.search);
+                                const track = urlParams.get('track') || 'dancers'; // Default to dancers if not specified
+                                const level = urlParams.get('level') || 'general';
+                                data.append('track', track);
+                                data.append('level', level);
+
+                                fetch(googleScriptURL, {
+                                    method: 'POST',
+                                    body: data,
+                                    mode: 'no-cors',
+                                    keepalive: true
+                                })
+                                    .then(() => {
+                                        setTimeout(() => {
+                                            regForm.submit();
+                                        }, 500);
+                                    })
+                                    .catch(err => {
+                                        console.error('Sheet Error:', err);
+                                        regForm.submit();
+                                    });
+                            });
+                        }
+                    </script>
 
                     <div class="form-group">
                         <label for="city" class="form-label">City of Residence</label>
@@ -167,7 +284,7 @@
                         <input type="tel" id="whatsapp" name="whatsapp" class="form-input" required>
                     </div>
 
-                    <button type="submit" class="btn-primary"
+                    <button type="submit" id="submitBtn" class="btn-primary"
                         style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4); transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); transform-style: preserve-3d; perspective: 1000px; position: relative;">
                         <span style="display: block; transform: translateZ(10px);">PROCEED TO PAYMENT</span>
                     </button>
@@ -185,6 +302,8 @@
                         You will be redirected to Stripe for secure payment.
                     </p>
                 </form>
+
+
             </div>
         </div>
     </main>
@@ -260,9 +379,9 @@
             const urlParams = new URLSearchParams(window.location.search);
             const level = urlParams.get('level');
             const stripeLinks = {
-                'silver': 'https://buy.stripe.com/14AaEZe8u4K85Vg12ydEs08',
-                'bronze': 'https://buy.stripe.com/6oUeVf5BY90o0AW6mSdEs05',
-                'gold': 'https://buy.stripe.com/dRmbJ35BY1xW4Rc9z4dEs06'
+                'silver': 'https://buy.stripe.com/14A3cx9Se0tS6ZkaD8dEs0c',
+                'bronze': 'https://buy.stripe.com/aFaeVfe8uccAgzU5iOdEs0d',
+                'gold': 'https://buy.stripe.com/dRm28t7K6ccA97s6mSdEs0e'
             };
 
             const nextInput = document.querySelector('input[name="_next"]');

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Your Spot | Michael & Mayra Intensive | MasteryLab</title>
+    <title>Secure Your Spot | Dance Booster | MasteryLab</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
         .bg-image {
             position: absolute;
             inset: 0;
-            background: url('media/michael-mayra-bg.jpg') center 20%/cover no-repeat;
+            background: url('media/isma-irene.jpg') center 20%/cover no-repeat;
             opacity: 0.4;
             filter: blur(5px);
             z-index: 1;
@@ -159,11 +159,11 @@
         <div class="bg-overlay"></div>
         <div class="container">
             <div class="registration-container">
-                <!-- Benefits Section (Replicated) -->
+                <!-- Benefits Section -->
                 <div class="auth-benefits" style="margin-bottom: 3rem; text-align: center;">
                     <h1 class="text-gradient"
                         style="font-family: 'Anton'; font-size: 3.5rem; text-transform: uppercase; margin-bottom: 1rem;">
-                        WHY JOIN BACHATA TECHNIQUE LAB?</h1>
+                        WHY JOIN MASTERYLAB?</h1>
                     <p style="color: #ccc; margin-bottom: 2rem;">Create your dancer profile to unlock exclusive
                         resources and track your progress.</p>
 
@@ -197,16 +197,18 @@
                     SECURE YOUR SPOT
                 </h1>
                 <p style="text-align: center; color: #aaa; margin-bottom: 2.5rem; font-size: 1.1rem; font-weight: 300;">
-                    MICHAEL & MAYRA INTENSIVE - BASEL 2026
+                    DANCE BOOSTER - ISMAEL & IRENE 2026
                 </p>
 
                 <form id="regForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
                     <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New M&M Intensive Registration!">
+                    <input type="hidden" name="_subject" value="New Ismael & Irene Registration!">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
-                    <!-- Stripe Payment Link -->
-                    <input type="hidden" name="_next" value="https://buy.stripe.com/7sYdRb5BYa4sgzU6mSdEs0a">
+                    <!-- Stripe Link -->
+                    <input type="hidden" name="_next" value="https://buy.stripe.com/4gMaEZd4q1xWcjE3aGdEs09">
+                    <!-- Google Sheet Name -->
+                    <input type="hidden" name="sheetName" value="Dance Booster">
 
                     <div class="form-group">
                         <label for="firstName" class="form-label">First Name</label>
@@ -217,53 +219,6 @@
                         <label for="lastName" class="form-label">Last Name</label>
                         <input type="text" id="lastName" name="last_name" class="form-input" required>
                     </div>
-
-                    <script>
-                        const regForm = document.getElementById('regForm');
-                        // REPLACE THIS WITH YOUR DEPLOYED GOOGLE SCRIPT URL
-                        const googleScriptURL = 'https://script.google.com/macros/s/AKfycby4yagT139bTqoW8rTZ2roEIhRRNzTWN7pAU576zKpYcx3sbGn8PULbZ-WiAzNEXU1T/exec';
-
-                        if (regForm) {
-                            regForm.addEventListener('submit', function (e) {
-                                // 1. Prevent default to handle Google Sheet submission first
-                                e.preventDefault();
-
-                                const btn = document.getElementById('submitBtn');
-                                const originalText = btn.innerText;
-                                btn.innerText = 'Processing...';
-                                btn.disabled = true;
-
-                                // 2. Prepare Data
-                                const formData = new FormData(regForm);
-                                const data = new URLSearchParams();
-                                for (const pair of formData) {
-                                    data.append(pair[0], pair[1]);
-                                }
-                                // Add M&M specific type
-                                data.append('type', 'MM');
-
-                                // 3. Send to Google Sheets (No-CORS mode)
-                                fetch(googleScriptURL, {
-                                    method: 'POST',
-                                    body: data,
-                                    mode: 'no-cors',
-                                    keepalive: true
-                                })
-                                    .then(() => {
-                                        // 4. Submit to FormSubmit/Stripe after short delay
-                                        // We use submit() on the form element to bypass this listener
-                                        setTimeout(() => {
-                                            regForm.submit();
-                                        }, 500);
-                                    })
-                                    .catch(err => {
-                                        console.error('Sheet Error:', err);
-                                        // Fallback: Submit anyway so user isn't blocked using FormSubmit/Stripe
-                                        regForm.submit();
-                                    });
-                            });
-                        }
-                    </script>
 
                     <div class="form-group">
                         <label for="city" class="form-label">City of Residence</label>
@@ -290,9 +245,16 @@
                     </div>
 
                     <button type="submit" id="submitBtn" class="btn-primary"
-                        style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4);">
-                        PROCEED TO PAYMENT
+                        style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4); transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); transform-style: preserve-3d; perspective: 1000px; position: relative;">
+                        <span style="display: block; transform: translateZ(10px);">PROCEED TO PAYMENT</span>
                     </button>
+
+                    <style>
+                        .btn-primary:hover {
+                            transform: rotateX(10deg) rotateY(5deg) scale(1.02) translateY(-5px);
+                            box-shadow: -5px 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(214, 0, 28, 0.4);
+                        }
+                    </style>
 
                     <p
                         style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 1.5rem; line-height: 1.4;">
@@ -301,7 +263,48 @@
                     </p>
                 </form>
 
+                <script>
+                    const regForm = document.getElementById('regForm');
+                    // Google Apps Script URL from index.html
+                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxWGH0S2tI1Pa03TKZs0tCN9-bJA8ZFefqKB5NXEnrWn1YW2e48tcaKNphN3DuC_Z7D/exec';
 
+                    if (regForm) {
+                        regForm.addEventListener('submit', function (e) {
+                            // 1. Prevent default to handle Google Sheet submission first
+                            e.preventDefault();
+
+                            const btn = document.getElementById('submitBtn');
+                            btn.innerText = 'Processing...';
+                            btn.disabled = true;
+
+                            // 2. Prepare Data
+                            const formData = new FormData(regForm);
+                            const data = new URLSearchParams();
+                            for (const pair of formData) {
+                                data.append(pair[0], pair[1]);
+                            }
+
+                            // 3. Send to Google Sheets (No-CORS mode)
+                            fetch(googleScriptURL, {
+                                method: 'POST',
+                                body: data,
+                                mode: 'no-cors',
+                                keepalive: true
+                            })
+                                .then(() => {
+                                    // 4. Submit to FormSubmit/Stripe after short delay
+                                    setTimeout(() => {
+                                        regForm.submit();
+                                    }, 500);
+                                })
+                                .catch(err => {
+                                    console.error('Sheet Error:', err);
+                                    // Fallback: Submit anyway
+                                    regForm.submit();
+                                });
+                        });
+                    }
+                </script>
             </div>
         </div>
     </main>
@@ -315,65 +318,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-    <script>
-        // --- Supabase Config ---
-        const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQxRI';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Check for authentication (Optional now)
-            const { data: { session } } = await supabaseClient.auth.getSession();
-
-            // Logic to handle potential query params for redirects is NO LONGER NEEDED for mandatory auth
-            // We just let them fill the form.
-
-            // User is logged in, fetch profile and pre-fill form
-            let currentUser = session?.user;
-
-            // Fetch Profile Data
-            const { data: profile } = await supabaseClient
-                .from('profiles')
-                .select('*')
-                .eq('id', currentUser.id)
-                .single();
-
-            // Merge Auth User and Profile
-            if (profile) {
-                currentUser = { ...currentUser, ...profile };
-            }
-
-            if (currentUser) {
-                // Pre-fill fields
-                const fields = {
-                    'firstName': currentUser.first_name || currentUser.user_metadata?.first_name,
-                    'lastName': currentUser.last_name || currentUser.user_metadata?.last_name,
-                    'email': currentUser.email,
-                    'city': currentUser.city || currentUser.user_metadata?.city,
-                    'role': currentUser.role || currentUser.user_metadata?.role,
-                    'whatsapp': currentUser.whatsapp || currentUser.user_metadata?.whatsapp
-                };
-
-                // Apply to inputs
-                for (const [id, value] of Object.entries(fields)) {
-                    const input = document.getElementById(id);
-                    if (input && value) {
-                        input.value = value;
-                    }
-                }
-            }
-
-            // Show welcome message
-            const container = document.querySelector('.registration-container');
-            if (container) {
-                const displayName = currentUser.first_name || currentUser.email;
-                const welcomeMsg = document.createElement('div');
-                welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${displayName}</strong></p>`;
-                container.insertBefore(welcomeMsg, container.firstChild);
-            }
-        });
-    </script>
 </body>
 
 </html>
