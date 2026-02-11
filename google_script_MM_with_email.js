@@ -247,17 +247,12 @@ function buildTicketEmail(name, email, ticketNum, amount, currency, eventInfo) {
         // Main Card
         '<table width="600" cellpadding="0" cellspacing="0" style="background:#1a1a1a; border-radius:16px; overflow:hidden; border: 1px solid #333;">' +
 
-        // Header Banner
-        '<tr><td style="background: linear-gradient(135deg, ' + accentColor + ' 0%, #1a1a1a 100%); padding: 40px 40px 30px;">' +
+        // Header Banner with Logo
+        '<tr><td style="background: linear-gradient(135deg, ' + accentColor + ' 0%, #1a1a1a 100%); padding: 30px 40px; text-align:center;">' +
+        '<img src="' + SITE_URL + '/media/logo-wings.png" alt="MasteryLab" width="80" style="width:80px; height:auto; display:inline-block; margin-bottom:10px;">' +
         '<h1 style="margin:0; color:#fff; font-size:28px; letter-spacing:2px;">MASTERYLAB</h1>' +
         '<p style="margin:5px 0 0; color:rgba(255,255,255,0.7); font-size:13px; letter-spacing:3px; text-transform:uppercase;">OFFICIAL EVENT TICKET</p>' +
         '</td></tr>' +
-
-        // Cover Image
-        (eventInfo.image ?
-            '<tr><td style="padding:0; line-height:0;">' +
-            '<img src="' + eventInfo.image + '" alt="' + eventInfo.name + '" width="600" style="width:100%; max-width:600px; height:auto; display:block; object-fit:cover; max-height:280px;">' +
-            '</td></tr>' : '') +
 
         // Ticket Body
         '<tr><td style="padding: 0 40px;">' +
