@@ -4,31 +4,38 @@
 // Paste this into your Apps Script project
 // ============================================
 
-// Event details configuration — update dates here as needed
+// Event details configuration — update dates and images here as needed
+// Images are hosted on your GitHub Pages site
+var SITE_URL = 'https://masterylab10-blip.github.io/MasteryLab.io';
+
 var EVENT_DETAILS = {
     'M&M': {
         name: 'Michael & Mayra Intensive',
         date: '23-24 May 2026',
         venue: 'Basel, Switzerland',
-        color: '#D6001C'
+        color: '#D6001C',
+        image: SITE_URL + '/media/michael_mayra.jpg'
     },
     'BSL': {
         name: 'Bachata Sensual Lab',
         date: 'TBD 2026',
         venue: 'Olten, Switzerland',
-        color: '#8B5CF6'
+        color: '#8B5CF6',
+        image: SITE_URL + '/media/bachata_sensual_cover_new.jpg'
     },
     'I&I': {
         name: 'Dance Booster — Ismael & Irene',
         date: 'TBD 2026',
         venue: 'TBD',
-        color: '#F59E0B'
+        color: '#F59E0B',
+        image: SITE_URL + '/media/ismael-irene-cover.png'
     },
     'LM': {
         name: 'Ladies Mastery Lab',
         date: 'TBD 2026',
         venue: 'Basel, Switzerland',
-        color: '#EC4899'
+        color: '#EC4899',
+        image: SITE_URL + '/media/logo-wings.png'
     }
 };
 
@@ -245,6 +252,12 @@ function buildTicketEmail(name, email, ticketNum, amount, currency, eventInfo) {
         '<h1 style="margin:0; color:#fff; font-size:28px; letter-spacing:2px;">MASTERYLAB</h1>' +
         '<p style="margin:5px 0 0; color:rgba(255,255,255,0.7); font-size:13px; letter-spacing:3px; text-transform:uppercase;">OFFICIAL EVENT TICKET</p>' +
         '</td></tr>' +
+
+        // Cover Image
+        (eventInfo.image ?
+            '<tr><td style="padding:0; line-height:0;">' +
+            '<img src="' + eventInfo.image + '" alt="' + eventInfo.name + '" width="600" style="width:100%; max-width:600px; height:auto; display:block; object-fit:cover; max-height:280px;">' +
+            '</td></tr>' : '') +
 
         // Ticket Body
         '<tr><td style="padding: 0 40px;">' +
