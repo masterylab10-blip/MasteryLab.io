@@ -2374,3 +2374,64 @@ textarea.form-input {
     background: var(--color-primary);
     box-shadow: 0 0 10px rgba(214, 0, 28, 0.5);
 }
+/* --- Unified Photo Frame Component --- */
+.photo-frame {
+    background: white;
+    padding: 15px 15px 40px 15px;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    position: relative;
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg);
+}
+
+.photo-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Corner Accents */
+.photo-frame .corner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.photo-frame .corner.top-left {
+    top: 10px;
+    left: 10px;
+    border-top: 4px solid #FF0033;
+    border-left: 4px solid #FF0033;
+}
+
+.photo-frame .corner.top-right {
+    top: 10px;
+    right: 10px;
+    border-top: 4px solid #FF4500;
+    border-right: 4px solid #FF4500;
+}
+
+.photo-frame .corner.bottom-left {
+    bottom: 50px;
+    left: 10px;
+    border-bottom: 4px solid #FF6B00;
+    border-left: 4px solid #FF6B00;
+}
+
+.photo-frame .corner.bottom-right {
+    bottom: 50px;
+    right: 10px;
+    border-bottom: 4px solid #FF8C00;
+    border-right: 4px solid #FF8C00;
+}
