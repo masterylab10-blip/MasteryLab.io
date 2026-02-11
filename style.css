@@ -1288,6 +1288,11 @@ textarea.form-input {
     background-position: center top;
 }
 
+.bio-hero-bg.dance-booster {
+    background-image: url('media/dance_booster_lab_1.png');
+    background-position: center top;
+}
+
 .bio-hero-overlay {
     position: absolute;
     inset: 0;
