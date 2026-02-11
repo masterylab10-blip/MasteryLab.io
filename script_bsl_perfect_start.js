@@ -18,8 +18,11 @@ function doPost(e) {
     lock.tryLock(10000);
     try {
         var postData = e.postData;
-        if (postData && postData.type === 'application/json') {
-            return handleStripeWebhook(JSON.parse(postData.contents));
+        if (postData && postData.contents) {
+            var payload = JSON.parse(postData.contents);
+            if (payload && payload.id && payload.object === 'event') {
+                return handleStripeWebhook(payload);
+            }
         }
         return handleRegistration(e.parameter);
     } catch (err) {
