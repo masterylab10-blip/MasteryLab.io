@@ -130,11 +130,11 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="logo">
+            <a href="index" class="logo">
                 <img src="media/logo-wings.png" alt="MasteryLab Logo">
             </a>
             <div class="nav-links">
-                <a href="index.html" class="nav-btn-outline">Home</a>
+                <a href="index" class="nav-btn-outline">Home</a>
                 <button onclick="handleLogout()" class="nav-btn-outline"
                     style="border-color: #ff6b6b; color: #ff6b6b;">Sign Out</button>
             </div>
@@ -213,7 +213,7 @@
             const { data: { session } } = await supabaseClient.auth.getSession();
 
             if (!session) {
-                window.location.href = 'auth.html';
+                window.location.href = 'auth';
                 return;
             }
 
@@ -280,7 +280,7 @@
         // Handle Logout
         async function handleLogout() {
             await supabaseClient.auth.signOut();
-            window.location.href = 'index.html';
+            window.location.href = 'index';
         }
     </script>
 
