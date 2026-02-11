@@ -89,6 +89,14 @@ function handleRegistration(data) {
     var timestamp = new Date();
     var fullName = data.first_name + " " + data.last_name;
 
+    // Map BSL levels to display names
+    var ticketTypeDisplay = data.level || '';
+    if (data.type === 'BSL' || sheetName === 'BSL') {
+        if (data.level === 'silver') ticketTypeDisplay = 'Perfect Start';
+        else if (data.level === 'bronze') ticketTypeDisplay = 'Almost There';
+        else if (data.level === 'gold') ticketTypeDisplay = 'I Made It';
+    }
+
     targetSheet.appendRow([
         timestamp.toLocaleDateString(),
         timestamp.toLocaleTimeString(),
@@ -101,7 +109,7 @@ function handleRegistration(data) {
         '', // Amount
         '', // Payment Time
         '', // Ticket #
-        data.level || '',
+        ticketTypeDisplay, // Ticket Type (Mapped)
         data.track || ''
     ]);
 
@@ -113,6 +121,7 @@ function handleRegistration(data) {
             '<h2 style="color: #D6001C;">New Registration - ' + sheetName + '</h2>' +
             '<p><strong>Name:</strong> ' + fullName + '</p>' +
             '<p><strong>Email:</strong> ' + data.email + '</p>' +
+            (ticketTypeDisplay ? '<p><strong>Ticket Type:</strong> ' + ticketTypeDisplay + '</p>' : '') +
             '<p><strong>City:</strong> ' + (data.city || 'N/A') + '</p>' +
             '<p><strong>Role:</strong> ' + (data.role || 'N/A') + '</p>' +
             '<p><strong>WhatsApp:</strong> ' + (data.whatsapp || 'N/A') + '</p>' +
@@ -168,6 +177,7 @@ function handleStripeWebhook(event) {
                 && rowStatus === 'Pending') {
                 // Generate ticket number
                 var ticketNumber = generateTicketNumber(sheet.getName(), i);
+                var ticketType = data[i][11] || ''; // Column L (Ticket Type)
 
                 // Update row
                 sheet.getRange(i + 1, 8).setValue('✅ Paid');
@@ -212,7 +222,7 @@ function handleStripeWebhook(event) {
         });
 
         // 🎟️ PREMIUM TICKET EMAIL TO CUSTOMER
-        var ticketHtml = buildTicketEmail(customerName, customerEmail, ticketNumber, amountPaid, currency, eventInfo);
+        var ticketHtml = buildTicketEmail(customerName, customerEmail, ticketNumber, amountPaid, currency, eventInfo, ticketType);
 
         MailApp.sendEmail({
             to: customerEmail,
@@ -244,7 +254,7 @@ function generateTicketNumber(sheetCode, rowNum) {
 // PART 4: BUILD PREMIUM TICKET EMAIL
 // ============================================
 
-function buildTicketEmail(name, email, ticketNum, amount, currency, eventInfo) {
+function buildTicketEmail(name, email, ticketNum, amount, currency, eventInfo, ticketType) {
     var firstName = name.split(' ')[0];
     var accentColor = eventInfo.color || '#D6001C';
 
@@ -273,7 +283,8 @@ function buildTicketEmail(name, email, ticketNum, amount, currency, eventInfo) {
 
         // Event Name
         '<h2 style="color:#fff; font-size:24px; margin:0 0 5px; text-transform:uppercase; letter-spacing:1px;">' + eventInfo.name + '</h2>' +
-        '<p style="color:' + accentColor + '; font-size:14px; margin:0 0 25px; letter-spacing:1px;">CONFIRMED ✓</p>' +
+        '<p style="color:' + accentColor + '; font-size:16px; margin:0 0 5px; letter-spacing:1px; font-weight:bold;">' + (ticketType || 'ADMISSION') + '</p>' +
+        '<p style="color:#888; font-size:12px; margin:0 0 25px; letter-spacing:1px;">CONFIRMED ✓</p>' +
 
         // Details Grid
         '<table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:25px;">' +
