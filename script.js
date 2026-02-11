@@ -69,43 +69,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-    }
+        // Form Submission (Only for index.html modal form)
+        if (regForm) {
+            regForm.addEventListener('submit', function (e) {
+                e.preventDefault();
 
-    // Form Submission (Standalone or Modal)
-    if (regForm) {
-        regForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+                const formData = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    city: document.getElementById('city').value,
+                    role: document.getElementById('role').value,
+                    email: document.getElementById('email').value,
+                    whatsapp: document.getElementById('whatsapp').value
+                };
 
-            const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                city: document.getElementById('city').value,
-                role: document.getElementById('role').value,
-                email: document.getElementById('email').value,
-                whatsapp: document.getElementById('whatsapp').value
-            };
+                // 1. DATA SAVING: Send to Google Sheets (Silent Background)
+                const googleSheetUrl = "https://script.google.com/macros/s/AKfycbxbleUuZYNKhQhW87bakoOiRSCKB2cW-AiH0dxnoq7J9y43Q8feTvY1Sji_9_wm_T8/exec";
 
-            // 1. DATA SAVING: Send to Google Sheets (Silent Background)
-            const googleSheetUrl = "https://script.google.com/macros/s/AKfycbxbleUuZYNKhQhW87bakoOiRSCKB2cW-AiH0dxnoq7J9y43Q8feTvY1Sji_9_wm_T8/exec";
+                fetch(googleSheetUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    redirect: 'follow',
+                    body: JSON.stringify(formData),
+                    keepalive: true
+                });
 
-            fetch(googleSheetUrl, {
-                method: 'POST',
-                mode: 'no-cors',
-                cache: 'no-cache',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                redirect: 'follow',
-                body: JSON.stringify(formData),
-                keepalive: true
+                // 2. EMAIL & REDIRECT: Trigger Native FormSubmit (Visual Foreground)
+                setTimeout(() => {
+                    this.submit();
+                }, 300);
             });
-
-            // 2. EMAIL & REDIRECT: Trigger Native FormSubmit (Visual Foreground)
-            // This ensures you get the email even if Google Sheets has an issue.
-            setTimeout(() => {
-                this.submit();
-            }, 300);
-        });
+        }
     }
 
     // Intersection Observer for fade-in animations
@@ -234,15 +232,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close dropdown when clicking outside
         document.addEventListener('click', () => {
-             langDropdown.style.visibility = 'hidden';
-             langDropdown.style.opacity = '0';
+            langDropdown.style.visibility = 'hidden';
+            langDropdown.style.opacity = '0';
         });
 
         // Language Selection
         langOptions.forEach(option => {
             option.addEventListener('click', () => {
                 const lang = option.getAttribute('data-lang');
-                
+
                 // Update active state
                 langOptions.forEach(opt => opt.classList.remove('active'));
                 option.classList.add('active');
@@ -273,14 +271,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Example Text Updates (Add more data-i18n attributes in HTML to scale this)
         document.querySelectorAll('.nav-btn-primary').forEach(el => el.textContent = t.register);
         document.querySelectorAll('.nav-btn-outline').forEach(el => {
-            if(el.href.includes('what-is-masterylab')) el.textContent = t.whatIs;
+            if (el.href.includes('what-is-masterylab')) el.textContent = t.whatIs;
         });
         // Selectors for specific sections to demonstrate change
         const contactHeader = document.querySelector('#contact .text-futuristic');
-        if(contactHeader) contactHeader.setAttribute('data-text', t.contact.toUpperCase());
-        if(contactHeader) contactHeader.textContent = t.contact;
+        if (contactHeader) contactHeader.setAttribute('data-text', t.contact.toUpperCase());
+        if (contactHeader) contactHeader.textContent = t.contact;
 
         const partnerHeader = document.querySelector('#partners h2');
-        if(partnerHeader) partnerHeader.textContent = t.partners;
+        if (partnerHeader) partnerHeader.textContent = t.partners;
     }
 });
