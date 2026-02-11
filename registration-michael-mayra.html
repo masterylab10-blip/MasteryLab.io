@@ -267,21 +267,11 @@
                             }
                             data.append('type', 'MM');
 
-                            fetch(googleScriptURL, {
-                                method: 'POST',
-                                body: data,
-                                mode: 'no-cors',
-                                keepalive: true
-                            })
-                                .then(() => {
-                                    setTimeout(() => {
-                                        window.location.href = stripePaymentLink;
-                                    }, 500);
-                                })
-                                .catch(err => {
-                                    console.error('Sheet Error:', err);
-                                    window.location.href = stripePaymentLink;
-                                });
+                            // Save to Google Sheets in the background as we redirect
+                            navigator.sendBeacon(googleScriptURL, data);
+
+                            // Redirect to Stripe payment immediately
+                            window.location.href = stripePaymentLink;
                         });
                     }
                 </script>
