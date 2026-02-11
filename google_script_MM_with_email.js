@@ -83,7 +83,7 @@ function handleRegistration(data) {
 
     if (!targetSheet) {
         targetSheet = sheet.insertSheet(sheetName);
-        targetSheet.appendRow(['Date', 'Time', 'Full Name', 'City', 'Phone', 'Email', 'Role', 'Status', 'Amount', 'Payment Time', 'Ticket #']);
+        targetSheet.appendRow(['Date', 'Time', 'Full Name', 'City', 'Phone', 'Email', 'Role', 'Status', 'Amount', 'Payment Time', 'Ticket #', 'Ticket Type', 'Track']);
     }
 
     var timestamp = new Date();
@@ -97,7 +97,12 @@ function handleRegistration(data) {
         data.whatsapp || 'Not Provided',
         data.email,
         data.role || 'N/A',
-        'Pending'
+        'Pending',
+        '', // Amount
+        '', // Payment Time
+        '', // Ticket #
+        data.level || '',
+        data.track || ''
     ]);
 
     // Email to YOU (admin) — registration received
