@@ -219,11 +219,24 @@
 
                     <script>
                         const regForm = document.getElementById('regForm');
-                        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzJMJx0UH1g8xyCJ_AHG3nBO3colKfncTrunMqw9pJXH4x_zOLrh4yle3Li6UEa3GZk/exec';
+
+                        // Map levels to dedicated script URLs
+                        const scriptURLs = {
+                            'silver': 'https://script.google.com/macros/s/AKfycbzJMJx0UH1g8xyCJ_AHG3nBO3colKfncTrunMqw9pJXH4x_zOLrh4yle3Li6UEa3GZk/exec', // Default/Placeholder
+                            'bronze': 'https://script.google.com/macros/s/AKfycbzJMJx0UH1g8xyCJ_AHG3nBO3colKfncTrunMqw9pJXH4x_zOLrh4yle3Li6UEa3GZk/exec',
+                            'gold': 'https://script.google.com/macros/s/AKfycbzJMJx0UH1g8xyCJ_AHG3nBO3colKfncTrunMqw9pJXH4x_zOLrh4yle3Li6UEa3GZk/exec'
+                        };
 
                         if (regForm) {
                             regForm.addEventListener('submit', function (e) {
                                 e.preventDefault();
+
+                                const urlParams = new URLSearchParams(window.location.search);
+                                const track = urlParams.get('track') || 'dancers';
+                                const level = urlParams.get('level') || 'silver'; // Default to silver/perfect start
+
+                                const googleScriptURL = scriptURLs[level] || scriptURLs['silver'];
+
                                 const btn = document.getElementById('submitBtn');
                                 btn.innerText = 'Processing...';
                                 btn.disabled = true;
@@ -234,10 +247,6 @@
                                     data.append(pair[0], pair[1]);
                                 }
 
-                                // Add track and level from URL
-                                const urlParams = new URLSearchParams(window.location.search);
-                                const track = urlParams.get('track') || 'dancers'; // Default to dancers if not specified
-                                const level = urlParams.get('level') || 'general';
                                 data.append('track', track);
                                 data.append('level', level);
 
