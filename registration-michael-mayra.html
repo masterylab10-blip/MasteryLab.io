@@ -200,14 +200,7 @@
                     MICHAEL & MAYRA INTENSIVE - BASEL 2026
                 </p>
 
-                <form id="regForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New M&M Intensive Registration!">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <!-- Stripe Payment Link -->
-                    <input type="hidden" name="_next" value="https://buy.stripe.com/9B614p6G2b8w97s12ydEs0b">
-
+                <form id="regForm">
                     <div class="form-group">
                         <label for="firstName" class="form-label">First Name</label>
                         <input type="text" id="firstName" name="first_name" class="form-input" required>
@@ -257,6 +250,7 @@
                 <script>
                     const regForm = document.getElementById('regForm');
                     const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwu80Xne6Ry18agC3pnSaasllJj7E3iNSKceLU9lwqzy41jUKu9IdAE4XGTn6ULFf-w/exec';
+                    const stripePaymentLink = 'https://buy.stripe.com/9B614p6G2b8w97s12ydEs0b';
 
                     if (regForm) {
                         regForm.addEventListener('submit', function (e) {
@@ -281,12 +275,12 @@
                             })
                                 .then(() => {
                                     setTimeout(() => {
-                                        regForm.submit();
+                                        window.location.href = stripePaymentLink;
                                     }, 500);
                                 })
                                 .catch(err => {
                                     console.error('Sheet Error:', err);
-                                    regForm.submit();
+                                    window.location.href = stripePaymentLink;
                                 });
                         });
                     }
