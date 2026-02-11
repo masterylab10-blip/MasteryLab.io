@@ -225,6 +225,23 @@ h6 {
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* Ticket Style Utility */
+.ticket-shape {
+    clip-path: polygon(8% 0, 100% 0, 100% 85%, 92% 100%, 0 100%, 0 15%);
+    border-radius: 0 !important;
+    transition: all 0.3s ease;
+}
+
+.ticket-shape:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 5px 15px rgba(214, 0, 28, 0.3));
+}
+
+.btn.ticket-shape {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
 
 /* Artistic Hero Button */
 .btn-hero-artistic {
@@ -637,12 +654,18 @@ h6 {
 }
 
 .hero-card {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.85);
+    padding: 2.5rem 2rem;
     position: relative;
     overflow: hidden;
+    clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+    border: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hero-card:hover {
+    background: rgba(30, 0, 0, 0.9);
+    transform: translateY(-5px) scale(1.02);
 }
 
 .hero-card::before {
@@ -2374,12 +2397,13 @@ textarea.form-input {
     background: var(--color-primary);
     box-shadow: 0 0 10px rgba(214, 0, 28, 0.5);
 }
+
 /* --- Unified Photo Frame Component --- */
 .photo-frame {
     background: white;
     padding: 15px 15px 40px 15px;
     border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     position: relative;
     transform: rotate(-2deg);
     transition: transform 0.3s ease;
