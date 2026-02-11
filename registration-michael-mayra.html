@@ -218,53 +218,6 @@
                         <input type="text" id="lastName" name="last_name" class="form-input" required>
                     </div>
 
-                    <script>
-                        const regForm = document.getElementById('regForm');
-                        // REPLACE THIS WITH YOUR DEPLOYED GOOGLE SCRIPT URL
-                        const googleScriptURL = 'https://script.google.com/macros/s/AKfycby4yagT139bTqoW8rTZ2roEIhRRNzTWN7pAU576zKpYcx3sbGn8PULbZ-WiAzNEXU1T/exec';
-
-                        if (regForm) {
-                            regForm.addEventListener('submit', function (e) {
-                                // 1. Prevent default to handle Google Sheet submission first
-                                e.preventDefault();
-
-                                const btn = document.getElementById('submitBtn');
-                                const originalText = btn.innerText;
-                                btn.innerText = 'Processing...';
-                                btn.disabled = true;
-
-                                // 2. Prepare Data
-                                const formData = new FormData(regForm);
-                                const data = new URLSearchParams();
-                                for (const pair of formData) {
-                                    data.append(pair[0], pair[1]);
-                                }
-                                // Add M&M specific type
-                                data.append('type', 'MM');
-
-                                // 3. Send to Google Sheets (No-CORS mode)
-                                fetch(googleScriptURL, {
-                                    method: 'POST',
-                                    body: data,
-                                    mode: 'no-cors',
-                                    keepalive: true
-                                })
-                                    .then(() => {
-                                        // 4. Submit to FormSubmit/Stripe after short delay
-                                        // We use submit() on the form element to bypass this listener
-                                        setTimeout(() => {
-                                            regForm.submit();
-                                        }, 500);
-                                    })
-                                    .catch(err => {
-                                        console.error('Sheet Error:', err);
-                                        // Fallback: Submit anyway so user isn't blocked using FormSubmit/Stripe
-                                        regForm.submit();
-                                    });
-                            });
-                        }
-                    </script>
-
                     <div class="form-group">
                         <label for="city" class="form-label">City of Residence</label>
                         <input type="text" id="city" name="city" class="form-input" required>
@@ -301,6 +254,44 @@
                     </p>
                 </form>
 
+                <script>
+                    const regForm = document.getElementById('regForm');
+                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycby4yagT139bTqoW8rTZ2roEIhRRNzTWN7pAU576zKpYcx3sbGn8PULbZ-WiAzNEXU1T/exec';
+
+                    if (regForm) {
+                        regForm.addEventListener('submit', function (e) {
+                            e.preventDefault();
+
+                            const btn = document.getElementById('submitBtn');
+                            btn.innerText = 'Processing...';
+                            btn.disabled = true;
+
+                            const formData = new FormData(regForm);
+                            const data = new URLSearchParams();
+                            for (const pair of formData) {
+                                data.append(pair[0], pair[1]);
+                            }
+                            data.append('type', 'MM');
+
+                            fetch(googleScriptURL, {
+                                method: 'POST',
+                                body: data,
+                                mode: 'no-cors',
+                                keepalive: true
+                            })
+                                .then(() => {
+                                    setTimeout(() => {
+                                        regForm.submit();
+                                    }, 500);
+                                })
+                                .catch(err => {
+                                    console.error('Sheet Error:', err);
+                                    regForm.submit();
+                                });
+                        });
+                    }
+                </script>
+
 
             </div>
         </div>
@@ -323,28 +314,23 @@
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         document.addEventListener('DOMContentLoaded', async () => {
-            // Check for authentication (Optional now)
-            const { data: { session } } = await supabaseClient.auth.getSession();
+            try {
+                const { data: { session } } = await supabaseClient.auth.getSession();
+                let currentUser = session?.user;
 
-            // Logic to handle potential query params for redirects is NO LONGER NEEDED for mandatory auth
-            // We just let them fill the form.
+                if (!currentUser) return; // Not logged in, just let them fill the form manually
 
-            // User is logged in, fetch profile and pre-fill form
-            let currentUser = session?.user;
+                // Fetch Profile Data
+                const { data: profile } = await supabaseClient
+                    .from('profiles')
+                    .select('*')
+                    .eq('id', currentUser.id)
+                    .single();
 
-            // Fetch Profile Data
-            const { data: profile } = await supabaseClient
-                .from('profiles')
-                .select('*')
-                .eq('id', currentUser.id)
-                .single();
+                if (profile) {
+                    currentUser = { ...currentUser, ...profile };
+                }
 
-            // Merge Auth User and Profile
-            if (profile) {
-                currentUser = { ...currentUser, ...profile };
-            }
-
-            if (currentUser) {
                 // Pre-fill fields
                 const fields = {
                     'firstName': currentUser.first_name || currentUser.user_metadata?.first_name,
@@ -355,22 +341,23 @@
                     'whatsapp': currentUser.whatsapp || currentUser.user_metadata?.whatsapp
                 };
 
-                // Apply to inputs
                 for (const [id, value] of Object.entries(fields)) {
                     const input = document.getElementById(id);
                     if (input && value) {
                         input.value = value;
                     }
                 }
-            }
 
-            // Show welcome message
-            const container = document.querySelector('.registration-container');
-            if (container) {
-                const displayName = currentUser.first_name || currentUser.email;
-                const welcomeMsg = document.createElement('div');
-                welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${displayName}</strong></p>`;
-                container.insertBefore(welcomeMsg, container.firstChild);
+                // Show welcome message
+                const container = document.querySelector('.registration-container');
+                if (container) {
+                    const displayName = currentUser.first_name || currentUser.email;
+                    const welcomeMsg = document.createElement('div');
+                    welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${displayName}</strong></p>`;
+                    container.insertBefore(welcomeMsg, container.firstChild);
+                }
+            } catch (err) {
+                console.log('Supabase auth check skipped:', err.message);
             }
         });
     </script>
