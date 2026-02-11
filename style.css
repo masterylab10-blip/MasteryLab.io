@@ -877,8 +877,57 @@ h6 {
     position: relative;
     border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     aspect-ratio: 1 / 1;
+    box-shadow:
+        0 0 40px rgba(214, 0, 28, 0.5),
+        0 0 100px rgba(214, 0, 28, 0.3),
+        0 0 150px rgba(214, 0, 28, 0.15),
+        0 20px 50px rgba(0, 0, 0, 0.5);
+    transform: perspective(800px) rotateY(-2deg);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.lab-image::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    background: linear-gradient(135deg, #D6001C, #ff4444, #D6001C, #ff6666);
+    z-index: -1;
+    border-radius: 0;
+    filter: blur(25px);
+    opacity: 0.7;
+    animation: neonPulse 3s ease-in-out infinite;
+}
+
+.lab-section:hover .lab-image {
+    transform: perspective(800px) rotateY(0deg);
+    box-shadow:
+        0 0 50px rgba(214, 0, 28, 0.7),
+        0 0 120px rgba(214, 0, 28, 0.4),
+        0 0 200px rgba(214, 0, 28, 0.2),
+        0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lab-section.alt .lab-image {
+    transform: perspective(800px) rotateY(2deg);
+}
+
+.lab-section.alt:hover .lab-image {
+    transform: perspective(800px) rotateY(0deg);
+}
+
+@keyframes neonPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        filter: blur(25px);
+    }
+
+    50% {
+        opacity: 0.9;
+        filter: blur(35px);
+    }
 }
 
 .lab-image img {
