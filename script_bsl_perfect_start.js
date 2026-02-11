@@ -104,30 +104,60 @@ function buildTicketEmail(name, email, ticketNum, amount, currency, ticketType) 
     var accentColor = EVENT.color || '#8B5CF6';
     var firstName = name.split(' ')[0];
 
-    return '<!DOCTYPE html><html><body style="background:#111; color:#fff; font-family:sans-serif; padding:10px;">' +
-        '<div style="max-width:550px; margin:20px auto; background:#181818; border-radius:15px; overflow:hidden; border:1px solid #333; box-shadow:0 20px 50px rgba(0,0,0,0.5);">' +
-        '<div style="background:linear-gradient(135deg, ' + accentColor + ' 0%, #000 100%); padding:30px; text-align:center; border-bottom:2px dashed #333;">' +
-        '<h2 style="margin:0; color:#fff; font-size:28px; letter-spacing:2px; text-transform:uppercase;">MASTERYLAB</h2>' +
-        '<p style="margin:5px 0 0; color:rgba(255,255,255,0.7); font-size:12px; letter-spacing:3px;">OFFICIAL EVENT TICKET</p>' +
+    return '<!DOCTYPE html><html><body style="background:#111; color:#fff; font-family:sans-serif; padding:5px;">' +
+        '<div style="max-width:500px; margin:10px auto; background:#181818; border-radius:15px; overflow:hidden; border:1px solid #333; box-shadow:0 20px 50px rgba(0,0,0,0.5);">' +
+        // Header
+        '<div style="background:linear-gradient(135deg, ' + accentColor + ' 0%, #000 100%); padding:25px; text-align:center; border-bottom:2px dashed #333;">' +
+        '<h2 style="margin:0; color:#fff; font-size:24px; letter-spacing:2px; text-transform:uppercase;">MASTERYLAB</h2>' +
+        '<p style="margin:5px 0 0; color:rgba(255,255,255,0.7); font-size:10px; letter-spacing:3px;">OFFICIAL EVENT TICKET</p>' +
         '</div>' +
-        '<div style="padding:40px; text-align:center;">' +
-        '<h1 style="margin:0 0 10px; font-size:24px; text-transform:uppercase; letter-spacing:1px;">' + EVENT.name + '</h1>' +
-        '<p style="color:' + accentColor + '; font-weight:bold; font-size:18px; margin:0 0 30px;">✓ CONFIRMED</p>' +
-        '<div style="display:grid; grid-template-columns:1fr 1fr; border:1px solid #333; text-align:left; border-radius:10px; overflow:hidden;">' +
-        '<div style="padding:15px; border-bottom:1px solid #333; border-right:1px solid #333;"><p style="margin:0; font-size:10px; color:#777; text-transform:uppercase;">Date: 📅</p><p style="margin:5px 0 0; font-weight:bold; font-size:14px;">' + EVENT.date + '</p></div>' +
-        '<div style="padding:15px; border-bottom:1px solid #333;"><p style="margin:0; font-size:10px; color:#777; text-transform:uppercase;">Amount Paid: 💰</p><p style="margin:5px 0 0; font-weight:bold; font-size:14px; color:#4CAF50;">' + currency + ' ' + amount + '</p></div>' +
-        '<div style="padding:15px; border-bottom:1px solid #333; border-right:1px solid #333;"><p style="margin:0; font-size:10px; color:#777; text-transform:uppercase;">Venue: 📍</p><p style="margin:5px 0 0; font-weight:bold; font-size:13px;">' + EVENT.venue + '</p></div>' +
-        '<div style="padding:15px; border-bottom:1px solid #333;"><p style="margin:0; font-size:10px; color:#777; text-transform:uppercase;">Ticket Number: 🎟️</p><p style="margin:5px 0 0; font-weight:bold; font-size:13px; color:' + accentColor + '; font-family:monospace;">' + ticketNum + '</p></div>' +
-        '<div style="padding:15px; border-right:1px solid #333;"><p style="margin:0; font-size:10px; color:#777; text-transform:uppercase;">Attendee: 👤</p><p style="margin:5px 0 0; font-weight:bold; font-size:14px;">' + name + '</p></div>' +
-        '<div style="padding:15px;"><p style="margin:0; font-size:10px; color:#777; text-transform:uppercase;">Email: ✉️</p><p style="margin:5px 0 0; font-weight:bold; font-size:13px; color:#aaa;">' + email + '</p></div>' +
+
+        '<div style="padding:20px; text-align:center;">' +
+        '<h1 style="margin:0 0 10px; font-size:22px; text-transform:uppercase; letter-spacing:1px;">' + EVENT.name + '</h1>' +
+        '<p style="color:' + accentColor + '; font-weight:bold; font-size:16px; margin:0 0 20px;">✓ CONFIRMED</p>' +
+
+        // Details Table (High Compatibility)
+        '<table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #333; border-radius:10px; border-collapse:separate; overflow:hidden; text-align:left;">' +
+        '<tr>' +
+        '<td style="padding:12px; border-bottom:1px solid #333; border-right:1px solid #333; width:50%;">' +
+        '<p style="margin:0; font-size:9px; color:#777; text-transform:uppercase;">Date: 📅</p>' +
+        '<p style="margin:4px 0 0; font-weight:bold; font-size:13px;">' + EVENT.date + '</p>' +
+        '</td>' +
+        '<td style="padding:12px; border-bottom:1px solid #333;">' +
+        '<p style="margin:0; font-size:9px; color:#777; text-transform:uppercase;">Paid: 💰</p>' +
+        '<p style="margin:4px 0 0; font-weight:bold; font-size:13px; color:#4CAF50;">' + currency + ' ' + amount + '</p>' +
+        '</td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td style="padding:12px; border-bottom:1px solid #333; border-right:1px solid #333;">' +
+        '<p style="margin:0; font-size:9px; color:#777; text-transform:uppercase;">Venue: 📍</p>' +
+        '<p style="margin:4px 0 0; font-weight:bold; font-size:12px;">' + EVENT.venue + '</p>' +
+        '</td>' +
+        '<td style="padding:12px; border-bottom:1px solid #333;">' +
+        '<p style="margin:0; font-size:9px; color:#777; text-transform:uppercase;">Ticket #: 🎟️</p>' +
+        '<p style="margin:4px 0 0; font-weight:bold; font-size:12px; color:' + accentColor + '; font-family:monospace;">' + ticketNum.split('-').pop() + '</p>' +
+        '</td>' +
+        '</tr>' +
+        '<tr>' +
+        '<td style="padding:12px; border-right:1px solid #333;">' +
+        '<p style="margin:0; font-size:9px; color:#777; text-transform:uppercase;">Attendee: 👤</p>' +
+        '<p style="margin:4px 0 0; font-weight:bold; font-size:13px;">' + name + '</p>' +
+        '</td>' +
+        '<td style="padding:12px;">' +
+        '<p style="margin:0; font-size:9px; color:#777; text-transform:uppercase;">Type: ✨</p>' +
+        '<p style="margin:4px 0 0; font-weight:bold; font-size:12px; color:#aaa;">' + ticketType + '</p>' +
+        '</td>' +
+        '</tr>' +
+        '</table>' +
+
+        // Mobile Note Box
+        '<div style="margin-top:20px; background:#111; padding:15px; border-radius:10px; border-left:4px solid ' + accentColor + '; text-align:left;">' +
+        '<p style="margin:0 0 8px; font-weight:bold; font-size:15px;">Welcome, ' + firstName + '!</p>' +
+        '<p style="margin:0; font-size:13px; line-height:1.5; color:#ccc;">This digital ticket confirms your spot for ' + EVENT.name + '. Present this email at the door.</p>' +
+        '<p style="margin:10px 0 0; font-size:12px; color:#888;">- The MasteryLab Team</p>' +
         '</div>' +
-        '<div style="margin-top:30px; background:#111; padding:25px; border-radius:10px; border-left:4px solid ' + accentColor + '; text-align:left;">' +
-        '<p style="margin:0 0 10px; font-weight:bold; font-size:16px;">Welcome, ' + firstName + '!</p>' +
-        '<p style="margin:0; font-size:14px; line-height:1.6; color:#ccc;">We are thrilled to have you join us for the ' + EVENT.name + '. This ticket confirms your spot at our exclusive dance mastery event. Get ready for an unforgettable experience filled with learning, passion, and community.</p>' +
-        '<p style="margin:15px 0 0; font-size:13px; color:#888;">Please present this digital ticket at the registration desk upon arrival. For any questions, contact our support team. Let\'s dance!</p>' +
-        '<p style="margin:10px 0 0; font-size:14px; font-style:italic; color:#ccc;">- The MasteryLab Team</p>' +
         '</div>' +
-        '</div>' +
-        '<div style="text-align:center; padding:20px; color:#555; font-size:12px; border-top:1px solid #222;">© 2026 MasteryLab</div>' +
+
+        '<div style="text-align:center; padding:15px; color:#444; font-size:10px;">© 2026 MasteryLab</div>' +
         '</div></body></html>';
 }
