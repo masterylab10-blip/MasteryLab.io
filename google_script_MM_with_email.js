@@ -28,7 +28,7 @@ var EVENT_DETAILS = {
         date: 'TBD 2026',
         venue: 'TBD',
         color: '#F59E0B',
-        image: SITE_URL + '/media/ismael-irene-cover.png'
+        image: SITE_URL + '/media/dance_booster_lab_1.png'
     },
     'LM': {
         name: 'Ladies Mastery Lab',
