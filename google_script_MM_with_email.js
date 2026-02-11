@@ -23,8 +23,8 @@ var EVENT_DETAILS = {
         color: '#8B5CF6',
         image: SITE_URL + '/media/bachata_sensual_cover_new.jpg'
     },
-    'I&I': {
-        name: 'Dance Booster — Ismael & Irene',
+    'DANCE BOOSTER LAB 1': {
+        name: 'Dance Booster Lab 1 — Ismael & Irene',
         date: 'TBD 2026',
         venue: 'TBD',
         color: '#F59E0B',
@@ -76,7 +76,7 @@ function handleRegistration(data) {
 
     if (data.type === 'MM') sheetName = 'M&M';
     else if (data.type === 'BSL') sheetName = 'BSL';
-    else if (data.type === 'II') sheetName = 'I&I';
+    else if (data.type === 'II') sheetName = 'DANCE BOOSTER LAB 1';
     else if (data.type === 'LM') sheetName = 'LM';
     else if (data.sheetName) sheetName = data.sheetName;
     var targetSheet = sheet.getSheetByName(sheetName);
