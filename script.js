@@ -14,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logo) {
         logo.addEventListener('click', function (e) {
             const currentPath = window.location.pathname;
+            // If the current path is exactly '/registration-bachata-sensual', redirect to the version without .html
+            if (currentPath === '/registration-bachata-sensual') {
+                window.location.href = '/registration-bachata-sensual';
+                return; // Stop further execution
+            }
             const isHomePage = currentPath === '/' || currentPath.endsWith('index.html');
 
             if (isHomePage) {
