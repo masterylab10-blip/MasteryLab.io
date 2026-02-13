@@ -542,8 +542,8 @@ h6 {
 /* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: 15rem;
-    /* Move up to clear hero-footer cards */
+    bottom: 5rem;
+    /* Adjusted for 3-card layout */
     left: 50%;
     transform: translateX(-50%);
     width: auto;
@@ -844,22 +844,16 @@ h6 {
 
     .hero-cards {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        /* Stack vertically or use 2x2 with empty space? Stacking is safer for mobile clarity with 3 labs */
         gap: 0.5rem;
         width: 100%;
         max-width: 90%;
         margin: 0 auto;
     }
 
-    /* Make the 5th card (Men Style) center on mobile grid */
-    .hero-card:nth-child(5) {
-        grid-column: span 2;
-        max-width: 50%;
-        margin: 0 auto;
-    }
-
     .hero-card {
-        padding: 0.6rem;
+        padding: 0.8rem;
         text-align: center;
     }
 
@@ -881,8 +875,8 @@ h6 {
     .scroll-indicator {
         display: flex;
         opacity: 0.9;
-        bottom: 22rem;
-        /* Move even higher on mobile to clear the grid */
+        bottom: 10rem;
+        /* Adjusted for 3-card stacked mobile layout */
         left: 50%;
         transform: translateX(-50%);
         z-index: 999;
