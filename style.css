@@ -542,7 +542,8 @@ h6 {
 /* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: 15rem;
+    /* Move up to clear hero-footer cards */
     left: 50%;
     transform: translateX(-50%);
     width: auto;
@@ -880,8 +881,8 @@ h6 {
     .scroll-indicator {
         display: flex;
         opacity: 0.9;
-        bottom: 1rem;
-        /* Lift slightly for better clearance */
+        bottom: 22rem;
+        /* Move even higher on mobile to clear the grid */
         left: 50%;
         transform: translateX(-50%);
         z-index: 999;
