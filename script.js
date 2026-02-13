@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div style="font-size: 4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary); font-family: 'Anton', sans-serif;">250 CHF</div>
                 <h3 style="margin-bottom: 2rem; font-size: 3rem; line-height: 1;">WHAT YOU GET with this price</h3>
                 <ul class="pricing-features" style="display: inline-block; text-align: left; font-size: 1.3rem;">
-                    <li style="margin-bottom: 1rem;">9 Hours of High-Level Education with main artists</li>
+                    <li style="margin-bottom: 1rem;">Multiple Hours of High-Level Education with main artists</li>
                     <li style="margin-bottom: 1rem;">Spain-Level Training Material</li>
                     <li style="margin-bottom: 1rem;">Follow-Up Program Between Labs</li>
                     <li style="margin-bottom: 1rem;">Professional Media (High-Quality Video)</li>
@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const journalLink = document.createElement('a');
             journalLink.href = 'education-journal.html';
-            journalLink.className = 'nav-btn-outline';
+            journalLink.className = 'nav-btn-outline ticket-shape';
             journalLink.textContent = 'EDUCATION JOURNAL'; // Uppercase to match style
             journalLink.style.marginLeft = '1rem';
             journalLink.style.borderColor = 'rgba(255,255,255,0.3)';
