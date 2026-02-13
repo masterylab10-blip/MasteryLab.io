@@ -542,8 +542,8 @@ h6 {
 /* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: 5rem;
-    /* Adjusted for 3-card layout */
+    bottom: 0.5rem;
+    /* Move below the cards area */
     left: 50%;
     transform: translateX(-50%);
     width: auto;
@@ -871,15 +871,15 @@ h6 {
         /* Optionally hide subtitle to save space, or keep it tiny */
     }
 
-    /* Adjust Scroll Indicator position */
+    /* Adjust Scroll Indicator position to be under cards */
     .scroll-indicator {
         display: flex;
         opacity: 0.9;
-        bottom: 10rem;
-        /* Adjusted for 3-card stacked mobile layout */
+        bottom: 0.5rem;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 999;
+        z-index: 1001;
+        /* Above footer overlay */
     }
 
     .scroll-indicator span {
