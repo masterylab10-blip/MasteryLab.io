@@ -162,6 +162,7 @@ h6 {
 
     .grid-2 {
         grid-template-columns: 1fr !important;
+        gap: 2rem !important;
     }
 
     :root {
@@ -235,6 +236,13 @@ h6 {
 .ticket-shape:hover {
     transform: translateY(-2px);
     filter: drop-shadow(0 5px 15px rgba(214, 0, 28, 0.3));
+}
+
+.text-gradient-red {
+    background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .btn.ticket-shape {
@@ -537,9 +545,7 @@ h6 {
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -837,19 +843,22 @@ h6 {
 
     .hero-cards {
         display: grid !important;
-        /* Force grid display */
-        grid-template-columns: 1fr 1fr;
-        /* 2x2 Grid */
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
         width: 100%;
-        max-width: 400px;
+        max-width: 90%;
         margin: 0 auto;
-        animation: fadeInUp 1s ease 0.5s backwards;
+    }
+
+    /* Make the 5th card (Men Style) center on mobile grid */
+    .hero-card:nth-child(5) {
+        grid-column: span 2;
+        max-width: 50%;
+        margin: 0 auto;
     }
 
     .hero-card {
-        padding: 0.75rem;
-        /* Smaller padding */
+        padding: 0.6rem;
         text-align: center;
     }
 
@@ -2603,6 +2612,7 @@ textarea.form-input {
     filter: drop-shadow(0 5px 15px rgba(214, 0, 28, 0.4));
     opacity: 0.9;
 }
+
 /* =========================================
    TASK 1: GLOBAL PRICING COMPONENT
    ========================================= */
@@ -2699,7 +2709,8 @@ textarea.form-input {
 .mm-progress-fill {
     height: 100%;
     background: #eebb11;
-    width: 40%; /* Dynamic */
+    width: 40%;
+    /* Dynamic */
     transition: width 1s ease;
 }
 
@@ -2809,7 +2820,8 @@ textarea.form-input {
     text-decoration: none;
     overflow: hidden;
     transition: all 0.3s ease;
-    z-index: 1; /* Ensure text is above pseudo-elements */
+    z-index: 1;
+    /* Ensure text is above pseudo-elements */
 }
 
 .btn-book-now::before {
@@ -2820,7 +2832,8 @@ textarea.form-input {
     width: 0%;
     height: 100%;
     background: var(--color-primary);
-    z-index: -1; /* Behind text */
+    z-index: -1;
+    /* Behind text */
     transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -2845,7 +2858,8 @@ textarea.form-input {
     visibility: visible !important;
     opacity: 1 !important;
     gap: 1rem;
-    margin: 3rem 0; /* Add vertical spacing */
+    margin: 3rem 0;
+    /* Add vertical spacing */
     width: 100%;
 }
 
