@@ -443,69 +443,13 @@
     </div>
 
     <script>
+        /*
+        // Modal Logic Removed as per user request ("allow alwase")
         document.addEventListener('DOMContentLoaded', () => {
             const infoModal = document.getElementById('infoModal');
-            const closeBtn = document.getElementById('closeInfoModal');
-            const actionBtn = document.getElementById('paramsCloseBtn');
-
-            const urlParams = new URLSearchParams(window.location.search);
-            const track = urlParams.get('track');
-
-            // Custom Content for Dancers Track
-            if (track === 'dancers') {
-                const modalTitle = infoModal.querySelector('h2');
-                const modalText = infoModal.querySelector('p');
-
-                if (modalTitle) modalTitle.textContent = "PRICES COMING SOON";
-                if (modalText) modalText.innerHTML = "The prices are coming the next couple of days.<br><br>We are looking forward to having you with us! 💃🕺";
-
-                if (actionBtn) {
-                    actionBtn.textContent = "BACK TO LAB";
-                    actionBtn.onclick = (e) => {
-                        e.preventDefault();
-                        window.location.href = 'bachata-dancers-lab.html';
-                    };
-                }
-
-                // Hide the X close button to enforce the action
-                if (closeBtn) closeBtn.style.display = 'none';
-
-                // Prevent closing by clicking outside
-                window.blockClose = true;
-            }
-
-            // Show modal on load
-            if (infoModal) {
-                setTimeout(() => {
-                    infoModal.style.display = 'flex';
-                }, 500); // Small delay for effect
-
-                const closeModal = () => {
-                    // If blocked (Dancers track), don't close, redirect instead
-                    if (window.blockClose) {
-                        window.location.href = 'bachata-dancers-lab.html';
-                        return;
-                    }
-                    infoModal.style.display = 'none';
-                };
-
-                if (closeBtn && closeBtn.style.display !== 'none') {
-                    closeBtn.addEventListener('click', closeModal);
-                }
-
-                // Only add standard close listener if not overridden
-                if (!actionBtn.onclick) {
-                    actionBtn.addEventListener('click', closeModal);
-                }
-
-                // Close on click outside
-                infoModal.addEventListener('click', (e) => {
-                    if (e.target === infoModal && !window.blockClose) {
-                        closeModal();
-                    }
-                });
-            }
+            // ... (rest of the logic commented out)
         });
+        */
     </script>
 </body>
 

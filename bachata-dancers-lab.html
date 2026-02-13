@@ -22,8 +22,7 @@
                 <img src="media/logo-wings.png" alt="MasteryLab Logo">
             </a>
             <div class="nav-links">
-                <a href="bachata-sensual-lab" style="color: white; text-decoration: none; font-weight: 600;">BACK
-                    TO LAB</a>
+                <a href="bachata-sensual-lab" class="nav-btn-outline">BACK TO LAB</a>
             </div>
         </div>
     </nav>
@@ -468,9 +467,12 @@
 
         .level-number {
             font-family: 'Anton';
-            font-size: 1.8rem;
+            font-size: 4rem;
+            /* Matched to pricing text size */
             color: white;
             margin-bottom: 0.5rem;
+            line-height: 1;
+            text-transform: uppercase;
         }
 
         .level-focus {
@@ -490,19 +492,25 @@
 
         .covered-topics ul {
             list-style: none;
-            padding-left: 1.5rem;
+            padding: 0;
+            margin: 0;
+            font-size: 1.3rem;
+            /* Match pricing text size */
         }
 
         .covered-topics li {
             position: relative;
-            margin-bottom: 0.8rem;
-            color: #bbb;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: #ccc;
         }
 
         .covered-topics li::before {
-            content: '•';
+            content: '✓';
+            font-weight: bold;
             position: absolute;
-            left: -1.2rem;
+            left: 0;
+            top: 2px;
             color: var(--color-primary, #D6001C);
         }
 
@@ -711,3 +719,5 @@
 </body>
 
 </html>
+<!-- Dynamic Script Injection -->
+<script src="script.js"></script>

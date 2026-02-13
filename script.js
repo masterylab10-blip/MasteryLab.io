@@ -269,6 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+
     function updateLanguage(lang) {
         const t = translations[lang];
         if (!t) return;
@@ -286,4 +287,165 @@ document.addEventListener('DOMContentLoaded', () => {
         const partnerHeader = document.querySelector('#partners h2');
         if (partnerHeader) partnerHeader.textContent = t.partners;
     }
+
+    // =========================================
+    // TASK 1: GLOBAL PRICING COMPONENT (Injector)
+    // =========================================
+    function injectPricingComponent() {
+        // Only on Bachata pages (Sensual, Teachers, Dancers)
+        if (!window.location.href.includes('bachata-') && !window.location.href.includes('registration-bachata')) return;
+
+        // broader selector for both buttons and overview cards
+        const bookButtons = document.querySelectorAll('.btn-book-now, a[href*="registration-bachata"]');
+        const overviewSection = document.querySelector('#training-tracks .grid-2');
+
+        const pricingHTML = `
+        <div class="pricing-component" style="justify-content: center;">
+            <div class="pricing-col" style="border-color: rgba(214, 0, 28, 0.4); max-width: 800px; margin: 0 auto; flex: none; width: 100%; text-align: center;">
+                <div style="font-size: 4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary); font-family: 'Anton', sans-serif;">250 CHF</div>
+                <h3 style="margin-bottom: 2rem; font-size: 3rem; line-height: 1;">WHAT YOU GET with this price</h3>
+                <ul class="pricing-features" style="display: inline-block; text-align: left; font-size: 1.3rem;">
+                    <li style="margin-bottom: 1rem;">9 Hours of High-Level Education with main artists</li>
+                    <li style="margin-bottom: 1rem;">Spain-Level Training Material</li>
+                    <li style="margin-bottom: 1rem;">Follow-Up Program Between Labs</li>
+                    <li style="margin-bottom: 1rem;">Professional Media (High-Quality Video)</li>
+                    <li style="margin-bottom: 1rem;">50% Discount on Party Tickets</li>
+                    <li style="margin-bottom: 1rem;">High-Quality Dance Background (Stand Out in Today’s Scene)</li>
+                    <li style="margin-bottom: 1rem;">Access to Professional Dance Community</li>
+                    <li style="color: var(--color-primary); margin-bottom: 1rem;">Certification Included (after completing full 3-part program)</li>
+                </ul>
+            </div>
+        </div>
+        `;
+
+        // Case 1: Overview Page - Insert before the grid of cards
+        if (overviewSection && !overviewSection.parentElement.querySelector('.pricing-component')) {
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = pricingHTML;
+            // Add some specific styling for the overview
+            const inner = wrapper.querySelector('.pricing-component');
+            if (inner) {
+                inner.style.maxWidth = '900px';
+                inner.style.margin = '0 auto 4rem auto';
+            }
+            overviewSection.parentNode.insertBefore(wrapper, overviewSection);
+        }
+
+        // Case 2: Booking Buttons (Sub-pages)
+        if (bookButtons.length === 0) return;
+
+        bookButtons.forEach(btn => {
+            // Fix: Ensure data-text is set for CSS animations to prevent glitch
+            if (!btn.getAttribute('data-text')) {
+                btn.setAttribute('data-text', btn.textContent.trim());
+            }
+
+            // Find container
+            const container = btn.closest('div');
+
+            if (container) {
+                // Try to find the schedule card in the same parent container or nearby
+                // The structure implies: schedule-card IS A SIBLING of the div containing the button?
+                // Looking at HTML: the button is inside <div style="text-align: center; margin-top: 2rem;">
+                // And that div is a sibling of <div class="schedule-card ...">
+                // So we need to go up one level to find the schedule card.
+
+                const parentOfButtonDiv = container.parentElement;
+                const scheduleCard = parentOfButtonDiv ? parentOfButtonDiv.querySelector('.schedule-card') : null;
+
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = pricingHTML;
+
+                if (scheduleCard) {
+                    // Insert AFTER schedule card
+                    scheduleCard.parentNode.insertBefore(wrapper, scheduleCard.nextSibling);
+                } else {
+                    // Fallback: Insert before the button container
+                    container.parentNode.insertBefore(wrapper, container);
+                }
+            }
+        });
+    }
+    injectPricingComponent();
+
+    // =========================================
+    // TASK 2: DYNAMIC PRICING (M&M)
+    // =========================================
+    function injectDynamicPricingMOM() {
+        // Only on Michael & Mayra page
+        const isMMPage = window.location.href.includes('michael-mayra') && !window.location.href.includes('registration-');
+        if (!isMMPage) return;
+
+        const ctaBtn = document.querySelector('.btn-cta-inviting');
+        if (!ctaBtn) return;
+
+        // Mock Data
+        const totalEarlyBird = 10;
+        const sold = 4; // Mock logic: "First 10 tickets"
+        const remaining = totalEarlyBird - sold;
+        const price = remaining > 0 ? "200 CHF" : "220 CHF";
+        const tierName = remaining > 0 ? "Early Bird Tier" : "Standard Tier";
+        const fillPercent = (sold / totalEarlyBird) * 100;
+
+        const dynamicHTML = `
+        <div class="mm-pricing-status">
+            <div class="mm-spots-remaining">${tierName}: Only ${remaining} Spots Left!</div>
+            <div class="mm-price-tag">${price}</div>
+            <div class="mm-progress-bar">
+                <div class="mm-progress-fill" style="width: ${fillPercent}%"></div>
+            </div>
+            <p style="color: #aaa; font-size: 0.9rem; margin-top: 0.5rem;">Sellout imminent.</p>
+        </div>
+        `;
+
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = dynamicHTML;
+
+        // Insert after Technical Pillars section if it exists, otherwise fallback to CTA
+        const pillarsSection = document.querySelector('.bio-pillars-container');
+        if (pillarsSection) {
+            pillarsSection.parentNode.insertBefore(wrapper, pillarsSection.nextSibling);
+            // Add consistent spacing to match layout (same distance to ticket)
+            wrapper.style.marginBottom = '6rem';
+            wrapper.style.marginTop = '6rem';
+        } else {
+            const parent = ctaBtn.parentElement;
+            parent.insertBefore(wrapper, ctaBtn);
+        }
+    }
+    injectDynamicPricingMOM();
+
+    // =========================================
+    // TASK 5: EDUCATION JOURNAL NAV (Injector)
+    // =========================================
+    function injectEducationJournalLink() {
+        // Only inject on Home Page
+        const currentPath = window.location.pathname;
+        const isHomePage = currentPath === '/' || currentPath.endsWith('index.html');
+        if (!isHomePage) return;
+
+        const navLinks = document.querySelector('.nav-links');
+        if (navLinks) {
+            // Check if already exists
+            if (navLinks.innerHTML.includes('education-journal')) return;
+
+            const journalLink = document.createElement('a');
+            journalLink.href = 'education-journal.html';
+            journalLink.className = 'nav-btn-outline';
+            journalLink.textContent = 'EDUCATION JOURNAL'; // Uppercase to match style
+            journalLink.style.marginLeft = '1rem';
+            journalLink.style.borderColor = 'rgba(255,255,255,0.3)';
+
+            // Insert adjacent to "What is MasteryLab" (nav-btn-outline)
+            const whatIsLink = navLinks.querySelector('a[href*="what-is-masterylab"]');
+
+            if (whatIsLink) {
+                navLinks.insertBefore(journalLink, whatIsLink.nextSibling);
+            } else {
+                navLinks.appendChild(journalLink);
+            }
+        }
+    }
+    injectEducationJournalLink();
+
 });

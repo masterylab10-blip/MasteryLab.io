@@ -30,7 +30,7 @@
                 <span></span>
             </button>
             <div class="nav-links">
-                <a href="/" class="nav-btn-outline">Back to Home</a>
+                <a href="/" class="nav-btn-outline">BACK TO HOME</a>
             </div>
             <!-- Auth Buttons -->
         </div>
@@ -123,12 +123,12 @@
                         <span style="display: block;"><strong>Africa:</strong> Egypt 🇪🇬</span>
                     </div>
                     <ul style="list-style: none; padding: 0; color: #ccc;">
-                        <li style="margin-bottom: 0.5rem;">✓ Role Rotation & Styling</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Technique & Body Mechanics</li>
+                        <li style="margin-bottom: 0.5rem;">Role Rotation & Styling</li>
+                        <li style="margin-bottom: 0.5rem;">Technique & Body Mechanics</li>
                     </ul>
                 </div>
                 <div class="lab-image bio-image-wrapper">
-                    <div class="photo-frame" style="transform: rotate(2deg);">
+                    <div class="photo-frame wings" style="transform: rotate(2deg);">
                         <div class="corner top-left"></div>
                         <div class="corner top-right"></div>
                         <div class="corner bottom-left"></div>
@@ -141,7 +141,7 @@
             <!-- Ale & Xidan -->
             <div class="grid-2" style="gap: 3rem;">
                 <div class="lab-image bio-image-wrapper">
-                    <div class="photo-frame">
+                    <div class="photo-frame wings">
                         <div class="corner top-left"></div>
                         <div class="corner top-right"></div>
                         <div class="corner bottom-left"></div>
@@ -173,11 +173,7 @@
                         We have shared our passion in over 12 countries. We are also proud to serve as official judges
                         for the Swiss Championship IDO and are active event organizers, dedicated to elevating the dance
                         community.
-                        <br><br>
-                        🧠 <strong>Our Philosophy</strong><br>
-                        Our teaching methodology is built on a strong foundation of technique, musicality, and
-                        connection. We don't just teach you what to do, but how to do it with style and fluidity. We
-                        draw inspiration from various dance styles to create a unique and modern approach to Bachata.
+
                     </p>
                     <div style="font-size: 0.9rem; color: #ccc; margin-bottom: 1.5rem; line-height: 1.5;">
                         <strong
@@ -190,8 +186,8 @@
                         <span style="display: block;"><strong>North America:</strong> USA 🇺🇸, Canada 🇨🇦</span>
                     </div>
                     <ul style="list-style: none; padding: 0; color: #ccc;">
-                        <li style="margin-bottom: 0.5rem;">✓ Foundations & Technique</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Connection & Flow</li>
+                        <li style="margin-bottom: 0.5rem;">Foundations & Technique</li>
+                        <li style="margin-bottom: 0.5rem;">Connection & Flow</li>
                     </ul>
                 </div>
             </div>
@@ -419,6 +415,8 @@
         .check-list {
             list-style: none;
             padding: 0;
+            font-size: 1.3rem;
+            /* Match pricing text size */
         }
 
         .check-list li {
@@ -433,8 +431,37 @@
             content: '✓';
             position: absolute;
             left: 0;
+            top: 2px;
             color: var(--color-primary);
             font-weight: bold;
+        }
+
+        /* Generic list style for Instructors section to match */
+        .lab-info ul {
+            list-style: none;
+            padding: 0;
+            color: #ccc;
+            font-size: 1.3rem;
+            margin-top: 1rem;
+        }
+
+        .lab-info ul li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Remove old checkmarks if they were hardcoded in HTML and rely on CSS */
+        .lab-info ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-right: 0.5rem;
         }
 
 
@@ -471,6 +498,32 @@
             }
         }
     </style>
+
+
+    <!-- TASK 3: FOLLOW-UP MODULE -->
+    <section class="container">
+        <div class="follow-up-card">
+            <h2 style="font-family: 'Anton'; font-size: 2.5rem; margin-bottom: 1rem; color: white;">Rx: THE NEXT STEP
+            </h2>
+            <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 2rem;">
+                Completed the Bachata Sensual Lab? Take your skills to the master level.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <div
+                    style="text-align: left; background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 10px; max-width: 300px;">
+                    <h4 style="color: var(--color-primary); margin-bottom: 0.5rem;">Advanced Workshop Series</h4>
+                    <p style="font-size: 0.9rem; color: #aaa;">Deep dive into complex mechanics and musicality.</p>
+                </div>
+                <div
+                    style="text-align: left; background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 10px; max-width: 300px;">
+                    <h4 style="color: var(--color-primary); margin-bottom: 0.5rem;">Teacher Certification</h4>
+                    <p style="font-size: 0.9rem; color: #aaa;">Become a certified MasteryLab instructor.</p>
+                </div>
+            </div>
+            <a href="#" class="btn-primary" style="margin-top: 2rem; display: inline-block;">EXPLORE ADVANCED
+                PROGRAMS</a>
+        </div>
+    </section>
 
     <!-- Modal for Registration (Hidden by default) -->
     <div id="regModal" class="modal-overlay" style="display: none;">

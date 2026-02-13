@@ -2584,3 +2584,327 @@ textarea.form-input {
     border-bottom: 4px solid #FF8C00;
     border-right: 4px solid #FF8C00;
 }
+
+/* Wings Overlay for Christina & Rebecca */
+.photo-frame.wings::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    /* Hangs below the frame */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140%;
+    /* Wider than the frame */
+    height: 150px;
+    background: url('media/logo-wings.png') no-repeat center bottom;
+    background-size: contain;
+    z-index: 20;
+    pointer-events: none;
+    filter: drop-shadow(0 5px 15px rgba(214, 0, 28, 0.4));
+    opacity: 0.9;
+}
+/* =========================================
+   TASK 1: GLOBAL PRICING COMPONENT
+   ========================================= */
+.pricing-component {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 900px;
+}
+
+.pricing-col {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.pricing-col:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
+}
+
+.pricing-col h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.pricing-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-features li {
+    margin-bottom: 1rem;
+    color: #ccc;
+    display: flex;
+    align-items: flex-start;
+}
+
+.pricing-features li::before {
+    content: '✓';
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-right: 0.8rem;
+}
+
+/* =========================================
+   TASK 2: DYNAMIC PRICING (M&M)
+   ========================================= */
+.mm-pricing-status {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid #eebb11;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(238, 187, 17, 0.2);
+}
+
+.mm-spots-remaining {
+    color: #eebb11;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.mm-price-tag {
+    font-size: 2rem;
+    color: white;
+    font-family: 'Anton', sans-serif;
+}
+
+.mm-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.mm-progress-fill {
+    height: 100%;
+    background: #eebb11;
+    width: 40%; /* Dynamic */
+    transition: width 1s ease;
+}
+
+/* =========================================
+   TASK 3: FOLLOW-UP MODULE
+   ========================================= */
+.follow-up-card {
+    background: linear-gradient(135deg, rgba(5, 5, 5, 0.9) 0%, rgba(20, 20, 20, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 4rem auto;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.follow-up-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), purple);
+}
+
+/* =========================================
+   TASK 5: EDUCATION JOURNAL
+   ========================================= */
+.journal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.journal-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.journal-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.journal-date {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.journal-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.journal-summary {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.journal-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s;
+}
+
+.journal-link:hover {
+    color: var(--color-primary);
+}
+
+/* --- Fix for Book Button Bug --- */
+.btn-book-now {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1rem 2.5rem;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: white;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1; /* Ensure text is above pseudo-elements */
+}
+
+.btn-book-now::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--color-primary);
+    z-index: -1; /* Behind text */
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn-book-now:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 20px rgba(214, 0, 28, 0.4);
+}
+
+.btn-book-now:hover::before {
+    width: 100%;
+}
+
+.ticket-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Force Pricing Component Visibility --- */
+.pricing-component {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    gap: 1rem;
+    margin: 3rem 0; /* Add vertical spacing */
+    width: 100%;
+}
+
+/* --- FINAL FIX for Book Button --- */
+/* Override any previous styles that might cause conflict */
+a.btn-book-now {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.8rem !important;
+    padding: 1rem 2.5rem !important;
+    font-family: 'Anton', sans-serif !important;
+    font-size: 1.2rem !important;
+    text-transform: uppercase !important;
+    color: white !important;
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+    margin-top: 1rem !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: normal !important;
+}
+
+/* Clear any conflicting ::before content */
+a.btn-book-now::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0% !important;
+    height: 100% !important;
+    background: var(--color-primary) !important;
+    z-index: -1 !important;
+    transition: width 0.3s cubic-bezier(0.19, 1, 0.22, 1) !important;
+    border-radius: 50px !important;
+}
+
+a.btn-book-now:hover {
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 20px rgba(214, 0, 28, 0.4) !important;
+}
+
+a.btn-book-now:hover::before {
+    width: 100% !important;
+}
+
+/* Ensure no other text is pseudo-injected */
+a.btn-book-now::after {
+    display: none !important;
+}
+
+/* Ensure SVG icon behaves */
+a.btn-book-now .ticket-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
