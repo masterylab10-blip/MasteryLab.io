@@ -37,7 +37,7 @@ function doPost(e) {
         var levelFolderIds = {
             'silver': '1xZIzFcZUK_qZ3uWbsE5k1Roxa8l6gGbC', // Perfect Start (Use this folder)
             'bronze': '', // Paste ID for "Almost There" here if you have one
-            'gold': ''    // Paste ID for "I Made It" here if you have one
+            'gold': '1KKc2dHDq1eUw5eEr8XP-o2x77S0vjpu8'    // I Made It
         };
 
         // --- VIDEO HANDLING ---
