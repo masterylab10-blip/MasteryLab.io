@@ -297,9 +297,15 @@
                                     });
 
                                     btn.innerText = 'Redirecting...';
-                                    setTimeout(() => {
-                                        regForm.submit();
-                                    }, 800);
+
+                                    // Redirect based on track
+                                    if (track === 'teachers') {
+                                        window.location.href = 'application-received.html';
+                                    } else {
+                                        setTimeout(() => {
+                                            regForm.submit();
+                                        }, 800);
+                                    }
                                 } catch (err) {
                                     console.error('Submission Error:', err);
                                     regForm.submit();
