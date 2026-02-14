@@ -228,12 +228,9 @@
                             'gold': 'https://script.google.com/macros/s/AKfycbyOxBPRt8_TU1E3uCwi9Z9qrGLcYW-e_9uXoPsM8QeUmnnbcb2PveLIK0hgv3qr9E6XOQ/exec'
                         };
 
-                        // Specialized handlers for Teachers (supporting video uploads)
-                        const teacherScriptURLs = {
-                            'silver': 'https://script.google.com/macros/s/AKfycbyG5-x9aXJyUmNhmjIk_JahRoQg-MwI23YKqWhYvMsEBE2c3uyYk2sSmOXmbiUW-9lnPw/exec', // Perfect Start
-                            'bronze': 'https://script.google.com/macros/s/AKfycbyyp9VCwpxkDkrfaBtEbx_pb9NqjVB_OdwAjCIZuqtfXNbl7iUKoR6HJxJVfqkF6T_f3A/exec', // Almost There
-                            'gold': 'https://script.google.com/macros/s/AKfycbzu-weEEVpge4igKOGqCHmUkbNJVD58GcpN49kiQzwd1X-y8AioRf_kUWI97PVtq6c/exec'    // I Made It
-                        };
+                        // Specialized handler for ALL Teacher tracks (Video Uploads)
+                        // This single script handles Silver, Bronze, and Gold uploads and sorting
+                        const teacherHandler = 'https://script.google.com/macros/s/AKfycbxQ94wjTWXzB_FkQlyUGjRm3-nhZQKSm-wMBUnyO821xuZ-Oq0QELowi8p--5bhFc1IXQ/exec';
 
                         if (regForm) {
                             regForm.addEventListener('submit', async function (e) {
@@ -245,7 +242,7 @@
 
                                 // Determine which script to use
                                 const googleScriptURL = track === 'teachers'
-                                    ? (teacherScriptURLs[level] || teacherScriptURLs['silver'])
+                                    ? teacherHandler
                                     : (dancerScriptURLs[level] || dancerScriptURLs['silver']);
 
                                 const btn = document.getElementById('submitBtn');
