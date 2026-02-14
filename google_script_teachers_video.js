@@ -34,7 +34,7 @@ function doPost(e) {
         var folderName = 'MasteryLab_Teacher_Videos';
         // OPTIONAL: Paste your specific Folder ID here to ensure videos go exactly where you want.
         // Get ID from URL: drive.google.com/drive/folders/YOUR_ID_IS_HERE
-        var folderId = '';
+        var folderId = '1xZIzFcZUK_qZ3uWbsE5k1Roxa8l6gGbC';
 
         // --- VIDEO HANDLING ---
         var videoUrl = data.video_link || '';
