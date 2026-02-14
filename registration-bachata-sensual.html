@@ -380,7 +380,7 @@
                         }
                     </style>
 
-                    <p
+                    <p id="payment-disclaimer"
                         style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 1.5rem; line-height: 1.4;">
                         By proceeding, you agree to our Terms & Conditions. <br>
                         You will be redirected to Stripe for secure payment.
@@ -449,6 +449,17 @@
                     }
                 }
 
+                // Update UI specific for teachers
+                if (track === 'teachers') {
+                    const disclaimer = document.getElementById('payment-disclaimer');
+                    if (disclaimer) disclaimer.style.display = 'none';
+
+                    const sectionTitle = document.querySelector('.section-title');
+                    if (sectionTitle) sectionTitle.innerText = "TEACHER APPLICATION";
+
+                    const sectionDesc = document.querySelector('.section-subtitle');
+                }
+
                 // Show welcome message
                 const container = document.querySelector('.registration-container');
                 if (container) {
@@ -469,9 +480,9 @@
 
             const stripeLinks = {
                 'teachers': {
-                    'silver': 'https://buy.stripe.com/14A3cx9Se0tS6ZkaD8dEs0c', // Perfect Start
-                    'bronze': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g',
-                    'gold': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g'
+                    'silver': 'NO_PAYMENT_REQUIRED',
+                    'bronze': 'NO_PAYMENT_REQUIRED',
+                    'gold': 'NO_PAYMENT_REQUIRED'
                 },
                 'dancers': {
                     'silver': 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g',
@@ -487,11 +498,20 @@
                 finalLink = stripeLinks['dancers'][level];
             }
 
+            // Update form hidden field
             const nextInput = document.querySelector('input[name="_next"]');
-            if (nextInput) {
-                nextInput.value = finalLink;
-                console.log('Payment setup:', { track, level, url: finalLink });
+            if (nextInput) nextInput.value = finalLink;
+
+            // Update submit button text based on track
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn) {
+                if (track === 'teachers') {
+                    submitBtn.innerHTML = '<span style="display: block; transform: translateZ(10px);">SUBMIT APPLICATION</span>';
+                } else {
+                    submitBtn.innerHTML = '<span style="display: block; transform: translateZ(10px);">PROCEED TO PAYMENT</span>';
+                }
             }
+            console.log('Payment setup:', { track, level, url: finalLink });
 
             // Update UI for teachers track
             if (track === 'teachers') {
