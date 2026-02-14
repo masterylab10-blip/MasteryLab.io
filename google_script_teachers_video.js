@@ -32,9 +32,13 @@ function doPost(e) {
         var adminEmail = 'labmastery@outlook.com';
         var sheetName = 'Teachers_Submissions';
         var folderName = 'MasteryLab_Teacher_Videos';
-        // OPTIONAL: Paste your specific Folder ID here to ensure videos go exactly where you want.
-        // Get ID from URL: drive.google.com/drive/folders/YOUR_ID_IS_HERE
-        var folderId = '1xZIzFcZUK_qZ3uWbsE5k1Roxa8l6gGbC';
+
+        // Folder IDs by Level
+        var levelFolderIds = {
+            'silver': '1xZIzFcZUK_qZ3uWbsE5k1Roxa8l6gGbC', // Perfect Start (Use this folder)
+            'bronze': '', // Paste ID for "Almost There" here if you have one
+            'gold': ''    // Paste ID for "I Made It" here if you have one
+        };
 
         // --- VIDEO HANDLING ---
         var videoUrl = data.video_link || '';
@@ -43,14 +47,18 @@ function doPost(e) {
         if (data.video_file && data.video_file.length > 0) {
             try {
                 var folder;
-                if (folderId && folderId.length > 5) {
+                // Get ID based on level sent from form (silver/bronze/gold)
+                var targetId = levelFolderIds[data.level];
+
+                if (targetId && targetId.length > 5) {
                     try {
-                        folder = DriveApp.getFolderById(folderId);
+                        folder = DriveApp.getFolderById(targetId);
                     } catch (e) {
                         // Fallback if ID is bad
                         folder = getFolder(folderName);
                     }
                 } else {
+                    // Fallback if no specific ID set
                     folder = getFolder(folderName);
                 }
 
