@@ -31,7 +31,10 @@ function doPost(e) {
         // --- CONFIGURATION ---
         var adminEmail = 'labmastery@outlook.com';
         var sheetName = 'Teachers_Submissions';
-        var folderName = 'MasteryLab_Teacher_Videos'; // Videos will be saved here
+        var folderName = 'MasteryLab_Teacher_Videos';
+        // OPTIONAL: Paste your specific Folder ID here to ensure videos go exactly where you want.
+        // Get ID from URL: drive.google.com/drive/folders/YOUR_ID_IS_HERE
+        var folderId = '';
 
         // --- VIDEO HANDLING ---
         var videoUrl = data.video_link || '';
@@ -39,7 +42,18 @@ function doPost(e) {
         // If a physical file was uploaded as base64
         if (data.video_file && data.video_file.length > 0) {
             try {
-                var folder = getFolder(folderName);
+                var folder;
+                if (folderId && folderId.length > 5) {
+                    try {
+                        folder = DriveApp.getFolderById(folderId);
+                    } catch (e) {
+                        // Fallback if ID is bad
+                        folder = getFolder(folderName);
+                    }
+                } else {
+                    folder = getFolder(folderName);
+                }
+
                 var fileName = (data.first_name || 'Teacher') + "_" + (data.level || 'General') + "_" + new Date().getTime();
                 var contentType = data.video_file_type || 'video/mp4';
 
