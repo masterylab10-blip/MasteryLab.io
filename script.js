@@ -389,12 +389,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const dynamicHTML = `
         <div class="mm-pricing-status">
-            <div class="mm-spots-remaining">${tierName}: Only ${remaining} Spots Left!</div>
-            <div class="mm-price-tag">${price}</div>
+            <div class="mm-spots-remaining">FIRST 10 TICKETS: 200 CHF</div>
+            <div class="mm-price-tag">200 CHF</div>
             <div class="mm-progress-bar">
                 <div class="mm-progress-fill" style="width: ${fillPercent}%"></div>
             </div>
-            <p style="color: #aaa; font-size: 0.9rem; margin-top: 0.5rem;">Sellout imminent.</p>
+            <p style="color: #e6af15; font-weight: 800; font-size: 1.1rem; margin-top: 1rem; letter-spacing: 1px;">AFTER 220 CHF</p>
         </div>
         `;
 

@@ -221,51 +221,89 @@
                     <script>
                         const regForm = document.getElementById('regForm');
 
-                        // Map levels to dedicated script URLs
-                        const scriptURLs = {
+                        // Standard registration scripts for Dancers
+                        const dancerScriptURLs = {
                             'silver': 'https://script.google.com/macros/s/AKfycbwV66dnwe-EkHBeV69VmwSyrFs-tR9fnW1lSQ29IoYX2iAaqr_WppjF1GhxIfOjPiYwuQ/exec',
                             'bronze': 'https://script.google.com/macros/s/AKfycbyA7B6pUeW_5gsWdiyitnfufrRuRAbylux-jCTOG7MSx52w-LVxP0Y12-Grfkxtq7DKXQ/exec',
                             'gold': 'https://script.google.com/macros/s/AKfycbyOxBPRt8_TU1E3uCwi9Z9qrGLcYW-e_9uXoPsM8QeUmnnbcb2PveLIK0hgv3qr9E6XOQ/exec'
                         };
 
+                        // Specialized handlers for Teachers (supporting video uploads)
+                        const teacherScriptURLs = {
+                            'silver': 'https://script.google.com/macros/s/AKfycbyG5-x9aXJyUmNhmjIk_JahRoQg-MwI23YKqWhYvMsEBE2c3uyYk2sSmOXmbiUW-9lnPw/exec', // Perfect Start
+                            'bronze': 'https://script.google.com/macros/s/AKfycbyyp9VCwpxkDkrfaBtEbx_pb9NqjVB_OdwAjCIZuqtfXNbl7iUKoR6HJxJVfqkF6T_f3A/exec', // Almost There
+                            'gold': 'https://script.google.com/macros/s/AKfycbzu-weEEVpge4igKOGqCHmUkbNJVD58GcpN49kiQzwd1X-y8AioRf_kUWI97PVtq6c/exec'    // I Made It
+                        };
+
                         if (regForm) {
-                            regForm.addEventListener('submit', function (e) {
+                            regForm.addEventListener('submit', async function (e) {
                                 e.preventDefault();
 
                                 const urlParams = new URLSearchParams(window.location.search);
                                 const track = urlParams.get('track') || 'dancers';
-                                const level = urlParams.get('level') || 'silver'; // Default to silver/perfect start
+                                const level = urlParams.get('level') || 'silver';
 
-                                const googleScriptURL = scriptURLs[level] || scriptURLs['silver'];
+                                // Determine which script to use
+                                const googleScriptURL = track === 'teachers'
+                                    ? (teacherScriptURLs[level] || teacherScriptURLs['silver'])
+                                    : (dancerScriptURLs[level] || dancerScriptURLs['silver']);
 
                                 const btn = document.getElementById('submitBtn');
-                                btn.innerText = 'Processing...';
+                                const originalText = btn.innerText;
+                                btn.innerText = 'Uploading Video...';
                                 btn.disabled = true;
 
                                 const formData = new FormData(regForm);
-                                const data = new URLSearchParams();
-                                for (const pair of formData) {
-                                    data.append(pair[0], pair[1]);
+                                const payload = {};
+                                formData.forEach((value, key) => {
+                                    if (key !== 'video_file') payload[key] = value;
+                                });
+
+                                payload['track'] = track;
+                                payload['level'] = level;
+
+                                // Handle Video File for Teachers Track
+                                const videoFileInput = document.getElementById('videoFile');
+                                if (track === 'teachers' && videoFileInput && videoFileInput.files.length > 0) {
+                                    const file = videoFileInput.files[0];
+
+                                    // Check file size (GAS limit ~30MB for base64)
+                                    if (file.size > 30 * 1024 * 1024) {
+                                        alert("Video file is too large for direct upload (>30MB). Please use the 'Video Link' option instead (Instagram/Drive link).");
+                                        btn.innerText = originalText;
+                                        btn.disabled = false;
+                                        return;
+                                    }
+
+                                    const base64 = await new Promise((resolve) => {
+                                        const reader = new FileReader();
+                                        reader.onload = () => resolve(reader.result);
+                                        reader.readAsDataURL(file);
+                                    });
+                                    payload['video_file'] = base64;
+                                    payload['video_file_type'] = file.type;
                                 }
 
-                                data.append('track', track);
-                                data.append('level', level);
-
-                                fetch(googleScriptURL, {
-                                    method: 'POST',
-                                    body: data,
-                                    mode: 'no-cors',
-                                    keepalive: true
-                                })
-                                    .then(() => {
-                                        setTimeout(() => {
-                                            regForm.submit();
-                                        }, 500);
-                                    })
-                                    .catch(err => {
-                                        console.error('Sheet Error:', err);
-                                        regForm.submit();
+                                try {
+                                    // Using 'text/plain' to avoid CORS preflight (OPTIONS) which Apps Script rejects
+                                    await fetch(googleScriptURL, {
+                                        method: 'POST',
+                                        mode: 'no-cors',
+                                        body: JSON.stringify(payload),
+                                        headers: {
+                                            'Content-Type': 'text/plain'
+                                        },
+                                        keepalive: true
                                     });
+
+                                    btn.innerText = 'Redirecting...';
+                                    setTimeout(() => {
+                                        regForm.submit();
+                                    }, 800);
+                                } catch (err) {
+                                    console.error('Submission Error:', err);
+                                    regForm.submit();
+                                }
                             });
                         }
                     </script>
@@ -285,6 +323,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="dance_role" class="form-label">Role (Leader or Follower)</label>
+                        <select id="dance_role" name="dance_role" class="form-input" required style="appearance: none;">
+                            <option value="" disabled selected>Select Leader or Follower</option>
+                            <option value="Leader" style="color: black;">Leader</option>
+                            <option value="Follower" style="color: black;">Follower</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="email" class="form-label">Email Address</label>
                         <input type="email" id="email" name="email" class="form-input" required>
                     </div>
@@ -292,6 +339,30 @@
                     <div class="form-group">
                         <label for="whatsapp" class="form-label">WhatsApp Number</label>
                         <input type="tel" id="whatsapp" name="whatsapp" class="form-input" required>
+                    </div>
+
+                    <!-- Video Submission for Teachers (Hidden by default) -->
+                    <div id="teacherUploadSection"
+                        style="display: none; margin-top: 1.5rem; border: 1px dashed rgba(214, 0, 28, 0.4); padding: 1.5rem; border-radius: 12px; background: rgba(214, 0, 28, 0.05);">
+                        <label class="form-label" style="display: block; margin-bottom: 1rem; color: #fff;">VIDEO
+                            SUBMISSION REQUIRED</label>
+                        <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 1rem;">Please upload a video of your
+                            dancing (max 50MB) or provide a link for review.</p>
+
+                        <div style="display: flex; gap: 1rem; flex-direction: column;">
+                            <input type="file" id="videoFile" name="video_file" accept="video/*" style="display: none;">
+                            <button type="button" onclick="document.getElementById('videoFile').click()"
+                                class="nav-btn-outline"
+                                style="width: 100%; justify-content: center; border-style: dashed;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" style="margin-right: 10px;">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                                </svg>
+                                CHOOSE VIDEO FILE
+                            </button>
+                            <input type="url" name="video_link" class="form-input"
+                                placeholder="OR Paste Video Link (Insta/YouTube/Drive)" style="margin-top: 0.5rem;">
+                        </div>
                     </div>
 
                     <button type="submit" id="submitBtn" class="btn-primary"
@@ -344,19 +415,19 @@
             // User is logged in, fetch profile and pre-fill form
             let currentUser = session?.user;
 
-            // Fetch Profile Data
-            const { data: profile } = await supabaseClient
-                .from('profiles')
-                .select('*')
-                .eq('id', currentUser.id)
-                .single();
-
-            // Merge Auth User and Profile
-            if (profile) {
-                currentUser = { ...currentUser, ...profile };
-            }
-
             if (currentUser) {
+                // Fetch Profile Data
+                const { data: profile } = await supabaseClient
+                    .from('profiles')
+                    .select('*')
+                    .eq('id', currentUser.id)
+                    .single();
+
+                // Merge Auth User and Profile
+                if (profile) {
+                    currentUser = { ...currentUser, ...profile };
+                }
+
                 // Pre-fill fields
                 const fields = {
                     'firstName': currentUser.first_name || currentUser.user_metadata?.first_name,
@@ -374,15 +445,15 @@
                         input.value = value;
                     }
                 }
-            }
 
-            // Show welcome message
-            const container = document.querySelector('.registration-container');
-            if (container) {
-                const displayName = currentUser.first_name || currentUser.email;
-                const welcomeMsg = document.createElement('div');
-                welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${displayName}</strong></p>`;
-                container.insertBefore(welcomeMsg, container.firstChild);
+                // Show welcome message
+                const container = document.querySelector('.registration-container');
+                if (container) {
+                    const displayName = currentUser.first_name || currentUser.email;
+                    const welcomeMsg = document.createElement('div');
+                    welcomeMsg.innerHTML = `<p style="color: #4CAF50; margin-bottom: 2rem; text-align: center; border: 1px solid #4CAF50; padding: 1rem; border-radius: 8px; background: rgba(76, 175, 80, 0.1);">Logged in as <strong>${displayName}</strong></p>`;
+                    container.insertBefore(welcomeMsg, container.firstChild);
+                }
             }
 
             // Existing logic for Stripe links
@@ -417,6 +488,27 @@
             if (nextInput) {
                 nextInput.value = finalLink;
                 console.log('Payment setup:', { track, level, url: finalLink });
+            }
+
+            // Update UI for teachers track
+            if (track === 'teachers') {
+                // Show video upload section
+                const uploadSection = document.getElementById('teacherUploadSection');
+                if (uploadSection) uploadSection.style.display = 'block';
+
+                const submitBtn = document.getElementById('submitBtn');
+                if (submitBtn) {
+                    // Make it bigger and clearer for teachers
+                    submitBtn.style.padding = '1.5rem';
+                    submitBtn.style.fontSize = '1.6rem';
+
+                    const span = submitBtn.querySelector('span');
+                    if (span) {
+                        span.textContent = 'APPLY';
+                    } else {
+                        submitBtn.textContent = 'APPLY';
+                    }
+                }
             }
         });
     </script>
