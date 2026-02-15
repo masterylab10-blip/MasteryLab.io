@@ -772,6 +772,10 @@ h6 {
     text-decoration: none;
 }
 
+.beyond-tickets-button {
+    cursor: pointer;
+    display: inline-block;
+}
 
 
 
