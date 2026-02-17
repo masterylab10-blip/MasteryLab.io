@@ -299,10 +299,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const bookButtons = document.querySelectorAll('.btn-book-now, a[href*="registration-bachata"]');
         const overviewSection = document.querySelector('#training-tracks .grid-2');
 
+        // Determine Price based on Page
+        let price = "250 CHF";
+        if (window.location.href.includes('bachata-dancers')) {
+            price = "170 CHF";
+        }
+
         const pricingHTML = `
         <div class="pricing-component" style="justify-content: center;">
             <div class="pricing-col" style="border-color: rgba(214, 0, 28, 0.4); max-width: 800px; margin: 0 auto; flex: none; width: 100%; text-align: center;">
-                <div style="font-size: 4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary); font-family: 'Anton', sans-serif;">250 CHF</div>
+                <div style="font-size: 4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary); font-family: 'Anton', sans-serif;">${price}</div>
                 <h3 style="margin-bottom: 2rem; font-size: 3rem; line-height: 1;">WHAT YOU GET with this price</h3>
                 <ul class="pricing-features" style="display: inline-block; text-align: left; font-size: 1.3rem;">
                     <li style="margin-bottom: 1rem;">Multiple Hours of High-Level Education with main artists</li>
