@@ -151,10 +151,10 @@
                         building correct muscle memory, proper body posture, and solid foundations—supporting confidence
                         and meaningful progress without shortcuts.
                     </p>
-                    <a href="isma-irene" class="btn btn-outline ticket-shape">More Info</a>
+                    <a href="isma-irene.html" class="btn btn-outline ticket-shape">More Info</a>
                 </div>
                 <div class="lab-image">
-                    <a href="isma-irene">
+                    <a href="isma-irene.html">
                         <img src="media/DANCE BOOSTER-cover.png" alt="Ismael and Irene Dance Partner Training"
                             style="object-position: top;">
                     </a>
@@ -458,13 +458,19 @@
 
     <!-- Scripts -->
     <script>
-        // Smooth scroll for nav links
+        // Smooth scroll for nav links targeting the same page
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return; // Ignore empty hash links
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
