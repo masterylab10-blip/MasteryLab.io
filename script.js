@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="pricing-col" style="border-color: rgba(230, 175, 21, 0.4); max-width: 800px; margin: 0 auto; flex: none; width: 100%; text-align: center;">
                 <h3 style="margin-bottom: 2rem; font-size: 3rem; line-height: 1;">WHAT YOU GET with this price</h3>
                 <ul class="pricing-features" style="display: inline-block; text-align: left; font-size: 1.3rem;">
-                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Multiple Hours of High-Level Education with main artists</li>
+                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Not 2, not 4, but 9 HOURS of High-Level Education with main artists</li>
                     <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>M&M world class -Level Training Material</li>
                     <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Follow-Up Program Between Labs</li>
                     <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>50% Discount on Party Tickets</li>
