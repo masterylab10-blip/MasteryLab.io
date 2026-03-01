@@ -394,13 +394,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const fillPercent = (sold / totalEarlyBird) * 100;
 
         const dynamicHTML = `
-        <div class="mm-pricing-status">
+        <div class="mm-pricing-status" style="margin-bottom: 3rem;">
             <div class="mm-spots-remaining">FIRST 10 TICKETS: 200 CHF</div>
             <div class="mm-price-tag">200 CHF</div>
             <div class="mm-progress-bar">
                 <div class="mm-progress-fill" style="width: ${fillPercent}%"></div>
             </div>
             <p style="color: #e6af15; font-weight: 800; font-size: 1.1rem; margin-top: 1rem; letter-spacing: 1px;">AFTER 220 CHF</p>
+        </div>
+        
+        <div class="pricing-component" style="justify-content: center; margin-bottom: 4rem;">
+            <div class="pricing-col" style="border-color: rgba(230, 175, 21, 0.4); max-width: 800px; margin: 0 auto; flex: none; width: 100%; text-align: center;">
+                <h3 style="margin-bottom: 2rem; font-size: 3rem; line-height: 1;">WHAT YOU GET with this price</h3>
+                <ul class="pricing-features" style="display: inline-block; text-align: left; font-size: 1.3rem;">
+                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Multiple Hours of High-Level Education with main artists</li>
+                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>M&M world class -Level Training Material</li>
+                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Follow-Up Program Between Labs</li>
+                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>50% Discount on Party Tickets</li>
+                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>High-Quality Dance Background (Stand Out in Today’s Scene)</li>
+                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Access to Professional Dance Community</li>
+                    <li style="color: #e6af15; margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Certification Included</li>
+                </ul>
+            </div>
         </div>
         `;
 
