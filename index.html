@@ -29,7 +29,10 @@
     <nav class="navbar">
         <div class="container">
             <a href="/" class="logo">
-                <img src="media/logo-wings.png" alt="MasteryLab Logo">
+                <picture>
+                    <source srcset="media/logo-wings.webp" type="image/webp">
+                    <img src="media/logo-wings.png" alt="MasteryLab Logo" fetchpriority="high">
+                </picture>
             </a>
             <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" aria-label="Toggle navigation">
@@ -106,7 +109,14 @@
                 </div>
                 <div class="lab-image">
                     <a href="michael-mayra">
-                        <img src="media/michael-mayra-covers.png" alt="Michael and Mayra Dance Lab">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/michael-mayra-covers-small.webp"
+                                type="image/webp">
+                            <source media="(max-width: 800px)" srcset="media/michael-mayra-covers-medium.webp"
+                                type="image/webp">
+                            <source srcset="media/michael-mayra-covers-large.webp" type="image/webp">
+                            <img src="media/michael-mayra-covers.png" alt="Michael and Mayra Dance Lab" loading="lazy">
+                        </picture>
                     </a>
                 </div>
             </div>
@@ -117,8 +127,15 @@
             <div class="container lab-content">
                 <div class="lab-image">
                     <a href="bachata-sensual-lab">
-                        <img src="media/bachata_sensual_cover_new.jpg"
-                            alt="Bachata Sensual Lab - Ale & Xidan, Christina & Rebeca">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/bachata_sensual_cover_new-small.webp"
+                                type="image/webp">
+                            <source media="(max-width: 800px)" srcset="media/bachata_sensual_cover_new-medium.webp"
+                                type="image/webp">
+                            <source srcset="media/bachata_sensual_cover_new-large.webp" type="image/webp">
+                            <img src="media/bachata_sensual_cover_new.jpg"
+                                alt="Bachata Sensual Lab - Ale & Xidan, Christina & Rebeca" loading="lazy">
+                        </picture>
                     </a>
                 </div>
                 <div class="lab-info">
@@ -155,8 +172,15 @@
                 </div>
                 <div class="lab-image">
                     <a href="isma-irene">
-                        <img src="media/DANCE BOOSTER-cover.png" alt="Ismael and Irene Dance Partner Training"
-                            style="object-position: top;">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/DANCE BOOSTER-cover-small.webp"
+                                type="image/webp">
+                            <source media="(max-width: 800px)" srcset="media/DANCE BOOSTER-cover-medium.webp"
+                                type="image/webp">
+                            <source srcset="media/DANCE BOOSTER-cover-large.webp" type="image/webp">
+                            <img src="media/DANCE BOOSTER-cover.png" alt="Ismael and Irene Dance Partner Training"
+                                style="object-position: top;" loading="lazy">
+                        </picture>
                     </a>
                 </div>
             </div>
