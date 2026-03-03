@@ -248,17 +248,7 @@
                                 const btn = document.getElementById('submitBtn');
                                 const originalText = btn.innerText;
 
-                                // Final Validation for Teachers
-                                if (track === 'teachers') {
-                                    const videoFile = document.getElementById('videoFile');
-                                    const videoLink = document.getElementById('videoLink');
-                                    if ((!videoFile || videoFile.files.length === 0) && (!videoLink || !videoLink.value.trim())) {
-                                        alert("Please either upload a video file or provide a video link for review.");
-                                        return;
-                                    }
-                                }
-
-                                btn.innerText = 'Uploading Video...';
+                                btn.innerText = 'Processing...';
                                 btn.disabled = true;
 
                                 const formData = new FormData(regForm);
@@ -278,29 +268,10 @@
                                 params.append('track', track);
                                 params.append('level', level);
 
-                                // Handle Video File for Teachers Track (sent as Base64 in JSON because it's too large for params)
+                                // Handle Teachers Track Submission
                                 if (track === 'teachers') {
                                     const payload = {};
                                     params.forEach((v, k) => payload[k] = v);
-
-                                    const videoFileInput = document.getElementById('videoFile');
-                                    if (videoFileInput && videoFileInput.files.length > 0) {
-                                        const file = videoFileInput.files[0];
-                                        if (file.size > 30 * 1024 * 1024) {
-                                            alert("Video file is too large (>30MB). Please use a link instead.");
-                                            btn.innerText = originalText;
-                                            btn.disabled = false;
-                                            return;
-                                        }
-
-                                        const base64 = await new Promise((resolve) => {
-                                            const reader = new FileReader();
-                                            reader.onload = () => resolve(reader.result);
-                                            reader.readAsDataURL(file);
-                                        });
-                                        payload['video_file'] = base64;
-                                        payload['video_file_type'] = file.type;
-                                    }
 
                                     try {
                                         await fetch(googleScriptURL, {
@@ -363,22 +334,25 @@
                         style="display: none; margin-top: 1.5rem; border: 1px dashed rgba(214, 0, 28, 0.4); padding: 1.5rem; border-radius: 12px; background: rgba(214, 0, 28, 0.05);">
                         <label class="form-label" style="display: block; margin-bottom: 1rem; color: #fff;">VIDEO
                             SUBMISSION REQUIRED</label>
-                        <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 1rem;">Please upload a video of your
-                            dancing (max 50MB) or provide a link for review.</p>
+                        <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 1.5rem;">
+                            Click the link below to send your dance video directly to our instructors via **WhatsApp**
+                            for review.
+                        </p>
 
-                        <div style="display: flex; gap: 1rem; flex-direction: column;">
-                            <input type="file" id="videoFile" name="video_file" accept="video/*" style="display: none;">
-                            <button type="button" onclick="document.getElementById('videoFile').click()"
-                                class="nav-btn-outline"
-                                style="width: 100%; justify-content: center; border-style: dashed;">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" style="margin-right: 10px;">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" />
+                        <div style="display: flex; gap: 1rem; flex-direction: column; align-items: center;">
+                            <a href="https://wa.me/41778050286" target="_blank" class="nav-btn-outline"
+                                style="width: 100%; justify-content: center; text-decoration: none; display: flex; align-items: center; background: rgba(37, 211, 102, 0.1); border-color: #25D366; color: #25D366;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                                    style="margin-right: 10px;">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.342-4.306 9.689-9.645 9.877l-.25.005zm8.571-18.472A11.954 11.954 0 0012.002 0C5.339 0 .002 5.337 0 12c0 2.13.554 4.21 1.61 6.067L0 24l6.135-1.61a11.893 11.893 0 005.867 1.543h.005c6.662 0 12-5.336 12.003-12 0-3.235-1.261-6.276-3.551-8.567z" />
                                 </svg>
-                                CHOOSE VIDEO FILE
-                            </button>
-                            <input type="url" id="videoLink" name="video_link" class="form-input"
-                                placeholder="OR Paste Video Link (Insta/YouTube/Drive)" style="margin-top: 0.5rem;">
+                                SEND VIDEO ON WHATSAPP
+                            </a>
+                            <p
+                                style="font-size: 0.8rem; color: #888; text-align: center; line-height: 1.4; margin-top: 0.5rem;">
+                                Note: Your video will take around 7 to 10 days to get reviewed (maybe faster).
+                            </p>
                         </div>
                     </div>
 
