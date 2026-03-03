@@ -286,6 +286,13 @@
                             for (const pair of formData) {
                                 data.append(pair[0], pair[1]);
                             }
+
+                            // Compatibility Mirroring
+                            const fullName = formData.get('first_name') || '';
+                            const nameParts = fullName.trim().split(/\s+/);
+                            data.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
+                            data.append('phone', formData.get('whatsapp') || '');
+                            data.append('address', formData.get('city') || '');
                             data.append('type', 'MM');
 
                             // Save to Google Sheets in the background as we redirect

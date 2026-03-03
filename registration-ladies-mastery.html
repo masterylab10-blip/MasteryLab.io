@@ -199,19 +199,26 @@
                             }
 
                             const formData = new FormData(regForm);
+                            const data = new URLSearchParams();
+                            for (const pair of formData) {
+                                data.append(pair[0], pair[1]);
+                            }
 
-                            fetch(googleScriptURL, {
-                                method: 'POST',
-                                body: formData,
-                                mode: 'no-cors'
-                            })
-                                .then(() => {
-                                    window.location.href = stripePaymentLink;
-                                })
-                                .catch(error => {
-                                    console.error('Error:', error);
-                                    window.location.href = stripePaymentLink;
-                                });
+                            // Compatibility Mirroring
+                            const fullName = formData.get('first_name') || '';
+                            const nameParts = fullName.trim().split(/\s+/);
+                            data.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
+                            data.append('phone', formData.get('whatsapp') || '');
+                            data.append('address', formData.get('city') || '');
+                            data.append('type', 'LM');
+
+                            // Use beacon for silent background sync
+                            navigator.sendBeacon(googleScriptURL, data);
+
+                            // Redirect
+                            setTimeout(() => {
+                                window.location.href = stripePaymentLink;
+                            }, 400);
                         });
                     }
                 </script>

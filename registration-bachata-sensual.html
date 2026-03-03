@@ -251,61 +251,64 @@
                                 btn.disabled = true;
 
                                 const formData = new FormData(regForm);
-                                const payload = {};
+
+                                // Build URLSearchParams for reliability (works best with GAS e.parameter)
+                                const params = new URLSearchParams();
                                 formData.forEach((value, key) => {
-                                    if (key !== 'video_file') payload[key] = value;
+                                    if (key !== 'video_file') params.append(key, value);
                                 });
 
-                                payload['track'] = track;
-                                payload['level'] = level;
+                                // Compatibility Mirroring
+                                const fullName = formData.get('first_name') || '';
+                                const nameParts = fullName.trim().split(/\s+/);
+                                params.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
+                                params.append('phone', formData.get('whatsapp') || '');
+                                params.append('address', formData.get('city') || '');
+                                params.append('track', track);
+                                params.append('level', level);
 
-                                // Handle Video File for Teachers Track
-                                const videoFileInput = document.getElementById('videoFile');
-                                if (track === 'teachers' && videoFileInput && videoFileInput.files.length > 0) {
-                                    const file = videoFileInput.files[0];
+                                // Handle Video File for Teachers Track (sent as Base64 in JSON because it's too large for params)
+                                if (track === 'teachers') {
+                                    const payload = {};
+                                    params.forEach((v, k) => payload[k] = v);
 
-                                    // Check file size (GAS limit ~30MB for base64)
-                                    if (file.size > 30 * 1024 * 1024) {
-                                        alert("Video file is too large for direct upload (>30MB). Please use the 'Video Link' option instead (Instagram/Drive link).");
-                                        btn.innerText = originalText;
-                                        btn.disabled = false;
-                                        return;
+                                    const videoFileInput = document.getElementById('videoFile');
+                                    if (videoFileInput && videoFileInput.files.length > 0) {
+                                        const file = videoFileInput.files[0];
+                                        if (file.size > 30 * 1024 * 1024) {
+                                            alert("Video file is too large (>30MB). Please use a link instead.");
+                                            btn.innerText = originalText;
+                                            btn.disabled = false;
+                                            return;
+                                        }
+
+                                        const base64 = await new Promise((resolve) => {
+                                            const reader = new FileReader();
+                                            reader.onload = () => resolve(reader.result);
+                                            reader.readAsDataURL(file);
+                                        });
+                                        payload['video_file'] = base64;
+                                        payload['video_file_type'] = file.type;
                                     }
 
-                                    const base64 = await new Promise((resolve) => {
-                                        const reader = new FileReader();
-                                        reader.onload = () => resolve(reader.result);
-                                        reader.readAsDataURL(file);
-                                    });
-                                    payload['video_file'] = base64;
-                                    payload['video_file_type'] = file.type;
+                                    try {
+                                        await fetch(googleScriptURL, {
+                                            method: 'POST',
+                                            mode: 'no-cors',
+                                            body: JSON.stringify(payload),
+                                            headers: { 'Content-Type': 'text/plain' }
+                                        });
+                                    } catch (err) { console.error('Teacher submission error:', err); }
+                                } else {
+                                    // For Dancers: Simple beacon or fetch with params
+                                    navigator.sendBeacon(googleScriptURL, params);
                                 }
 
-                                try {
-                                    // Using 'text/plain' to avoid CORS preflight (OPTIONS) which Apps Script rejects
-                                    await fetch(googleScriptURL, {
-                                        method: 'POST',
-                                        mode: 'no-cors',
-                                        body: JSON.stringify(payload),
-                                        headers: {
-                                            'Content-Type': 'text/plain'
-                                        },
-                                        keepalive: true
-                                    });
-
-                                    btn.innerText = 'Redirecting...';
-
-                                    // Redirect based on track
-                                    if (track === 'teachers') {
-                                        window.location.href = 'application-received.html';
-                                    } else {
-                                        setTimeout(() => {
-                                            regForm.submit();
-                                        }, 800);
-                                    }
-                                } catch (err) {
-                                    console.error('Submission Error:', err);
-                                    regForm.submit();
+                                btn.innerText = 'Redirecting...';
+                                if (track === 'teachers') {
+                                    window.location.href = 'application-received.html';
+                                } else {
+                                    setTimeout(() => { regForm.submit(); }, 600);
                                 }
                             });
                         }

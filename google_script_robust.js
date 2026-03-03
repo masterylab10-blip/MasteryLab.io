@@ -11,11 +11,17 @@ function doPost(e) {
   try {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var data = e.parameter;
-    
-    // Fallback if data is sent as JSON in the body
-    if (!data || Object.keys(data).length === 0) {
-      if (e.postData && e.postData.contents) {
-        data = JSON.parse(e.postData.contents);
+
+    // Fallback if data is sent as JSON in the body or Content-Type is text/plain but body is JSON
+    if (e.postData && e.postData.contents) {
+      try {
+        var jsonBody = JSON.parse(e.postData.contents);
+        // Merge JSON body into data (prioritizing JSON if both exist)
+        for (var key in jsonBody) {
+          data[key] = jsonBody[key];
+        }
+      } catch (jsonErr) {
+        // Not valid JSON, stick with parameters
       }
     }
 
@@ -23,13 +29,13 @@ function doPost(e) {
     var adminEmail = 'labmastery@outlook.com';
     var sheetName = 'MasteryLab_General';
     var labName = 'MasteryLab Event';
-    
+
     // --- ROUTING LOGIC ---
     // Michael & Mayra
     if (data.type === 'MM') {
       sheetName = 'M&M';
       labName = 'Michael & Mayra Intensive';
-    } 
+    }
     // Dance Booster (Ismael & Irene)
     else if (data.sheetName === 'Dance Booster' || data.type === 'Booster') {
       sheetName = 'Dance Booster';
@@ -39,7 +45,7 @@ function doPost(e) {
     else if (data.track) {
       var trackPrefix = data.track.charAt(0).toUpperCase() + data.track.slice(1); // "Teachers" or "Dancers"
       var levelName = "";
-      
+
       if (data.track === 'teachers') {
         if (data.level === 'silver') levelName = 'Perfect Start';
         else if (data.level === 'bronze') levelName = 'Almost There';
@@ -81,18 +87,18 @@ function doPost(e) {
     ]);
 
     // --- NOTIFICATIONS ---
-    
+
     // 1. Admin Notification
     MailApp.sendEmail({
       to: adminEmail,
       subject: '🎉 New Registration: ' + labName,
       body: 'New registration received!\n\n' +
-            'Name: ' + fullName + '\n' +
-            'Email: ' + email + '\n' +
-            'Phone: ' + contact + '\n' +
-            'Location: ' + location + '\n' +
-            'Lab: ' + labName + '\n\n' +
-            'View Sheet: ' + ss.getUrl()
+        'Name: ' + fullName + '\n' +
+        'Email: ' + email + '\n' +
+        'Phone: ' + contact + '\n' +
+        'Location: ' + location + '\n' +
+        'Lab: ' + labName + '\n\n' +
+        'View Sheet: ' + ss.getUrl()
     });
 
     // 2. Client Confirmation (HTML)
@@ -114,8 +120,8 @@ function doPost(e) {
     try {
       var errSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Error_Logs') || SpreadsheetApp.getActiveSpreadsheet().insertSheet('Error_Logs');
       errSheet.appendRow([new Date(), err.toString()]);
-    } catch(e) {}
-    
+    } catch (e) { }
+
     return ContentService
       .createTextOutput(JSON.stringify({ "result": "error", "error": err.toString() }))
       .setMimeType(ContentService.MimeType.JSON);
@@ -134,24 +140,24 @@ function initialSetup() {
 
 function generateEmailHtml(name, lab, email, phone, loc) {
   return '<div style="font-family: sans-serif; max-width: 600px; border: 1px solid #eee;">' +
-         '<div style="background: #D6001C; color: white; padding: 20px; text-align: center;">' +
-         '<h1>Registration Confirmed!</h1>' +
-         '</div>' +
-         '<div style="padding: 20px;">' +
-         '<p>Hi <strong>' + name + '</strong>,</p>' +
-         '<p>We have received your registration for <strong>' + lab + '</strong>. We are thrilled to have you!</p>' +
-         '<div style="background: #fdfdfd; padding: 15px; border-left: 4px solid #D6001C; margin: 20px 0;">' +
-         '<p><strong>📧 Email:</strong> ' + email + '</p>' +
-         '<p><strong>📱 WhatsApp:</strong> ' + phone + '</p>' +
-         '<p><strong>📍 Location:</strong> ' + loc + '</p>' +
-         '</div>' +
-         '<h3>Next Steps:</h3>' +
-         '<ul>' +
-         '<li>Complete your payment (if you haven\'t already).</li>' +
-         '<li>Watch your inbox for more details as we get closer to the date.</li>' +
-         '</ul>' +
-         '<p style="margin-top: 30px;">See you soon!</p>' +
-         '<p><strong>The MasteryLab Team</strong></p>' +
-         '</div>' +
-         '</div>';
+    '<div style="background: #D6001C; color: white; padding: 20px; text-align: center;">' +
+    '<h1>Registration Confirmed!</h1>' +
+    '</div>' +
+    '<div style="padding: 20px;">' +
+    '<p>Hi <strong>' + name + '</strong>,</p>' +
+    '<p>We have received your registration for <strong>' + lab + '</strong>. We are thrilled to have you!</p>' +
+    '<div style="background: #fdfdfd; padding: 15px; border-left: 4px solid #D6001C; margin: 20px 0;">' +
+    '<p><strong>📧 Email:</strong> ' + email + '</p>' +
+    '<p><strong>📱 WhatsApp:</strong> ' + phone + '</p>' +
+    '<p><strong>📍 Location:</strong> ' + loc + '</p>' +
+    '</div>' +
+    '<h3>Next Steps:</h3>' +
+    '<ul>' +
+    '<li>Complete your payment (if you haven\'t already).</li>' +
+    '<li>Watch your inbox for more details as we get closer to the date.</li>' +
+    '</ul>' +
+    '<p style="margin-top: 30px;">See you soon!</p>' +
+    '<p><strong>The MasteryLab Team</strong></p>' +
+    '</div>' +
+    '</div>';
 }

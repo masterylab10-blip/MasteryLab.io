@@ -16,16 +16,18 @@ function doPost(e) {
         var ss = SpreadsheetApp.getActiveSpreadsheet();
         var data = {};
 
-        // Parse Incoming Data
+        var data = e.parameter;
+
+        // Robust Parsing: Try to extract JSON from body even if Content-Type is text/plain
         if (e.postData && e.postData.contents) {
-            if (e.postData.type === "application/json") {
-                data = JSON.parse(e.postData.contents);
-            } else {
-                // Handle URL encoded or multipart
-                data = e.parameter;
+            try {
+                var jsonBody = JSON.parse(e.postData.contents);
+                for (var key in jsonBody) {
+                    data[key] = jsonBody[key];
+                }
+            } catch (jsonErr) {
+                // Not JSON, stick with parameters
             }
-        } else {
-            data = e.parameter;
         }
 
         // --- CONFIGURATION ---
