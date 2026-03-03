@@ -141,7 +141,7 @@
     <nav class="navbar">
         <div class="container">
             <a href="/" class="logo">
-                <img src="media/logo.png" alt="MasteryLab Logo">
+                <img src="media/logo-wings.png" alt="MasteryLab Logo">
             </a>
             <!-- Mobile Menu Button -->
             <button class="mobile-menu-btn" aria-label="Toggle navigation">
@@ -198,12 +198,12 @@
                     SECURE YOUR SPOT
                 </h1>
                 <p style="text-align: center; color: #aaa; margin-bottom: 2.5rem; font-size: 1.1rem; font-weight: 300;">
-                    BACHATA SENSUAL LAB - BASEL 2026
+                    BACHATA SENSUAL EDUCATION LABS - BASEL 2026
                 </p>
 
-                <form id="bsRegForm" action="https://formsubmit.co/labmastery@outlook.com" method="POST">
+                <form id="bsRegForm" action="https://formsubmit.co/masterylab1.0@gmail.com" method="POST">
                     <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New BSL Registration!">
+                    <input type="hidden" name="_subject" value="New Education Lab Registration!">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_next" value="https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g">
@@ -221,16 +221,8 @@
                     <script>
                         const regForm = document.getElementById('bsRegForm');
 
-                        // Standard registration scripts for Dancers
-                        const dancerScriptURLs = {
-                            'silver': 'https://script.google.com/macros/s/AKfycbzy8TdrL8wpxAQyvIm3DzpnjqiXodIDBJrH00d69rt0R3jNS4hM1gD0YjG56zEMAFWdrA/exec',
-                            'bronze': 'https://script.google.com/macros/s/AKfycbyA7B6pUeW_5gsWdiyitnfufrRuRAbylux-jCTOG7MSx52w-LVxP0Y12-Grfkxtq7DKXQ/exec',
-                            'gold': 'https://script.google.com/macros/s/AKfycbyOxBPRt8_TU1E3uCwi9Z9qrGLcYW-e_9uXoPsM8QeUmnnbcb2PveLIK0hgv3qr9E6XOQ/exec'
-                        };
-
-                        // Specialized handler for ALL Teacher tracks (Video Uploads)
-                        // This single script handles Silver, Bronze, and Gold uploads and sorting
-                        const teacherHandler = 'https://script.google.com/macros/s/AKfycbxQ94wjTWXzB_FkQlyUGjRm3-nhZQKSm-wMBUnyO821xuZ-Oq0QELowi8p--5bhFc1IXQ/exec';
+                        // Unified Education Lab Handler
+                        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyY8UJ7Bdv1LPyvBQvT4Eeg6NP1tHpbCqK_9kEoliS_MV8JrgYAp_NLlHuiz0K9uM3e9A/exec';
 
                         if (regForm) {
                             regForm.addEventListener('submit', async function (e) {
@@ -240,11 +232,6 @@
                                 const track = urlParams.get('track') || 'dancers';
                                 const level = urlParams.get('level') || 'silver';
 
-                                // Determine which script to use
-                                const googleScriptURL = track === 'teachers'
-                                    ? teacherHandler
-                                    : (dancerScriptURLs[level] || dancerScriptURLs['silver']);
-
                                 const btn = document.getElementById('submitBtn');
                                 const originalText = btn.innerText;
 
@@ -252,45 +239,37 @@
                                 btn.disabled = true;
 
                                 const formData = new FormData(regForm);
-
-                                // Build URLSearchParams for reliability (works best with GAS e.parameter)
-                                const params = new URLSearchParams();
+                                const payload = {};
                                 formData.forEach((value, key) => {
-                                    if (key !== 'video_file') params.append(key, value);
+                                    payload[key] = value;
                                 });
 
-                                // Compatibility Mirroring
-                                const fullName = formData.get('first_name') || '';
-                                const nameParts = fullName.trim().split(/\s+/);
-                                params.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
-                                params.append('phone', formData.get('whatsapp') || '');
-                                params.append('address', formData.get('city') || '');
-                                params.append('track', track);
-                                params.append('level', level);
+                                // Add metadata
+                                payload.track = track;
+                                payload.level = level;
+                                payload.full_name = formData.get('first_name');
 
-                                // Handle Teachers Track Submission
-                                if (track === 'teachers') {
-                                    const payload = {};
-                                    params.forEach((v, k) => payload[k] = v);
-
-                                    try {
-                                        await fetch(googleScriptURL, {
-                                            method: 'POST',
-                                            mode: 'no-cors',
-                                            body: JSON.stringify(payload),
-                                            headers: { 'Content-Type': 'text/plain' }
-                                        });
-                                    } catch (err) { console.error('Teacher submission error:', err); }
-                                } else {
-                                    // For Dancers: Simple beacon or fetch with params
-                                    navigator.sendBeacon(googleScriptURL, params);
+                                try {
+                                    // Submit to Google Sheets in background
+                                    await fetch(googleScriptURL, {
+                                        method: 'POST',
+                                        mode: 'no-cors',
+                                        body: JSON.stringify(payload),
+                                        headers: { 'Content-Type': 'text/plain' }
+                                    });
+                                } catch (err) {
+                                    console.error('Sheet submission error:', err);
                                 }
 
                                 btn.innerText = 'Redirecting...';
+                                // FormSubmit handles the foreground (Email + Redirect to Stripe/Thank You)
                                 if (track === 'teachers') {
-                                    window.location.href = 'application-received.html';
+                                    // For teachers, we just submit the form which then redirects to application-received via _next
+                                    const nextInput = document.querySelector('input[name="_next"]');
+                                    if (nextInput) nextInput.value = window.location.origin + '/application-received.html';
+                                    regForm.submit();
                                 } else {
-                                    setTimeout(() => { regForm.submit(); }, 600);
+                                    setTimeout(() => { regForm.submit(); }, 400);
                                 }
                             });
                         }
