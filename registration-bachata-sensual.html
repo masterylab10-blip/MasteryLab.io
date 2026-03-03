@@ -247,6 +247,17 @@
 
                                 const btn = document.getElementById('submitBtn');
                                 const originalText = btn.innerText;
+
+                                // Final Validation for Teachers
+                                if (track === 'teachers') {
+                                    const videoFile = document.getElementById('videoFile');
+                                    const videoLink = document.getElementById('videoLink');
+                                    if ((!videoFile || videoFile.files.length === 0) && (!videoLink || !videoLink.value.trim())) {
+                                        alert("Please either upload a video file or provide a video link for review.");
+                                        return;
+                                    }
+                                }
+
                                 btn.innerText = 'Uploading Video...';
                                 btn.disabled = true;
 
@@ -366,7 +377,7 @@
                                 </svg>
                                 CHOOSE VIDEO FILE
                             </button>
-                            <input type="url" name="video_link" class="form-input"
+                            <input type="url" id="videoLink" name="video_link" class="form-input"
                                 placeholder="OR Paste Video Link (Insta/YouTube/Drive)" style="margin-top: 0.5rem;">
                         </div>
                     </div>
