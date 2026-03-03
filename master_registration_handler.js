@@ -38,13 +38,32 @@ function doPost(e) {
             for (var key in postData) { data[key] = postData[key]; }
         }
 
+        // --- Validation: Block Empty/Undefined Submissions (e.g. from Webhooks) ---
+        var fullName = data.full_name || data.first_name || (data.firstName ? (data.firstName + ' ' + (data.lastName || '')) : '');
+        if (!fullName || fullName.trim() === '' || fullName.toLowerCase().indexOf('undefined') !== -1) {
+            return ContentService.createTextOutput(JSON.stringify({ "result": "ignored", "reason": "empty name" })).setMimeType(ContentService.MimeType.JSON);
+        }
+
         var type = data.type || 'BSL';
+        var level = data.level || 'N/A';
         var spreadsheetId = SHEET_CONFIG[type] || SHEET_CONFIG['BSL'];
         var ss = SpreadsheetApp.openById(spreadsheetId);
+
         var sheet = ss.getSheets()[0];
 
+        // If type is TEACHER, try to route to the correct tab based on level
+        if (type === 'TEACHER' && level && level !== 'N/A') {
+            var targetSheet = ss.getSheetByName(level.toUpperCase());
+            if (!targetSheet && level.toLowerCase().indexOf('perfect start') !== -1) targetSheet = ss.getSheetByName('PERFECT START');
+            if (!targetSheet && level.toLowerCase().indexOf('almost there') !== -1) targetSheet = ss.getSheetByName('ALMOST THERE');
+            if (!targetSheet && level.toLowerCase().indexOf('i made it') !== -1) targetSheet = ss.getSheetByName('I MADE IT');
+
+            if (targetSheet) {
+                sheet = targetSheet;
+            }
+        }
+
         var timestamp = new Date();
-        var fullName = data.full_name || data.first_name || (data.firstName ? (data.firstName + ' ' + (data.lastName || '')) : 'N/A');
         var address = data.address || 'N/A';
         var city = data.city || 'N/A';
         var role = data.role || 'N/A';
@@ -52,14 +71,12 @@ function doPost(e) {
         var email = data.email || 'N/A';
         var whatsapp = data.whatsapp || data.phone || 'N/A';
         var track = data.track || 'N/A';
-        var level = data.level || 'N/A';
         var notes = data.notes || '';
         var status = "⏳ PENDING";
 
         // Headers: Timestamp, Full Name, Address, City, Role, Dance Role, Email, WhatsApp, Track, Level, Notes, Status
         sheet.appendRow([timestamp, fullName, address, city, role, danceRole, email, whatsapp, track, level, notes, status]);
 
-        // Email Notification
         var subject = "🚀 New Registration [" + type + "]: " + fullName;
         var body = "New registration for MasteryLab " + type + "!\n\n" +
             "Name: " + fullName + "\n" +
@@ -90,26 +107,31 @@ function handleStripePayment(event) {
     for (var key in SHEET_CONFIG) {
         try {
             var ss = SpreadsheetApp.openById(SHEET_CONFIG[key]);
-            var sheet = ss.getSheets()[0];
-            var dataRows = sheet.getDataRange().getValues();
+            var sheets = ss.getSheets();
 
-            // We expect Email in Column G (Index 6)
-            for (var i = 1; i < dataRows.length; i++) {
-                var rowEmail = dataRows[i][6];
-                if (rowEmail && rowEmail.toString().toLowerCase().trim() === customerEmail.toLowerCase().trim()) {
-                    // Update Status in Column L (Index 11)
-                    sheet.getRange(i + 1, 12).setValue("✅ PAID");
+            // Loop through all tabs in the spreadsheet
+            for (var s = 0; s < sheets.length; s++) {
+                var sheet = sheets[s];
+                var dataRows = sheet.getDataRange().getValues();
 
-                    // Notify Admin
-                    var subject = "💰 PAYMENT CONFIRMED: " + dataRows[i][1];
-                    var body = "Stripe payment successful for " + dataRows[i][1] + " (" + customerEmail + ").\n" +
-                        "Sheet updated: " + ss.getName();
+                // We expect Email in Column G (Index 6)
+                for (var i = 1; i < dataRows.length; i++) {
+                    var rowEmail = dataRows[i][6];
+                    if (rowEmail && rowEmail.toString().toLowerCase().trim() === customerEmail.toLowerCase().trim()) {
+                        // Update Status in Column L (Index 11)
+                        sheet.getRange(i + 1, 12).setValue("✅ PAID");
 
-                    ADMIN_EMAILS.forEach(function (recipient) {
-                        MailApp.sendEmail(recipient, subject, body);
-                    });
+                        // Notify Admin
+                        var subject = "💰 PAYMENT CONFIRMED: " + dataRows[i][1];
+                        var body = "Stripe payment successful for " + dataRows[i][1] + " (" + customerEmail + ").\n" +
+                            "Sheet updated: " + ss.getName() + " (Tab: " + sheet.getName() + ")";
 
-                    return ContentService.createTextOutput("Payment marked as PAID").setMimeType(ContentService.MimeType.TEXT);
+                        ADMIN_EMAILS.forEach(function (recipient) {
+                            MailApp.sendEmail(recipient, subject, body);
+                        });
+
+                        return ContentService.createTextOutput("Payment marked as PAID").setMimeType(ContentService.MimeType.TEXT);
+                    }
                 }
             }
         } catch (e) {
