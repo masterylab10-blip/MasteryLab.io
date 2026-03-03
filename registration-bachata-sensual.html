@@ -221,8 +221,8 @@
                     <script>
                         const regForm = document.getElementById('bsRegForm');
 
-                        // Unified Education Lab Handler
-                        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyY8UJ7Bdv1LPyvBQvT4Eeg6NP1tHpbCqK_9kEoliS_MV8JrgYAp_NLlHuiz0K9uM3e9A/exec';
+                        // Master Registration Handler
+                        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwU-4KrvCFjG_Vo95Nqh4aJGeHb_tMKIU0rAydXJ2pZv_AfbJjmcN-qx3aZjpvB9Q/exec';
 
                         if (regForm) {
                             regForm.addEventListener('submit', async function (e) {
@@ -248,6 +248,7 @@
                                 payload.track = track;
                                 payload.level = level;
                                 payload.full_name = formData.get('first_name');
+                                payload.type = track === 'teachers' ? 'TEACHER' : 'BSL';
 
                                 try {
                                     // Submit to Google Sheets in background

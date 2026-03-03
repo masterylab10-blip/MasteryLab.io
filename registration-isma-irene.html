@@ -202,7 +202,7 @@
                 </p>
 
                 <form id="iiRegForm">
-                    <input type="hidden" name="type" value="II">
+                    <input type="hidden" name="type" value="BOOSTER">
 
                     <div class="form-group">
                         <label for="firstName" class="form-label">Full Name</label>
@@ -267,7 +267,7 @@
 
                 <script>
                     const regForm = document.getElementById('iiRegForm');
-                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzytGfaxzZJwxtfuQJCgUwGnq-DJZVGEhhy8oibo0GzSWS9Z34bMHuUYW7kHvib6A4r/exec';
+                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbwU-4KrvCFjG_Vo95Nqh4aJGeHb_tMKIU0rAydXJ2pZv_AfbJjmcN-qx3aZjpvB9Q/exec';
                     const stripePaymentLink = 'https://buy.stripe.com/4gMaEZd4q1xWcjE3aGdEs09';
 
                     if (regForm) {
@@ -291,6 +291,7 @@
                             data.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
                             data.append('phone', formData.get('whatsapp') || '');
                             data.append('address', formData.get('city') || '');
+                            data.append('type', 'BOOSTER');
 
                             // Use beacon for silent background sync
                             navigator.sendBeacon(googleScriptURL, data);

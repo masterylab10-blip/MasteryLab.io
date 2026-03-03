@@ -972,8 +972,10 @@ h6 {
 }
 
 .lab-info h2 {
-    font-size: var(--text-h1);
+    font-size: var(--text-hero);
+    line-height: 0.95;
     margin-bottom: var(--spacing-sm);
+    font-weight: 800;
 }
 
 .lab-info p {
