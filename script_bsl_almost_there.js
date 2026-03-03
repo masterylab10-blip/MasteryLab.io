@@ -8,7 +8,7 @@ var SITE_URL = 'https://masterylab10-blip.github.io/MasteryLab.io';
 var EVENT = {
     name: 'Bachata Sensual Lab — Almost There',
     date: 'TBD 2026',
-    venue: 'Olten, Switzerland',
+    venue: 'Basel, Switzerland',
     color: '#8B5CF6',
     image: SITE_URL + '/media/bsl_ticket.png'
 };
