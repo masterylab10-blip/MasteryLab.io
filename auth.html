@@ -1,123 +1,105 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | MasteryLab</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Anton&display=swap"
-        rel="stylesheet">
-    <link rel="icon" href="media/favicon.png" type="image/png">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In | MasteryLab</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&amp;family=Anton&amp;display=swap" rel="stylesheet"/>
+<link href="media/favicon.png" rel="icon" type="image/png"/>
 </head>
-
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="/" class="logo">
-                <img src="media/logo-wings.png" alt="MasteryLab Logo">
-            </a>
-            <div class="nav-links">
-                <a href="#" onclick="history.back(); return false;" class="nav-btn-outline ticket-shape">GO BACK</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Auth Container -->
-    <div class="auth-container">
-        <div class="auth-card-dark">
-
-            <!-- Tabs -->
-            <div class="auth-tabs">
-                <button id="tabSignIn" class="auth-tab active" onclick="switchView('signIn')">Sign In</button>
-                <button id="tabSignUp" class="auth-tab" onclick="switchView('signUp')">Create Account</button>
-            </div>
-
-            <!-- Sign In View -->
-            <div id="signInView">
-                <form id="signInForm">
-                    <div style="margin-bottom: 1.5rem;">
-                        <label class="auth-label-dark" for="signInEmail">EMAIL ADDRESS</label>
-                        <input type="email" id="signInEmail" class="auth-input-dark" required>
-                    </div>
-                    <div style="margin-bottom: 1.5rem;">
-                        <label class="auth-label-dark" for="signInPassword">PASSWORD</label>
-                        <input type="password" id="signInPassword" class="auth-input-dark" required>
-                    </div>
-
-                    <button type="submit" class="btn-auth-red">SIGN IN</button>
-                </form>
-            </div>
-
-            <!-- Sign Up View -->
-            <div id="signUpView" style="display: none;">
-                <form id="signUpForm">
-                    <div class="auth-form-grid">
-                        <!-- Row 1: Names -->
-                        <div>
-                            <label class="auth-label-dark" for="signUpFirstName">FIRST NAME</label>
-                            <input type="text" id="signUpFirstName" class="auth-input-dark" required>
-                        </div>
-                        <div>
-                            <label class="auth-label-dark" for="signUpLastName">LAST NAME</label>
-                            <input type="text" id="signUpLastName" class="auth-input-dark" required>
-                        </div>
-
-                        <!-- Row 2: Email -->
-                        <div class="auth-field-full">
-                            <label class="auth-label-dark" for="signUpEmail">EMAIL ADDRESS</label>
-                            <input type="email" id="signUpEmail" class="auth-input-dark" required>
-                        </div>
-
-                        <!-- Row 3: City & Role -->
-                        <div>
-                            <label class="auth-label-dark" for="signUpCity">CITY OF RESIDENCE</label>
-                            <input type="text" id="signUpCity" class="auth-input-dark" placeholder="e.g. Basel"
-                                required>
-                        </div>
-                        <div>
-                            <label class="auth-label-dark" for="signUpRole">ROLE In Community</label>
-                            <select id="signUpRole" class="auth-input-dark" required style="cursor: pointer;">
-                                <option value="" disabled selected>Select Role</option>
-                                <option value="Student">Student</option>
-                                <option value="Teacher">Teacher</option>
-                                <option value="Dancer">Dancer</option>
-                                <option value="Performer">Performer</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-
-                        <!-- Row 4: WhatsApp -->
-                        <div class="auth-field-full">
-                            <label class="auth-label-dark" for="signUpWhatsapp">WHATSAPP NUMBER</label>
-                            <input type="tel" id="signUpWhatsapp" class="auth-input-dark"
-                                placeholder="+41 79 123 45 67">
-                        </div>
-
-                        <!-- Row 5: Password -->
-                        <div class="auth-field-full">
-                            <label class="auth-label-dark" for="signUpPassword">PASSWORD</label>
-                            <input type="password" id="signUpPassword" class="auth-input-dark" required minlength="6">
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-auth-red">REGISTER NOW</button>
-                </form>
-            </div>
-
-            <!-- Messages -->
-            <div id="authMessage" style="margin-top: 1.5rem; text-align: center; font-weight: 600; display: none;">
-            </div>
-
-        </div>
-    </div>
-
-    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-    <script>
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container">
+<a class="logo" href="/">
+<picture><source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp"/><source srcset="media/logo-wings-large.webp" type="image/webp"/><img alt="MasteryLab Logo" fetchpriority="high" src="media/logo-wings.webp"/></picture>
+</a>
+<div class="nav-links">
+<a class="nav-btn-outline ticket-shape" href="#" onclick="history.back(); return false;">GO BACK</a>
+</div>
+</div>
+</nav>
+<!-- Auth Container -->
+<div class="auth-container">
+<div class="auth-card-dark">
+<!-- Tabs -->
+<div class="auth-tabs">
+<button class="auth-tab active" id="tabSignIn" onclick="switchView('signIn')">Sign In</button>
+<button class="auth-tab" id="tabSignUp" onclick="switchView('signUp')">Create Account</button>
+</div>
+<!-- Sign In View -->
+<div id="signInView">
+<form id="signInForm">
+<div style="margin-bottom: 1.5rem;">
+<label class="auth-label-dark" for="signInEmail">EMAIL ADDRESS</label>
+<input class="auth-input-dark" id="signInEmail" required="" type="email"/>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<label class="auth-label-dark" for="signInPassword">PASSWORD</label>
+<input class="auth-input-dark" id="signInPassword" required="" type="password"/>
+</div>
+<button class="btn-auth-red" type="submit">SIGN IN</button>
+</form>
+</div>
+<!-- Sign Up View -->
+<div id="signUpView" style="display: none;">
+<form id="signUpForm">
+<div class="auth-form-grid">
+<!-- Row 1: Names -->
+<div>
+<label class="auth-label-dark" for="signUpFirstName">FIRST NAME</label>
+<input class="auth-input-dark" id="signUpFirstName" required="" type="text"/>
+</div>
+<div>
+<label class="auth-label-dark" for="signUpLastName">LAST NAME</label>
+<input class="auth-input-dark" id="signUpLastName" required="" type="text"/>
+</div>
+<!-- Row 2: Email -->
+<div class="auth-field-full">
+<label class="auth-label-dark" for="signUpEmail">EMAIL ADDRESS</label>
+<input class="auth-input-dark" id="signUpEmail" required="" type="email"/>
+</div>
+<!-- Row 3: City & Role -->
+<div>
+<label class="auth-label-dark" for="signUpCity">CITY OF RESIDENCE</label>
+<input class="auth-input-dark" id="signUpCity" placeholder="e.g. Basel" required="" type="text"/>
+</div>
+<div>
+<label class="auth-label-dark" for="signUpRole">ROLE In Community</label>
+<select class="auth-input-dark" id="signUpRole" required="" style="cursor: pointer;">
+<option disabled="" selected="" value="">Select Role</option>
+<option value="Student">Student</option>
+<option value="Teacher">Teacher</option>
+<option value="Dancer">Dancer</option>
+<option value="Performer">Performer</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<!-- Row 4: WhatsApp -->
+<div class="auth-field-full">
+<label class="auth-label-dark" for="signUpWhatsapp">WHATSAPP NUMBER</label>
+<input class="auth-input-dark" id="signUpWhatsapp" placeholder="+41 79 123 45 67" type="tel"/>
+</div>
+<!-- Row 5: Password -->
+<div class="auth-field-full">
+<label class="auth-label-dark" for="signUpPassword">PASSWORD</label>
+<input class="auth-input-dark" id="signUpPassword" minlength="6" required="" type="password"/>
+</div>
+</div>
+<button class="btn-auth-red" type="submit">REGISTER NOW</button>
+</form>
+</div>
+<!-- Messages -->
+<div id="authMessage" style="margin-top: 1.5rem; text-align: center; font-weight: 600; display: none;">
+</div>
+</div>
+</div>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
         // --- Supabase Config ---
         const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQxRI';
@@ -281,7 +263,5 @@
         });
 
     </script>
-
 </body>
-
 </html>

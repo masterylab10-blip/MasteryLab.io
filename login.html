@@ -1,72 +1,60 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | MasteryLab Portal</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="icon" href="media/favicon.png" type="image/png">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login | MasteryLab Portal</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Favicon -->
+<link href="media/favicon.png" rel="icon" type="image/png"/>
+<!-- Custom CSS -->
+<link href="style.css" rel="stylesheet"/>
 </head>
-
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="/" class="logo">
-                <img src="media/logo-wings.png" alt="MasteryLab Logo">
-            </a>
-            <div class="nav-links">
-            </div>
-        </div>
-    </nav>
-
-    <main class="auth-page" style="display: flex; align-items: center; min-height: 100vh; padding-top: 0;">
-        <div class="container">
-
-            <div class="auth-form-container" style="margin-top: 0; margin-bottom: 0;">
-                <h2 class="text-center text-primary" style="margin-bottom: 2rem;">WELCOME BACK</h2>
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" id="email" class="form-input" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Password</label>
-                        <input type="password" id="password" class="form-input" required>
-                    </div>
-
-                    <div class="form-group" style="text-align: right; margin-bottom: 2rem;">
-                        <a href="#" style="font-size: 0.85rem; color: #aaa; text-decoration: none;">Forgot Password?</a>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" id="submitBtn" class="btn btn-primary"
-                            style="width: 100%; border-radius: 8px;">Login</button>
-                    </div>
-                </form>
-
-                <div class="auth-footer">
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container">
+<a class="logo" href="/">
+<picture><source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp"/><source srcset="media/logo-wings-large.webp" type="image/webp"/><img alt="MasteryLab Logo" fetchpriority="high" src="media/logo-wings.webp"/></picture>
+</a>
+<div class="nav-links">
+</div>
+</div>
+</nav>
+<main class="auth-page" style="display: flex; align-items: center; min-height: 100vh; padding-top: 0;">
+<div class="container">
+<div class="auth-form-container" style="margin-top: 0; margin-bottom: 0;">
+<h2 class="text-center text-primary" style="margin-bottom: 2rem;">WELCOME BACK</h2>
+<form action="#" method="POST">
+<div class="form-group">
+<label class="form-label">Email Address</label>
+<input class="form-input" id="email" required="" type="email"/>
+</div>
+<div class="form-group">
+<label class="form-label">Password</label>
+<input class="form-input" id="password" required="" type="password"/>
+</div>
+<div class="form-group" style="text-align: right; margin-bottom: 2rem;">
+<a href="#" style="font-size: 0.85rem; color: #aaa; text-decoration: none;">Forgot Password?</a>
+</div>
+<div class="form-group">
+<button class="btn btn-primary" id="submitBtn" style="width: 100%; border-radius: 8px;" type="submit">Login</button>
+</div>
+</form>
+<div class="auth-footer">
                     Don't have an account? <a href="register">Register here</a>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Supabase SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase.js"></script>
-
-    <script>
+</div>
+</div>
+</div>
+</main>
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script>
         const loginForm = document.querySelector('form');
         const submitBtn = document.getElementById('submitBtn');
 
@@ -103,5 +91,4 @@
         });
     </script>
 </body>
-
 </html>

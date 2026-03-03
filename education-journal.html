@@ -1,61 +1,50 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education Journal | MasteryLab</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <link rel="icon" href="media/favicon.png" type="image/png">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Education Journal | MasteryLab</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="media/favicon.png" rel="icon" type="image/png"/>
 </head>
-
 <body style="background: #050505; color: white;">
-
-    <!-- Navigation -->
-    <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
-        <div class="container">
-            <a href="/" class="logo">
-                <img src="media/logo-wings.png" alt="MasteryLab Logo">
-            </a>
-            <div class="nav-links">
-                <!-- Links injected by script.js -->
-                <a href="#" onclick="history.back(); return false;" class="nav-btn-outline ticket-shape">GO BACK</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="container" style="padding-top: 150px; text-align: center;">
-        <span class="text-gradient-red"
-            style="font-family: 'Outfit'; letter-spacing: 4px; text-transform: uppercase; font-weight: 700;">WEEKLY
+<!-- Navigation -->
+<nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+<div class="container">
+<a class="logo" href="/">
+<picture><source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp"/><source srcset="media/logo-wings-large.webp" type="image/webp"/><img alt="MasteryLab Logo" fetchpriority="high" src="media/logo-wings.webp"/></picture>
+</a>
+<div class="nav-links">
+<!-- Links injected by script.js -->
+<a class="nav-btn-outline ticket-shape" href="#" onclick="history.back(); return false;">GO BACK</a>
+</div>
+<!-- Mobile Menu Button -->
+<button aria-label="Toggle navigation" class="mobile-menu-btn">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</div>
+</nav>
+<!-- Header -->
+<header class="container" style="padding-top: 150px; text-align: center;">
+<span class="text-gradient-red" style="font-family: 'Outfit'; letter-spacing: 4px; text-transform: uppercase; font-weight: 700;">WEEKLY
             INSIGHTS</span>
-        <h1 class="glow-white-premium"
-            style="font-family: 'Anton'; font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin: 1rem 0;">EDUCATION
+<h1 class="glow-white-premium" style="font-family: 'Anton'; font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin: 1rem 0;">EDUCATION
             JOURNAL</h1>
-        <p style="color: #aaa; max-width: 600px; margin: 0 auto; font-size: 1.2rem;">
+<p style="color: #aaa; max-width: 600px; margin: 0 auto; font-size: 1.2rem;">
             This page offers dance educational info and updates that are important to know and to master from every
             second week from well trusted resources.
         </p>
-    </header>
-
-
-
-    <!-- Footer -->
-    <footer class="footer" style="padding: 3rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-        <div class="container">
-            <p style="color: #444;">&copy; 2025 MasteryLab. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+</header>
+<!-- Footer -->
+<footer class="footer" style="padding: 3rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+<div class="container">
+<p style="color: #444;">© 2025 MasteryLab. All rights reserved.</p>
+</div>
+</footer>
+<script src="script.js"></script>
 </body>
-
 </html>

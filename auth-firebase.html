@@ -1,96 +1,85 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | MasteryLab</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&family=Anton&display=swap"
-        rel="stylesheet">
-    <link rel="icon" href="media/favicon.png" type="image/png">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In | MasteryLab</title>
+<link href="style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&amp;family=Anton&amp;display=swap" rel="stylesheet"/>
+<link href="media/favicon.png" rel="icon" type="image/png"/>
 </head>
-
 <body style="background: #050505; color: white; overflow-x: hidden;">
-
-    <!-- Navigation -->
-    <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
-        <div class="container">
-            <a href="/" class="logo">
-                <img src="media/logo-wings.png" alt="MasteryLab Logo">
-            </a>
-        </div>
-    </nav>
-
-    <!-- Auth Section -->
-    <section
-        style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px 50px;">
-        <div class="glass-card" style="max-width: 500px; width: 100%; padding: 3rem;">
-            <h1 style="font-family: 'Anton'; font-size: 2.5rem; text-align: center; margin-bottom: 1rem;">
-                <span class="text-gradient">WELCOME TO</span><br>
-                <span class="text-gradient-red">MASTERYLAB</span>
-            </h1>
-            <p style="text-align: center; color: #aaa; margin-bottom: 2.5rem;">
+<!-- Navigation -->
+<nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+<div class="container">
+<a class="logo" href="/">
+<picture><source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp"/><source srcset="media/logo-wings-large.webp" type="image/webp"/><img alt="MasteryLab Logo" fetchpriority="high" src="media/logo-wings.webp"/></picture>
+</a>
+</div>
+</nav>
+<!-- Auth Section -->
+<section style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 20px 50px;">
+<div class="glass-card" style="max-width: 500px; width: 100%; padding: 3rem;">
+<h1 style="font-family: 'Anton'; font-size: 2.5rem; text-align: center; margin-bottom: 1rem;">
+<span class="text-gradient">WELCOME TO</span><br/>
+<span class="text-gradient-red">MASTERYLAB</span>
+</h1>
+<p style="text-align: center; color: #aaa; margin-bottom: 2.5rem;">
                 Sign in or create an account to continue with your registration
             </p>
-
-            <!-- Tab Switcher -->
-            <div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
-                <button id="signInTab" class="auth-tab active" onclick="switchTab('signIn')">Sign In</button>
-                <button id="signUpTab" class="auth-tab" onclick="switchTab('signUp')">Create Account</button>
-            </div>
-
-            <!-- Sign In Form -->
-            <form id="signInForm" class="auth-form">
-                <div class="form-group">
-                    <label for="signInEmail">Email</label>
-                    <input type="email" id="signInEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="signInPassword">Password</label>
-                    <input type="password" id="signInPassword" required>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1.5rem;">
+<!-- Tab Switcher -->
+<div style="display: flex; gap: 1rem; margin-bottom: 2rem; border-bottom: 2px solid rgba(255,255,255,0.1);">
+<button class="auth-tab active" id="signInTab" onclick="switchTab('signIn')">Sign In</button>
+<button class="auth-tab" id="signUpTab" onclick="switchTab('signUp')">Create Account</button>
+</div>
+<!-- Sign In Form -->
+<form class="auth-form" id="signInForm">
+<div class="form-group">
+<label for="signInEmail">Email</label>
+<input id="signInEmail" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="signInPassword">Password</label>
+<input id="signInPassword" required="" type="password"/>
+</div>
+<button class="btn-primary" style="width: 100%; margin-top: 1.5rem;" type="submit">
                     SIGN IN
                 </button>
-                <p style="text-align: center; margin-top: 1rem; color: #aaa; font-size: 0.9rem;">
-                    <a href="#" onclick="resetPassword(); return false;"
-                        style="color: var(--color-primary); text-decoration: none;">Forgot password?</a>
-                </p>
-            </form>
-
-            <!-- Sign Up Form -->
-            <form id="signUpForm" class="auth-form" style="display: none;">
-                <div class="form-group">
-                    <label for="signUpName">Full Name</label>
-                    <input type="text" id="signUpName" required>
-                </div>
-                <div class="form-group">
-                    <label for="signUpEmail">Email</label>
-                    <input type="email" id="signUpEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="signUpPassword">Password</label>
-                    <input type="password" id="signUpPassword" required minlength="6">
-                    <small style="color: #aaa; font-size: 0.85rem;">Minimum 6 characters</small>
-                </div>
-                <div class="form-group">
-                    <label for="signUpPasswordConfirm">Confirm Password</label>
-                    <input type="password" id="signUpPasswordConfirm" required minlength="6">
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1.5rem;">
+<p style="text-align: center; margin-top: 1rem; color: #aaa; font-size: 0.9rem;">
+<a href="#" onclick="resetPassword(); return false;" style="color: var(--color-primary); text-decoration: none;">Forgot password?</a>
+</p>
+</form>
+<!-- Sign Up Form -->
+<form class="auth-form" id="signUpForm" style="display: none;">
+<div class="form-group">
+<label for="signUpName">Full Name</label>
+<input id="signUpName" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="signUpEmail">Email</label>
+<input id="signUpEmail" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="signUpPassword">Password</label>
+<input id="signUpPassword" minlength="6" required="" type="password"/>
+<small style="color: #aaa; font-size: 0.85rem;">Minimum 6 characters</small>
+</div>
+<div class="form-group">
+<label for="signUpPasswordConfirm">Confirm Password</label>
+<input id="signUpPasswordConfirm" minlength="6" required="" type="password"/>
+</div>
+<button class="btn-primary" style="width: 100%; margin-top: 1.5rem;" type="submit">
                     CREATE ACCOUNT
                 </button>
-            </form>
-
-            <!-- Error/Success Messages -->
-            <div id="authMessage" style="margin-top: 1.5rem; padding: 1rem; border-radius: 10px; display: none;"></div>
-        </div>
-    </section>
-
-    <style>
+</form>
+<!-- Error/Success Messages -->
+<div id="authMessage" style="margin-top: 1.5rem; padding: 1rem; border-radius: 10px; display: none;"></div>
+</div>
+</section>
+<style>
         .auth-tab {
             flex: 1;
             padding: 1rem;
@@ -151,9 +140,8 @@
             color: #ff6b6b;
         }
     </style>
-
-    <!-- Firebase SDK -->
-    <script type="module">
+<!-- Firebase SDK -->
+<script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, updateProfile } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
 
@@ -276,7 +264,5 @@
             }
         };
     </script>
-
 </body>
-
 </html>
