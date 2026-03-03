@@ -1,6 +1,6 @@
 /*
   MASTERYLAB MASTER REGISTRATION HANDLER
-  Routes submissions to specific Google Sheets based on the 'type' parameter.
+  Routes submissions and handles Stripe Webhooks for payment confirmation.
 */
 
 var SHEET_CONFIG = {
@@ -18,16 +18,24 @@ function doPost(e) {
     lock.tryLock(10000);
 
     try {
-        var data = e.parameter;
-
-        // Fallback for JSON body
+        var postData = null;
         if (e.postData && e.postData.contents) {
             try {
-                var jsonBody = JSON.parse(e.postData.contents);
-                for (var key in jsonBody) {
-                    data[key] = jsonBody[key];
-                }
-            } catch (f) { }
+                postData = JSON.parse(e.postData.contents);
+            } catch (f) {
+                // Not JSON, continue with parameters
+            }
+        }
+
+        // --- HANDLE STRIPE WEBHOOK ---
+        if (postData && postData.type === 'checkout.session.completed') {
+            return handleStripePayment(postData);
+        }
+
+        // --- HANDLE NORMAL REGISTRATION ---
+        var data = e.parameter || {};
+        if (postData) {
+            for (var key in postData) { data[key] = postData[key]; }
         }
 
         var type = data.type || 'BSL';
@@ -35,7 +43,6 @@ function doPost(e) {
         var ss = SpreadsheetApp.openById(spreadsheetId);
         var sheet = ss.getSheets()[0];
 
-        // Data Extraction
         var timestamp = new Date();
         var fullName = data.full_name || data.first_name || (data.firstName ? (data.firstName + ' ' + (data.lastName || '')) : 'N/A');
         var address = data.address || 'N/A';
@@ -47,47 +54,68 @@ function doPost(e) {
         var track = data.track || 'N/A';
         var level = data.level || 'N/A';
         var notes = data.notes || '';
+        var status = "⏳ PENDING";
 
-        // Append to Sheet
-        // Headers: Timestamp, Full Name, Address, City, Role, Dance Role, Email, WhatsApp, Track, Level, Notes
-        sheet.appendRow([
-            timestamp,
-            fullName,
-            address,
-            city,
-            role,
-            danceRole,
-            email,
-            whatsapp,
-            track,
-            level,
-            notes
-        ]);
+        // Headers: Timestamp, Full Name, Address, City, Role, Dance Role, Email, WhatsApp, Track, Level, Notes, Status
+        sheet.appendRow([timestamp, fullName, address, city, role, danceRole, email, whatsapp, track, level, notes, status]);
 
-        // Email Notifications
+        // Email Notification
         var subject = "🚀 New Registration [" + type + "]: " + fullName;
         var body = "New registration for MasteryLab " + type + "!\n\n" +
             "Name: " + fullName + "\n" +
             "Email: " + email + "\n" +
-            "WhatsApp: " + whatsapp + "\n" +
-            "Track: " + track + " (" + level + ")\n" +
-            "Role: " + role + " (" + danceRole + ")\n" +
-            "City: " + city + "\n\n" +
-            "Sheet: " + ss.getUrl();
+            "Status: " + status + "\n\n" +
+            "The sheet will update to PAID automatically when they finish Stripe.";
 
         ADMIN_EMAILS.forEach(function (recipient) {
             MailApp.sendEmail(recipient, subject, body);
         });
 
-        return ContentService
-            .createTextOutput(JSON.stringify({ "result": "success", "sheet": ss.getName() }))
-            .setMimeType(ContentService.MimeType.JSON);
+        return ContentService.createTextOutput(JSON.stringify({ "result": "success" })).setMimeType(ContentService.MimeType.JSON);
 
     } catch (err) {
-        return ContentService
-            .createTextOutput(JSON.stringify({ "result": "error", "error": err.toString() }))
-            .setMimeType(ContentService.MimeType.JSON);
+        return ContentService.createTextOutput(JSON.stringify({ "result": "error", "error": err.toString() })).setMimeType(ContentService.MimeType.JSON);
     } finally {
         lock.releaseLock();
     }
+}
+
+function handleStripePayment(event) {
+    var session = event.data.object;
+    var customerEmail = session.customer_details ? session.customer_details.email : session.customer_email;
+
+    if (!customerEmail) return ContentService.createTextOutput("No email found").setMimeType(ContentService.MimeType.TEXT);
+
+    // Search through all configured sheets to find the registration
+    for (var key in SHEET_CONFIG) {
+        try {
+            var ss = SpreadsheetApp.openById(SHEET_CONFIG[key]);
+            var sheet = ss.getSheets()[0];
+            var dataRows = sheet.getDataRange().getValues();
+
+            // We expect Email in Column G (Index 6)
+            for (var i = 1; i < dataRows.length; i++) {
+                var rowEmail = dataRows[i][6];
+                if (rowEmail && rowEmail.toString().toLowerCase().trim() === customerEmail.toLowerCase().trim()) {
+                    // Update Status in Column L (Index 11)
+                    sheet.getRange(i + 1, 12).setValue("✅ PAID");
+
+                    // Notify Admin
+                    var subject = "💰 PAYMENT CONFIRMED: " + dataRows[i][1];
+                    var body = "Stripe payment successful for " + dataRows[i][1] + " (" + customerEmail + ").\n" +
+                        "Sheet updated: " + ss.getName();
+
+                    ADMIN_EMAILS.forEach(function (recipient) {
+                        MailApp.sendEmail(recipient, subject, body);
+                    });
+
+                    return ContentService.createTextOutput("Payment marked as PAID").setMimeType(ContentService.MimeType.TEXT);
+                }
+            }
+        } catch (e) {
+            // Continue to next sheet if one fails
+        }
+    }
+
+    return ContentService.createTextOutput("Email not found in sheets").setMimeType(ContentService.MimeType.TEXT);
 }
