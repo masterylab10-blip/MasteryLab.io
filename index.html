@@ -1,415 +1,519 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>MasteryLab | Exclusive Weekend Dance Intensives in Switzerland</title>
-<meta content="MasteryLab offers professional dance workshops and weekend intensives led by world-renowned artists. Join us in Switzerland to master your craft." name="description"/>
-<meta content="MasteryLab, dance workshops, Switzerland, Latin dance, intensive programs, professional dance training, masterylab.ch" name="keywords"/>
-<meta content="picSo0GJsoxuo8SUEhdAbxeGCN2axCOR07RdVILEIok" name="google-site-verification">
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
-<!-- Custom CSS -->
-<link href="style.css" rel="stylesheet"/>
-<!-- Favicon -->
-<link href="media/favicon.png" rel="icon" type="image/png"/>
-</meta></head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>MasteryLab | Exclusive Weekend Dance Intensives in Switzerland</title>
+    <meta
+        content="MasteryLab offers professional dance workshops and weekend intensives led by world-renowned artists. Join us in Switzerland to master your craft."
+        name="description" />
+    <meta
+        content="MasteryLab, dance workshops, Switzerland, Latin dance, intensive programs, professional dance training, masterylab.ch"
+        name="keywords" />
+    <meta content="picSo0GJsoxuo8SUEhdAbxeGCN2axCOR07RdVILEIok" name="google-site-verification">
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link href="media/favicon.png" rel="icon" type="image/png" />
+    </meta>
+</head>
+
 <body>
-<!-- Navigation -->
-<nav class="navbar">
-<div class="container">
-<a class="logo" href="/">
-<picture><source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp"/><source srcset="media/logo-wings-large.webp" type="image/webp"/><img alt="MasteryLab Logo" fetchpriority="high" src="media/logo-wings.webp"/></picture>
-</a>
-<!-- Mobile Menu Button -->
-<button aria-label="Toggle navigation" class="mobile-menu-btn">
-<span></span>
-<span></span>
-<span></span>
-</button>
-<div class="nav-links">
-<a class="nav-btn-outline ticket-shape" href="what-is-masterylab">What is MasteryLab?</a>
-</div>
-</div>
-</nav>
-<!-- Supabase & Auth Logic -->
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-<script>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="logo" href="/">
+                <picture>
+                    <source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp" />
+                    <source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp" />
+                    <source srcset="media/logo-wings-large.webp" type="image/webp" /><img alt="MasteryLab Logo"
+                        fetchpriority="high" src="media/logo-wings.webp" />
+                </picture>
+            </a>
+            <!-- Mobile Menu Button -->
+            <button aria-label="Toggle navigation" class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a class="nav-btn-outline ticket-shape" href="what-is-masterylab">What is MasteryLab?</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Supabase & Auth Logic -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script>
         const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQxRI';
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         // Auth UI update removed as requested
     </script>
-<main>
-<!-- Hero Section -->
-<section class="hero" id="about">
-<video autoplay="" class="hero-bg" loop="" muted="" playsinline="">
-<source src="media/Tv  teaser video .mp4" type="video/mp4"/>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="about">
+            <video autoplay="" class="hero-bg" loop="" muted="" playsinline="">
+                <source src="media/Tv  teaser video .mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-<div class="hero-overlay"></div>
-<!-- Lab Navigation at Bottom -->
-<div class="hero-footer">
-<div class="hero-cards">
-<a class="hero-card" href="#mym-lab">
-<h3 class="text-primary">M&amp;M TECHNIQUE LAB</h3>
-<p>Michael &amp; Mayra</p>
-</a>
-<a class="hero-card" href="#bs-lab">
-<h3 class="text-primary">Bachata Sensual Lab</h3>
-<p>Christina &amp; Rebeca, Ale &amp; Xidan</p>
-</a>
-<a class="hero-card" href="#isma-irene-lab">
-<h3 class="text-primary">DANCE BOOSTER LAB 1</h3>
-<p>Ismael &amp; Irene</p>
-</a>
-</div>
-</div>
-<a class="scroll-indicator" href="#mym-lab">
-<span>DIVE IN</span>
-<div class="arrow"></div>
-</a>
-</section>
-<!-- Lab Details Section 1: MyM Lab -->
-<section class="lab-section" id="mym-lab">
-<div class="container lab-content">
-<div class="lab-info">
-<span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Intensive
+            <div class="hero-overlay"></div>
+            <!-- Lab Navigation at Bottom -->
+            <div class="hero-footer">
+                <div class="hero-cards">
+                    <a class="hero-card" href="#mym-lab">
+                        <h3 class="text-primary">M&amp;M TECHNIQUE LAB</h3>
+                        <p>Michael &amp; Mayra</p>
+                    </a>
+                    <a class="hero-card" href="#bs-lab">
+                        <h3 class="text-primary">Bachata Sensual Lab</h3>
+                        <p>Christina &amp; Rebeca, Ale &amp; Xidan</p>
+                    </a>
+                    <a class="hero-card" href="#isma-irene-lab">
+                        <h3 class="text-primary">DANCE BOOSTER LAB 1</h3>
+                        <p>Ismael &amp; Irene</p>
+                    </a>
+                </div>
+            </div>
+            <a class="scroll-indicator" href="#mym-lab">
+                <span>DIVE IN</span>
+                <div class="arrow"></div>
+            </a>
+        </section>
+        <!-- Lab Details Section 1: MyM Lab -->
+        <section class="lab-section" id="mym-lab">
+            <div class="container lab-content">
+                <div class="lab-info">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Intensive
                         Training</span>
-<h2>M&amp;M TECHNIQUE LAB</h2>
-<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">With
+                    <h2>M&amp;M TECHNIQUE LAB</h2>
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">With
                         Michael &amp; Mayra</h3>
-<p>
+                    <p>
                         Experience the precision and passion of Michael and Mayra. This lab focuses on technical
                         excellence,
                         musicality, and the seamless connection that defines their unique style. Perfect for couples
                         looking to elevate their partnership.
                     </p>
-<a class="btn btn-outline ticket-shape" href="michael-mayra">Apply for M&amp;M Technique Lab</a>
-</div>
-<div class="lab-image">
-<a href="michael-mayra">
-<picture>
-<source media="(max-width: 480px)" srcset="media/michael-mayra-covers-small.webp" type="image/webp"/>
-<source media="(max-width: 800px)" srcset="media/michael-mayra-covers-medium.webp" type="image/webp"/>
-<source srcset="media/michael-mayra-covers-large.webp" type="image/webp"/>
-<img alt="Michael and Mayra Dance Lab" loading="lazy" src="media/michael-mayra-covers.png"/>
-</picture>
-</a>
-</div>
-</div>
-</section>
-<!-- Lab Details Section 2: BS Lab -->
-<section class="lab-section alt" id="bs-lab">
-<div class="container lab-content">
-<div class="lab-image">
-<a href="bachata-sensual-lab">
-<picture>
-<source media="(max-width: 480px)" srcset="media/bachata_sensual_cover_new-small.webp" type="image/webp"/>
-<source media="(max-width: 800px)" srcset="media/bachata_sensual_cover_new-medium.webp" type="image/webp"/>
-<source srcset="media/bachata_sensual_cover_new-large.webp" type="image/webp"/>
-<img alt="Bachata Sensual Lab - Ale &amp; Xidan, Christina &amp; Rebeca" loading="lazy" src="media/bachata_sensual_cover_new.jpg"/>
-</picture>
-</a>
-</div>
-<div class="lab-info">
-<span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Sensual
+                    <a class="btn btn-outline ticket-shape" href="michael-mayra">Apply for M&amp;M Technique Lab</a>
+                </div>
+                <div class="lab-image">
+                    <a href="michael-mayra">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/michael-mayra-covers-small.webp"
+                                type="image/webp" />
+                            <source media="(max-width: 800px)" srcset="media/michael-mayra-covers-medium.webp"
+                                type="image/webp" />
+                            <source srcset="media/michael-mayra-covers-large.webp" type="image/webp" />
+                            <img alt="Michael and Mayra Dance Lab" loading="lazy"
+                                src="media/michael-mayra-covers.png" />
+                        </picture>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Lab Details Section 2: BS Lab -->
+        <section class="lab-section alt" id="bs-lab">
+            <div class="container lab-content">
+                <div class="lab-image">
+                    <a href="bachata-sensual-lab">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/bachata_sensual_cover_new-small.webp"
+                                type="image/webp" />
+                            <source media="(max-width: 800px)" srcset="media/bachata_sensual_cover_new-medium.webp"
+                                type="image/webp" />
+                            <source srcset="media/bachata_sensual_cover_new-large.webp" type="image/webp" />
+                            <img alt="Bachata Sensual Lab - Ale &amp; Xidan, Christina &amp; Rebeca" loading="lazy"
+                                src="media/bachata_sensual_cover_new.jpg" />
+                        </picture>
+                    </a>
+                </div>
+                <div class="lab-info">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Sensual
                         Mastery</span>
-<h2>BACHATA SENSUAL LAB</h2>
-<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">Christina
+                    <h2>BACHATA SENSUAL LAB</h2>
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">Christina
                         &amp; Rebeca, Ale &amp; Xidan</h3>
-<p>
+                    <p>
                         Dive deep into the fundamentals and advanced techniques of Bachata Sensual.
                         Understand body mechanics, isolation, and flow. This lab is rigorous, detailed,
                         and designed for those who want to truly master the movement.
                     </p>
-<a class="btn btn-outline ticket-shape" href="bachata-sensual-lab">More Info</a>
-</div>
-</div>
-</section>
-<!-- Lab Details Section 3: Ismael & Irene Lab -->
-<section class="lab-section" id="isma-irene-lab">
-<div class="container lab-content">
-<div class="lab-info">
-<span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Partner
+                    <a class="btn btn-outline ticket-shape" href="bachata-sensual-lab">More Info</a>
+                </div>
+            </div>
+        </section>
+        <!-- Lab Details Section 3: Ismael & Irene Lab -->
+        <section class="lab-section" id="isma-irene-lab">
+            <div class="container lab-content">
+                <div class="lab-info">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Partner
                         Connection</span>
-<h2>DANCE BOOSTER LAB</h2>
-<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">With
+                    <h2>DANCE BOOSTER LAB</h2>
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">With
                         Ismael &amp; Irene</h3>
-<p>
+                    <p>
                         This academic dance training prepares partner dancers (bachata &amp; salsa) and solo dancers by
                         building correct muscle memory, proper body posture, and solid foundations—supporting confidence
                         and meaningful progress without shortcuts.
                     </p>
-<a class="btn btn-outline ticket-shape" href="isma-irene">More Info</a>
-</div>
-<div class="lab-image">
-<a href="isma-irene">
-<picture>
-<source media="(max-width: 480px)" srcset="media/DANCE BOOSTER-cover-small.webp" type="image/webp"/>
-<source media="(max-width: 800px)" srcset="media/DANCE BOOSTER-cover-medium.webp" type="image/webp"/>
-<source srcset="media/DANCE BOOSTER-cover-large.webp" type="image/webp"/>
-<img alt="Ismael and Irene Dance Partner Training" loading="lazy" src="media/DANCE BOOSTER-cover.png" style="object-position: top;"/>
-</picture>
-</a>
-</div>
-</div>
-</section>
-<!-- Lab Details Section 4: Lady Style Lab -->
-<section class="lab-section alt" id="lady-lab">
-<div class="container lab-content">
-<div class="lab-image">
-<a href="#contact">
-<img alt="Lady Style Dance Lab Coming Soon" loading="lazy" src="media/mastery_lab_coming_soon.webp"/>
-</a>
-</div>
-<div class="lab-info">
-<span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Solo
+                    <a class="btn btn-outline ticket-shape" href="isma-irene">More Info</a>
+                </div>
+                <div class="lab-image">
+                    <a href="isma-irene">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/DANCE BOOSTER-cover-small.webp"
+                                type="image/webp" />
+                            <source media="(max-width: 800px)" srcset="media/DANCE BOOSTER-cover-medium.webp"
+                                type="image/webp" />
+                            <source srcset="media/DANCE BOOSTER-cover-large.webp" type="image/webp" />
+                            <img alt="Ismael and Irene Dance Partner Training" loading="lazy"
+                                src="media/DANCE BOOSTER-cover.png" style="object-position: top;" />
+                        </picture>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Lab Details Section 4: Lady Style Lab -->
+        <section class="lab-section alt" id="lady-lab">
+            <div class="container lab-content">
+                <div class="lab-image">
+                    <a href="#contact">
+                        <img alt="Lady Style Dance Lab Coming Soon" loading="lazy"
+                            src="media/mastery_lab_coming_soon.webp" />
+                    </a>
+                </div>
+                <div class="lab-info">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Solo
                         Expression</span>
-<h2>LADIES MASTERY LAB</h2>
-<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">Empower
+                    <h2>LADIES MASTERY LAB</h2>
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">Empower
                         Your Dance</h3>
-<p>
+                    <p>
                         Unleash your potential with our Lady Style Lab. Focus on styling, armwork, body movement,
                         and musical interpretation. This is about finding your own voice and confidence on the dance
                         floor.
                     </p>
-<a class="btn btn-outline ticket-shape" href="#contact">Coming Soon...</a>
-</div>
-</div>
-</section>
-<!-- Lab Details Section 5: Men Style Lab -->
-<section class="lab-section" id="men-lab">
-<div class="container lab-content">
-<div class="lab-info">
-<span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Solo
+                    <a class="btn btn-outline ticket-shape" href="#contact">Coming Soon...</a>
+                </div>
+            </div>
+        </section>
+        <!-- Lab Details Section 5: Men Style Lab -->
+        <section class="lab-section" id="men-lab">
+            <div class="container lab-content">
+                <div class="lab-info">
+                    <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Solo
                         Expression</span>
-<h2>MEN STYLE LAB</h2>
-<h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">Refine
+                    <h2>MEN STYLE LAB</h2>
+                    <h3 style="color: #fff; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">Refine
                         Your Presence</h3>
-<p>
+                    <p>
                         Dedicated training for leaders focusing on body control, footwork, and masculine styling
                         elements.
                         Elevate your dance with confidence and precision.
                     </p>
-<a class="btn btn-outline ticket-shape" href="#contact">Coming Soon...</a>
-</div>
-<div class="lab-image">
-<a href="#contact">
-<img alt="Men Style Dance Lab Coming Soon" loading="lazy" src="media/mastery_lab_coming_soon.webp"/>
-</a>
-</div>
-</div>
-</section>
-</main>
-<!-- Contact Section -->
-<section class="section-padding" id="contact">
-<div class="container">
-<div class="text-center" style="margin-bottom: 3rem;">
-<span class="text-futuristic" data-text="GET IN TOUCH">Get In Touch</span>
-<p style="color: var(--color-text-muted); max-width: 600px; margin: 1rem auto;">
+                    <a class="btn btn-outline ticket-shape" href="#contact">Coming Soon...</a>
+                </div>
+                <div class="lab-image">
+                    <a href="#contact">
+                        <img alt="Men Style Dance Lab Coming Soon" loading="lazy"
+                            src="media/mastery_lab_coming_soon.webp" />
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Contact Section -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <span class="text-futuristic" data-text="GET IN TOUCH">Get In Touch</span>
+                <p style="color: var(--color-text-muted); max-width: 600px; margin: 1rem auto;">
                     Have questions about our labs? Want to book a private session? We'd love to hear from you.
                 </p>
-</div>
-<div class="contact-form-container">
-<form action="https://formsubmit.co/labmastery@outlook.com" id="contactForm" method="POST">
-<!-- FormSubmit Configuration -->
-<input name="_subject" type="hidden" value="New Submission from MasteryLab Website"/>
-<input name="_captcha" type="hidden" value="false"/>
-<input name="_next" type="hidden" value="https://masterylab.ch/contact-thank-you"/>
-<div class="grid-2">
-<div class="form-group">
-<label class="form-label">First Name</label>
-<input class="form-input" name="first_name" placeholder="First Name" required="" type="text"/>
-</div>
-<div class="form-group">
-<label class="form-label">Last Name</label>
-<input class="form-input" name="last_name" placeholder="Last Name" required="" type="text"/>
-</div>
-</div>
-<div class="form-group">
-<label class="form-label">Telephone Number</label>
-<input class="form-input" name="phone" placeholder="+41 79 000 00 00" required="" type="tel"/>
-</div>
-<div class="form-group">
-<label class="form-label">Subject</label>
-<input class="form-input" name="subject" placeholder="What is this regarding?" required="" type="text"/>
-</div>
-<div class="form-group">
-<label class="form-label">Message</label>
-<textarea class="form-input" name="message" placeholder="Your Message..." required=""></textarea>
-</div>
-<div class="text-center">
-<button class="btn btn-primary ticket-shape" id="contactSubmitBtn" style="min-width: 200px;" type="submit">Send Message</button>
-</div>
-</form>
-</div>
-</div>
-</section>
-<!-- Partners Section -->
-<section id="partners">
-<div class="container">
-<div class="text-center" style="margin-bottom: 3rem;">
-<span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Collaboration</span>
-<h2 style="font-family: 'Anton'; font-size: 3rem; text-transform: uppercase;">Our Partners</h2>
-</div>
-<div class="partners-grid">
-<!-- Partner 1 -->
-<div class="partner-card">
-<div class="partner-logo-container">
-<picture><source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp"/><source srcset="media/logo-wings-large.webp" type="image/webp"/><img alt="Axcent Dance" class="partner-logo" fetchpriority="high" src="media/logo-wings.webp"/></picture>
-</div>
-<h3 class="partner-name">Axcent Dance</h3>
-<p class="partner-desc">
+            </div>
+            <div class="contact-form-container">
+                <form action="https://formsubmit.co/labmastery@outlook.com" id="contactForm" method="POST">
+                    <!-- FormSubmit Configuration -->
+                    <input name="_subject" type="hidden" value="New Submission from MasteryLab Website" />
+                    <input name="_captcha" type="hidden" value="false" />
+                    <input name="_next" type="hidden" value="https://masterylab.ch/contact-thank-you" />
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input class="form-input" name="first_name" placeholder="First Name" required=""
+                                type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name</label>
+                            <input class="form-input" name="last_name" placeholder="Last Name" required=""
+                                type="text" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Telephone Number</label>
+                        <input class="form-input" name="phone" placeholder="+41 79 000 00 00" required="" type="tel" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input class="form-input" name="subject" placeholder="What is this regarding?" required=""
+                            type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Message</label>
+                        <textarea class="form-input" name="message" placeholder="Your Message..."
+                            required=""></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary ticket-shape" id="contactSubmitBtn" style="min-width: 200px;"
+                            type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Partners Section -->
+    <section id="partners">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <span class="text-primary text-uppercase"
+                    style="letter-spacing: 2px; font-weight: 700;">Collaboration</span>
+                <h2 style="font-family: 'Anton'; font-size: 3rem; text-transform: uppercase;">Our Partners</h2>
+            </div>
+            <div class="partners-grid">
+                <!-- Partner 1 -->
+                <div class="partner-card">
+                    <div class="partner-logo-container">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/partner-axcent-new-small.webp"
+                                type="image/webp" />
+                            <source media="(max-width: 800px)" srcset="media/partner-axcent-new-medium.webp"
+                                type="image/webp" />
+                            <source srcset="media/partner-axcent-new-large.webp" type="image/webp" /><img
+                                alt="Axcent Dance" class="partner-logo" fetchpriority="high"
+                                src="media/partner-axcent-new.webp" />
+                        </picture>
+                    </div>
+                    <h3 class="partner-name">Axcent Dance</h3>
+                    <p class="partner-desc">
                         A dance school dedicated to fostering talent and technique.
                     </p>
-<div class="partner-socials">
-<!-- Website -->
-<a class="social-btn-small" href="https://axcentdance.com/" target="_blank" title="Website">
-<svg viewbox="0 0 24 24">
-<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"></path>
-</svg>
-</a>
-<!-- Instagram -->
-<a class="social-btn-small" href="https://www.instagram.com/axcent_dance?igsh=MWxiZno2ZDhka2t0bw==" target="_blank" title="Instagram">
-<svg viewbox="0 0 24 24">
-<path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
-</svg>
-</a>
-<!-- Facebook -->
-<a class="social-btn-small" href="https://www.facebook.com/share/1BioqT1WnY/?mibextid=wwXIfr" target="_blank" title="Facebook">
-<svg viewbox="0 0 24 24">
-<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
-</svg>
-</a>
-</div>
-</div>
-<!-- Partner 2 -->
-<div class="partner-card">
-<div class="partner-logo-container">
-<picture><source media="(max-width: 480px)" srcset="media/partner-matrik-new-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/partner-matrik-new-medium.webp" type="image/webp"/><source srcset="media/partner-matrik-new-large.webp" type="image/webp"/><img alt="MatrikStudio" class="partner-logo" loading="lazy" src="media/partner-matrik-new.webp"/></picture>
-</div>
-<h3 class="partner-name">MatrikStudio</h3>
-<p class="partner-desc">
+                    <div class="partner-socials">
+                        <!-- Website -->
+                        <a class="social-btn-small" href="https://axcentdance.com/" target="_blank" title="Website">
+                            <svg viewbox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z">
+                                </path>
+                            </svg>
+                        </a>
+                        <!-- Instagram -->
+                        <a class="social-btn-small"
+                            href="https://www.instagram.com/axcent_dance?igsh=MWxiZno2ZDhka2t0bw==" target="_blank"
+                            title="Instagram">
+                            <svg viewbox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <!-- Facebook -->
+                        <a class="social-btn-small" href="https://www.facebook.com/share/1BioqT1WnY/?mibextid=wwXIfr"
+                            target="_blank" title="Facebook">
+                            <svg viewbox="0 0 24 24">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Partner 2 -->
+                <div class="partner-card">
+                    <div class="partner-logo-container">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/partner-matrik-new-small.webp"
+                                type="image/webp" />
+                            <source media="(max-width: 800px)" srcset="media/partner-matrik-new-medium.webp"
+                                type="image/webp" />
+                            <source srcset="media/partner-matrik-new-large.webp" type="image/webp" /><img
+                                alt="MatrikStudio" class="partner-logo" loading="lazy"
+                                src="media/partner-matrik-new.webp" />
+                        </picture>
+                    </div>
+                    <h3 class="partner-name">MatrikStudio</h3>
+                    <p class="partner-desc">
                         Specializing in artistic photography and cinematic videography for dance, events, and weddings.
                         Capturing the essence of movement.
                     </p>
-<div class="partner-socials">
-<!-- Instagram -->
-<a class="social-btn-small" href="https://www.instagram.com/matrikstudio.101?igsh=MTQwbHlvNGRrN2Z0bg%3D%3D&amp;utm_source=qr" target="_blank" title="Instagram">
-<svg viewbox="0 0 24 24">
-<path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
-</svg>
-</a>
-<!-- YouTube -->
-<a class="social-btn-small" href="https://youtube.com/@matrikstudio?si=UPYtPe3K3BGV_8sm" target="_blank" title="YouTube">
-<svg viewbox="0 0 24 24">
-<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
-</svg>
-</a>
-</div>
-</div>
-<!-- Partner 3 -->
-<div class="partner-card">
-<div class="partner-logo-container">
-<picture><source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp"/><source srcset="media/logo-wings-large.webp" type="image/webp"/><img alt="Story Unfold" class="partner-logo" fetchpriority="high" src="media/logo-wings.webp"/></picture>
-</div>
-<h3 class="partner-name">Story Unfold</h3>
-<p class="partner-desc">
+                    <div class="partner-socials">
+                        <!-- Instagram -->
+                        <a class="social-btn-small"
+                            href="https://www.instagram.com/matrikstudio.101?igsh=MTQwbHlvNGRrN2Z0bg%3D%3D&amp;utm_source=qr"
+                            target="_blank" title="Instagram">
+                            <svg viewbox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a class="social-btn-small" href="https://youtube.com/@matrikstudio?si=UPYtPe3K3BGV_8sm"
+                            target="_blank" title="YouTube">
+                            <svg viewbox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Partner 3 -->
+                <div class="partner-card">
+                    <div class="partner-logo-container">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/partner-storyunfold-small.webp"
+                                type="image/webp" />
+                            <source media="(max-width: 800px)" srcset="media/partner-storyunfold-medium.webp"
+                                type="image/webp" />
+                            <source srcset="media/partner-storyunfold-large.webp" type="image/webp" /><img
+                                alt="Story Unfold" class="partner-logo" fetchpriority="high"
+                                src="media/partner-storyunfold.webp" />
+                        </picture>
+                    </div>
+                    <h3 class="partner-name">Story Unfold</h3>
+                    <p class="partner-desc">
                         Capturing artist stories, success journeys, interviews, and documentaries.
                     </p>
-<div class="partner-socials">
-<!-- Instagram -->
-<a class="social-btn-small" href="https://www.instagram.com/storyunfold.neo?igsh=aGZkeWd6N203end1&amp;utm_source=qr" target="_blank" title="Instagram">
-<svg viewbox="0 0 24 24">
-<path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
-</svg>
-</a>
-</div>
-</div>
-<!-- Partner 4: M&M -->
-<div class="partner-card">
-<div class="partner-logo-container">
-<picture><source media="(max-width: 480px)" srcset="media/mym-gold-logo-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/mym-gold-logo-medium.webp" type="image/webp"/><source srcset="media/mym-gold-logo-large.webp" type="image/webp"/><img alt="M&amp;M Technique Lab" class="partner-logo" fetchpriority="high" src="media/mym-gold-logo.webp" style="object-fit: contain; padding: 10px;"/></picture>
-</div>
-<h3 class="partner-name">M&amp;M Technique Lab</h3>
-<p class="partner-desc">
+                    <div class="partner-socials">
+                        <!-- Instagram -->
+                        <a class="social-btn-small"
+                            href="https://www.instagram.com/storyunfold.neo?igsh=aGZkeWd6N203end1&amp;utm_source=qr"
+                            target="_blank" title="Instagram">
+                            <svg viewbox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Partner 4: M&M -->
+                <div class="partner-card">
+                    <div class="partner-logo-container">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="media/mym-gold-logo-small.webp"
+                                type="image/webp" />
+                            <source media="(max-width: 800px)" srcset="media/mym-gold-logo-medium.webp"
+                                type="image/webp" />
+                            <source srcset="media/mym-gold-logo-large.webp" type="image/webp" /><img
+                                alt="M&amp;M Technique Lab" class="partner-logo" fetchpriority="high"
+                                src="media/mym-gold-logo.webp" style="object-fit: contain; padding: 10px;" />
+                        </picture>
+                    </div>
+                    <h3 class="partner-name">M&amp;M Technique Lab</h3>
+                    <p class="partner-desc">
                         World-renowned Bachata technique instructors and creators of the Dance Healing methodology.
                     </p>
-<div class="partner-socials">
-<a class="social-btn-small" href="michael-mayra" title="View Lab">
-<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
-<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-<path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-</svg>
-</a>
-</div>
-</div>
-<!-- Partner 5: Bailanama -->
-<div class="partner-card">
-<div class="partner-logo-container">
-<!-- Placeholder for Bailanama Logo -->
-<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); color: white; font-family: 'Anton'; font-size: 1.5rem; border-radius: 50%;">
+                    <div class="partner-socials">
+                        <a class="social-btn-small" href="michael-mayra" title="View Lab">
+                            <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Partner 5: Bailanama -->
+                <div class="partner-card">
+                    <div class="partner-logo-container">
+                        <!-- Placeholder for Bailanama Logo -->
+                        <div
+                            style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); color: white; font-family: 'Anton'; font-size: 1.5rem; border-radius: 50%;">
                             BAILANAMA
                         </div>
-</div>
-<h3 class="partner-name">Bailanama</h3>
-<p class="partner-desc">
+                    </div>
+                    <h3 class="partner-name">Bailanama</h3>
+                    <p class="partner-desc">
                         Leading dance event organization, connecting artists and dancers through high-quality
                         experiences.
                     </p>
-<div class="partner-socials">
-<!-- Instagram -->
-<a class="social-btn-small" href="#" title="Instagram">
-<svg viewbox="0 0 24 24">
-<path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
-</svg>
-</a>
-<!-- YouTube -->
-<a class="social-btn-small" href="#" title="YouTube">
-<svg viewbox="0 0 24 24">
-<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
-</svg>
-</a>
-</div>
-</div>
-</div>
-</div></section>
-<!-- Footer -->
-<footer>
-<div class="container">
-<div class="footer-logo text-primary">MASTERYLAB</div>
-<div class="social-links">
-<a class="btn-outline social-icon" href="https://www.instagram.com/masterylab_official?igsh=MWZsMTdrcTZjOGc3cg%3D%3D&amp;utm_source=qr" rel="noopener noreferrer" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;" target="_blank">
-<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
-<path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
-</svg>
-</a>
-<a class="btn-outline social-icon" href="https://www.facebook.com/profile.php?id=61583504608619&amp;mibextid=wwXIfr&amp;rdid=QUklf6J7nAVyyMVr&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17iq83iPgM%2F%3Fmibextid%3DwwXIfr%26ref%3D1" rel="noopener noreferrer" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;" target="_blank">
-<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
-<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
-</svg>
-</a>
-<a class="btn-outline social-icon" href="https://www.youtube.com/@Matrikstudio" rel="noopener noreferrer" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;" target="_blank">
-<svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
-<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.017 3.017 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
-</svg>
-</a>
-</div>
-<div style="margin-top: 1rem; font-size: 0.9rem;">
-<a href="terms-of-service" style="color: #666; text-decoration: none; margin: 0 10px;">Terms of
+                    <div class="partner-socials">
+                        <!-- Instagram -->
+                        <a class="social-btn-small" href="#" title="Instagram">
+                            <svg viewbox="0 0 24 24">
+                                <path
+                                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a class="social-btn-small" href="#" title="YouTube">
+                            <svg viewbox="0 0 24 24">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo text-primary">MASTERYLAB</div>
+            <div class="social-links">
+                <a class="btn-outline social-icon"
+                    href="https://www.instagram.com/masterylab_official?igsh=MWZsMTdrcTZjOGc3cg%3D%3D&amp;utm_source=qr"
+                    rel="noopener noreferrer" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;"
+                    target="_blank">
+                    <svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+                        <path
+                            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="btn-outline social-icon"
+                    href="https://www.facebook.com/profile.php?id=61583504608619&amp;mibextid=wwXIfr&amp;rdid=QUklf6J7nAVyyMVr&amp;share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F17iq83iPgM%2F%3Fmibextid%3DwwXIfr%26ref%3D1"
+                    rel="noopener noreferrer" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;"
+                    target="_blank">
+                    <svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="btn-outline social-icon" href="https://www.youtube.com/@Matrikstudio"
+                    rel="noopener noreferrer" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;"
+                    target="_blank">
+                    <svg fill="currentColor" height="20" viewbox="0 0 24 24" width="20">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.017 3.017 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.9rem;">
+                <a href="terms-of-service" style="color: #666; text-decoration: none; margin: 0 10px;">Terms of
                     Service</a> |
                 <a href="privacy-policy" style="color: #666; text-decoration: none; margin: 0 10px;">Privacy
                     Policy</a>
-</div>
-<p class="copy">© 2026 MasteryLab. All rights reserved. <br/>Designed for Dancers.</p>
-</div>
-</footer>
-<!-- Scripts -->
-<script>
+            </div>
+            <p class="copy">© 2026 MasteryLab. All rights reserved. <br />Designed for Dancers.</p>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script>
         // Smooth scroll for nav links targeting the same page
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -471,6 +575,7 @@
             });
         }
     </script>
-<script src="script.js?v=2"></script>
+    <script src="script.js?v=2"></script>
 </body>
+
 </html>
