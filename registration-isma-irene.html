@@ -187,7 +187,7 @@
 <p style="text-align: center; color: #aaa; margin-bottom: 2.5rem; font-size: 1.1rem; font-weight: 300;">
                     DANCE BOOSTER LAB 1 — ISMAEL &amp; IRENE 2026
                 </p>
-<form id="iiRegForm">
+<form action="https://formsubmit.co/masterylab1.0@gmail.com" id="iiRegForm" method="POST"><input name="_next" type="hidden" value="https://buy.stripe.com/4gMaEZd4q1xWcjE3aGdEs09"/><input name="_captcha" type="hidden" value="false"/><input name="_template" type="hidden" value="table"/><input name="_subject" type="hidden" value="New BOOSTER Registration!"/>
 <input name="type" type="hidden" value="BOOSTER"/>
 <div class="form-group">
 <label class="form-label" for="firstName">Full Name</label>
@@ -239,18 +239,14 @@
 </p>
 </form>
 <script>
-                    const regForm = document.getElementById('iiRegForm');
+                    const regForm = document.querySelector('form');
                     const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxU27erApehiGH1835Er5GUun9rX0m4uzjIYLUMRGZQTheEUqbTPfVQL1dcJ9r2qWM1/exec';
-                    const stripePaymentLink = 'https://buy.stripe.com/4gMaEZd4q1xWcjE3aGdEs09';
 
                     if (regForm) {
                         regForm.addEventListener('submit', function (e) {
-                            e.preventDefault();
+                            // Allow native submit to https://formsubmit.co/masterylab1.0@gmail.com
                             const btn = document.getElementById('submitBtn');
-                            if (btn) {
-                                btn.innerText = 'Processing...';
-                                btn.disabled = true;
-                            }
+                            if(btn) btn.innerText = 'Redirecting...';
 
                             const formData = new FormData(regForm);
                             const data = new URLSearchParams();
@@ -266,13 +262,7 @@
                             data.append('address', formData.get('city') || '');
                             data.append('type', 'BOOSTER');
 
-                            // Use beacon for silent background sync
                             navigator.sendBeacon(googleScriptURL, data);
-
-                            // Redirect
-                            setTimeout(() => {
-                                window.location.href = stripePaymentLink;
-                            }, 400);
                         });
                     }
                 </script>
