@@ -249,17 +249,23 @@
                                 data.append('phone', formData.get('whatsapp') || '');
                                 data.append('type', track === 'teachers' ? 'TEACHER' : 'BSL');
 
-                                // Submit to Google Sheets in background while form submits natively
+                                // Submit to Google Sheets in background
                                 navigator.sendBeacon(googleScriptURL, data);
 
-                                // FormSubmit handles the foreground (Email + Redirect to Stripe/Thank You)
-                                // Only need to override _next if it's the teacher track (No Payment Required)
-                                if (track === 'teachers') {
-                                    const nextInput = document.querySelector('input[name="_next"]');
-                                    if (nextInput) {
-                                        nextInput.value = window.location.origin + '/application-received.html';
-                                    }
-                                }
+                                // Submit to FormSubmit in background (No-CORS)
+                                fetch(regForm.action, {
+                                    method: 'POST',
+                                    mode: 'no-cors',
+                                    body: formData
+                                });
+
+                                // Redirect manually to bypass any FormSubmit issues
+                                const finalLink = document.querySelector('input[name="_next"]').value;
+                                setTimeout(() => {
+                                    window.location.href = finalLink;
+                                }, 600);
+
+                                e.preventDefault();
                             });
                         }
                     </script>
@@ -359,6 +365,11 @@
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         document.addEventListener('DOMContentLoaded', async () => {
+            // Existing logic for Stripe links
+            const urlParams = new URLSearchParams(window.location.search);
+            const level = urlParams.get('level');
+            const track = urlParams.get('track'); // 'teachers' or 'dancers'
+
             // Check for authentication (Optional now)
             const { data: { session } } = await supabaseClient.auth.getSession();
 
@@ -404,10 +415,9 @@
                     const disclaimer = document.getElementById('payment-disclaimer');
                     if (disclaimer) disclaimer.style.display = 'none';
 
-                    const sectionTitle = document.querySelector('.section-title');
-                    if (sectionTitle) sectionTitle.innerText = "TEACHER APPLICATION";
-
-                    const sectionDesc = document.querySelector('.section-subtitle');
+                    // Update Title if needed
+                    const h1 = document.querySelector('h1.text-gradient-red');
+                    if (h1) h1.innerText = "TEACHER APPLICATION";
                 }
 
                 // Show welcome message
@@ -419,11 +429,6 @@
                     container.insertBefore(welcomeMsg, container.firstChild);
                 }
             }
-
-            // Existing logic for Stripe links
-            const urlParams = new URLSearchParams(window.location.search);
-            const level = urlParams.get('level');
-            const track = urlParams.get('track'); // 'teachers' or 'dancers'
 
             // Default generic links (placeholders)
             let finalLink = 'https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g';
