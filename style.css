@@ -245,6 +245,61 @@ h6 {
     -webkit-text-fill-color: transparent;
 }
 
+/* =========================================
+   PREMIUM GLOW UTILITIES
+   ========================================= */
+
+/* White Glow - Sharp core + deep blooming aura */
+.glow-white-premium {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 40px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(255, 255, 255, 0.2);
+}
+
+/* Red Glow - Signature Identity */
+.glow-red-premium {
+    color: #FF0033 !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow:
+        0 0 10px rgba(214, 0, 28, 0.9),
+        0 0 20px rgba(214, 0, 28, 0.6),
+        0 0 40px rgba(214, 0, 28, 0.4);
+}
+
+/* Orange/Bronze Glow - As requested in image */
+.glow-orange-premium {
+    color: #ff9d00 !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow:
+        0 0 10px rgba(255, 140, 0, 0.9),
+        0 0 25px rgba(255, 140, 0, 0.6),
+        0 0 50px rgba(255, 69, 0, 0.4);
+}
+
+/* Gold Glow */
+.glow-gold-premium {
+    color: #FFD700 !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow:
+        0 0 10px rgba(255, 215, 0, 0.9),
+        0 0 25px rgba(255, 215, 0, 0.6),
+        0 0 50px rgba(255, 215, 0, 0.3);
+}
+
+/* Silver Glow */
+.glow-silver-premium {
+    color: #E0E0E0 !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.8),
+        0 0 20px rgba(192, 192, 192, 0.5),
+        0 0 40px rgba(128, 128, 128, 0.3);
+}
+
 .btn.ticket-shape {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
