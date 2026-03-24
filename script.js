@@ -385,22 +385,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const ctaBtn = document.querySelector('.btn-cta-inviting');
         if (!ctaBtn) return;
 
-        // Mock Data
-        const totalEarlyBird = 10;
-        const sold = 4; // Mock logic: "First 10 tickets"
-        const remaining = totalEarlyBird - sold;
-        const price = remaining > 0 ? "200 CHF" : "220 CHF";
-        const tierName = remaining > 0 ? "Early Bird Tier" : "Standard Tier";
-        const fillPercent = (sold / totalEarlyBird) * 100;
+        const price = "220 CHF";
 
         const dynamicHTML = `
         <div class="mm-pricing-status" style="margin-bottom: 3rem;">
-            <div class="mm-spots-remaining">FIRST 10 TICKETS: 200 CHF</div>
-            <div class="mm-price-tag">200 CHF</div>
-            <div class="mm-progress-bar">
-                <div class="mm-progress-fill" style="width: ${fillPercent}%"></div>
-            </div>
-            <p style="color: #e6af15; font-weight: 800; font-size: 1.1rem; margin-top: 1rem; letter-spacing: 1px;">AFTER 220 CHF</p>
+            <div class="mm-spots-remaining">PRICE PER TICKET</div>
+            <div class="mm-price-tag">220 CHF</div>
         </div>
         
         <div class="pricing-component" style="justify-content: center; margin-bottom: 4rem;">
