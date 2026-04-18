@@ -2968,3 +2968,67 @@ a.btn-book-now .ticket-icon {
     align-items: center !important;
     justify-content: center !important;
 }
+/* === Numbered Cards for Ladies Mastery === */
+.numbered-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.numbered-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 140px;
+    text-align: left;
+}
+
+.numbered-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--color-primary);
+    box-shadow: 0 15px 40px rgba(214, 0, 28, 0.2);
+}
+
+.numbered-card-number {
+    position: absolute;
+    bottom: -10px;
+    right: 15px;
+    font-family: " Anton\;
+ font-size: 7rem;
+ color: rgba(255, 255, 255, 0.04);
+ line-height: 1;
+ z-index: 0;
+ pointer-events: none;
+ transition: all 0.4s ease;
+}
+
+.numbered-card:hover .numbered-card-number {
+ color: rgba(214, 0, 28, 0.1);
+ transform: scale(1.1) translateX(-10px);
+}
+
+.numbered-card-content {
+ position: relative;
+ z-index: 1;
+}
+
+.numbered-card-title {
+ font-family: \Outfit\;
+ font-size: 1.1rem;
+ font-weight: 600;
+ color: white;
+ text-transform: uppercase;
+ letter-spacing: 1px;
+ line-height: 1.4;
+ margin: 0;
+}
