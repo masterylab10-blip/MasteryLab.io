@@ -1491,6 +1491,11 @@ textarea.form-input {
     background-position: center top;
 }
 
+.bio-hero-bg.michael-mayra-vol2 {
+    background-image: url('media/mym-vol2-cover.jpg');
+    background-position: center top;
+}
+
 .bio-hero-bg.dance-booster {
     background-image: url('media/dance_booster_lab_1.png');
     background-position: center top;

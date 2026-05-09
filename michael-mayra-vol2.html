@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>M&M Technique Lab Vol. 2 | MasteryLab</title>
+<meta name="description" content="M&M Technique Lab Vol. 2 with Michael & Mayra. An intensive weekend focused on Partnerwork, Connection & Technique. Exclusively in Switzerland."/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    /* Vol 2 Custom Gold & Glass Theme */
+    :root {
+        --vol2-primary: #e6af15;
+        --vol2-secondary: #ffcd42;
+        --vol2-accent: #b8880f;
+    }
+    
+    body {
+        background-color: #050508;
+    }
+
+    .bio-hero-overlay {
+        background: radial-gradient(circle at center, rgba(0,0,0,0.5) 0%, #050508 100%);
+    }
+
+    .btn-gold-shiny {
+        background: linear-gradient(135deg, var(--vol2-primary), var(--vol2-accent)) !important;
+        color: #000 !important;
+        box-shadow: 0 0 20px rgba(230,175,21,0.3) !important;
+        border: 1px solid rgba(255,205,66,0.5) !important;
+        font-weight: 800 !important;
+    }
+    
+    .btn-gold-shiny:hover {
+        background: linear-gradient(135deg, var(--vol2-secondary), var(--vol2-primary)) !important;
+        box-shadow: 0 0 35px rgba(255,205,66,0.6) !important;
+        transform: translateY(-4px);
+    }
+
+    .text-gold-shiny {
+        color: var(--vol2-secondary) !important;
+        text-shadow: 0 0 15px rgba(230,175,21,0.4) !important;
+    }
+
+    .glow-gold-premium {
+        background: linear-gradient(135deg, #fff 0%, var(--vol2-primary) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 30px rgba(230,175,21,0.3);
+    }
+
+    /* Glassmorphism for sections */
+    .benefit-card {
+        background: rgba(230, 175, 21, 0.03);
+        border: 1px solid rgba(230, 175, 21, 0.15);
+        backdrop-filter: blur(12px);
+        transition: all 0.4s ease;
+    }
+    .benefit-card:hover {
+        border-color: var(--vol2-primary);
+        background: rgba(230, 175, 21, 0.08);
+        box-shadow: 0 15px 40px rgba(230,175,21,0.2);
+        transform: translateY(-5px);
+    }
+    .benefit-icon {
+        filter: drop-shadow(0 0 8px var(--vol2-primary)) !important;
+    }
+    .photo-frame {
+        border: 2px solid var(--vol2-primary) !important;
+        border-radius: 24px !important;
+        box-shadow: 0 15px 40px rgba(230,175,21,0.2), inset 0 0 20px rgba(230,175,21,0.1) !important;
+        overflow: hidden !important;
+        background: rgba(230, 175, 21, 0.05);
+    }
+    .corner {
+        display: none !important;
+    }
+    
+    /* Sleek Ticket Cards */
+    div[style*="border: 2px solid #e6af15"] {
+        background: rgba(15,15,20,0.6) !important;
+        backdrop-filter: blur(15px) !important;
+        border: 1px solid rgba(255,205,66,0.4) !important;
+        box-shadow: 0 0 40px rgba(230,175,21,0.15) !important;
+    }
+</style>
+</head>
+<body>
+<nav class="navbar">
+<div class="container">
+<a class="logo" href="/">
+<picture><source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp"/><source srcset="media/logo-wings-large.webp" type="image/webp"/><img alt="MasteryLab Logo" fetchpriority="high" src="media/logo-wings.webp"/></picture>
+</a>
+<!-- Mobile Menu Button -->
+<button aria-label="Toggle navigation" class="mobile-menu-btn">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<div class="nav-links">
+<a class="nav-btn-outline ticket-shape" href="michael-mayra.html">VOL. 1</a>
+<a class="nav-btn-outline ticket-shape" href="#" onclick="history.back(); return false;">GO BACK</a>
+</div>
+</div>
+</nav>
+
+<!-- Premium Hero Section -->
+<header class="bio-hero" style="height: 100vh; min-height: 100vh; padding-top: 100px; padding-bottom: 4rem;">
+<div class="bio-hero-bg michael-mayra-vol2"></div>
+<div class="bio-hero-overlay"></div>
+<div class="container bio-hero-content">
+    <!-- VOL. 2 Badge -->
+    <div style="display: inline-block; background: linear-gradient(135deg, #e6af15, #b8880f); color: #000; padding: 0.4rem 1.5rem; border-radius: 30px; font-family: 'Anton', sans-serif; font-size: 1rem; letter-spacing: 3px; margin-bottom: 1.5rem; box-shadow: 0 0 20px rgba(230,175,21,0.5);">
+        VOL. 2
+    </div>
+    <p class="bio-hero-subtitle text-gold-shiny">Exclusively in Switzerland</p>
+    <h1 class="bio-hero-title">
+        <span class="glow-white-premium">PARTNERWORK</span><br/>
+        <span class="glow-gold-premium">CONNECTION & TECHNIQUE</span>
+    </h1>
+    <p class="bio-hero-desc">
+        The second chapter. <strong>Michael &amp; Mayra</strong> return with an exclusive intensive
+        dedicated to the art of partner dancing — precision connection, leading &amp; following, and couple technique.
+    </p>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 2rem;">
+        <a class="btn-primary btn-hero-lg btn-gold-shiny" href="#pillars">DISCOVER THE LAB</a>
+        <a class="btn-primary btn-hero-lg btn-gold-shiny" href="#tickets">SECURE YOUR SPOT</a>
+    </div>
+</div>
+<!-- Scroll Indicator -->
+<a class="scroll-indicator" href="#bio-intro" style="cursor: pointer; text-decoration: none;">
+<span style="font-size: 2rem; color: rgba(255,255,255,0.5);">↓</span>
+</a>
+</header>
+
+<!-- Intro Text -->
+<section class="container bio-intro" id="bio-intro">
+<h2>BEYOND TYPICAL WORKSHOPS</h2>
+<p>
+    For the <strong style="color:white;">second time in Switzerland</strong>, internationally renowned artists <strong style="color:white;">Michael &amp; Mayra 🔥</strong>, together with <strong style="color:#e6af15;">MASTERYLAB</strong>, present <strong style="color:white;">VOL. 2</strong> — an exclusive Bachata <strong style="color:white;">PARTNERWORK FOCUSED LAB</strong> in Baden! 🇨🇭
+</p>
+<p style="margin-bottom: 0;">
+    This unique intensive weekend goes far beyond regular workshops, focusing on <strong>body mechanics</strong>, <strong>movement quality</strong>, <strong>connection</strong>, and overall <strong>dance understanding</strong>. 💫
+</p>
+<div class="text-center" style="margin-top: 2rem;">
+<a class="btn-cta-inviting btn-gold-shiny" href="#tickets" style="padding: 1rem 3rem; font-size: 1.2rem;">
+<span style="position: relative; z-index: 2;">🎟️ SECURE YOUR TICKET</span>
+</a>
+</div>
+</section>
+
+<!-- Artist Introductions -->
+<section class="section-padding">
+<div class="container">
+<h2 class="bio-approach-header" style="text-align: center; margin-bottom: 3rem;">MEET THE ARTISTS</h2>
+<!-- Joint Bio & Logo Section -->
+<div class="bio-joint-section-inner" style="position: relative; padding: 0 0 4rem 0; overflow: hidden; margin-bottom: 4rem;">
+<!-- Logo Background -->
+<div class="joint-bio-bg" style="position: absolute; top: 35%; left: 50%; transform: translate(-50%, -50%); width: 100%; max-width: 900px; opacity: 0.2; z-index: 0; pointer-events: none;">
+<picture><source media="(max-width: 480px)" srcset="media/mym-symbol-bg-final-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/mym-symbol-bg-final-medium.webp" type="image/webp"/><source srcset="media/mym-symbol-bg-final-large.webp" type="image/webp"/><img alt="M&M Logo Symbol" loading="lazy" src="media/mym-symbol-bg-final.webp" style="width: 100%; display: block;"/></picture>
+</div>
+<div class="container" style="position: relative; z-index: 2; max-width: 900px; text-align: center;">
+<p style="font-size: 1.3rem; line-height: 1.6; color: #f0f0f0; font-weight: 300; font-family: 'Outfit', sans-serif;">
+<span style="font-weight: 700; color: #e6af15;">Michael &amp; Mayra</span> are top world-recognized
+                    international Bachata artists, choreographers, and newlyweds from Lebanon and Argentina.
+                    Sub-champions of the South American Bachata Open, they are known for blending high technical
+                    precision with elegance, emotion, and artistic expression.
+                    <br/><br/>
+                    Having traveled to over 60 countries, they share their unique methodology, <span style="font-weight: 600; color: #e6af15;">Dance Healing</span> — a holistic approach combining
+                    dance, psychology, and coaching to inspire transformation worldwide.
+                <div style="margin-top: 2rem;">
+<a href="https://www.instagram.com/michaelymayra?igsh=MWY1Y2d4cmFnejExdQ==" style="color: #e6af15; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; letter-spacing: 1px; font-size: 1.2rem;" target="_blank">
+                        Discover their Art
+                        <svg fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 8px;" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+<line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+</svg>
+</a>
+</div>
+</p></div>
+</div>
+<!-- Michael -->
+<div class="grid-2" style="margin-bottom: 4rem; gap: 3rem;">
+<div class="lab-image bio-image-wrapper">
+<div class="photo-frame">
+<div class="corner top-left"></div>
+<div class="corner top-right"></div>
+<div class="corner bottom-left"></div>
+<div class="corner bottom-right"></div>
+<img alt="Michael" loading="lazy" src="media/michael-solo-new.jpg" style="width: 100%; height: 100%; display: block; object-fit: cover; transform: scale(1.15); transform-origin: top center;" />
+</div>
+</div>
+<div class="lab-info" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+<h2 class="bio-approach-header" style="font-size: 2.5rem;">MICHAEL</h2>
+<a href="https://www.instagram.com/michaelmrad_bachata?igsh=MTR3N3h1aW1hcDJ5bg==" style="color: #e6af15; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;" target="_blank">
+                    Discover their Art
+                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 8px;" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+<line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+</svg>
+</a>
+<p class="bio-approach-text" style="margin-bottom: 0;">
+                    Michael has been a Latin and Ballroom dancer since he was a teenager, and has been Lebanese Latin
+                    and Ballroom Dancing Champion. <br/><br/> He has always been a highly technical dancer, and this
+                    has helped his teaching, something he has been doing since he was only 16 years old. <br/><br/>
+                    With his love for teaching and a lifetime of experience, he can help students transform and
+                    rapidly achieve their goals.
+                </p>
+</div>
+</div>
+<!-- Mayra -->
+<div class="grid-2" style="gap: 3rem;">
+<div class="lab-info" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+<h2 class="bio-approach-header" style="font-size: 2.5rem;">MAYRA</h2>
+<a href="https://www.instagram.com/mayracigliutti?igsh=MmphdGJ4N2c0Mmpk" style="color: #e6af15; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;" target="_blank">
+                    Discover their Art
+                    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 8px;" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+<line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+</svg>
+</a>
+<p class="bio-approach-text" style="margin-bottom: 0;">
+                    Mayra became familiar with a wide variety of styles: from classical ballet to bachata, from
+                    aerial acrobatics to hip-hop, from flamenco to contemporary, and from jazz to ice skating. This
+                    latter has been a big influence on their dance, since spins are incorporated in most of Michael
+                    and Mayra's routines. <br/><br/> As well as a dancer, Mayra also worked as a model and actress in
+                    her native Argentina.
+                </p>
+</div>
+<div class="lab-image bio-image-wrapper">
+<div class="photo-frame" style="transform: rotate(2deg);">
+<div class="corner top-left"></div>
+<div class="corner top-right"></div>
+<div class="corner bottom-left"></div>
+<div class="corner bottom-right"></div>
+<img alt="Mayra" loading="lazy" src="media/mayra-solo-new.jpg" style="width: 100%; display: block; object-fit: cover;" />
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Technical Pillars -->
+<section class="container bio-pillars-container" id="pillars">
+<h2 class="bio-pillars-title">PARTNERWORK PILLARS</h2>
+<div class="benefits-grid">
+<!-- Item 1 -->
+<div class="benefit-card">
+<span class="benefit-index">01</span>
+<div class="benefit-content">
+<h3 class="benefit-title">
+<span class="benefit-icon">🤝</span>
+                    Leader's Frame & Connection
+                </h3>
+<p class="benefit-desc">Build a powerful yet gentle frame that communicates clearly — the foundation of every beautiful dance together.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="benefit-card">
+<span class="benefit-index">02</span>
+<div class="benefit-content">
+<h3 class="benefit-title">
+<span class="benefit-icon">🌸</span>
+                    Follower's Sensitivity
+                </h3>
+<p class="benefit-desc">Develop the art of listening through touch. Refine your response, softness, and interpretation without losing your own style.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="benefit-card">
+<span class="benefit-index">03</span>
+<div class="benefit-content">
+<h3 class="benefit-title">
+<span class="benefit-icon">⚡</span>
+                    Lead & Follow Dynamics
+                </h3>
+<p class="benefit-desc">Master the invisible language between partners — timing, intention, and the energy exchange that makes dancing effortless.</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="benefit-card">
+<span class="benefit-index">04</span>
+<div class="benefit-content">
+<h3 class="benefit-title">
+<span class="benefit-icon">🌀</span>
+                    Couple Synchronization
+                </h3>
+<p class="benefit-desc">Move as one. Understand timing, rhythm, and coordination as a couple — from basic steps to complex sequences.</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="benefit-card">
+<span class="benefit-index">05</span>
+<div class="benefit-content">
+<h3 class="benefit-title">
+<span class="benefit-icon">🎭</span>
+                    Artistic Expression Together
+                </h3>
+<p class="benefit-desc">Learn how to express musicality as a unit — matching the emotion and energy of the music through shared movement.</p>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="benefit-card">
+<span class="benefit-index">06</span>
+<div class="benefit-content">
+<h3 class="benefit-title">
+<span class="benefit-icon">🧬</span>
+                    Body Mechanics in Partnership
+                </h3>
+<p class="benefit-desc">Correct posture, axis, and body mechanics in the context of partner dancing — preventing injuries and maximizing elegance.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Dates & Location -->
+<section style="padding: 5rem 0; background: #0a0a0f; text-align: center; position: relative; overflow: hidden;">
+<div class="bio-hero-overlay" style="opacity: 0.1; background: radial-gradient(circle, #e6af15 0%, transparent 70%);"></div>
+<div class="container" style="position: relative; z-index: 2;">
+    <h2 class="bio-approach-header" style="margin-bottom: 3rem;">DATES &amp; LOCATION</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 900px; margin: 0 auto;">
+        <!-- Date Card -->
+        <div style="flex: 1; min-width: 260px; max-width: 380px; background: rgba(255,255,255,0.03); border: 1px solid rgba(230,175,21,0.3); border-radius: 16px; padding: 2.5rem 2rem;">
+            <div style="font-size: 3.5rem; margin-bottom: 1rem;">🗓️</div>
+            <h3 style="font-family: 'Anton'; font-size: 1.8rem; color: #e6af15; margin-bottom: 0.5rem; text-transform: uppercase;">Dates</h3>
+            <p style="color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem;">19–20 September 2026</p>
+            <p style="color: #a0a0a0; font-size: 1rem;">Weekend Intensive · 2 Days</p>
+        </div>
+        <!-- Location Card -->
+        <div style="flex: 1; min-width: 260px; max-width: 380px; background: rgba(255,255,255,0.03); border: 1px solid rgba(230,175,21,0.3); border-radius: 16px; padding: 2.5rem 2rem;">
+            <div style="font-size: 3.5rem; margin-bottom: 1rem;">📍</div>
+            <h3 style="font-family: 'Anton'; font-size: 1.8rem; color: #e6af15; margin-bottom: 0.5rem; text-transform: uppercase;">Location</h3>
+            <p style="color: #fff; font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem;">Baden, Switzerland 🇨🇭</p>
+            <p style="color: #a0a0a0; font-size: 1rem;">Exact address coming soon</p>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Ticket Section -->
+<section style="padding: 5rem 0; background: #000; text-align: center; position: relative; overflow: hidden;" id="tickets">
+<div class="bio-hero-overlay" style="opacity: 0.15; background: radial-gradient(circle, #e6af15 0%, transparent 70%);"></div>
+<div class="container" style="position: relative; z-index: 2;">
+    <h2 class="text-gold-shiny" style="font-family: 'Anton'; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px;">GET YOUR TICKETS</h2>
+    <p style="color: #a0a0a0; font-size: 1.1rem; margin-bottom: 3rem;">Limited spots — Early Bird prices won't last long!</p>
+
+    <!-- Ticket Cards -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1100px; margin: 0 auto 3rem auto;">
+
+        <!-- Couple Ticket -->
+        <div style="flex: 1; min-width: 280px; max-width: 340px; background: rgba(15,15,20,0.9); border: 2px solid #e6af15; border-radius: 20px; padding: 2.5rem 2rem; display: flex; flex-direction: column; text-align: center; position: relative; box-shadow: 0 0 30px rgba(230,175,21,0.2); transform: scale(1.03);">
+            <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #e6af15; color: #000; padding: 0.3rem 1.2rem; border-radius: 20px; font-weight: 900; font-family: 'Anton'; font-size: 0.85rem; letter-spacing: 1px;">POPULAR 👫</div>
+            <div style="font-size: 3rem; margin-bottom: 1rem;">💑</div>
+            <h3 style="font-family: 'Anton'; font-size: 1.4rem; color: #fff; letter-spacing: 1px; margin-bottom: 0.8rem;">COUPLE TICKET</h3>
+            <div style="font-size: 2.2rem; color: #e6af15; font-family: 'Anton'; margin-bottom: 0.3rem;">CHF 390</div>
+            <p style="color: #e6af15; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">⚡ EARLY BIRD — First 5 Couples Only</p>
+            <p style="color: #4caf50; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem;">💚 You save CHF 20</p>
+            <p style="color: #666; font-size: 0.8rem; margin-bottom: 1.5rem;">Regular price: CHF 410 per couple</p>
+            <p style="color: #a0a0a0; font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Full weekend access for 1 Leader + 1 Follower. The complete intensive experience together.<br><br><span style="color: #e6af15; font-weight: 700;">🎁 Includes 50% Discount on Party Tickets &amp; 10% on Dance Outfits</span></p>
+            <a href="registration-michael-mayra-vol2?ticket=couple" class="btn-primary btn-gold-shiny" style="width: 100%; border-radius: 12px; padding: 1rem; font-family: 'Anton'; letter-spacing: 1px; text-decoration: none; color: #000; display: block; font-weight: bold;">REGISTER AS COUPLE</a>
+        </div>
+
+        <!-- Follower Solo Ticket -->
+        <div style="flex: 1; min-width: 280px; max-width: 340px; background: rgba(15,15,20,0.9); border: 1px solid rgba(230,175,21,0.3); border-radius: 20px; padding: 2.5rem 2rem; display: flex; flex-direction: column; text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🌸</div>
+            <h3 style="font-family: 'Anton'; font-size: 1.4rem; color: #fff; letter-spacing: 1px; margin-bottom: 0.8rem;">SOLO — FOLLOWER</h3>
+            <div style="font-size: 2.2rem; color: #e6af15; font-family: 'Anton'; margin-bottom: 0.3rem;">CHF 200</div>
+            <p style="color: #e6af15; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">⚡ First 5 Followers Only</p>
+            <p style="color: #4caf50; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem;">💚 You save CHF 20</p>
+            <p style="color: #666; font-size: 0.8rem; margin-bottom: 1.5rem;">Regular price: CHF 220</p>
+            <p style="color: #a0a0a0; font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Solo registration for followers. Full weekend intensive access.<br><br><span style="color: #e6af15; font-weight: 700;">🎁 Includes 50% Discount on Party Tickets &amp; 10% on Dance Outfits</span></p>
+            <a href="registration-michael-mayra-vol2?ticket=follower" class="btn-primary btn-gold-shiny" style="width: 100%; border-radius: 12px; padding: 1rem; font-family: 'Anton'; letter-spacing: 1px; text-decoration: none; color: #000; display: block; font-weight: bold;">REGISTER AS FOLLOWER</a>
+        </div>
+
+        <!-- Leader Solo Ticket -->
+        <div style="flex: 1; min-width: 280px; max-width: 340px; background: rgba(15,15,20,0.9); border: 1px solid rgba(230,175,21,0.3); border-radius: 20px; padding: 2.5rem 2rem; display: flex; flex-direction: column; text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+            <h3 style="font-family: 'Anton'; font-size: 1.4rem; color: #fff; letter-spacing: 1px; margin-bottom: 0.8rem;">SOLO — LEADER</h3>
+            <div style="font-size: 2.2rem; color: #e6af15; font-family: 'Anton'; margin-bottom: 0.3rem;">CHF 200</div>
+            <p style="color: #e6af15; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">⚡ First 5 Leaders Only</p>
+            <p style="color: #4caf50; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem;">💚 You save CHF 20</p>
+            <p style="color: #666; font-size: 0.8rem; margin-bottom: 1.5rem;">Regular price: CHF 220</p>
+            <p style="color: #a0a0a0; font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Solo registration for leaders. Full weekend intensive access.<br><br><span style="color: #e6af15; font-weight: 700;">🎁 Includes 50% Discount on Party Tickets &amp; 10% on Dance Outfits</span></p>
+            <a href="registration-michael-mayra-vol2?ticket=leader" class="btn-primary btn-gold-shiny" style="width: 100%; border-radius: 12px; padding: 1rem; font-family: 'Anton'; letter-spacing: 1px; text-decoration: none; color: #000; display: block; font-weight: bold;">REGISTER AS LEADER</a>
+        </div>
+    </div>
+
+    <!-- Note -->
+    <div style="display: inline-block; background: rgba(230,175,21,0.05); padding: 1.2rem 2rem; border-radius: 12px; border: 1px dashed rgba(230,175,21,0.4); max-width: 700px;">
+        <p style="color: #e6af15; font-weight: 600; margin: 0; line-height: 1.6;">🎟️ Tickets are <strong style="color:#fff;">non-refundable</strong> but can be transferred to another person or replaced with another MasteryLab program.</p>
+    </div>
+
+    <!-- Link to Vol. 1 -->
+    <div style="margin-top: 4rem;">
+        <p style="color: #555; margin-bottom: 1rem;">Want to see Vol. 1?</p>
+        <a href="michael-mayra.html" class="nav-btn-outline ticket-shape" style="display: inline-block; padding: 0.8rem 2rem;">VIEW M&amp;M TECHNIQUE LAB VOL. 1 →</a>
+    </div>
+</div>
+</section>
+
+<!-- Registration Modal -->
+<div id="regModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center; padding:1rem;">
+<div style="background:#111; border:1px solid rgba(230,175,21,0.3); border-radius:16px; padding:2.5rem; max-width:480px; width:100%; position:relative; max-height:90vh; overflow-y:auto;">
+    <button onclick="closeModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:#fff; font-size:1.8rem; cursor:pointer;">×</button>
+    <h2 style="font-family:'Anton'; color:#fff; margin-bottom:0.5rem;" id="modalTitle">REGISTER</h2>
+    <p style="color:#e6af15; margin-bottom:1.5rem; font-size:0.95rem;" id="modalSubtitle">M&amp;M TECHNIQUE LAB VOL. 2 — Baden, 19–20 Sept 2026</p>
+    <form id="regFormVol2">
+        <input type="hidden" name="type" id="regType" value=""/>
+        <div style="margin-bottom:1rem;">
+            <input class="form-input" name="first_name" placeholder="First Name" required style="width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:0.9rem; color:#fff; border-radius:8px; font-family:'Outfit'; font-size:1rem;" type="text"/>
+        </div>
+        <div style="margin-bottom:1rem;">
+            <input class="form-input" name="last_name" placeholder="Last Name" required style="width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:0.9rem; color:#fff; border-radius:8px; font-family:'Outfit'; font-size:1rem;" type="text"/>
+        </div>
+        <div style="margin-bottom:1rem;">
+            <input class="form-input" name="email" placeholder="Email Address" required style="width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:0.9rem; color:#fff; border-radius:8px; font-family:'Outfit'; font-size:1rem;" type="email"/>
+        </div>
+        <div style="margin-bottom:1.5rem;">
+            <input class="form-input" name="whatsapp" placeholder="WhatsApp Number" required style="width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:0.9rem; color:#fff; border-radius:8px; font-family:'Outfit'; font-size:1rem;" type="tel"/>
+        </div>
+        <button id="regSubmitBtn" type="submit" style="width:100%; padding:1.1rem; background:linear-gradient(135deg,#e6af15,#b8880f); color:#000; border:none; border-radius:10px; font-family:'Anton'; font-size:1.2rem; letter-spacing:2px; cursor:pointer;">SECURE MY SPOT 🔥</button>
+        <p style="font-size:0.8rem; color:#ff6b6b; text-align:center; margin-top:1rem;">Non-refundable. Transferable to another person or MasteryLab program.</p>
+    </form>
+</div>
+</div>
+
+<footer class="footer" style="padding: 3rem 0; text-align: center; background: #000; border-top: 1px solid rgba(255,255,255,0.05);">
+<div class="container">
+<p style="color: #444;">© 2026 MasteryLab. All rights reserved.</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxWGH0S2tI1Pa03TKZs0tCN9-bJA8ZFefqKB5NXEnrWn1YW2e48tcaKNphN3DuC_Z7D/exec';
+
+    function openModal(type) {
+        const modal = document.getElementById('regModal');
+        const title = document.getElementById('modalTitle');
+        const subtitle = document.getElementById('modalSubtitle');
+        const regType = document.getElementById('regType');
+
+        const labels = {
+            'couple': { title: 'REGISTER AS COUPLE 👫', sub: 'COUPLE TICKET · CHF 390 Early Bird (then CHF 410)' },
+            'follower': { title: 'REGISTER AS FOLLOWER 🌸', sub: 'SOLO FOLLOWER · Early Bird — First 5 Only' },
+            'leader': { title: 'REGISTER AS LEADER ⚡', sub: 'SOLO LEADER · Early Bird — First 5 Only' }
+        };
+
+        title.innerText = labels[type].title;
+        subtitle.innerText = labels[type].sub;
+        regType.value = 'MnM_Vol2_' + type.charAt(0).toUpperCase() + type.slice(1);
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('regModal').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('regModal').addEventListener('click', function(e) {
+        if (e.target === this) closeModal();
+    });
+
+    document.getElementById('regFormVol2').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('regSubmitBtn');
+        btn.innerText = 'Sending...';
+        btn.disabled = true;
+
+        const formData = new FormData(this);
+        formData.append('lab', 'M&M Technique Lab Vol. 2 — Baden 19-20 Sept 2026');
+
+        fetch(googleScriptURL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        }).finally(() => {
+            document.querySelector('#regModal .modal-inner, #regModal > div').innerHTML =
+                '<div style="text-align:center; padding:3rem 1rem;">' +
+                '<div style="font-size:4rem; margin-bottom:1rem;">✅</div>' +
+                '<h2 style="font-family:Anton; color:#e6af15; margin-bottom:1rem;">YOU\'RE REGISTERED!</h2>' +
+                '<p style="color:#ccc; line-height:1.6;">We\'ve received your registration for <strong style="color:#fff;">M&M Technique Lab Vol. 2</strong>.<br>We will contact you shortly with payment details.</p>' +
+                '<button onclick="closeModal()" style="margin-top:2rem; padding:0.8rem 2rem; background:#e6af15; color:#000; border:none; border-radius:8px; font-family:Anton; font-size:1rem; cursor:pointer;">CLOSE</button>' +
+                '</div>';
+        });
+    });
+</script>
+</body>
+</html>
