@@ -436,7 +436,7 @@
 
 <script src="script.js"></script>
 <script>
-    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxWGH0S2tI1Pa03TKZs0tCN9-bJA8ZFefqKB5NXEnrWn1YW2e48tcaKNphN3DuC_Z7D/exec';
+    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbz4OXbnhGT1p5X3A4f1v-ple0RhKgPKwgBbYUHzlG0CBQdB-HsaRvH7umiE9b-VMPus/exec';
 
     function openModal(type) {
         const modal = document.getElementById('regModal');
@@ -473,11 +473,18 @@
         btn.disabled = true;
 
         const formData = new FormData(this);
-        formData.append('lab', 'M&M Technique Lab Vol. 2 — Baden 19-20 Sept 2026');
+        // Map fields to match new Google Sheet columns
+        const data = new URLSearchParams();
+        data.append('full_name', (formData.get('first_name') || '') + ' ' + (formData.get('last_name') || ''));
+        data.append('phone', formData.get('whatsapp') || '');
+        data.append('email', formData.get('email') || '');
+        data.append('role', '');
+        data.append('teacher_or_dancer', '');
+        data.append('amount', formData.get('type') || '');
 
         fetch(googleScriptURL, {
             method: 'POST',
-            body: formData,
+            body: data,
             mode: 'no-cors'
         }).finally(() => {
             document.querySelector('#regModal .modal-inner, #regModal > div').innerHTML =

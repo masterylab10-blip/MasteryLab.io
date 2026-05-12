@@ -216,7 +216,7 @@
 
     <script src="script.js"></script>
     <script>
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxU27erApehiGH1835Er5GUun9rX0m4uzjIYLUMRGZQTheEUqbTPfVQL1dcJ9r2qWM1/exec';
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbz4OXbnhGT1p5X3A4f1v-ple0RhKgPKwgBbYUHzlG0CBQdB-HsaRvH7umiE9b-VMPus/exec';
 
         // --- Ticket config based on URL param ---
         const ticketConfigs = {
@@ -281,15 +281,14 @@
 
             const formData = new FormData(regForm);
             const data = new URLSearchParams();
-            for (const pair of formData) {
-                data.append(pair[0], pair[1]);
-            }
-
-            // Compatibility fields
-            const fullName = formData.get('first_name') || '';
-            const nameParts = fullName.trim().split(/\s+/);
-            data.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
+            
+            // Map fields to match new Google Sheet columns
+            data.append('full_name', formData.get('first_name') || '');
             data.append('phone', formData.get('whatsapp') || '');
+            data.append('email', formData.get('email') || '');
+            data.append('role', formData.get('dance_role') || '');
+            data.append('teacher_or_dancer', formData.get('role') || '');
+            data.append('amount', config.type || '');
 
             // Submit to Google Sheets
             navigator.sendBeacon(googleScriptURL, data);
