@@ -487,13 +487,35 @@
             body: data,
             mode: 'no-cors'
         }).finally(() => {
-            document.querySelector('#regModal .modal-inner, #regModal > div').innerHTML =
-                '<div style="text-align:center; padding:3rem 1rem;">' +
-                '<div style="font-size:4rem; margin-bottom:1rem;">✅</div>' +
-                '<h2 style="font-family:Anton; color:#e6af15; margin-bottom:1rem;">YOU\'RE REGISTERED!</h2>' +
-                '<p style="color:#ccc; line-height:1.6;">We\'ve received your registration for <strong style="color:#fff;">M&M Technique Lab Vol. 2</strong>.<br>We will contact you shortly with payment details.</p>' +
-                '<button onclick="closeModal()" style="margin-top:2rem; padding:0.8rem 2rem; background:#e6af15; color:#000; border:none; border-radius:8px; font-family:Anton; font-size:1rem; cursor:pointer;">CLOSE</button>' +
-                '</div>';
+            // Check if there is a Stripe link for this ticket type
+            let stripeLink = null;
+            const ticketType = data.get('amount');
+            
+            if (ticketType === 'MnM_Vol2_Couple') {
+                stripeLink = 'https://buy.stripe.com/7sY6oJ6G23G44Rc5iOdEs0s';
+            }
+            
+            if (stripeLink) {
+                const modalInner = document.querySelector('#regModal .modal-inner, #regModal > div');
+                modalInner.innerHTML =
+                    '<div style="text-align:center; padding:3rem 1rem;">' +
+                    '<div style="font-size:3rem; margin-bottom:1rem; animation: pulse 1.5s infinite;">⏳</div>' +
+                    '<h2 style="font-family:Anton; color:#e6af15; margin-bottom:1rem;">SAVING...</h2>' +
+                    '<p style="color:#ccc; line-height:1.6;">Redirecting to secure payment...</p>' +
+                    '</div>';
+                
+                setTimeout(() => {
+                    window.location.href = stripeLink;
+                }, 800);
+            } else {
+                document.querySelector('#regModal .modal-inner, #regModal > div').innerHTML =
+                    '<div style="text-align:center; padding:3rem 1rem;">' +
+                    '<div style="font-size:4rem; margin-bottom:1rem;">✅</div>' +
+                    '<h2 style="font-family:Anton; color:#e6af15; margin-bottom:1rem;">YOU\'RE REGISTERED!</h2>' +
+                    '<p style="color:#ccc; line-height:1.6;">We\'ve received your registration for <strong style="color:#fff;">M&M Technique Lab Vol. 2</strong>.<br>We will contact you shortly with payment details.</p>' +
+                    '<button onclick="closeModal()" style="margin-top:2rem; padding:0.8rem 2rem; background:#e6af15; color:#000; border:none; border-radius:8px; font-family:Anton; font-size:1rem; cursor:pointer;">CLOSE</button>' +
+                    '</div>';
+            }
         });
     });
 </script>
