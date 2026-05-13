@@ -441,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (navLinks.innerHTML.includes('education-journal')) return;
 
             const journalLink = document.createElement('a');
-            journalLink.href = 'education-journal.html';
+            journalLink.href = 'education-journal';
             journalLink.className = 'nav-btn-outline ticket-shape';
             journalLink.textContent = 'EDUCATION JOURNAL'; // Uppercase to match style
             journalLink.style.marginLeft = '1rem';
