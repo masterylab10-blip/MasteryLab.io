@@ -346,7 +346,7 @@
 <div class="bio-hero-overlay" style="opacity: 0.15; background: radial-gradient(circle, #e6af15 0%, transparent 70%);"></div>
 <div class="container" style="position: relative; z-index: 2;">
     <h2 class="text-gold-shiny" style="font-family: 'Anton'; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px;">GET YOUR TICKETS</h2>
-    <p style="color: #ff6b6b; font-size: 1.1rem; margin-bottom: 3rem; font-weight: 700; letter-spacing: 0.5px;">⚡ COUPLE EARLY BIRD SOLD OUT! SOLO TICKETS STILL AVAILABLE AT EARLY BIRD PRICE!</p>
+    <p style="color: #ff6b6b; font-size: 1.1rem; margin-bottom: 3rem; font-weight: 700; letter-spacing: 0.5px;">⚡ COUPLE &amp; FOLLOWER EARLY BIRD SOLD OUT! LEADER TICKETS STILL AVAILABLE AT EARLY BIRD PRICE!</p>
 
     <!-- Ticket Cards -->
     <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; max-width: 1100px; margin: 0 auto 3rem auto;">
@@ -368,10 +368,10 @@
         <div style="flex: 1; min-width: 280px; max-width: 340px; background: rgba(15,15,20,0.9); border: 1px solid rgba(230,175,21,0.3); border-radius: 20px; padding: 2.5rem 2rem; display: flex; flex-direction: column; text-align: center;">
             <div style="font-size: 3rem; margin-bottom: 1rem;">🌸</div>
             <h3 style="font-family: 'Anton'; font-size: 1.4rem; color: #fff; letter-spacing: 1px; margin-bottom: 0.8rem;">SOLO — FOLLOWER</h3>
-            <div style="font-size: 2.2rem; color: #e6af15; font-family: 'Anton'; margin-bottom: 0.3rem;">CHF 200</div>
-            <p style="color: #e6af15; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">⚡ First 5 Followers Only</p>
-            <p style="color: #4caf50; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem;">💚 You save CHF 20</p>
-            <p style="color: #666; font-size: 0.8rem; margin-bottom: 1.5rem;">Regular price: CHF 220</p>
+            <div style="font-size: 2.2rem; color: #e6af15; font-family: 'Anton'; margin-bottom: 0.3rem;">CHF 220</div>
+            <p style="color: #ff4d4d; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.3rem;">⚡ EARLY BIRD SOLD OUT</p>
+            <p style="color: #a0a0a0; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.2rem;">🌸 Regular Solo Follower</p>
+            <p style="color: #e6af15; font-size: 0.8rem; margin-bottom: 1.5rem; font-weight: 700;">Standard Price: CHF 220</p>
             <p style="color: #a0a0a0; font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1;">Solo registration for followers. Full weekend intensive access.<br><br><span style="color: #e6af15; font-weight: 700;">🎁 Includes 50% Discount on Party Tickets &amp; 10% on Dance Outfits</span></p>
             <a href="registration-michael-mayra-vol2?ticket=follower" class="btn-primary btn-gold-shiny" style="width: 100%; border-radius: 12px; padding: 1rem; font-family: 'Anton'; letter-spacing: 1px; text-decoration: none; color: #000; display: block; font-weight: bold;">REGISTER AS FOLLOWER</a>
         </div>
@@ -446,7 +446,7 @@
 
         const labels = {
             'couple': { title: 'REGISTER AS COUPLE 👫', sub: 'COUPLE TICKET · CHF 410 (Regular Price)' },
-            'follower': { title: 'REGISTER AS FOLLOWER 🌸', sub: 'SOLO FOLLOWER · Early Bird — First 5 Only' },
+            'follower': { title: 'REGISTER AS FOLLOWER 🌸', sub: 'SOLO FOLLOWER · CHF 220 (Regular Price)' },
             'leader': { title: 'REGISTER AS LEADER ⚡', sub: 'SOLO LEADER · Early Bird — First 5 Only' }
         };
 
@@ -494,7 +494,7 @@
             if (ticketType === 'MnM_Vol2_Couple') {
                 stripeLink = 'https://buy.stripe.com/28E00l6G2dgE0AWbHcdEs0u';
             } else if (ticketType === 'MnM_Vol2_Follower') {
-                stripeLink = 'https://buy.stripe.com/eVq3cxaWib8wbfA5iOdEs0v';
+                stripeLink = 'https://buy.stripe.com/9B69AV0hE1xW4Rc3aGdEs0x';
             } else if (ticketType === 'MnM_Vol2_Leader') {
                 stripeLink = 'https://buy.stripe.com/5kQeVfc0m3G4fvQ7qWdEs0w';
             }
