@@ -192,6 +192,41 @@
                         <input class="form-input" id="whatsapp" name="whatsapp" required="" type="tel" />
                     </div>
 
+                    <!-- Partner Section (Only shown for Couple Ticket) -->
+                    <div id="partnerSection" style="display: none; margin-top: 2.5rem; border-top: 1px dashed rgba(230, 175, 21, 0.3); padding-top: 2.5rem; margin-bottom: 1.5rem;">
+                        <h3 style="font-family: 'Anton', sans-serif; font-size: 1.6rem; color: #e6af15; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;">
+                            <span>👫</span> Partner's Information (Second Person)
+                        </h3>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerFirstName">Partner's Full Name</label>
+                            <input class="form-input" id="partnerFirstName" name="partner_first_name" placeholder="Partner's full name" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerRole">Partner's Role in Scene</label>
+                            <select class="form-input" id="partnerRole" name="partner_role" style="appearance: none;">
+                                <option disabled="" selected="" value="">Select partner's role</option>
+                                <option style="color: black;" value="Dancer">Dancer</option>
+                                <option style="color: black;" value="Teacher">Teacher</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerDanceRole">Partner's Dance Role</label>
+                            <select class="form-input" id="partnerDanceRole" name="partner_dance_role" style="appearance: none;">
+                                <option disabled="" selected="" value="">Select Leader or Follower</option>
+                                <option style="color: black;" value="Leader">Leader</option>
+                                <option style="color: black;" value="Follower">Follower</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerEmail">Partner's Email Address</label>
+                            <input class="form-input" id="partnerEmail" name="partner_email" placeholder="partner@example.com" type="email" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerWhatsapp">Partner's WhatsApp Number</label>
+                            <input class="form-input" id="partnerWhatsapp" name="partner_whatsapp" placeholder="Partner's WhatsApp number" type="tel" />
+                        </div>
+                    </div>
+
                     <button class="btn-primary" id="submitBtn"
                         style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: linear-gradient(135deg, #e6af15, #b8880f); color: #000; font-weight: 800; box-shadow: 0 10px 30px rgba(230,175,21,0.4); font-family: 'Anton'; letter-spacing: 1px;"
                         type="submit">
@@ -216,7 +251,7 @@
 
     <script src="script.js"></script>
     <script>
-        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbz4OXbnhGT1p5X3A4f1v-ple0RhKgPKwgBbYUHzlG0CBQdB-HsaRvH7umiE9b-VMPus/exec';
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxD5-eeAdqD1XgQrAlaISpddtnLPJ5Txu9qLdzNGkOo7ajn5DjEyvK7DZ5FdmHsGvGv/exec';
 
         // --- Ticket config based on URL param ---
         const ticketConfigs = {
@@ -271,34 +306,102 @@
             danceRoleGroup.style.display = 'none'; // hidden since it's already set
         }
 
+        // Toggle partner section and set required state
+        const partnerSection = document.getElementById('partnerSection');
+        const partnerInputs = partnerSection.querySelectorAll('input, select');
+        const partnerDanceRoleSelect = document.getElementById('partnerDanceRole');
+
+        if (ticketParam === 'couple') {
+            partnerSection.style.display = 'block';
+            partnerInputs.forEach(input => {
+                input.required = true;
+            });
+            
+            // Add automatic role synchronization for the couple
+            danceRoleSelect.addEventListener('change', function() {
+                if (danceRoleSelect.value === 'Leader') {
+                    partnerDanceRoleSelect.value = 'Follower';
+                } else if (danceRoleSelect.value === 'Follower') {
+                    partnerDanceRoleSelect.value = 'Leader';
+                }
+            });
+            
+            partnerDanceRoleSelect.addEventListener('change', function() {
+                if (partnerDanceRoleSelect.value === 'Leader') {
+                    danceRoleSelect.value = 'Follower';
+                } else if (partnerDanceRoleSelect.value === 'Follower') {
+                    danceRoleSelect.value = 'Leader';
+                }
+            });
+        } else {
+            partnerSection.style.display = 'none';
+            partnerInputs.forEach(input => {
+                input.required = false;
+                input.value = '';
+            });
+        }
+
         // --- Form Submit ---
         const regForm = document.getElementById('mmVol2RegForm');
-        regForm.addEventListener('submit', function (e) {
+        regForm.addEventListener('submit', async function (e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
             btn.innerText = 'Processing...';
             btn.disabled = true;
 
             const formData = new FormData(regForm);
-            const data = new URLSearchParams();
             
-            // Map fields to match new Google Sheet columns
+            // 1. Map fields to match new Google Sheet columns
+            const data = new URLSearchParams();
             data.append('full_name', formData.get('first_name') || '');
             data.append('phone', formData.get('whatsapp') || '');
             data.append('email', formData.get('email') || '');
             data.append('role', formData.get('dance_role') || '');
             data.append('teacher_or_dancer', formData.get('role') || '');
+            data.append('address', formData.get('address') || '');
+            data.append('city', formData.get('city') || '');
             data.append('amount', config.type || '');
+            data.append('level', config.type || ''); // mapping for scripts reading level
+            data.append('type', 'MM'); // specify event type for master sheet router
 
-            // Submit to Google Sheets
-            navigator.sendBeacon(googleScriptURL, data);
+            try {
+                // Submit first person to Google Sheets using robust fetch (no-cors)
+                await fetch(googleScriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: data
+                });
 
-            // If Stripe link exists → redirect to payment
+                // 2. If Couple Ticket, submit the partner's info as a second row to Google Sheets
+                if (ticketParam === 'couple') {
+                    const partnerData = new URLSearchParams();
+                    partnerData.append('full_name', formData.get('partner_first_name') || '');
+                    partnerData.append('phone', formData.get('partner_whatsapp') || '');
+                    partnerData.append('email', formData.get('partner_email') || '');
+                    partnerData.append('role', formData.get('partner_dance_role') || '');
+                    partnerData.append('teacher_or_dancer', formData.get('partner_role') || '');
+                    partnerData.append('address', formData.get('address') || '');
+                    partnerData.append('city', formData.get('city') || '');
+                    partnerData.append('amount', config.type + ' (Partner)' || '');
+                    partnerData.append('level', config.type + ' (Partner)' || ''); // mapping for scripts reading level
+                    partnerData.append('type', 'MM'); // specify event type for master sheet router
+                    
+                    await fetch(googleScriptURL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: partnerData
+                    });
+                }
+            } catch (error) {
+                console.error('Error submitting to Google Sheets:', error);
+            }
+
+            // 3. Redirect to Stripe or show success message
             if (config.stripeLink) {
                 btn.innerText = 'Redirecting to payment...';
                 setTimeout(() => {
                     window.location.href = config.stripeLink;
-                }, 600);
+                }, 400);
             } else {
                 // No Stripe yet → show success message
                 setTimeout(() => {
@@ -314,7 +417,7 @@
                             </p>
                             <a href="michael-mayra-vol2" style="display: inline-block; margin-top: 2rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, #e6af15, #b8880f); color: #000; border-radius: 50px; font-family: 'Anton'; font-size: 1.1rem; letter-spacing: 1px; text-decoration: none;">BACK TO LAB PAGE</a>
                         </div>`;
-                }, 600);
+                }, 400);
             }
         });
     </script>
