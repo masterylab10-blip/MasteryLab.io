@@ -303,6 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let price = "250 CHF";
         if (window.location.href.includes('bachata-dancers')) {
             price = "170 CHF";
+        } else if (window.location.href.includes('bachata-teachers')) {
+            price = "350 CHF";
         }
 
         const pricingHTML = `

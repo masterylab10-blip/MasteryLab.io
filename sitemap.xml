@@ -16,9 +16,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://masterylab.ch/michael-mayra</loc>
+    <loc>https://masterylab.ch/michael-mayra-vol2</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://masterylab.ch/men-style-lab</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://masterylab.ch/ale-xidan</loc>

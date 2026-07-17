@@ -7,6 +7,50 @@
 <title>Ladies Mastery Lab | MasteryLab</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
+<style>
+    /* Ladies Mastery Flyer Theme Overrides */
+    :root {
+        --color-primary: #FF0051; /* Hot pink/crimson matching flyer */
+        --color-primary-dark: #A50014;
+    }
+    
+    .bio-hero-overlay {
+        background: radial-gradient(circle at center, rgba(214,0,28,0.2) 0%, #050505 100%) !important;
+    }
+
+    .outlined-silver {
+        color: transparent;
+        -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        letter-spacing: 2px;
+    }
+
+    .gradient-sensual {
+        background: linear-gradient(135deg, #ff007a 0%, #ff0051 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 20px rgba(255, 0, 122, 0.4);
+        font-family: 'Anton', sans-serif;
+    }
+
+    .gradient-dominican {
+        background: linear-gradient(135deg, #00f0ff 0%, #0072ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        font-family: 'Anton', sans-serif;
+    }
+
+    .photo-frame {
+        border: 2px solid var(--color-primary) !important;
+        box-shadow: 0 0 30px rgba(255, 0, 81, 0.25) !important;
+    }
+
+    .benefit-card:hover {
+        border-color: var(--color-primary) !important;
+        box-shadow: 0 15px 40px rgba(255, 0, 81, 0.15) !important;
+    }
+</style>
 </head>
 <body>
 <nav class="navbar">
@@ -30,15 +74,17 @@
 <div class="bio-hero-bg dance-booster"></div>
 <div class="bio-hero-overlay"></div>
 <div class="container bio-hero-content">
-<p class="bio-hero-subtitle">Exclusively in Baden</p>
-<h1 class="bio-hero-title">
-<span class="glow-white-premium">LADIES MASTERY LAB</span><br/>
-<span class="glow-red-premium">Dominican &amp; Sensual Intensive</span>
+<p class="bio-hero-subtitle" style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700;">One Educational Lab · Two Unique Experiences</p>
+<h1 class="bio-hero-title" style="font-family: 'Anton'; font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 0.95; margin-bottom: 1.5rem;">
+    <span class="outlined-silver">BACHATA LADIESTYLING</span><br/>
+    <span class="outlined-silver">10 HOURS LAB</span><br/>
+    <span style="font-size: clamp(1.8rem, 4.5vw, 3.2rem); display: inline-block; margin-top: 0.8rem;">
+        <span class="gradient-sensual">SENSUAL</span> <span style="color: #fff; font-family: 'Outfit'; font-weight: 300;">&amp;</span> <span class="gradient-dominican">DOMINICAN</span>
+    </span>
 </h1>
-<p class="bio-hero-desc">
-                10 hours of intensive training: 5h Dominican with <strong>Angela Mariano</strong> and 5h Sensual with <strong>Xidan</strong>.
-                The lab is educational and focused to give you the roots of dominican bachata and the magic of bachata sensual.
-            </p>
+<p class="bio-hero-desc" style="max-width: 800px; margin: 0 auto 2.5rem; font-size: 1.25rem;">
+    Master your Bachata Roots &amp; Refine your Sensual Flow. 10 hours of intensive training: 5h Dominican with <strong>Angela Mariano</strong> and 5h Sensual with <strong>Xidan</strong>.
+</p>
 <a class="btn-primary btn-hero-lg" href="#book">JOIN THE LAB</a>
 <p style="margin-top: 1rem; color: #fff; font-size: 1.1rem; opacity: 0.9;">
     <strong>First 10 tickets only <span style="color: var(--color-primary);">200 CHF</span></strong><br>
@@ -82,60 +128,129 @@
 </div>
 </div>
 <div class="lab-info" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
-<h2 class="bio-approach-header" style="font-size: 2.5rem;">Angela Mariano</h2>
-<h3 style="color: var(--color-primary); font-family: 'Outfit'; margin-bottom: 1rem;">Dominican Style (5 Hours)</h3>
+<h2 class="bio-approach-header" style="font-size: 2.5rem;">Ángela Mariano</h2>
+<h3 style="color: var(--color-primary); font-family: 'Outfit'; margin-bottom: 1rem;">Dominican Bachata Specialist · Ladies Styler (5 Hours)</h3>
 <a href="https://www.instagram.com/_angela_mariano_?igsh=YXpvbHowbzdtOWk2" style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;" target="_blank">
-                        Discover their Art
+                        Discover her Art
                         <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 8px;" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
 <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
 </svg>
 </a>
+                        <p class="bio-approach-text" style="margin-bottom: 1rem;">
+                            Born in Puglia, Italy, Ángela began dancing at the age of 5. Her training spans ballroom &amp; Latin, contemporary, street, hip-hop, lyrical jazz, modern, Afro-Cuban salsa, bachata, LA style salsa, salsa on2, and Russian ballet. She has appeared on multiple Italian TV shows and competed in prestigious dance contests since childhood.
+                        </p>
+                        <p class="bio-approach-text" style="margin-bottom: 0.5rem; font-weight: 700; color: #fff;">
+                            Renowned ladies styler specialist. Her Dominican Bachata class focuses on:
+                        </p>
                         <p class="bio-approach-text" style="margin-bottom: 0;">
-                            A deep dive into the roots of bachata. Focused on:
                             <ul style="list-style: none; padding: 0; margin-top: 0.5rem; color: #ccc;">
-                                <li>✓ hip movements (styling)</li>
-                                <li>✓ How to combine footworks into lady styling</li>
-                                <li>✓ connection & rhythm</li>
-                                <li>✓ basics fundamentals alone & in couple</li>
+                                <li>✓ Hip movements &amp; authentic Dominican styling</li>
+                                <li>✓ Individual footwork combined into lady styling</li>
+                                <li>✓ Connection, rhythm &amp; cultural roots of bachata</li>
+                                <li>✓ Basic fundamentals — solo &amp; with a partner</li>
+                                <li>✓ Open level · No partner required</li>
                             </ul>
                         </p>
 </div>
 </div>
-<!-- Irene -->
+<!-- Xidan -->
 <div class="grid-2" style="gap: 3rem;">
 <div class="lab-info" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
 <h2 class="bio-approach-header" style="font-size: 2.5rem;">Xidan</h2>
-<h3 style="color: var(--color-primary); font-family: 'Outfit'; margin-bottom: 1rem;">Sensual Style (5 Hours)</h3>
-<a href="https://www.instagram.com/_angela_mariano_?igsh=YXpvbHowbzdtOWk2" style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;" target="_blank">
-                        Discover their Art
-                        <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 8px;" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
-<rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
-<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-<line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-</svg>
+<h3 style="color: var(--color-primary); font-family: 'Outfit'; margin-bottom: 1rem;">Bachata Sensual Specialist · Ladies Styler (5 Hours)</h3>
+<a href="https://www.instagram.com/_i_am_xidan?igsh=bHZ1NGxqeXZya3Bq" style="color: #D6001C; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;" target="_blank">
+    Discover her Art
+    <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 8px;" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+        <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+    </svg>
 </a>
-                        <p class="bio-approach-text" style="margin-bottom: 0;">
-                            Explore the magic of bachata sensual. Focused on:
-                            <ul style="list-style: none; padding: 0; margin-top: 0.5rem; color: #ccc;">
-                                <li>✓ clean footwork and flavor</li>
-                                <li>✓ isolations: control and body awareness</li>
-                                <li>✓ body movement and fluidity</li>
-                                <li>✓ lines, extensions and elegance</li>
-                            </ul>
-                        </p>
+<p class="bio-approach-text" style="margin-bottom: 1rem;">
+    Xidan has shared her passion in Bachata for 12 years. Her teaching focuses on elegant body movement, clean technique, musicality, styling, and confidence — helping dancers make their movement feel as good as it looks.
+</p>
+<p class="bio-approach-text" style="margin-bottom: 0;">
+    With a smooth and modern style inspired by Bachata Sensual and other dance influences, Xidan guides students to move with more fluidity, control, and authentic expression.
+</p>
 </div>
 <div class="lab-image bio-image-wrapper">
-<div class="photo-frame" style="transform: rotate(2deg);">
-<div class="corner top-left"></div>
-<div class="corner top-right"></div>
-<div class="corner bottom-left"></div>
-<div class="corner bottom-right"></div>
-                    <picture><img alt="Xidan" loading="lazy" src="media/Xidan only - 1.JPG" style="width:100%; height:auto;"/></picture>
+    <div class="photo-frame" style="transform: rotate(2deg);">
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+        <picture><img alt="Xidan" loading="lazy" src="media/Xidan only - 1.JPG" style="width:100%; height:auto;"/></picture>
+    </div>
 </div>
 </div>
+
+<!-- Xidan Workshop Section -->
+<div style="margin-top: 5rem;">
+    <div style="position: relative; border-radius: 24px; overflow: hidden; background: linear-gradient(135deg, rgba(214,0,28,0.08) 0%, rgba(0,0,0,0) 60%), rgba(255,255,255,0.03); border: 1px solid rgba(214,0,28,0.2); padding: 3rem; backdrop-filter: blur(10px);">
+        <!-- Section Label -->
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+            <div style="height: 2px; width: 40px; background: var(--color-primary);"></div>
+            <span style="color: var(--color-primary); font-family: 'Outfit'; font-size: 0.85rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;">Xidan's Workshop</span>
+        </div>
+        <h2 style="font-family: 'Anton'; font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 0.5rem; text-transform: uppercase; line-height: 1.1;">
+            Lady Styling &amp; Footwork
+        </h2>
+        <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-bottom: 2.5rem; max-width: 600px; line-height: 1.7;">
+            Join Xidan for a Bachata lady styling / footwork workshop designed to help you move with clarity, control and expression. Confidence comes when the body understands what it is doing — come ready to unlock your expression and bring more of yourself into every movement.
+        </p>
+
+        <!-- Workshop Focus Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem;">
+
+            <!-- Item 1 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--color-primary); border-radius: 3px 0 0 3px;"></div>
+                <div style="font-size: 1.6rem; margin-bottom: 0.75rem;">👟</div>
+                <h4 style="font-family: 'Anton'; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px;">Footwork, Accents &amp; Dynamics</h4>
+                <p style="color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; margin: 0;">Sharp, musical footwork with genuine rhythmic flavor and dynamic range.</p>
+            </div>
+
+            <!-- Item 2 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--color-primary); border-radius: 3px 0 0 3px;"></div>
+                <div style="font-size: 1.6rem; margin-bottom: 0.75rem;">⚖️</div>
+                <h4 style="font-family: 'Anton'; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px;">Balance &amp; Clean Movement</h4>
+                <p style="color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; margin: 0;">Ground your body and refine your movement quality from the inside out.</p>
+            </div>
+
+            <!-- Item 3 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--color-primary); border-radius: 3px 0 0 3px;"></div>
+                <div style="font-size: 1.6rem; margin-bottom: 0.75rem;">🎯</div>
+                <h4 style="font-family: 'Anton'; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px;">Moving With Intention</h4>
+                <p style="color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; margin: 0;">Every step placed with purpose — natural, grounded and fully connected.</p>
+            </div>
+
+            <!-- Item 4 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--color-primary); border-radius: 3px 0 0 3px;"></div>
+                <div style="font-size: 1.6rem; margin-bottom: 0.75rem;">✨</div>
+                <h4 style="font-family: 'Anton'; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px;">Technique into Expression</h4>
+                <p style="color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; margin: 0;">Move with more elegance and personality while keeping it authentically you.</p>
+            </div>
+
+            <!-- Item 5 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--color-primary); border-radius: 3px 0 0 3px;"></div>
+                <div style="font-size: 1.6rem; margin-bottom: 0.75rem;">🤝</div>
+                <h4 style="font-family: 'Anton'; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px;">Styling into Partnerwork</h4>
+                <p style="color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; margin: 0;">Integrate your individual styling seamlessly when dancing with a partner.</p>
+            </div>
+
+        </div>
+
+        <!-- Decorative glow -->
+        <div style="position: absolute; bottom: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(214,0,28,0.12) 0%, transparent 70%); pointer-events: none;"></div>
+    </div>
 </div>
+
 </div>
 </section>
     <!-- Dominican Bachata Section -->
@@ -201,32 +316,40 @@
             <div class="benefit-card">
                 <span class="benefit-index">01</span>
                 <div class="benefit-content">
-                    <h3 class="benefit-title"><span class="benefit-icon">🔥</span> Clean footwork and flavor</h3>
-                    <p class="benefit-desc">Precision steps infused with modern flair and the characteristic sensual aesthetic.</p>
+                    <h3 class="benefit-title"><span class="benefit-icon">👟</span> Footwork, Accents &amp; Dynamics</h3>
+                    <p class="benefit-desc">Sharp, musical footwork with genuine rhythmic flavor and dynamic range that feels alive.</p>
                 </div>
             </div>
             <!-- Item 2 -->
             <div class="benefit-card">
                 <span class="benefit-index">02</span>
                 <div class="benefit-content">
-                    <h3 class="benefit-title"><span class="benefit-icon">💪</span> Isolations</h3>
-                    <p class="benefit-desc">Develop total control and body awareness through intricate isolation exercises.</p>
+                    <h3 class="benefit-title"><span class="benefit-icon">⚖️</span> Balance &amp; Clean Movement</h3>
+                    <p class="benefit-desc">Ground your body and refine your movement quality from the inside out.</p>
                 </div>
             </div>
             <!-- Item 3 -->
             <div class="benefit-card">
                 <span class="benefit-index">03</span>
                 <div class="benefit-content">
-                    <h3 class="benefit-title"><span class="benefit-icon">🌊</span> Body movement and fluidity</h3>
-                    <p class="benefit-desc">Finding the continuous flow and seamless transitions that define Bachata Sensual.</p>
+                    <h3 class="benefit-title"><span class="benefit-icon">🎯</span> Moving With Intention</h3>
+                    <p class="benefit-desc">Every step placed with purpose — natural, grounded and fully connected to the music.</p>
                 </div>
             </div>
             <!-- Item 4 -->
             <div class="benefit-card">
                 <span class="benefit-index">04</span>
                 <div class="benefit-content">
-                    <h3 class="benefit-title"><span class="benefit-icon">✨</span> Lines, extensions and elegance</h3>
-                    <p class="benefit-desc">Refining your posture and elongating your lines to project grace and confidence.</p>
+                    <h3 class="benefit-title"><span class="benefit-icon">✨</span> Technique into Expression</h3>
+                    <p class="benefit-desc">Move with more elegance and personality while keeping it authentically you.</p>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="benefit-card">
+                <span class="benefit-index">05</span>
+                <div class="benefit-content">
+                    <h3 class="benefit-title"><span class="benefit-icon">🤝</span> Styling into Partnerwork</h3>
+                    <p class="benefit-desc">Integrate your individual styling seamlessly when dancing with a partner.</p>
                 </div>
             </div>
         </div>
@@ -277,10 +400,10 @@
 <div style="height: 2px; width: 60px; background: var(--color-primary); margin: 0 auto 1.5rem;">
 </div>
 <p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
-                            Baden, Switzerland
+                            Area4 Dance Center
                         </p>
 <p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
-                            Exact address coming soon.
+                            Mellingerstrasse 2, 5400 Baden
                         </p>
 </div>
 </div>
@@ -296,6 +419,38 @@
 </div>
 </div>
 </section>
+<!-- ===== OFFICIAL FLYER SECTION ===== -->
+<section style="padding: 5rem 0; background: #000; position: relative; overflow: hidden;">
+    <!-- Background glow -->
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(214,0,28,0.08) 0%, transparent 70%); pointer-events: none;"></div>
+    <div class="container" style="position: relative; z-index: 2; text-align: center;">
+        <!-- Label -->
+        <div style="display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="height: 1px; width: 40px; background: var(--color-primary);"></div>
+            <span style="color: var(--color-primary); font-family: 'Outfit'; font-size: 0.8rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;">Official Event Flyer</span>
+            <div style="height: 1px; width: 40px; background: var(--color-primary);"></div>
+        </div>
+        <h2 style="font-family: 'Anton'; font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 1px;">Save The Date</h2>
+        <p style="color: rgba(255,255,255,0.4); font-size: 1rem; margin-bottom: 3rem;">12 – 13 September 2026 · Area4 Dance Center · Baden</p>
+
+        <!-- Flyer Display -->
+        <div style="display: inline-block; position: relative; max-width: 600px; width: 100%;">
+            <!-- Glow ring behind flyer -->
+            <div style="position: absolute; inset: -12px; border-radius: 24px; background: linear-gradient(135deg, rgba(214,0,28,0.4), rgba(255,20,80,0.15), rgba(214,0,28,0.4)); filter: blur(16px); z-index: 0;"></div>
+            <!-- Flyer image -->
+            <img src="media/flyer-ladies-mastery.png" alt="Ladies Mastery Lab - Bachata Ladiestyling 10 Hours Lab Flyer" style="width: 100%; border-radius: 16px; display: block; position: relative; z-index: 1; box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 40px rgba(214,0,28,0.2);" loading="lazy"/>
+        </div>
+
+        <!-- CTA under flyer -->
+        <div style="margin-top: 3rem;">
+            <a class="btn-cta-inviting" href="#book" style="padding: 1.2rem 3.5rem;">
+                <span style="position: relative; z-index: 2;">🎟️ SECURE YOUR SPOT</span>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- ===== END FLYER SECTION ===== -->
+
 <footer class="footer" style="padding: 3rem 0; text-align: center; background: #000; border-top: 1px solid rgba(255,255,255,0.05);">
 <div class="container">
 <p style="color: #444;">© 2025 MasteryLab. All rights reserved.</p>

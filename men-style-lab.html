@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bachata Men Style Technique Lab | MasteryLab</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<style>
+    /* Men Style Lab Theme Overrides */
+    :root {
+        --color-primary: #e6af15; /* Warm gold matching flyer */
+        --color-primary-dark: #b8880f;
+    }
+    
+    .bio-hero-overlay {
+        background: radial-gradient(circle at center, rgba(230,175,21,0.1) 0%, #050505 100%) !important;
+    }
+
+    .outlined-gold {
+        color: transparent;
+        -webkit-text-stroke: 1.5px rgba(230, 175, 21, 0.85);
+        text-shadow: 0 0 15px rgba(230, 175, 21, 0.15);
+        letter-spacing: 2px;
+    }
+
+    .gradient-gold-text {
+        background: linear-gradient(135deg, #ffd700 0%, #e6af15 50%, #b8880f 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 25px rgba(230, 175, 21, 0.45);
+        font-family: 'Anton', sans-serif;
+    }
+
+    .photo-frame {
+        border: 2px solid var(--color-primary) !important;
+        box-shadow: 0 0 30px rgba(230, 175, 21, 0.25) !important;
+    }
+
+    .benefit-card:hover {
+        border-color: var(--color-primary) !important;
+        box-shadow: 0 15px 40px rgba(230, 175, 21, 0.15) !important;
+    }
+</style>
+</head>
+<body>
+<nav class="navbar">
+<div class="container">
+<a class="logo" href="/">
+<picture><source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp"/><source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp"/><source srcset="media/logo-wings-large.webp" type="image/webp"/><img alt="MasteryLab Logo" fetchpriority="high" src="media/logo-wings.webp"/></picture>
+</a>
+<!-- Mobile Menu Button -->
+<button aria-label="Toggle navigation" class="mobile-menu-btn">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<div class="nav-links">
+<a class="nav-btn-outline ticket-shape" href="#" onclick="history.back(); return false;">GO BACK</a>
+</div>
+</div>
+</nav>
+<!-- Premium Hero Section -->
+<header class="bio-hero" style="height: 100vh; min-height: 100vh; padding-top: 100px; padding-bottom: 4rem;">
+<div class="bio-hero-bg dance-booster"></div>
+<div class="bio-hero-overlay"></div>
+<div class="container bio-hero-content">
+<p class="bio-hero-subtitle" style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: #fff;">For the First Time in Switzerland</p>
+<h1 class="bio-hero-title" style="font-family: 'Anton'; font-size: clamp(2.5rem, 7.5vw, 4.5rem); line-height: 0.95; margin-bottom: 1.5rem;">
+    <span class="outlined-gold">BACHATA MEN STYLE</span><br/>
+    <span class="outlined-gold">TECHNIQUE LAB</span><br/>
+    <span style="font-size: clamp(1.8rem, 5vw, 3rem); display: inline-block; margin-top: 0.8rem;">
+        WITH <span class="gradient-gold-text">MICKA</span>
+    </span>
+</h1>
+<p class="bio-hero-desc" style="max-width: 800px; margin: 0 auto 2.5rem; font-size: 1.25rem;">
+    We offer the platform for leaders to stand out on the dance floor with a style and smooth footwork groove. 6 hours of intensive training with <strong>Micka</strong>.
+</p>
+<a class="btn-primary btn-hero-lg" href="#book" style="background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); border: none; color: #000; font-weight: 700; box-shadow: 0 0 20px rgba(230,175,21,0.3);">JOIN THE LAB</a>
+<p style="margin-top: 1rem; color: #fff; font-size: 1.1rem; opacity: 0.9;">
+    <strong>First 10 tickets only <span style="color: var(--color-primary);">130 CHF</span></strong><br>
+    <span style="font-size: 0.9rem; opacity: 0.7;">(Standard Price: 150 CHF after first 10)</span>
+</p>
+</div>
+<!-- Scroll Indicator -->
+<a class="scroll-indicator" href="#bio-intro" style="cursor: pointer; text-decoration: none;">
+<span style="font-size: 2rem; color: rgba(255,255,255,0.5);">↓</span>
+</a>
+</header>
+<!-- Intro Text -->
+<section class="container bio-intro" id="bio-intro">
+<h2>BEYOND TYPICAL WORKSHOPS</h2>
+<p>
+    This lab is educational and focused on leaders' technique, helping you stand out on the dance floor with a style and smooth footwork groove.
+</p>
+<p style="margin-bottom: 0;">
+    Join us for 6 hours of immersive learning dedicated to Men Style and Technique with Micka. We emphasize clean footwork and flavor, body control and posture, natural leader presence, and masculine styling elements that integrate seamlessly into partnerwork. Develop correct muscle memory, proper balance, and solid foundations to elevate your dancing with confidence.
+</p>
+<div class="text-center" style="margin-top: 2.5rem; text-align: center;">
+<a class="btn-cta-inviting" href="#book" style="padding: 1.2rem 3.5rem; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); color: #000; border: none; box-shadow: 0 0 20px rgba(230,175,21,0.25);">
+<span style="position: relative; z-index: 2; font-family: 'Anton'; font-weight: 700; letter-spacing: 1px;">🎟️ SECURE YOUR TICKET</span>
+</a>
+</div>
+</section>
+
+<!-- Artist Introductions -->
+<section class="section-padding">
+<div class="container">
+<h2 class="bio-approach-header" style="text-align: center; margin-bottom: 3rem;">MEET THE ARTIST</h2>
+
+<!-- Micka -->
+<div class="grid-2" style="margin-bottom: 4rem; gap: 4rem; align-items: center;">
+<div class="lab-image bio-image-wrapper">
+<div class="photo-frame">
+<div class="corner top-left"></div>
+<div class="corner top-right"></div>
+<div class="corner bottom-left"></div>
+<div class="corner bottom-right"></div>
+                    <picture><img alt="Micka" loading="lazy" src="media/micka.jpg" style="width:100%; height:auto;" /></picture>
+</div>
+</div>
+<div class="lab-info" style="text-align: left; display: flex; flex-direction: column; justify-content: center;">
+<h2 class="bio-approach-header" style="font-size: 2.5rem;">Micka</h2>
+<h3 style="color: var(--color-primary); font-family: 'Outfit'; margin-bottom: 1rem;">Bachata Men Style Specialist · 6 Hours Lab</h3>
+<a href="https://www.instagram.com/" style="color: var(--color-primary); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; margin-bottom: 1.5rem; letter-spacing: 1px;" target="_blank">
+                        Discover his Art
+                        <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="margin-left: 8px;" viewbox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+<rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+<line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+</svg>
+</a>
+                        <p class="bio-approach-text" style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
+                            Micka, a professional dancer from France, has been captivating audiences for over a decade with his expertise in Bachata. Renowned for his distinctive man styling and exceptional social dancing skills, Micka has established himself as a prominent figure in the dance community.
+                        </p>
+                        <p class="bio-approach-text" style="margin-bottom: 0.5rem; font-weight: 700; color: #fff;">
+                            Micka's Men Style Technique Lab focuses on:
+                        </p>
+                        <ul style="list-style: none; padding: 0; margin-top: 0.5rem; color: #ccc; line-height: 1.8;">
+                            <li>✓ Styling &amp; smooth footwork grooves</li>
+                            <li>✓ Precision body isolation &amp; core control</li>
+                            <li>✓ Leader presence &amp; styling with confidence</li>
+                            <li>✓ Seamless styling integration into partnerwork</li>
+                            <li>✓ Open level for leaders of all backgrounds</li>
+                        </ul>
+</div>
+</div>
+
+<!-- Micka Workshop Section -->
+<div style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div style="position: relative; border-radius: 24px; overflow: hidden; background: linear-gradient(135deg, rgba(230,175,21,0.08) 0%, rgba(0,0,0,0) 60%), rgba(255,255,255,0.03); border: 1px solid rgba(230,175,21,0.2); padding: 3rem; backdrop-filter: blur(10px);">
+        <!-- Section Label -->
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.75rem;">
+            <div style="height: 2px; width: 40px; background: var(--color-primary);"></div>
+            <span style="color: var(--color-primary); font-family: 'Outfit'; font-size: 0.85rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;">Micka's Workshop</span>
+        </div>
+        <h2 style="font-family: 'Anton'; font-size: clamp(1.8rem, 4vw, 2.8rem); color: #fff; margin-bottom: 0.5rem; text-transform: uppercase; line-height: 1.1;">
+            Men Styling &amp; Footwork
+        </h2>
+        <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-bottom: 2.5rem; max-width: 600px; line-height: 1.7;">
+            Join Micka for an intensive Bachata men styling / footwork workshop which will help you move with clarity, control and expression. Stand out on the dance floor with style and a smooth footwork groove.
+        </p>
+
+        <!-- Workshop Focus Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem;">
+
+            <!-- Item 1 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--color-primary); border-radius: 3px 0 0 3px;"></div>
+                <div style="font-size: 1.6rem; margin-bottom: 0.75rem;">👟</div>
+                <h4 style="font-family: 'Anton'; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px;">Footwork &amp; Groove</h4>
+                <p style="color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; margin: 0;">Sharp, musical footwork with genuine rhythmic flavor and a smooth footwork groove.</p>
+            </div>
+
+            <!-- Item 2 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--color-primary); border-radius: 3px 0 0 3px;"></div>
+                <div style="font-size: 1.6rem; margin-bottom: 0.75rem;">⚖️</div>
+                <h4 style="font-family: 'Anton'; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px;">Body Control</h4>
+                <p style="color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; margin: 0;">Ground your body and refine your movement quality with core isolation and control.</p>
+            </div>
+
+            <!-- Item 3 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--color-primary); border-radius: 3px 0 0 3px;"></div>
+                <div style="font-size: 1.6rem; margin-bottom: 0.75rem;">⚡</div>
+                <h4 style="font-family: 'Anton'; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px;">Leader Presence</h4>
+                <p style="color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; margin: 0;">Stand out on the dance floor with a confident posture, strong presence, and masculine style.</p>
+            </div>
+
+            <!-- Item 4 -->
+            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--color-primary); border-radius: 3px 0 0 3px;"></div>
+                <div style="font-size: 1.6rem; margin-bottom: 0.75rem;">🤝</div>
+                <h4 style="font-family: 'Anton'; font-size: 1.1rem; color: #fff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 1px;">Partnerwork Integration</h4>
+                <p style="color: rgba(255,255,255,0.45); font-size: 0.88rem; line-height: 1.6; margin: 0;">Integrate styling cleanly into couple dancing without sacrificing leading or connection.</p>
+            </div>
+
+        </div>
+
+        <!-- Decorative glow -->
+        <div style="position: absolute; bottom: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(230,175,21,0.12) 0%, transparent 70%); pointer-events: none;"></div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- Men Style Pillars Section -->
+<section class="container bio-pillars-container" style="padding-bottom: 4rem;">
+    <h2 class="bio-pillars-title">Lab Pillars &amp; Benefits</h2>
+    <div class="benefits-grid">
+        <!-- Item 1 -->
+        <div class="benefit-card">
+            <span class="benefit-index">01</span>
+            <div class="benefit-content">
+                <h3 class="benefit-title"><span class="benefit-icon">👟</span> Footwork &amp; Groove</h3>
+                <p class="benefit-desc">Develop sharp, musical footwork with genuine groove and syncopations to stand out on the floor.</p>
+            </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="benefit-card">
+            <span class="benefit-index">02</span>
+            <div class="benefit-content">
+                <h3 class="benefit-title"><span class="benefit-icon">🧘</span> Body Control</h3>
+                <p class="benefit-desc">Refine isolation, posture, and core control to execute moves with absolute precision.</p>
+            </div>
+        </div>
+        <!-- Item 3 -->
+        <div class="benefit-card">
+            <span class="benefit-index">03</span>
+            <div class="benefit-content">
+                <h3 class="benefit-title"><span class="benefit-icon">⚡</span> Leader Presence</h3>
+                <p class="benefit-desc">Build dance floor confidence, weight transfer clarity, and commanding leader styling.</p>
+            </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="benefit-card">
+            <span class="benefit-index">04</span>
+            <div class="benefit-content">
+                <h3 class="benefit-title"><span class="benefit-icon">✨</span> Masculine Styling</h3>
+                <p class="benefit-desc">Integrate organic arm styling, shoulder styling, and natural masculine elegance.</p>
+            </div>
+        </div>
+        <!-- Item 5 -->
+        <div class="benefit-card">
+            <span class="benefit-index">05</span>
+            <div class="benefit-content">
+                <h3 class="benefit-title"><span class="benefit-icon">🤝</span> Partnerwork Integration</h3>
+                <p class="benefit-desc">Apply your styling smoothly without disrupting connection, tension, or leader cues.</p>
+            </div>
+        </div>
+        <!-- Item 6 -->
+        <div class="benefit-card">
+            <span class="benefit-index">06</span>
+            <div class="benefit-content">
+                <h3 class="benefit-title"><span class="benefit-icon">🥁</span> Musicality &amp; Dynamics</h3>
+                <p class="benefit-desc">Understand rhythm accents, timing changes, and expressing instrumentals in your styling.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vision Statement -->
+    <div style="margin-top: 4rem; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto;">
+        <p style="color: var(--color-text-muted); font-size: 1.1rem; line-height: 1.8;">
+            Our vision is to raise the standard in the dance scene by empowering leaders with structured and academic training. The lab combines technical breakdown, posture work, and practical execution, developing dancers holistically: physically, technically, musically, and artistically.
+        </p>
+    </div>
+</section>
+<!-- Divider -->
+<div class="bio-section-divider"></div>
+<!-- Dates, Schedule & Location -->
+<section class="bio-schedule-section" id="schedule" style="padding-top: 4rem;">
+<div class="container">
+<h2 style="text-align: center; font-family: 'Anton'; font-size: 3rem; text-transform: uppercase; margin-bottom: 3rem;">
+                DATES &amp; LOCATION
+            </h2>
+<div class="grid-2 bio-schedule-grid">
+<!-- Schedule Card -->
+<div class="schedule-info">
+<div class="bio-info-card">
+<div style="font-size: 4rem; margin-bottom: 1rem;">🗓️</div>
+<h3 style="font-family: 'Anton'; font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; text-transform: uppercase;">
+                            Dates &amp; Schedule
+                        </h3>
+<div style="height: 2px; width: 60px; background: var(--color-primary); margin: 0 auto 1.5rem;">
+</div>
+<p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
+                            12-13 September 2026
+                        </p>
+<p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+                            Detailed timetable is coming soon. Stay tuned for updates!
+                        </p>
+</div>
+</div>
+<!-- Location Card -->
+<div class="location-info">
+<div class="bio-info-card">
+<div style="font-size: 4rem; margin-bottom: 1rem;">📍</div>
+<h3 style="font-family: 'Anton'; font-size: 2rem; color: var(--color-primary); margin-bottom: 1rem; text-transform: uppercase;">
+                            Location
+                        </h3>
+<div style="height: 2px; width: 60px; background: var(--color-primary); margin: 0 auto 1.5rem;">
+</div>
+<p style="font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 0.5rem;">
+                            Area4 Dance Center
+                        </p>
+<p style="font-size: 1rem; color: var(--color-text-muted); line-height: 1.6;">
+                            Mellingerstrasse 2, 5400 Baden
+                        </p>
+</div>
+</div>
+</div>
+<div class="text-center" style="margin-top: 4rem; text-align: center;">
+<a class="btn-cta-inviting" href="#book" style="padding: 1.5rem 4rem; font-size: 1.8rem; width: 100%; max-width: 600px; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); border: none; color: #000; box-shadow: 0 0 30px rgba(230,175,21,0.3);">
+<span style="position: relative; z-index: 2; font-family: 'Anton'; font-weight: 700; letter-spacing: 1px;">🎟️ SECURE YOUR SPOT</span>
+</a>
+<p style="margin-top: 1rem; color: #fff; font-size: 1.2rem;">
+    <strong>Early Bird: <span style="color: var(--color-primary);">130 CHF</span></strong> (First 10 tickets)<br>
+    <span style="font-size: 1rem; opacity: 0.7;">Standard Price: 150 CHF</span>
+</p>
+</div>
+</div>
+</section>
+<!-- ===== OFFICIAL FLYER SECTION ===== -->
+<section style="padding: 5rem 0; background: #000; position: relative; overflow: hidden;">
+    <!-- Background glow -->
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(230,175,21,0.08) 0%, transparent 70%); pointer-events: none;"></div>
+    <div class="container" style="position: relative; z-index: 2; text-align: center;">
+        <!-- Label -->
+        <div style="display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <div style="height: 1px; width: 40px; background: var(--color-primary);"></div>
+            <span style="color: var(--color-primary); font-family: 'Outfit'; font-size: 0.8rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;">Official Event Flyer</span>
+            <div style="height: 1px; width: 40px; background: var(--color-primary);"></div>
+        </div>
+        <h2 style="font-family: 'Anton'; font-size: clamp(2rem, 5vw, 3.5rem); color: #fff; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 1px;">Save The Date</h2>
+        <p style="color: rgba(255,255,255,0.4); font-size: 1rem; margin-bottom: 3rem;">12 – 13 September 2026 · Area4 Dance Center · Baden</p>
+
+        <!-- Flyer Display -->
+        <div style="display: inline-block; position: relative; max-width: 600px; width: 100%;">
+            <!-- Glow ring behind flyer -->
+            <div style="position: absolute; inset: -12px; border-radius: 24px; background: linear-gradient(135deg, rgba(230,175,21,0.4), rgba(255,205,66,0.15), rgba(230,175,21,0.4)); filter: blur(16px); z-index: 0;"></div>
+            <!-- Flyer image -->
+            <img src="media/flyer-menstyle-lab.png" alt="Bachata Men Style 6H Technique Lab - Micka Flyer" style="width: 100%; border-radius: 16px; display: block; position: relative; z-index: 1; box-shadow: 0 30px 80px rgba(0,0,0,0.8), 0 0 40px rgba(230,175,21,0.2);" loading="lazy"/>
+        </div>
+
+        <!-- CTA under flyer -->
+        <div style="margin-top: 3rem;">
+            <a class="btn-cta-inviting" href="#book" style="padding: 1.2rem 3.5rem; background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); border: none; color: #000; box-shadow: 0 0 20px rgba(230,175,21,0.35);">
+                <span style="position: relative; z-index: 2; font-family: 'Anton'; font-weight: 700; letter-spacing: 1px;">🎟️ SECURE YOUR SPOT</span>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- ===== END FLYER SECTION ===== -->
+
+<footer class="footer" style="padding: 3rem 0; text-align: center; background: #000; border-top: 1px solid rgba(255,255,255,0.05);">
+<div class="container">
+<p style="color: #444;">© 2026 MasteryLab. All rights reserved.</p>
+</div>
+</footer>
+<!-- Modal for Registration -->
+<div class="modal-overlay" id="regModal" style="display: none;">
+<div class="modal-content" style="border: 1px solid rgba(230,175,21,0.3); box-shadow: 0 0 40px rgba(230,175,21,0.15);">
+<button class="close-modal" id="closeModal">×</button>
+<h2 style="font-family: 'Anton'; color: white; margin-bottom: 1rem;">SECURE YOUR SPOT</h2>
+<p style="color: #aaa; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">BACHATA MEN STYLE LAB 2026</p>
+<p style="color: #fff; margin-bottom: 1.5rem; font-size: 1rem;">
+    <strong>First 10 tickets: <span style="color: var(--color-primary);">130 CHF</span></strong> | Then: 150 CHF
+</p>
+<form id="regForm">
+<input name="type" type="hidden" value="MenStyle"/>
+<div class="form-group" style="margin-bottom: 1rem;">
+<label class="form-label" for="firstName" style="display: block; color: #aaa; font-size: 0.9rem; margin-bottom: 0.3rem;">First
+                        Name</label>
+<input class="form-input" id="firstName" name="first_name" required="" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; color: white; border-radius: 5px;" type="text"/>
+</div>
+<div class="form-group" style="margin-bottom: 1rem;">
+<label class="form-label" for="lastName" style="display: block; color: #aaa; font-size: 0.9rem; margin-bottom: 0.3rem;">Last Name</label>
+<input class="form-input" id="lastName" name="last_name" required="" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; color: white; border-radius: 5px;" type="text"/>
+</div>
+<div class="form-group" style="margin-bottom: 1rem;">
+<label class="form-label" for="city" style="display: block; color: #aaa; font-size: 0.9rem; margin-bottom: 0.3rem;">City of
+                        Residence</label>
+<input class="form-input" id="city" name="city" required="" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; color: white; border-radius: 5px;" type="text"/>
+</div>
+<div class="form-group" style="margin-bottom: 1rem;">
+<label class="form-label" for="role" style="display: block; color: #aaa; font-size: 0.9rem; margin-bottom: 0.3rem;">Role in
+                        Scene</label>
+<select class="form-input" id="role" name="role" required="" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; color: white; border-radius: 5px; appearance: none;">
+<option disabled="" selected="" value="">Select your role</option>
+<option style="color: black;" value="Dancer">Dancer</option>
+<option style="color: black;" value="Teacher">Teacher</option>
+</select>
+</div>
+<div class="form-group" style="margin-bottom: 1rem;">
+<label class="form-label" for="email" style="display: block; color: #aaa; font-size: 0.9rem; margin-bottom: 0.3rem;">Email
+                        Address</label>
+<input class="form-input" id="email" name="email" required="" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; color: white; border-radius: 5px;" type="email"/>
+</div>
+<div class="form-group" style="margin-bottom: 1.5rem;">
+<label class="form-label" for="whatsapp" style="display: block; color: #aaa; font-size: 0.9rem; margin-bottom: 0.3rem;">WhatsApp
+                        Number</label>
+<input class="form-input" id="whatsapp" name="whatsapp" required="" style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 0.8rem; color: white; border-radius: 5px;" type="tel"/>
+</div>
+<button class="btn-primary" id="submitBtn" style="width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer;" type="submit">PROCEED
+                    TO PAYMENT</button>
+<p style="font-size: 0.85rem; color: #ff6b6b; text-align: center; margin-top: 1rem; line-height: 1.4;">
+                    (This ticket is not refundable, it can be transferred to another person or replaced with another lab
+                    from the program)
+                </p>
+</form>
+</div>
+</div>
+<script src="script.js"></script>
+<script>
+        const localRegForm = document.getElementById('regForm');
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzytGfaxzZJwxtfuQJCgUwGnq-DJZVGEhhy8oibo0GzSWS9Z34bMHuUYW7kHvib6A4r/exec';
+        const stripePaymentLink = 'https://buy.stripe.com/7sY9AVe8u1xW0AWeTodEs0n';
+
+        if (localRegForm) {
+            localRegForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const btn = document.getElementById('submitBtn');
+                if (btn) {
+                    btn.innerText = 'Processing...';
+                    btn.disabled = true;
+                    btn.style.opacity = '0.7';
+                }
+
+                const formData = new FormData(localRegForm);
+
+                fetch(googleScriptURL, {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors'
+                })
+                    .then(() => {
+                        window.location.href = stripePaymentLink;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        window.location.href = stripePaymentLink;
+                    });
+            });
+        }
+
+        // Modal Open/Close handling already in script.js for a[href="#book"]
+        // But we ensure close button works if script.js fails for any reason
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalEl = document.getElementById('regModal');
+        if (closeModalBtn && modalEl) {
+            closeModalBtn.onclick = () => modalEl.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
