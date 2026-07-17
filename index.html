@@ -13,18 +13,53 @@
         content="MasteryLab, dance workshops, Switzerland, Latin dance, intensive programs, professional dance training, masterylab.ch"
         name="keywords" />
     <meta content="picSo0GJsoxuo8SUEhdAbxeGCN2axCOR07RdVILEIok" name="google-site-verification">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://masterylab.ch/" />
+    <meta property="og:title" content="MasteryLab | Exclusive Weekend Dance Intensives in Switzerland" />
+    <meta property="og:description" content="MasteryLab offers professional dance workshops and weekend intensives led by world-renowned artists. Join us in Switzerland to master your craft." />
+    <meta property="og:image" content="https://masterylab.ch/media/logo-wings-large.webp" />
+    <meta property="og:locale" content="en_CH" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MasteryLab | Exclusive Weekend Dance Intensives in Switzerland" />
+    <meta name="twitter:description" content="Professional dance workshops and weekend intensives in Switzerland." />
+    <meta name="twitter:image" content="https://masterylab.ch/media/logo-wings-large.webp" />
+
+    <!-- Preload critical font -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;500;700&display=swap" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap"
         rel="stylesheet" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DanceGroup",
+      "name": "MasteryLab",
+      "url": "https://masterylab.ch",
+      "logo": "https://masterylab.ch/media/logo-wings-large.webp",
+      "description": "Exclusive weekend dance intensives in Switzerland led by world-renowned artists.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "CH"
+      },
+      "sameAs": [
+        "https://www.instagram.com/masterylab_official"
+      ]
+    }
+    </script>
+
     <!-- Custom CSS -->
-    <link href="style.css" rel="stylesheet" />
+    <link href="style.css?v=3" rel="stylesheet" />
     <!-- Favicon -->
     <link href="media/favicon.png" rel="icon" type="image/png" />
-    </meta>
 </head>
 
 <body>
+    <a class="skip-to-content" href="#main-content">Skip to main content</a>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -48,20 +83,11 @@
             </div>
         </div>
     </nav>
-    <!-- Supabase & Auth Logic -->
-    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-    <script>
-        const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQxRI';
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        // Auth UI update removed as requested
-    </script>
-    <main>
+    <main id="main-content">
         <!-- Hero Section -->
         <section class="hero" id="about">
             <video autoplay="" class="hero-bg" loop="" muted="" playsinline="">
-                <source src="media/Tv  teaser video .mp4" type="video/mp4" />
+                <source src="media/Tv%20%20teaser%20video%20.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
             <div class="hero-overlay"></div>
@@ -69,7 +95,7 @@
             <div class="hero-footer">
                 <div class="hero-cards">
                     <a class="hero-card" href="#mym-vol2-lab">
-                        <h3 class="text-primary">M&amp;M TECHNIQUE &amp; PARTNERWORK LAB</h3>
+                        <h3 class="text-primary">M&amp;M LAB VOL.2</h3>
                         <p>Michael &amp; Mayra · Vol. 2</p>
                     </a>
                     <a class="hero-card" href="#bs-lab">
@@ -93,7 +119,7 @@
             </a>
         </section>
         <!-- Lab Details Section 1b: MyM Vol.2 Lab -->
-        <section class="lab-section alt" id="mym-vol2-lab">
+        <section class="lab-section" id="mym-vol2-lab">
             <div class="container lab-content">
                 <div class="lab-image">
                     <a href="michael-mayra-vol2">
@@ -102,7 +128,7 @@
                 </div>
                 <div class="lab-info">
                     <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">PARTNERWORK FOCUSED</span>
-                    <h2>M&amp;M TECHNIQUE &amp; PARTNERWORK LAB</h2>
+                    <h2>M&amp;M LAB VOL.2</h2>
                     <h3 style="color: #e6af15; margin-bottom: 1rem; font-family: 'Outfit'; text-transform: none;">Partnerwork, Connection &amp; Technique</h3>
                     <p>
                         The second chapter. Michael &amp; Mayra return with a deep dive into the art of
@@ -509,7 +535,7 @@
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxWGH0S2tI1Pa03TKZs0tCN9-bJA8ZFefqKB5NXEnrWn1YW2e48tcaKNphN3DuC_Z7D/exec';
 
         if (contactForm) {
-            contactForm.addEventListener('submit', function (e) {
+            contactForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
                 const btn = document.getElementById('contactSubmitBtn');
                 const originalText = btn.innerText;
@@ -523,16 +549,18 @@
                 }
                 data.append('timestamp', new Date().toISOString());
 
-                fetch(googleScriptURL, {
-                    method: 'POST',
-                    body: data,
-                    mode: 'no-cors',
-                    keepalive: true
-                }).catch(err => console.error('Sheet Error:', err));
+                try {
+                    await fetch(googleScriptURL, {
+                        method: 'POST',
+                        body: data,
+                        mode: 'no-cors',
+                        keepalive: true
+                    });
+                } catch (err) {
+                    console.error('Sheet Error:', err);
+                }
 
-                setTimeout(() => {
-                    contactForm.submit();
-                }, 100);
+                contactForm.submit();
             });
         }
     </script>

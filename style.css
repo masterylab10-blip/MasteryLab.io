@@ -15,6 +15,11 @@
     --color-text-muted: #B0B0B0;
     --color-border: rgba(255, 255, 255, 0.1);
 
+    /* --- Reusable patterns --- */
+    --gradient-red: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    --border-subtle: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(10px);
+
     /* --- Typography --- */
     --font-heading: 'Anton', sans-serif;
     --font-body: 'Outfit', sans-serif;
@@ -40,6 +45,27 @@
 
     --container-width: 1400px;
     --border-radius: 12px;
+}
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+.skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 700;
+    z-index: 9999;
+    border-radius: var(--border-radius);
+    transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+    top: 1rem;
 }
 
 /* =========================================
@@ -196,7 +222,7 @@ h6 {
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 50px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     font-size: 0.9rem;
     letter-spacing: 1px;
@@ -230,7 +256,7 @@ h6 {
 .ticket-shape {
     clip-path: polygon(8% 0, 100% 0, 100% 85%, 92% 100%, 0 100%, 0 15%);
     border-radius: 0 !important;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ticket-shape:hover {
@@ -239,7 +265,7 @@ h6 {
 }
 
 .text-gradient-red {
-    background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    background: var(--gradient-red);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -304,7 +330,7 @@ h6 {
 .btn-hero-artistic {
     position: relative;
     /* Electric Red Gradient */
-    background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    background: var(--gradient-red);
     color: #fff;
     /* Smaller size */
     font-size: 1rem;
@@ -319,7 +345,7 @@ h6 {
         inset 0 0 10px rgba(255, 255, 255, 0.2);
     letter-spacing: 2px;
     font-weight: 700;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn-hero-artistic::before {
@@ -353,7 +379,7 @@ h6 {
 
 .btn-cta-inviting {
     display: inline-block;
-    background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    background: var(--gradient-red);
     color: #fff;
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -367,7 +393,7 @@ h6 {
         0 10px 30px rgba(0, 0, 0, 0.5),
         inset 0 0 20px rgba(255, 255, 255, 0.1);
     text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
     margin-bottom: 2rem;
@@ -404,7 +430,7 @@ h6 {
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .card:hover {
@@ -481,7 +507,7 @@ h6 {
 
 .nav-btn-primary {
     position: relative;
-    background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    background: var(--gradient-red);
     color: #fff !important;
     padding: 0.7rem 1.8rem;
     border-radius: 50px;
@@ -493,7 +519,7 @@ h6 {
         0 0 20px rgba(214, 0, 28, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
     opacity: 1 !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
 }
 
@@ -527,7 +553,7 @@ h6 {
     font-weight: 600;
     backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.02);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -730,7 +756,7 @@ h6 {
     border-bottom: 2px solid var(--color-primary);
     border-radius: 8px;
     backdrop-filter: blur(10px);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     min-width: 180px;
     max-width: 350px;
     /* Prevent cards from getting too wide on desktop */
@@ -985,7 +1011,7 @@ h6 {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
     aspect-ratio: 1 / 1;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .lab-section .lab-image {
@@ -1031,6 +1057,7 @@ h6 {
 
     .lab-image {
         order: -1;
+        aspect-ratio: 1 / 1;
     }
 
     .lab-section.alt .lab-content {
@@ -1067,7 +1094,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-links a:hover {
@@ -1235,7 +1262,7 @@ footer {
     border-radius: 10px;
     font-family: var(--font-body);
     font-size: 1.1rem;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-input:focus {
@@ -1349,7 +1376,7 @@ textarea.form-input {
     border-radius: 20px;
     padding: 3rem;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
@@ -1385,7 +1412,7 @@ textarea.form-input {
     color: rgba(255, 255, 255, 0.03);
     line-height: 1;
     z-index: 0;
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
     user-select: none;
 }
 
@@ -1531,7 +1558,7 @@ textarea.form-input {
 }
 
 .text-gradient-red {
-    background: linear-gradient(135deg, #FF0033 0%, #D6001C 100%);
+    background: var(--gradient-red);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1628,7 +1655,7 @@ textarea.form-input {
     padding: 3rem;
     text-align: center;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     /* Ensures card fills the grid cell height */
     display: flex;
@@ -1694,7 +1721,7 @@ textarea.form-input {
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .program-item:hover {
@@ -1734,7 +1761,7 @@ textarea.form-input {
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .partner-card:hover {
@@ -1837,7 +1864,7 @@ textarea.form-input {
     align-items: center;
     justify-content: center;
     color: white;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -2127,7 +2154,7 @@ textarea.form-input {
         height: 3px;
         background-color: white;
         border-radius: 3px;
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     /* Navigation */
@@ -2218,7 +2245,7 @@ textarea.form-input {
     box-shadow: 0 0 20px rgba(179, 135, 40, 0.4);
     animation: shine 5s linear infinite;
     font-weight: 700;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-gold-shiny:hover {
@@ -2248,7 +2275,7 @@ textarea.form-input {
     padding: 3rem;
     text-align: center;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -2284,7 +2311,7 @@ textarea.form-input {
     font-family: 'Outfit', sans-serif;
     font-weight: 500;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .lang-btn:hover {
@@ -2305,7 +2332,7 @@ textarea.form-input {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     z-index: 1000;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
@@ -2328,7 +2355,7 @@ textarea.form-input {
     font-family: 'Outfit', sans-serif;
     font-size: 0.9rem;
     border-radius: 8px;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .lang-option:hover {
@@ -2464,7 +2491,7 @@ textarea.form-input {
     border-radius: 8px;
     font-family: 'Outfit', sans-serif;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .auth-input-dark:focus {
@@ -2489,7 +2516,7 @@ textarea.form-input {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     letter-spacing: 1px;
     margin-top: 1rem;
     box-shadow: 0 5px 20px rgba(214, 0, 28, 0.3);
@@ -2559,7 +2586,7 @@ textarea.form-input {
     cursor: pointer;
     padding-bottom: 1rem;
     position: relative;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .auth-tab:hover {
@@ -2805,7 +2832,7 @@ textarea.form-input {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 2rem;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -2870,7 +2897,7 @@ textarea.form-input {
     border-radius: 50px;
     text-decoration: none;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     z-index: 1;
     /* Ensure text is above pseudo-elements */
 }
@@ -2989,7 +3016,7 @@ a.btn-book-now .ticket-icon {
     border-radius: 15px;
     padding: 3rem 2rem;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -3008,32 +3035,74 @@ a.btn-book-now .ticket-icon {
     position: absolute;
     bottom: -10px;
     right: 15px;
-    font-family: " Anton\;
- font-size: 7rem;
- color: rgba(255, 255, 255, 0.04);
- line-height: 1;
- z-index: 0;
- pointer-events: none;
- transition: all 0.4s ease;
+    font-family: 'Anton', sans-serif;
+    font-size: 7rem;
+    color: rgba(255, 255, 255, 0.04);
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+    transition: color 0.4s ease, transform 0.4s ease;
 }
 
 .numbered-card:hover .numbered-card-number {
- color: rgba(214, 0, 28, 0.1);
- transform: scale(1.1) translateX(-10px);
+    color: rgba(214, 0, 28, 0.1);
+    transform: scale(1.1) translateX(-10px);
 }
 
 .numbered-card-content {
- position: relative;
- z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .numbered-card-title {
- font-family: \Outfit\;
- font-size: 1.1rem;
- font-weight: 600;
- color: white;
- text-transform: uppercase;
- letter-spacing: 1px;
- line-height: 1.4;
- margin: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* =========================================
+   SMALL PHONE BREAKPOINT (480px)
+   ========================================= */
+@media (max-width: 480px) {
+    :root {
+        --spacing-xl: 3rem;
+        --spacing-lg: 2rem;
+        --spacing-md: 1.25rem;
+    }
+
+    html {
+        font-size: 15px;
+    }
+
+    .btn,
+    .btn-primary,
+    .btn-outline,
+    .nav-btn-primary,
+    .nav-btn-outline {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0.85rem 1.5rem;
+    }
+
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   LARGE DESKTOP BREAKPOINT (1200px+)
+   ========================================= */
+@media (min-width: 1200px) {
+    .container {
+        padding: 0 3rem;
+    }
+
+    .lab-content {
+        gap: 6rem;
+    }
 }
