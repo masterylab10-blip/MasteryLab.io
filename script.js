@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Form Submission (Only for index.html modal form)
-        if (regForm) {
+        const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || window.location.pathname === '';
+        if (regForm && isHomePage) {
             regForm.addEventListener('submit', function (e) {
                 e.preventDefault();
 
@@ -320,6 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <li style="margin-bottom: 1rem;">50% Discount on Party Tickets</li>
                     <li style="margin-bottom: 1rem;">High-Quality Dance Background (Stand Out in Today’s Scene)</li>
                     <li style="margin-bottom: 1rem;">Access to Professional Dance Community</li>
+                    <li style="margin-bottom: 1rem;">50% Discount on Other Labs</li>
                     <li style="color: var(--color-primary); margin-bottom: 1rem;">Certification Included (after completing full 3-part program)</li>
                 </ul>
             </div>

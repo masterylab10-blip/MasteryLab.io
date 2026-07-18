@@ -1,0 +1,21 @@
+.DS_Store
+serve_local.py
+media/*.png
+media/*.png.png
+!media/logo-wings.png
+!media/logo futuristic .png
+!media/logo.png
+!media/favicon.png
+!media/favicon-large.png
+!media/favicon-medium.png
+!media/favicon-small.png
+!media/custom_frame.png
+!media/partner-axcent-new.png
+!media/partner-matrik-new.png
+!media/partner-matrik.png
+!media/story-unfold-logo.png
+!media/partner-natalia-logo.png
+!media/partner-area4-logo.png
+!media/story-unfold-logo.png
+!media/partner-axcent.png
+!media/logo futuristic .png
