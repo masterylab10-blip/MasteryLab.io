@@ -8,7 +8,9 @@ var SHEET_CONFIG = {
     'BOOSTER': '1ay3MK62yvkgRJ4aMy0h6s3biaB2ltdCVYBJRhHz6-EY', // Dance Booster
     'LM': '1wEjbAy4I5hvqzYHbZFtTAvFdWOwC7FEUCelOeF1tNkE',      // Ladies Mastery
     'TEACHER': '1mq-Y1otp67siZFaHP2M4Wied47sAH4AYtxg0aUM-u-s',  // Education Labs / Teachers
-    'MM': '1iGTsDPYnhaHBMRZ42J6nWyz2NFKyiMstWpLdNli5gC8'        // Michael & Mayra
+    'MM': '1iGTsDPYnhaHBMRZ42J6nWyz2NFKyiMstWpLdNli5gC8',       // Michael & Mayra
+    'MenStyle': 'YOUR_MENSTYLE_SPREADSHEET_ID',                 // MenStyle Lab
+    'DancersLab': 'YOUR_DANCERSLAB_SPREADSHEET_ID'              // Bachata Sensual Dancers Lab
 };
 
 var ADMIN_EMAILS = ['masterylab1.0@gmail.com', 'labmastery@outlook.com'];
