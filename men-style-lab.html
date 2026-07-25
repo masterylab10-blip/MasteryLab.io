@@ -507,7 +507,10 @@
 
         const localRegForm = document.getElementById('regForm');
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzytGfaxzZJwxtfuQJCgUwGnq-DJZVGEhhy8oibo0GzSWS9Z34bMHuUYW7kHvib6A4r/exec';
-        const stripePaymentLink = 'https://buy.stripe.com/3cI5kFfcy5OcbfA9z4dEs0C';
+        const stripeLinks = {
+            'returning': 'https://buy.stripe.com/3cI5kFfcy5OcbfA9z4dEs0C',
+            'new': 'https://buy.stripe.com/bJe14p8Oa6SgerMaD8dEs0E'
+        };
 
         if (localRegForm) {
             localRegForm.addEventListener('submit', function (e) {
@@ -526,6 +529,7 @@
                 }
 
                 const formData = new FormData(localRegForm);
+                const targetStripeLink = stripeLinks[ticketType] || stripeLinks['new'];
 
                 fetch(googleScriptURL, {
                     method: 'POST',
@@ -533,11 +537,11 @@
                     mode: 'no-cors'
                 })
                     .then(() => {
-                        window.location.href = stripePaymentLink;
+                        window.location.href = targetStripeLink;
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        window.location.href = stripePaymentLink;
+                        window.location.href = targetStripeLink;
                     });
             });
         }
