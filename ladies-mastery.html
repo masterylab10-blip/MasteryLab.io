@@ -603,7 +603,11 @@
 
         const localRegForm = document.getElementById('ladiesRegForm');
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzytGfaxzZJwxtfuQJCgUwGnq-DJZVGEhhy8oibo0GzSWS9Z34bMHuUYW7kHvib6A4r/exec';
-        const stripePaymentLink = 'https://buy.stripe.com/7sY14pc0ma4s2J4cLgdEs0B';
+        
+        const stripeLinks = {
+            'returning': 'https://buy.stripe.com/7sY14pc0ma4s2J4cLgdEs0B',
+            'new': 'https://buy.stripe.com/14A6oJfcyccA97s3aGdEs0J'
+        };
 
         if (localRegForm) {
             localRegForm.addEventListener('submit', function (e) {
@@ -621,6 +625,7 @@
                     btn.style.opacity = '0.7';
                 }
 
+                const targetStripeLink = stripeLinks[ticketType] || stripeLinks['new'];
                 const formData = new FormData(localRegForm);
 
                 fetch(googleScriptURL, {
@@ -629,11 +634,11 @@
                     mode: 'no-cors'
                 })
                     .then(() => {
-                        window.location.href = stripePaymentLink;
+                        window.location.href = targetStripeLink;
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        window.location.href = stripePaymentLink;
+                        window.location.href = targetStripeLink;
                     });
             });
         }
