@@ -3,449 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Hotels & Accommodations | MasteryLab Switzerland</title>
-    <meta name="description" content="Exclusive hotel partner rates and serviced apartments for MasteryLab participants, artists, teachers, and team members in Switzerland. Fixed 110 CHF and 10% Accor discounts.">
+    <title>Official Accommodations | MasteryLab Switzerland</title>
+    <meta name="description" content="Exclusive negotiated partner rates and serviced apartments for MasteryLab participants, artists, and teachers in Switzerland.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="style.css?v=4">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=5">
     <link rel="icon" type="image/png" href="media/favicon.png">
 
     <style>
-        :root {
-            --hotel-neon: #ff2a5f;
-            --hotel-gold: #f59e0b;
-            --hotel-cyan: #00f0ff;
-            --hotel-green: #00d26a;
-        }
-
         body {
-            background-color: #050508;
+            background-color: #060609;
             color: #ffffff;
             font-family: 'Outfit', sans-serif;
-            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
 
-        /* Hero Header */
+        /* Cinematic Hero with Real Hotel Background */
         .hotel-hero {
             position: relative;
-            padding: 7rem 1.5rem 4rem;
-            text-align: center;
-            background: radial-gradient(circle at 50% 20%, rgba(214, 0, 28, 0.18) 0%, rgba(5, 5, 8, 1) 75%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            overflow: hidden;
-        }
-
-        .hotel-hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 42, 95, 0.12);
-            border: 1.5px solid rgba(255, 42, 95, 0.4);
-            color: #ff2a5f;
-            padding: 0.5rem 1.4rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 1.2rem;
-            box-shadow: 0 0 25px rgba(255, 42, 95, 0.3);
-        }
-
-        .hotel-main-title {
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(3rem, 7.5vw, 5.5rem);
-            color: #ffffff;
-            letter-spacing: 2px;
-            line-height: 1.05;
-            margin: 0 0 1rem;
-            text-transform: uppercase;
-            text-shadow: 0 0 40px rgba(214, 0, 28, 0.5);
-        }
-
-        .hotel-hero-subtitle {
-            color: #b0b0b0;
-            font-size: clamp(1.05rem, 2vw, 1.25rem);
-            max-width: 780px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-        }
-
-        .hero-feature-tags {
+            min-height: 55vh;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+            text-align: center;
+            padding: 8rem 1.5rem 5rem;
+            background: linear-gradient(180deg, rgba(6,6,9,0.7) 0%, rgba(6,6,9,0.92) 80%, #060609 100%), url('media/iip-bed.jpg') center/cover no-repeat;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .hero-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 0.5rem 1.2rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-pill {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
             font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             color: #e0e0e0;
+            margin-bottom: 1.2rem;
+        }
+
+        .hotel-hero h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1.05;
+            letter-spacing: 1.5px;
+            margin: 0 0 1.2rem;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        .hotel-hero p {
+            color: #b0b0b8;
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            line-height: 1.6;
+            margin: 0 auto 2rem;
+            font-weight: 300;
+        }
+
+        /* Access Unlock Banner */
+        .unlock-banner {
+            background: rgba(214, 0, 28, 0.08);
+            border: 1px solid rgba(214, 0, 28, 0.25);
+            border-radius: 16px;
+            padding: 1.2rem 1.6rem;
+            max-width: 760px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
             backdrop-filter: blur(10px);
         }
 
-        /* Comparison & Hotel Cards Grid */
-        .hotel-cards-grid {
+        .unlock-banner-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .unlock-banner-text {
+            color: #dcdce0;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .unlock-banner-text strong {
+            color: #ffffff;
+        }
+
+        /* Hotel Cards Section */
+        .hotel-section {
+            padding: 5rem 1.5rem 6rem;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
             gap: 2.5rem;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
         }
 
         .hotel-card {
-            background: rgba(18, 18, 24, 0.85);
-            border: 1.5px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 2.5rem 2rem;
-            position: relative;
-            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(15px);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #0d0d12;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-        }
-
-        .hotel-card.featured {
-            border-color: rgba(0, 210, 106, 0.6);
-            box-shadow: 0 20px 50px rgba(0, 210, 106, 0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .hotel-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--hotel-neon);
-            box-shadow: 0 30px 60px rgba(255, 42, 95, 0.25);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .hotel-card.featured {
+            border-color: rgba(0, 210, 106, 0.35);
         }
 
         .hotel-card.featured:hover {
             border-color: #00d26a;
-            box-shadow: 0 30px 60px rgba(0, 210, 106, 0.3);
+            box-shadow: 0 20px 45px rgba(0, 210, 106, 0.15);
         }
 
-        .card-top-badge {
+        /* Image Showcase */
+        .card-media-wrapper {
+            position: relative;
+            height: 260px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .card-media-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease, transform 0.4s ease;
+        }
+
+        .card-tag {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #ff2a5f;
-            color: #000;
-            font-family: 'Anton', sans-serif;
-            font-size: 0.9rem;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 5px 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
             border-radius: 20px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 0 20px rgba(255, 42, 95, 0.7);
         }
 
-        .card-top-badge.green {
+        .card-tag.green {
             background: #00d26a;
             color: #000;
-            box-shadow: 0 0 20px rgba(0, 210, 106, 0.7);
+            border: none;
+            font-weight: 800;
         }
 
-        .hotel-name {
+        .thumbs-bar {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+            padding: 8px 12px;
+            background: #09090d;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .thumbs-bar img {
+            width: 100%;
+            height: 48px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1.5px solid transparent;
+            opacity: 0.6;
+            transition: all 0.2s ease;
+        }
+
+        .thumbs-bar img:hover,
+        .thumbs-bar img.active {
+            opacity: 1;
+            border-color: #00d26a;
+        }
+
+        .card-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .hotel-title {
             font-family: 'Anton', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
+            margin: 0 0 0.2rem;
+            letter-spacing: 0.5px;
             color: #ffffff;
-            letter-spacing: 1px;
-            margin: 0 0 0.4rem;
         }
 
         .hotel-location {
-            color: #888899;
-            font-size: 0.95rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
+            color: #7e7e8a;
+            font-size: 0.88rem;
             margin-bottom: 1.5rem;
         }
 
-        .hotel-price-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 1.2rem;
-            margin-bottom: 1.8rem;
+        .price-badge-row {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 1.5rem;
         }
 
-        .hotel-price-amount {
+        .price-big {
             font-family: 'Anton', sans-serif;
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             color: #00d26a;
-            letter-spacing: 1px;
             line-height: 1;
         }
 
-        .hotel-price-amount.red {
+        .price-big.red {
             color: #ff2a5f;
         }
 
-        .hotel-price-sub {
-            color: #aaa;
-            font-size: 0.85rem;
-            margin-top: 4px;
+        .price-label {
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 2px;
         }
 
-        .perks-list {
+        .features-list {
             list-style: none;
             padding: 0;
             margin: 0 0 2rem;
             display: flex;
             flex-direction: column;
-            gap: 0.9rem;
+            gap: 0.75rem;
         }
 
-        .perks-list li {
+        .features-list li {
+            font-size: 0.92rem;
+            color: #c0c0ca;
             display: flex;
             align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 0.95rem;
-            color: #d0d0d0;
+            gap: 0.6rem;
             line-height: 1.45;
         }
 
-        .perks-list li span.check {
+        .features-list li span.dot {
             color: #00d26a;
-            font-weight: 800;
-            font-size: 1.1rem;
-            line-height: 1;
-        }
-
-        /* Booking Code Box with 1-Click Copy */
-        .code-box {
-            background: rgba(255, 42, 95, 0.08);
-            border: 1.5px dashed rgba(255, 42, 95, 0.4);
-            border-radius: 16px;
-            padding: 1.2rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .code-box.green {
-            background: rgba(0, 210, 106, 0.08);
-            border-color: rgba(0, 210, 106, 0.4);
-        }
-
-        .code-label {
-            font-size: 0.8rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #aaa;
-            margin-bottom: 0.5rem;
         }
 
-        .code-display {
-            font-family: monospace;
-            font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #ffffff;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 0.6rem 1rem;
-            border-radius: 10px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: all 0.2s;
+        .features-list li span.dot.red {
+            color: #ff2a5f;
         }
 
-        .code-display:hover {
-            border-color: #ff2a5f;
-            transform: scale(1.02);
-            box-shadow: 0 0 15px rgba(255, 42, 95, 0.3);
-        }
-
-        .code-display.green:hover {
-            border-color: #00d26a;
-            box-shadow: 0 0 15px rgba(0, 210, 106, 0.3);
-        }
-
-        .copy-btn {
-            background: #ff2a5f;
-            color: #000;
-            border: none;
-            font-family: 'Anton', sans-serif;
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            letter-spacing: 0.5px;
-        }
-
-        .copy-btn.green {
-            background: #00d26a;
-        }
-
-        .book-action-btn {
+        .btn-visit {
             display: block;
             width: 100%;
             text-align: center;
-            background: #ff2a5f;
-            color: #000;
+            background: #ffffff;
+            color: #000000;
             font-family: 'Anton', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1rem;
             letter-spacing: 1px;
-            padding: 1.1rem;
-            border-radius: 14px;
+            padding: 1rem;
+            border-radius: 10px;
             text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 0 25px rgba(255, 42, 95, 0.4);
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
             box-sizing: border-box;
         }
 
-        .book-action-btn.green {
+        .btn-visit.green {
             background: #00d26a;
-            box-shadow: 0 0 25px rgba(0, 210, 106, 0.4);
+            color: #000;
         }
 
-        .book-action-btn:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 35px rgba(255, 42, 95, 0.7);
+        .btn-visit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
         }
 
-        .book-action-btn.green:hover {
-            box-shadow: 0 0 35px rgba(0, 210, 106, 0.7);
+        .btn-visit.green:hover {
+            box-shadow: 0 10px 25px rgba(0, 210, 106, 0.35);
+        }
+
+        .code-notice {
+            text-align: center;
+            color: #70707a;
+            font-size: 0.78rem;
+            margin-top: 0.8rem;
+            line-height: 1.4;
         }
 
         /* Comparison Table Section */
-        .comparison-section {
-            padding: 5rem 1rem;
-            background: #08080c;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .table-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            background: rgba(18, 18, 24, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .table-wrap {
+            margin-top: 5rem;
+            background: #0d0d12;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
-            overflow-x: auto;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            padding: 2.5rem;
         }
 
-        table.comparison-table {
+        .table-wrap h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2.2rem;
+            margin: 0 0 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .table-wrap p {
+            color: #888;
+            font-size: 0.95rem;
+            margin: 0 0 2rem;
+        }
+
+        table.spec-table {
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            min-width: 650px;
         }
 
-        table.comparison-table th {
-            font-family: 'Anton', sans-serif;
-            font-size: 1.25rem;
+        table.spec-table th {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            text-transform: uppercase;
             letter-spacing: 1px;
-            padding: 1.4rem 1.8rem;
-            background: #101016;
-            color: #fff;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            color: #aaa;
         }
 
-        table.comparison-table td {
-            padding: 1.2rem 1.8rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            color: #d0d0d0;
-            font-size: 0.95rem;
+        table.spec-table td {
+            padding: 1.1rem 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.92rem;
+            color: #d0d0d8;
         }
 
-        table.comparison-table tr:hover td {
+        table.spec-table tr:hover td {
             background: rgba(255, 255, 255, 0.02);
         }
 
-        .highlight-green {
-            color: #00d26a;
-            font-weight: 700;
-        }
-
-        .highlight-red {
-            color: #ff2a5f;
-            font-weight: 700;
-        }
-
-        /* FAQ & Rules Section */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 3rem auto 0;
-            padding: 0 1rem;
-        }
-
-        .info-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            padding: 1.8rem;
-        }
-
-        .info-box h3 {
-            font-family: 'Anton', sans-serif;
-            color: #fff;
-            font-size: 1.3rem;
-            letter-spacing: 0.5px;
-            margin: 0 0 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .info-box p {
-            color: #aaa;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Toast notification */
-        #toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #00d26a;
-            color: #000;
-            font-weight: 800;
-            font-size: 0.95rem;
-            padding: 12px 24px;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(0, 210, 106, 0.5);
-            z-index: 9999;
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        #toast.show {
-            transform: translateY(0);
-            opacity: 1;
+        @media (max-width: 768px) {
+            .table-wrap {
+                padding: 1.5rem 1rem;
+                overflow-x: auto;
+            }
+            .unlock-banner {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar" style="background: rgba(5,5,8,0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.1);">
+    <!-- Minimalist Top Navigation -->
+    <nav class="navbar" style="background: rgba(6,6,9,0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.08);">
         <div class="container">
             <a class="logo" href="/">
                 <picture>
@@ -456,338 +399,213 @@
                 </picture>
             </a>
             <div class="nav-links">
-                <a class="nav-btn-outline ticket-shape" href="/" style="border-color: #555; color: #fff;">BACK TO HOME</a>
+                <a class="nav-btn-outline ticket-shape" href="/" style="border-color: #444; color: #ccc;">BACK TO HOME</a>
                 <a class="nav-btn-outline ticket-shape" href="dance-outfit" style="color: #ff2a5f; border-color: rgba(255,42,95,0.4);">DANCE FOOTWEAR</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Header -->
+    <!-- Hero Header with Authentic Hotel Atmosphere -->
     <header class="hotel-hero">
-        <div class="hotel-hero-badge">
-            <span>🏨</span> <span>Official Partner Rates · Switzerland</span>
-        </div>
-        <h1 class="hotel-main-title">HOTELS & ACCOMMODATIONS</h1>
-        <p class="hotel-hero-subtitle">
-            We have secured exclusive negotiated rates and guaranteed perks for all MasteryLab participants, artists, teachers, DJs, and team members. Choose your preferred stay below.
-        </p>
-        <div class="hero-feature-tags">
-            <div class="hero-tag">✨ Fixed 110 CHF Flat Rate or 10% Off</div>
-            <div class="hero-tag">🛡️ 0 CHF City Tax at IIP</div>
-            <div class="hero-tag">🔄 Ultra-Flexible Free Cancellation</div>
-            <div class="hero-tag">🔑 1-Click Corporate Booking Codes</div>
+        <div class="hero-content">
+            <span class="hero-pill">Official Accommodations · Switzerland</span>
+            <h1>Partner Hotels & Stays</h1>
+            <p>
+                Negotiated rates and flexible cancellation terms for all MasteryLab dancers, teachers, and guest artists.
+            </p>
+
+            <!-- Clear Discount Access Notice -->
+            <div class="unlock-banner">
+                <div class="unlock-banner-icon">📩</div>
+                <div class="unlock-banner-text">
+                    <strong>Exclusive Partner Access:</strong> Your direct discount booking code will be unlocked and sent to your email immediately upon registering for any MasteryLab workshop.
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Hotel Options Grid -->
-    <section style="padding: 4.5rem 0 5rem; position: relative;">
-        <div class="container">
-            <div class="hotel-cards-grid">
-                
-                <!-- Option 1: IIP Apartments Spreitenbach -->
-                <div class="hotel-card featured">
-                    <div>
-                        <span class="card-top-badge green">TOP VALUE & FLEXIBILITY</span>
-                        <h2 class="hotel-name">IIP APARTMENTS</h2>
-                        <div class="hotel-location">
-                            <span>📍</span> <span>Spreitenbach, Switzerland (Near Venue)</span>
-                        </div>
+    <!-- Accommodations Grid -->
+    <main class="hotel-section">
+        <div class="cards-grid">
 
-                        <!-- IIP Apartments Real Photo Carousel / Showcase -->
-                        <div class="hotel-gallery" style="margin-bottom: 1.5rem;">
-                            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 220px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid rgba(0,210,106,0.3);">
-                                <img id="iipMainImg" src="media/iip-bed.jpg" alt="IIP Apartments Kingsize Bed" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease;">
-                                <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; color: #00d26a; font-weight: 700;">
-                                    👑 Kingsize Bed Guaranteed
+            <!-- Card 1: IIP Apartments -->
+            <div class="hotel-card featured">
+                <div>
+                    <!-- Visual Header with Real Photography -->
+                    <div class="card-media-wrapper">
+                        <img id="mainIipPhoto" src="media/iip-bed.jpg" alt="IIP Apartments Kingsize Bedroom">
+                        <span class="card-tag green">Fixed 110 CHF · 0 Tax</span>
+                    </div>
+                    <!-- Photo Switcher Strip -->
+                    <div class="thumbs-bar">
+                        <img src="media/iip-bed.jpg" alt="Bed" class="active" onclick="switchPhoto('mainIipPhoto', this)">
+                        <img src="media/iip-exterior.jpg" alt="Exterior" onclick="switchPhoto('mainIipPhoto', this)">
+                        <img src="media/iip-bathroom.jpg" alt="Bathroom" onclick="switchPhoto('mainIipPhoto', this)">
+                        <img src="media/iip-bedroom-view.jpg" alt="Studio" onclick="switchPhoto('mainIipPhoto', this)">
+                        <img src="media/iip-vanity.jpg" alt="Amenities" onclick="switchPhoto('mainIipPhoto', this)">
+                    </div>
+
+                    <div class="card-body">
+                        <div>
+                            <h2 class="hotel-title">IIP APARTMENTS</h2>
+                            <div class="hotel-location">📍 Spreitenbach · Near Venue · 25 m² Serviced Studio</div>
+
+                            <div class="price-badge-row">
+                                <div>
+                                    <div class="price-big">110 CHF</div>
+                                    <div class="price-label">per apartment / night</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="color: #00d26a; font-weight: 600; font-size: 0.85rem;">1 or 2 Guests</div>
+                                    <div style="color: #666; font-size: 0.75rem;">Same flat rate</div>
                                 </div>
                             </div>
-                            <!-- Thumbnails -->
-                            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 8px;">
-                                <img src="media/iip-bed.jpg" alt="Bedroom" onclick="swapIipImg(this, '👑 Kingsize Bed Guaranteed')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid #00d26a; opacity: 1;" class="iip-thumb">
-                                <img src="media/iip-exterior.jpg" alt="Exterior" onclick="swapIipImg(this, '🏢 Modern Glass Building & Entrance')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); opacity: 0.6;" class="iip-thumb">
-                                <img src="media/iip-bathroom.jpg" alt="Bathroom" onclick="swapIipImg(this, '🚿 Modern Marble Bathroom & Shower')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); opacity: 0.6;" class="iip-thumb">
-                                <img src="media/iip-bedroom-view.jpg" alt="Room View" onclick="swapIipImg(this, '✨ 25 m² Serviced Studio Space')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); opacity: 0.6;" class="iip-thumb">
-                                <img src="media/iip-vanity.jpg" alt="Vanity" onclick="swapIipImg(this, '🌿 Amenities & Fresh Linen')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); opacity: 0.6;" class="iip-thumb">
-                            </div>
+
+                            <ul class="features-list">
+                                <li><span class="dot">✓</span> <strong>0 CHF City Tax:</strong> No additional local tourist taxes.</li>
+                                <li><span class="dot">✓</span> <strong>Kingsize Beds:</strong> Generous comfort and linen included.</li>
+                                <li><span class="dot">✓</span> <strong>Ultra-Flexible Cancellation:</strong> Free until 16:00 on arrival day.</li>
+                                <li><span class="dot">✓</span> <strong>Amenities:</strong> 25 m² studio, kitchenette, high-speed WiFi.</li>
+                                <li><span class="dot">✓</span> <strong>Best Price Guarantee:</strong> Lowest rate guaranteed.</li>
+                            </ul>
                         </div>
 
-                        <div class="hotel-price-box">
-                            <div>
-                                <div class="hotel-price-amount">110 CHF</div>
-                                <div class="hotel-price-sub">per apartment / night</div>
+                        <div>
+                            <a href="https://www.iipapartments.ch/" target="_blank" rel="noopener noreferrer" class="btn-visit green">
+                                VISIT IIP APARTMENTS WEBSITE ↗
+                            </a>
+                            <div class="code-notice">
+                                🔒 Partner booking code is sent in your lab confirmation email
                             </div>
-                            <div style="text-align: right;">
-                                <div style="color: #00d26a; font-weight: 700; font-size: 0.9rem;">1 or 2 Persons</div>
-                                <div style="color: #888; font-size: 0.8rem;">Same flat price!</div>
-                            </div>
-                        </div>
-
-                        <ul class="perks-list">
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>Serviced 25 m² Studio Apartments:</strong> Fully furnished with high comfort and space.</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>Kingsize Beds:</strong> Extra comfort guaranteed per email agreement.</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>0 CHF City Tax:</strong> No hidden fees or additional municipal tourist taxes.</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>Ultra-Flexible Cancellation:</strong> Free cancellation up to <strong>16:00 (4:00 PM) on day of arrival</strong>!</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>Fast Free WiFi & Non-Smoking:</strong> Modern high-speed connectivity.</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>Best Price Guarantee:</strong> If public daily rate is cheaper, you automatically get the lower rate.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <!-- Protected Booking Code Notice -->
-                        <div class="code-box green" style="background: rgba(0, 210, 106, 0.08); border: 1.5px dashed rgba(0, 210, 106, 0.5); border-radius: 16px; padding: 1.2rem; margin-bottom: 1.5rem; text-align: center;">
-                            <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #00d26a; margin-bottom: 0.4rem;">
-                                🔒 EXCLUSIVE PARTICIPANT BENEFIT
-                            </div>
-                            <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">
-                                Partner Promo Code: <span style="font-family: monospace; background: rgba(0,0,0,0.6); padding: 4px 10px; border-radius: 6px; color: #00d26a; letter-spacing: 2px;">•••••••••</span>
-                            </div>
-                            <p style="color: #bbb; font-size: 0.85rem; line-height: 1.4; margin: 0;">
-                                The private <strong>110 CHF booking code</strong> and direct booking access are automatically sent in your <strong>Registration Confirmation Email</strong> once you book any MasteryLab workshop.
-                            </p>
-                        </div>
-
-                        <a href="https://www.iipapartments.ch/" target="_blank" rel="noopener noreferrer" class="book-action-btn green">
-                            VISIT IIP APARTMENTS WEBSITE (110 CHF) ↗
-                        </a>
-                        <div style="color: #777; font-size: 0.8rem; text-align: center; margin-top: 0.6rem;">
-                            Check-in 15:00 · Check-out 12:00 · Parking CHF 1.50/h
                         </div>
                     </div>
-                </div>
-
-                <!-- Option 2: ibis Baden Neuenhof -->
-                <div class="hotel-card">
-                    <div>
-                        <span class="card-top-badge">ACCOR CORPORATE RATE</span>
-                        <h2 class="hotel-name">IBIS BADEN NEUENHOF</h2>
-                        <div class="hotel-location">
-                            <span>📍</span> <span>Neuenhof / Baden, Switzerland</span>
-                        </div>
-
-                        <div class="hotel-price-box">
-                            <div>
-                                <div class="hotel-price-amount red">10% OFF</div>
-                                <div class="hotel-price-sub">off flexible daily rate</div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div style="color: #ff2a5f; font-weight: 700; font-size: 0.9rem;">Accor Preferred</div>
-                                <div style="color: #888; font-size: 0.8rem;">Single or Double</div>
-                            </div>
-                        </div>
-
-                        <ul class="perks-list">
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>10% Preferred Discount:</strong> Applied directly to the dynamic daily room rate.</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>Double Room Comfort:</strong> Available for single or double occupancy.</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>Discounted Breakfast:</strong> Reduced rate at CHF 20 per person / night.</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>Flexible Cancellation:</strong> Free cancellation up to <strong>00:00 (Midnight) before arrival day</strong>.</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>City Tax:</strong> CHF 3.50 per person / night.</span>
-                            </li>
-                            <li>
-                                <span class="check">✓</span>
-                                <span><strong>Direct Corporate Contract:</strong> Registered under <em>MasteryLab by Rosy Bochicchio</em>.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <!-- Protected Accor Codes Box -->
-                        <div class="code-box" style="background: rgba(255, 42, 95, 0.08); border: 1.5px dashed rgba(255, 42, 95, 0.5); border-radius: 16px; padding: 1.2rem; margin-bottom: 1.5rem; text-align: center;">
-                            <div style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #ff2a5f; margin-bottom: 0.4rem;">
-                                🔒 ACCOR CORPORATE ACCESS
-                            </div>
-                            <div style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem;">
-                                Client & Access Codes: <span style="font-family: monospace; background: rgba(0,0,0,0.6); padding: 4px 10px; border-radius: 6px; color: #ff2a5f; letter-spacing: 2px;">••••••••••••</span>
-                            </div>
-                            <p style="color: #bbb; font-size: 0.85rem; line-height: 1.4; margin: 0;">
-                                The <strong>Accor Client Code & Access Code</strong> for the 10% discount are automatically dispatched in your <strong>Confirmation Email</strong> upon workshop booking.
-                            </p>
-                        </div>
-
-                        <a href="https://all.accor.com/hotel/A9A0/index.en.shtml?utm_campaign=seo+maps&utm_medium=seo+maps&utm_source=google+Maps" target="_blank" rel="noopener noreferrer" class="book-action-btn">
-                            VISIT IBIS BADEN PORTAL (10% OFF) ↗
-                        </a>
-                        <div style="color: #777; font-size: 0.8rem; text-align: center; margin-top: 0.6rem;">
-                            Valid for up to 7 rooms per night online
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Side-by-Side Comparison Matrix -->
-    <section class="comparison-section">
-        <div class="container" style="text-align: center;">
-            <h2 style="font-family: 'Anton', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: #fff; margin-bottom: 0.5rem; letter-spacing: 1px;">
-                SIDE-BY-SIDE COMPARISON
-            </h2>
-            <p style="color: #aaa; font-size: 1rem; max-width: 600px; margin: 0 auto 3rem;">
-                Key contractual differences to help you choose the best stay for your weekend.
-            </p>
-
-            <div class="table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Feature</th>
-                            <th style="width: 37.5%; color: #00d26a;">IIP Apartments (Spreitenbach)</th>
-                            <th style="width: 37.5%; color: #ff2a5f;">ibis Baden Neuenhof</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Nightly Rate</strong></td>
-                            <td class="highlight-green">Fixed 110 CHF (1 or 2 Persons)</td>
-                            <td class="highlight-red">10% Off Dynamic Daily Rate</td>
-                        </tr>
-                        <tr>
-                            <td><strong>City Tax</strong></td>
-                            <td class="highlight-green">0 CHF (No City Tax)</td>
-                            <td>CHF 3.50 per person / night</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Room Style</strong></td>
-                            <td>25 m² Serviced Studio Apartment</td>
-                            <td>Standard Double Hotel Room</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Bed Type</strong></td>
-                            <td class="highlight-green">Kingsize Bed Guaranteed</td>
-                            <td>Double Bed</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Cancellation Policy</strong></td>
-                            <td class="highlight-green">Free until 16:00 on arrival day</td>
-                            <td>Free until 00:00 before arrival day</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Breakfast</strong></td>
-                            <td>CHF 25 optional per person</td>
-                            <td>CHF 20 discounted per person</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Booking ID / Code</strong></td>
-                            <td class="highlight-green">🔒 Unlocked in Lab Confirmation Email</td>
-                            <td class="highlight-red">🔒 Unlocked in Lab Confirmation Email</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Payment</strong></td>
-                            <td>Self-pay at check-in / Credit card guarantee</td>
-                            <td>Self-pay at check-in / Credit card guarantee</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Important Guidelines & FAQs -->
-    <section style="padding: 5rem 0 6rem;">
-        <div class="container">
-            <h2 style="font-family: 'Anton', sans-serif; font-size: 2.4rem; color: #fff; text-align: center; letter-spacing: 1px; margin-bottom: 0.5rem;">
-                BOOKING GUIDELINES & ELIGIBILITY
-            </h2>
-            <p style="color: #888; text-align: center; margin-bottom: 3rem;">All details are legally backed by our hotel partner contracts through 2027/2028.</p>
-
-            <div class="info-grid">
-                <div class="info-box">
-                    <h3><span>👥</span> Who Can Use These Rates?</h3>
-                    <p>All MasteryLab workshop participants, artists, guest instructors, DJs, team members, staff, and business partners are entitled to these special partner rates.</p>
-                </div>
-
-                <div class="info-box">
-                    <h3><span>💳</span> Payment & Guarantees</h3>
-                    <p>Guests pay directly at the hotel upon check-in. A valid credit card is required during booking to guarantee your reservation. MasteryLab is not liable for unpaid personal charges.</p>
-                </div>
-
-                <div class="info-box">
-                    <h3><span>🏨</span> Group Bookings</h3>
-                    <p>For bookings of 10+ rooms at IIP Apartments or 7+ rooms at ibis Baden, please contact our team in advance so we can coordinate a dedicated group allotment for you.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer style="background: #020204; padding: 3.5rem 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.08);">
-        <p style="color: #666; font-size: 0.9rem; margin: 0;">
-            &copy; 2026 MasteryLab Switzerland · Rheinparkstrasse 3, 4127 Birsfelden · Contact: <a href="mailto:labmastery@outlook.com" style="color: #ff2a5f; text-decoration: none;">labmastery@outlook.com</a>
+            <!-- Card 2: ibis Baden Neuenhof -->
+            <div class="hotel-card">
+                <div>
+                    <!-- Visual Header -->
+                    <div class="card-media-wrapper" style="background: radial-gradient(circle, #1a1a26 0%, #0c0c12 100%); display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 0.3rem;">🏨</div>
+                            <div style="font-family: 'Anton'; font-size: 1.4rem; color: #ff2a5f; letter-spacing: 1px;">ACCOR HOTELS</div>
+                        </div>
+                        <span class="card-tag">10% Off Flex Rate</span>
+                    </div>
+                    <div style="height: 1px; background: rgba(255,255,255,0.06);"></div>
+
+                    <div class="card-body">
+                        <div>
+                            <h2 class="hotel-title">IBIS BADEN NEUENHOF</h2>
+                            <div class="hotel-location">📍 Neuenhof / Baden · Standard Hotel Rooms</div>
+
+                            <div class="price-badge-row">
+                                <div>
+                                    <div class="price-big red">10% OFF</div>
+                                    <div class="price-label">off flexible daily rate</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="color: #ff2a5f; font-weight: 600; font-size: 0.85rem;">Accor Corporate</div>
+                                    <div style="color: #666; font-size: 0.75rem;">Single or Double</div>
+                                </div>
+                            </div>
+
+                            <ul class="features-list">
+                                <li><span class="dot red">✓</span> <strong>10% Preferred Discount:</strong> Deducted from current daily rate.</li>
+                                <li><span class="dot red">✓</span> <strong>Double Room Comfort:</strong> Single or double occupancy.</li>
+                                <li><span class="dot red">✓</span> <strong>Breakfast Option:</strong> Discounted at CHF 20 / person.</li>
+                                <li><span class="dot red">✓</span> <strong>Cancellation:</strong> Free until 00:00 midnight before arrival day.</li>
+                                <li><span class="dot red">✓</span> <strong>City Tax:</strong> CHF 3.50 per person / night.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <a href="https://all.accor.com/hotel/A9A0/index.en.shtml?utm_campaign=seo+maps&utm_medium=seo+maps&utm_source=google+Maps" target="_blank" rel="noopener noreferrer" class="btn-visit">
+                                VISIT IBIS BADEN ACCOR PORTAL ↗
+                            </a>
+                            <div class="code-notice">
+                                🔒 Client & Access codes are sent in your lab confirmation email
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="table-wrap">
+            <h2>Quick Comparison</h2>
+            <p>Compare the key contractual details between our two official accommodation partners.</p>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th style="color: #00d26a;">IIP Apartments</th>
+                        <th style="color: #ff2a5f;">ibis Baden Neuenhof</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pricing</strong></td>
+                        <td style="color: #00d26a; font-weight: 600;">Fixed 110 CHF (1 or 2 Persons)</td>
+                        <td>10% Off Daily Flexible Rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>City Tax</strong></td>
+                        <td style="color: #00d26a; font-weight: 600;">0 CHF (No City Tax)</td>
+                        <td>CHF 3.50 / person / night</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Room Type</strong></td>
+                        <td>25 m² Serviced Studio Apartment</td>
+                        <td>Standard Double Room</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bed Guarantee</strong></td>
+                        <td style="color: #00d26a;">Kingsize Bed</td>
+                        <td>Double Bed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cancellation</strong></td>
+                        <td style="color: #00d26a;">Free until 16:00 on arrival day</td>
+                        <td>Free until midnight before arrival day</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Breakfast</strong></td>
+                        <td>CHF 25 optional</td>
+                        <td>CHF 20 discounted rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discount Access</strong></td>
+                        <td colspan="2" style="text-align: center; color: #aaa; background: rgba(255,255,255,0.02);">
+                            📩 Promo codes automatically dispatched upon lab booking confirmation
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Minimalist Footer -->
+    <footer style="background: #030305; padding: 3rem 1.5rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06);">
+        <p style="color: #555; font-size: 0.85rem; margin: 0;">
+            &copy; 2026 MasteryLab Switzerland · Rheinparkstrasse 3, 4127 Birsfelden · Contact: <a href="mailto:labmastery@outlook.com" style="color: #888; text-decoration: none;">labmastery@outlook.com</a>
         </p>
     </footer>
 
-    <!-- 1-Click Copy Toast Notification -->
-    <div id="toast">Copied Code to Clipboard! ✅</div>
-
+    <!-- Photo Switching Script -->
     <script>
-        function swapIipImg(el, label) {
-            const main = document.getElementById('iipMainImg');
-            if (main) {
-                main.src = el.src;
-                const badge = main.parentElement.querySelector('div');
-                if (badge && label) badge.textContent = label;
+        function switchPhoto(mainId, thumbEl) {
+            const mainImg = document.getElementById(mainId);
+            if (mainImg) {
+                mainImg.src = thumbEl.src;
             }
-            document.querySelectorAll('.iip-thumb').forEach(t => {
-                t.style.border = '1px solid rgba(255,255,255,0.1)';
-                t.style.opacity = '0.6';
-            });
-            el.style.border = '2px solid #00d26a';
-            el.style.opacity = '1';
-        }
-
-        function copyCode(text, element) {
-            navigator.clipboard.writeText(text).then(() => {
-                const toast = document.getElementById('toast');
-                toast.textContent = `Code "${text}" Copied! ✅`;
-                toast.classList.add('show');
-                
-                const btn = element.querySelector('.copy-btn');
-                if (btn) {
-                    const originalText = btn.textContent;
-                    btn.textContent = 'COPIED!';
-                    setTimeout(() => {
-                        btn.textContent = originalText;
-                    }, 2000);
-                }
-
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2500);
-            }).catch(err => {
-                console.error("Copy failed: ", err);
-            });
+            const parent = thumbEl.parentElement;
+            parent.querySelectorAll('img').forEach(img => img.classList.remove('active'));
+            thumbEl.classList.add('active');
         }
     </script>
 </body>
