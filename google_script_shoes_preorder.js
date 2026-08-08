@@ -31,7 +31,7 @@ function doPost(e) {
     var shoeModel = data.shoeModel || 'Panda Low';
     var shoeSize = data.shoeSize || 'N/A';
     var quantity = parseInt(data.quantity || '1', 10);
-    var basePrice = 110.00;
+    var basePrice = 100.00; // Flat retail price for Pana Mio (CHF)
     var discountedUnitPrice = 100.00; // Special Pre-Order Price
     var subtotal = discountedUnitPrice * quantity;
 

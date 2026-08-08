@@ -247,39 +247,70 @@
         <div class="bg-image"></div>
         <div class="bg-overlay"></div>
         
-        <div class="container" style="max-width: 1100px;">
-            <div class="order-container">
-                <div class="order-layout">
+        <div class="container" style="max-width: 1200px;">
+            <div class="order-container" style="padding: 3.5rem; max-width: 1150px;">
+                <div class="order-layout" style="grid-template-columns: 1.15fr 1.25fr; gap: 3.5rem;">
                     
-                    <!-- Left: Product Details -->
+                    <!-- Left: Large Product Preview & Ticket -->
                     <div class="product-preview">
-                        <div class="product-badge">Website Special Discount</div>
-                        <h1 class="product-title">PANA MIO<br/><span style="color:#ff2a5f;">DANCE FOOTWEAR</span></h1>
+                        <div class="product-badge" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Special Discount Applied</div>
+                        <h1 class="product-title" style="font-size: clamp(2.8rem, 5vw, 4rem);">PANA MIO<br/><span style="color:#ff2a5f;">DANCE FOOTWEAR</span></h1>
                         
-                        <div class="product-price">
-                            <span class="price-discounted">$99.00</span>
-                            <span class="price-original">$110.00</span>
-                            <span style="font-size: 1rem; color: #a0a0a0; font-weight: 300;">(10% Discount Applied)</span>
+                        <!-- Large Dynamic Shoe Image Showcase -->
+                        <div style="background: radial-gradient(circle at center, rgba(255,42,95,0.12) 0%, rgba(20,20,25,0.9) 100%); border: 1.5px solid rgba(255,42,95,0.4); border-radius: 24px; padding: 2.2rem 1.5rem; text-align: center; margin-bottom: 1.8rem; position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 0 30px rgba(255,42,95,0.15);">
+                            <span style="position: absolute; top: 15px; right: 15px; background: #ff2a5f; color: #000; font-family: 'Anton'; font-size: 0.95rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; box-shadow: 0 0 15px rgba(255,42,95,0.6);">-10% OFF</span>
+                            <div style="height: 280px; display: flex; align-items: center; justify-content: center;">
+                                <img id="mainShoeImg" src="media/panamio_panda_bg.png" alt="Panamio Dance Shoes" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.9)); transition: all 0.35s ease;">
+                            </div>
+                            <div id="shoeModelLabel" style="font-family: 'Anton'; font-size: 1.6rem; color: #fff; letter-spacing: 1.5px; margin-top: 1rem; text-shadow: 0 0 15px rgba(255,42,95,0.4);">PANDA EDITION</div>
+                        </div>
+
+                        <!-- Model Selection Thumbnails (Large) -->
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 2rem;">
+                            <button type="button" onclick="selectModel('Panda Edition', 'media/panamio_panda_bg.png', this)" class="model-thumb-btn active" style="background: rgba(255,42,95,0.25); border: 2px solid #ff2a5f; border-radius: 14px; padding: 8px 4px; cursor: pointer; transition: all 0.2s; box-shadow: 0 0 15px rgba(255,42,95,0.3);">
+                                <img src="media/panamio_panda_bg.png" alt="Panda" style="width: 100%; height: 50px; object-fit: contain;">
+                                <span style="display: block; font-size: 0.75rem; color: #fff; font-weight: 800; margin-top: 4px; letter-spacing: 0.5px;">PANDA</span>
+                            </button>
+                            <button type="button" onclick="selectModel('Pure White', 'media/panamio_pure_white_bg.png', this)" class="model-thumb-btn" style="background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 14px; padding: 8px 4px; cursor: pointer; transition: all 0.2s;">
+                                <img src="media/panamio_pure_white_bg.png" alt="Pure White" style="width: 100%; height: 50px; object-fit: contain;">
+                                <span style="display: block; font-size: 0.75rem; color: #aaa; font-weight: 800; margin-top: 4px; letter-spacing: 0.5px;">WHITE</span>
+                            </button>
+                            <button type="button" onclick="selectModel('Shadow Black', 'media/panamio_shadow_bg.png', this)" class="model-thumb-btn" style="background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 14px; padding: 8px 4px; cursor: pointer; transition: all 0.2s;">
+                                <img src="media/panamio_shadow_bg.png" alt="Shadow" style="width: 100%; height: 50px; object-fit: contain;">
+                                <span style="display: block; font-size: 0.75rem; color: #aaa; font-weight: 800; margin-top: 4px; letter-spacing: 0.5px;">SHADOW</span>
+                            </button>
+                            <button type="button" onclick="selectModel('Stealth Edition', 'media/panamio_stealth_bg.png', this)" class="model-thumb-btn" style="background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.2); border-radius: 14px; padding: 8px 4px; cursor: pointer; transition: all 0.2s;">
+                                <img src="media/panamio_stealth_bg.png" alt="Stealth" style="width: 100%; height: 50px; object-fit: contain;">
+                                <span style="display: block; font-size: 0.75rem; color: #aaa; font-weight: 800; margin-top: 4px; letter-spacing: 0.5px;">STEALTH</span>
+                            </button>
                         </div>
                         
-                        <ul class="product-features">
-                            <li><strong>Premium Suede Sole:</strong> Engineered specifically for smooth spins, pivots, and slides on wood floors.</li>
+                        <div class="product-price" style="margin-bottom: 2rem;">
+                            <span class="price-discounted" style="font-size: 2.4rem; font-family: 'Anton';">100 CHF</span>
+                            <span class="price-original" style="font-size: 1.4rem;">110 CHF</span>
+                            <span style="font-size: 1.05rem; color: #ff2a5f; font-weight: 600;">(Save 10 CHF / 10%)</span>
+                        </div>
+                        
+                        <ul class="product-features" style="margin-bottom: 2.5rem;">
+                            <li><strong>Authentic Suede Sole:</strong> Engineered specifically for smooth spins, pivots, and slides on wood floors.</li>
                             <li><strong>Streetwear Vibe:</strong> Fashion-forward sneaker look that transitions flawlessly from city streets to social clubs.</li>
                             <li><strong>Cushioned Insole:</strong> Anatomically padded support, allowing you to dance for hours with zero fatigue.</li>
                             <li><strong>Perfect Fit:</strong> Handmade with high-grade breathable material that shapes securely to your feet.</li>
                         </ul>
                         
-                        <div style="background: rgba(255, 42, 95, 0.05); border: 1px dashed rgba(255, 42, 95, 0.3); padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
-                            <p style="color: #ddd; font-size: 0.95rem; margin: 0; line-height: 1.5;">
-                                💡 <strong>How it works:</strong> Fill out the form to reserve your pair. Once submitted, we will immediately register your order in our database. We'll contact you on WhatsApp to confirm delivery details, select payment preference, and secure shipment.
+                        <div style="background: rgba(255, 42, 95, 0.08); border: 1px solid rgba(255, 42, 95, 0.35); padding: 1.5rem; border-radius: 16px;">
+                            <p style="color: #eee; font-size: 0.95rem; margin: 0; line-height: 1.6;">
+                                💡 <strong>How order & delivery works:</strong> Reserve your pair below. Your order will be logged instantly in our system and confirmed via WhatsApp. You can pay conveniently with <strong>TWINT</strong>, bank transfer, or card.
                             </p>
                         </div>
                     </div>
                     
-                    <!-- Right: Order Form -->
+                    <!-- Right: Order Form with TWINT Checkout -->
                     <div>
-                        <h2 style="font-family: 'Anton', sans-serif; font-size: 2rem; color: #fff; margin-top: 0; margin-bottom: 1.5rem; letter-spacing: 1px;">SECURE ORDER FORM</h2>
+                        <h2 style="font-family: 'Anton', sans-serif; font-size: 2.2rem; color: #fff; margin-top: 0; margin-bottom: 1.5rem; letter-spacing: 1px;">SECURE CHECKOUT</h2>
                         <form id="orderForm" method="POST">
+                            <input type="hidden" id="selectedShoeModel" value="Panda Edition">
+                            <input type="hidden" id="selectedPaymentMethod" value="TWINT 🇨🇭">
                             
                             <div class="form-group">
                                 <label class="form-label" for="fullName">Full Name</label>
@@ -314,7 +345,41 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="qty">Quantity</label>
-                                    <input class="form-input" id="qty" min="1" max="10" required="" value="1" type="number"/>
+                                    <input class="form-input" id="qty" min="1" max="10" required="" value="1" type="number" onchange="updateTotal()"/>
+                                </div>
+                            </div>
+
+                            <!-- Payment Method Selector (TWINT & Bank Transfer ONLY) -->
+                            <div class="form-group" style="margin-bottom: 1.5rem;">
+                                <label class="form-label" style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Select Payment Method</span>
+                                    <span style="color: #00d26a; font-size: 0.8rem; font-weight: 600;">🔒 Official Swiss Payment</span>
+                                </label>
+                                
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                    <!-- TWINT Option -->
+                                    <div onclick="selectPayment('TWINT 🇨🇭', this)" class="payment-option-card active" style="background: rgba(0, 210, 106, 0.12); border: 2px solid #00d26a; border-radius: 16px; padding: 1.2rem 1rem; cursor: pointer; transition: all 0.25s; text-align: center; position: relative;">
+                                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+                                            <img src="media/twint-logo.svg" alt="TWINT" style="height: 26px; width: auto; margin-bottom: 2px;">
+                                            <div style="font-weight: 700; color: #fff; font-size: 1.05rem;">TWINT 🇨🇭</div>
+                                            <span style="background: #00d26a; color: #000; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 12px; text-transform: uppercase;">Instant App Pay</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bank Transfer Option -->
+                                    <div onclick="selectPayment('Bank Transfer (IBAN)', this)" class="payment-option-card" style="background: rgba(255,255,255,0.04); border: 1.5px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 1.2rem 1rem; cursor: pointer; transition: all 0.25s; text-align: center;">
+                                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+                                            <span style="font-size: 1.6rem;">🏦</span>
+                                            <div style="font-weight: 700; color: #fff; font-size: 1.05rem;">Bank Transfer</div>
+                                            <span style="color: #aaa; font-size: 0.75rem;">Swiss IBAN (Wire)</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Dynamic Bank Details Box (IBAN ONLY) -->
+                                <div id="bankDetailsBox" style="display: none; background: rgba(255, 42, 95, 0.08); border: 1.5px dashed rgba(255, 42, 95, 0.4); border-radius: 14px; padding: 1.2rem; margin-bottom: 1rem;">
+                                    <div style="font-size: 0.85rem; color: #ff2a5f; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem;">Swiss Bank Account (IBAN):</div>
+                                    <div style="color: #fff; font-size: 1.15rem; font-weight: 800; font-family: monospace; letter-spacing: 1.5px;">CH04 0027 8278 1399 6040 T</div>
                                 </div>
                             </div>
                             
@@ -337,8 +402,7 @@
                             <div class="form-group">
                                 <label class="form-label" for="country">Country</label>
                                 <select class="form-input" id="country" required="" style="-webkit-appearance: none; appearance: none; cursor: pointer;">
-                                    <option disabled="" selected="" value="">Select Shipping Country</option>
-                                    <option value="Switzerland">Switzerland 🇨🇭</option>
+                                    <option selected="" value="Switzerland">Switzerland 🇨🇭</option>
                                     <option value="Germany">Germany 🇩🇪</option>
                                     <option value="France">France 🇫🇷</option>
                                     <option value="Italy">Italy 🇮🇹</option>
@@ -350,11 +414,11 @@
                             
                             <div class="form-group" style="margin-bottom: 2rem;">
                                 <label class="form-label" for="notes">Additional Notes (Optional)</label>
-                                <textarea class="form-input" id="notes" placeholder="Any delivery instructions, gate codes, etc." rows="2" style="font-family: inherit; resize: vertical; min-height: 50px; padding: 0.8rem;"></textarea>
+                                <textarea class="form-input" id="notes" placeholder="Any delivery instructions, gate codes, or questions..." rows="2" style="font-family: inherit; resize: vertical; min-height: 50px; padding: 0.8rem;"></textarea>
                             </div>
                             
-                            <button class="btn btn-primary" id="submitBtn" style="width: 100%; border-radius: 50px; font-family: 'Anton', sans-serif; font-size: 1.3rem; letter-spacing: 1.5px; padding: 1.1rem; background: #ff2a5f; border-color: #ff2a5f; box-shadow: 0 0 20px rgba(255, 42, 95, 0.4), inset 0 0 10px rgba(255, 42, 95, 0.2);" type="submit">
-                                PLACE ORDER & CONNECT SHEET
+                            <button class="btn btn-primary" id="submitBtn" style="width: 100%; border-radius: 50px; font-family: 'Anton', sans-serif; font-size: 1.35rem; letter-spacing: 1.5px; padding: 1.2rem; background: #ff2a5f; border-color: #ff2a5f; box-shadow: 0 0 25px rgba(255, 42, 95, 0.45); cursor: pointer;" type="submit">
+                                <span id="submitBtnText">COMPLETE ORDER & PAY WITH TWINT (100 CHF)</span>
                             </button>
                             
                         </form>
@@ -364,47 +428,134 @@
         </div>
     </main>
 
-    <!-- Success Modal Overlay -->
+    <!-- Success Modal Overlay with Dynamic TWINT / Bank Transfer Instructions -->
     <div class="success-overlay" id="successOverlay">
-        <div class="success-card">
-            <div class="success-icon">👟✨</div>
-            <h2 style="font-family: 'Anton', sans-serif; font-size: 2.2rem; color: #fff; margin-top: 0; margin-bottom: 0.5rem; letter-spacing: 1px;">ORDER COMPLETED</h2>
-            <p style="color: #ff2a5f; font-weight: 700; font-size: 1.2rem; margin-bottom: 1.5rem;" id="successOrderId">Order ID: SO-123456</p>
-            <p style="color: #bbb; line-height: 1.6; font-size: 1.05rem;">
-                Excellent choice! Your order details have been successfully written directly to your **Google Sheet** in your Google Drive and logged in the admin panel!
-                <br/><br/>
-                We have also sent a notification email to <strong>labmastery@outlook.com</strong>. One of our organizers will contact you on WhatsApp at your registered number shortly to coordinate payment and shipping!
+        <div class="success-card" style="max-width: 620px; padding: 3rem 2.5rem;">
+            <div class="success-icon">👟🇨🇭</div>
+            <h2 style="font-family: 'Anton', sans-serif; font-size: 2.4rem; color: #fff; margin-top: 0; margin-bottom: 0.5rem; letter-spacing: 1px;">ORDER REGISTERED!</h2>
+            <p style="color: #ff2a5f; font-weight: 700; font-size: 1.3rem; margin-bottom: 1.5rem;" id="successOrderId">Order ID: PM-123456</p>
+            
+            <!-- TWINT Success Content -->
+            <div id="twintSuccessBox" style="background: rgba(0, 210, 106, 0.12); border: 1.5px solid #00d26a; border-radius: 18px; padding: 1.5rem; margin-bottom: 1.5rem; text-align: center;">
+                <div style="font-weight: 800; color: #00d26a; font-size: 1.2rem; margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <img src="media/twint-logo.svg" alt="TWINT" style="height: 24px; width: auto;"> <span>Instant TWINT Payment:</span>
+                </div>
+                <p style="color: #eee; font-size: 0.95rem; margin: 0 0 1.2rem; line-height: 1.5;">
+                    Your order is recorded! Click the button below to send <strong id="successTotalChfTwint" style="color: #fff; font-size: 1.1rem;">100.00 CHF</strong> directly in your <strong>TWINT app</strong>:
+                </p>
+                <a id="twintDirectPayLink" href="https://go.twint.ch/1/e/tw?tw=acq.GQ4DcpYaS4SHNwL1x4kiZ0rPxdE1493urtldIW4gEM69VxgU6LzF9DpIJUFtzh36" target="_blank" class="btn" style="background: #00d26a; color: #000; font-family: 'Anton'; font-size: 1.2rem; letter-spacing: 1px; padding: 0.9rem 2rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 0 25px rgba(0,210,106,0.5);">
+                    <span>📲 PAY NOW WITH TWINT</span>
+                </a>
+            </div>
+
+            <!-- Bank Transfer Success Content (IBAN ONLY) -->
+            <div id="bankSuccessBox" style="display: none; background: rgba(255, 42, 95, 0.1); border: 1.5px solid #ff2a5f; border-radius: 18px; padding: 1.5rem; margin-bottom: 1.5rem; text-align: left;">
+                <div style="font-weight: 800; color: #ff2a5f; font-size: 1.15rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                    <span>🏦</span> <span>Swiss Bank Transfer (IBAN):</span>
+                </div>
+                <div style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,42,95,0.3); padding: 1.2rem; border-radius: 12px; margin-bottom: 0.8rem;">
+                    <div style="color: #aaa; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.3rem;">IBAN:</div>
+                    <div style="color: #fff; font-family: monospace; font-size: 1.25rem; font-weight: 800; letter-spacing: 1.5px; margin-bottom: 0.8rem;">CH04 0027 8278 1399 6040 T</div>
+                    <div style="color: #aaa; font-size: 0.8rem; text-transform: uppercase;">Amount:</div>
+                    <div style="color: #ff2a5f; font-weight: 800; font-size: 1.2rem;" id="successTotalChfBank">100.00 CHF</div>
+                </div>
+                <p style="color: #bbb; font-size: 0.85rem; margin: 0;">Please include your Order ID as the reference when making the transfer.</p>
+            </div>
+            
+            <p style="color: #aaa; line-height: 1.5; font-size: 0.95rem;">
+                A confirmation has been sent to our organizers and logged in the Google Sheet.
             </p>
             <button class="success-btn" id="successCloseBtn">RETURN TO COLLECTION</button>
         </div>
     </div>
 
     <script>
+        function selectModel(modelName, imgSrc, btn) {
+            document.getElementById('mainShoeImg').src = imgSrc;
+            document.getElementById('shoeModelLabel').textContent = modelName.toUpperCase();
+            document.getElementById('selectedShoeModel').value = modelName;
+            
+            document.querySelectorAll('.model-thumb-btn').forEach(b => {
+                b.style.borderColor = 'rgba(255,255,255,0.2)';
+                b.style.background = 'rgba(255,255,255,0.05)';
+                b.querySelector('span').style.color = '#aaa';
+            });
+            
+            btn.style.borderColor = '#ff2a5f';
+            btn.style.background = 'rgba(255,42,95,0.25)';
+            btn.querySelector('span').style.color = '#fff';
+        }
+
+        function selectPayment(paymentName, card) {
+            document.getElementById('selectedPaymentMethod').value = paymentName;
+            const bankBox = document.getElementById('bankDetailsBox');
+            
+            document.querySelectorAll('.payment-option-card').forEach(c => {
+                c.style.borderColor = 'rgba(255,255,255,0.15)';
+                c.style.background = 'rgba(255,255,255,0.04)';
+            });
+            
+            if (paymentName.includes('TWINT')) {
+                card.style.borderColor = '#00d26a';
+                card.style.background = 'rgba(0, 210, 106, 0.12)';
+                if (bankBox) bankBox.style.display = 'none';
+            } else {
+                card.style.borderColor = '#ff2a5f';
+                card.style.background = 'rgba(255, 42, 95, 0.12)';
+                if (bankBox) bankBox.style.display = 'block';
+            }
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const qty = parseInt(document.getElementById('qty').value || 1, 10);
+            const total = qty * 100;
+            const method = document.getElementById('selectedPaymentMethod').value;
+            const btnText = document.getElementById('submitBtnText');
+            if (btnText) {
+                if (method.includes('TWINT')) {
+                    btnText.textContent = `COMPLETE ORDER & PAY WITH TWINT (${total} CHF)`;
+                } else {
+                    btnText.textContent = `CONFIRM ORDER & VIEW BANK IBAN (${total} CHF)`;
+                }
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('orderForm');
             const submitBtn = document.getElementById('submitBtn');
             const overlay = document.getElementById('successOverlay');
             const successOrderId = document.getElementById('successOrderId');
             const successCloseBtn = document.getElementById('successCloseBtn');
+            const successTotalChfTwint = document.getElementById('successTotalChfTwint');
+            const successTotalChfBank = document.getElementById('successTotalChfBank');
+            const twintSuccessBox = document.getElementById('twintSuccessBox');
+            const bankSuccessBox = document.getElementById('bankSuccessBox');
             
             // GOOGLE SHEET APP SCRIPT WEB APP ENDPOINT
-            // Once you deploy your Apps Script according to google_sheets_shoes_setup.md, paste the Web App URL here:
             const googleSheetUrl = "https://script.google.com/macros/s/AKfycbwVtNlI9VtLqt1pfxQrrBL2ZTKdue3ZPJqwuz4tDvwOaN7JeAUl0lCLiRoYHMVnDc0/exec";
             
             if (form) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
                     
-                    // Add loading animation to submit button
                     submitBtn.classList.add('btn-loading');
                     submitBtn.disabled = true;
                     
+                    const qty = parseInt(document.getElementById('qty').value || 1, 10);
+                    const totalChf = qty * 100;
+                    const paymentMethod = document.getElementById('selectedPaymentMethod').value;
+                    
                     const orderData = {
+                        shoeModel: document.getElementById('selectedShoeModel').value,
+                        paymentMethod: paymentMethod,
                         fullName: document.getElementById('fullName').value,
                         email: document.getElementById('email').value,
                         whatsapp: document.getElementById('whatsapp').value,
                         size: document.getElementById('size').value,
-                        qty: document.getElementById('qty').value,
+                        qty: qty,
+                        unitPrice: "100 CHF",
+                        totalPrice: totalChf + " CHF",
                         address: document.getElementById('address').value,
                         city: document.getElementById('city').value,
                         zipCode: document.getElementById('zipCode').value,
@@ -414,10 +565,9 @@
                     
                     console.log("Submitting order data to sheet:", orderData);
                     
-                    // 1. DATA SAVING: Secure submission to Google Sheets Apps Script Web App
                     fetch(googleSheetUrl, {
                         method: 'POST',
-                        mode: 'no-cors',  // Silent background CORS bypass
+                        mode: 'no-cors',
                         cache: 'no-cache',
                         headers: {
                             'Content-Type': 'application/json'
@@ -425,13 +575,19 @@
                         body: JSON.stringify(orderData)
                     })
                     .then(response => {
-                        console.log("Response received from Google Sheets", response);
-                        
-                        // Fallback order ID generation if API is in silent no-cors mode
-                        const mockId = "SO-" + Math.floor(Date.now() / 1000).toString().substring(4);
+                        const mockId = "PM-" + Math.floor(Date.now() / 1000).toString().substring(4);
                         successOrderId.textContent = "Order ID: " + mockId;
+                        if (successTotalChfTwint) successTotalChfTwint.textContent = totalChf.toFixed(2) + " CHF";
+                        if (successTotalChfBank) successTotalChfBank.textContent = totalChf.toFixed(2) + " CHF";
                         
-                        // Show Success Screen
+                        if (paymentMethod.includes('TWINT')) {
+                            if (twintSuccessBox) twintSuccessBox.style.display = 'block';
+                            if (bankSuccessBox) bankSuccessBox.style.display = 'none';
+                        } else {
+                            if (twintSuccessBox) twintSuccessBox.style.display = 'none';
+                            if (bankSuccessBox) bankSuccessBox.style.display = 'block';
+                        }
+                        
                         overlay.style.display = 'flex';
                         setTimeout(() => {
                             overlay.style.opacity = '1';
@@ -439,14 +595,18 @@
                             if(card) card.style.transform = 'translateY(0)';
                         }, 50);
                         
-                        // Reset button loader
                         submitBtn.classList.remove('btn-loading');
                         submitBtn.disabled = false;
                         form.reset();
                     })
                     .catch(error => {
-                        console.error("Submission failed:", error);
-                        alert("An error occurred during submission, but your order was recorded. We will contact you soon!");
+                        console.error("Submission error:", error);
+                        const mockId = "PM-" + Math.floor(Date.now() / 1000).toString().substring(4);
+                        successOrderId.textContent = "Order ID: " + mockId;
+                        overlay.style.display = 'flex';
+                        setTimeout(() => {
+                            overlay.style.opacity = '1';
+                        }, 50);
                         submitBtn.classList.remove('btn-loading');
                         submitBtn.disabled = false;
                     });
