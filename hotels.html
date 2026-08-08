@@ -493,6 +493,24 @@
                             <span>📍</span> <span>Spreitenbach, Switzerland (Near Venue)</span>
                         </div>
 
+                        <!-- IIP Apartments Real Photo Carousel / Showcase -->
+                        <div class="hotel-gallery" style="margin-bottom: 1.5rem;">
+                            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 220px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); border: 1px solid rgba(0,210,106,0.3);">
+                                <img id="iipMainImg" src="media/iip-bed.jpg" alt="IIP Apartments Kingsize Bed" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease;">
+                                <div style="position: absolute; bottom: 8px; left: 10px; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; color: #00d26a; font-weight: 700;">
+                                    👑 Kingsize Bed Guaranteed
+                                </div>
+                            </div>
+                            <!-- Thumbnails -->
+                            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 8px;">
+                                <img src="media/iip-bed.jpg" alt="Bedroom" onclick="swapIipImg(this, '👑 Kingsize Bed Guaranteed')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid #00d26a; opacity: 1;" class="iip-thumb">
+                                <img src="media/iip-exterior.jpg" alt="Exterior" onclick="swapIipImg(this, '🏢 Modern Glass Building & Entrance')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); opacity: 0.6;" class="iip-thumb">
+                                <img src="media/iip-bathroom.jpg" alt="Bathroom" onclick="swapIipImg(this, '🚿 Modern Marble Bathroom & Shower')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); opacity: 0.6;" class="iip-thumb">
+                                <img src="media/iip-bedroom-view.jpg" alt="Room View" onclick="swapIipImg(this, '✨ 25 m² Serviced Studio Space')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); opacity: 0.6;" class="iip-thumb">
+                                <img src="media/iip-vanity.jpg" alt="Vanity" onclick="swapIipImg(this, '🌿 Amenities & Fresh Linen')" style="width: 100%; height: 45px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); opacity: 0.6;" class="iip-thumb">
+                            </div>
+                        </div>
+
                         <div class="hotel-price-box">
                             <div>
                                 <div class="hotel-price-amount">110 CHF</div>
@@ -546,8 +564,8 @@
                             </p>
                         </div>
 
-                        <a href="https://iipapartments.ch" target="_blank" rel="noopener noreferrer" class="book-action-btn green">
-                            VISIT IIP APARTMENTS PORTAL ↗
+                        <a href="https://www.iipapartments.ch/" target="_blank" rel="noopener noreferrer" class="book-action-btn green">
+                            VISIT IIP APARTMENTS WEBSITE (110 CHF) ↗
                         </a>
                         <div style="color: #777; font-size: 0.8rem; text-align: center; margin-top: 0.6rem;">
                             Check-in 15:00 · Check-out 12:00 · Parking CHF 1.50/h
@@ -617,8 +635,8 @@
                             </p>
                         </div>
 
-                        <a href="https://all.accor.com/hotel/9440/index.de.shtml" target="_blank" rel="noopener noreferrer" class="book-action-btn">
-                            VISIT ACCOR / IBIS PORTAL ↗
+                        <a href="https://all.accor.com/hotel/A9A0/index.en.shtml?utm_campaign=seo+maps&utm_medium=seo+maps&utm_source=google+Maps" target="_blank" rel="noopener noreferrer" class="book-action-btn">
+                            VISIT IBIS BADEN PORTAL (10% OFF) ↗
                         </a>
                         <div style="color: #777; font-size: 0.8rem; text-align: center; margin-top: 0.6rem;">
                             Valid for up to 7 rooms per night online
@@ -734,6 +752,21 @@
     <div id="toast">Copied Code to Clipboard! ✅</div>
 
     <script>
+        function swapIipImg(el, label) {
+            const main = document.getElementById('iipMainImg');
+            if (main) {
+                main.src = el.src;
+                const badge = main.parentElement.querySelector('div');
+                if (badge && label) badge.textContent = label;
+            }
+            document.querySelectorAll('.iip-thumb').forEach(t => {
+                t.style.border = '1px solid rgba(255,255,255,0.1)';
+                t.style.opacity = '0.6';
+            });
+            el.style.border = '2px solid #00d26a';
+            el.style.opacity = '1';
+        }
+
         function copyCode(text, element) {
             navigator.clipboard.writeText(text).then(() => {
                 const toast = document.getElementById('toast');
