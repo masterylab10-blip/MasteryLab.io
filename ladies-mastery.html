@@ -406,20 +406,22 @@
 </div>
 </div>
 <div id="pricing" style="margin-top: 2rem; display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;">
-    <div style="background: rgba(255,77,77,0.08); border: 2px solid rgba(255,77,77,0.5); border-radius: 14px; padding: 1.2rem 1.8rem; text-align: center; min-width: 200px;">
+    <div style="background: rgba(255,77,77,0.08); border: 2px solid rgba(255,77,77,0.5); border-radius: 14px; padding: 1.2rem 1.8rem; text-align: center; min-width: 200px; position: relative;">
+        <span style="position: absolute; top: -10px; right: 10px; background: #ff2a5f; color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">Early Bird Sold Out</span>
         <p style="color: #FF4D4D; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 0.6rem;">🎫 Multi-Lab Deal</p>
-        <p style="margin: 0; color: #fff; font-size: 0.9rem;"><span style="color: #FF4D4D; font-size: 1.6rem; font-weight: 900;">180 CHF</span></p>
-        <p style="color: #FF4D4D; font-size: 0.75rem; font-weight: 600; margin: 0.1rem 0 0.6rem;">Early Bird</p>
+        <p style="margin: 0; color: #fff; font-size: 0.9rem;"><span style="color: #FF4D4D; font-size: 1.8rem; font-weight: 900;">200 CHF</span></p>
+        <p style="color: #FF4D4D; font-size: 0.75rem; font-weight: 600; margin: 0.1rem 0 0.6rem;">Regular Ticket</p>
         <hr style="border: none; border-top: 1px solid rgba(255,77,77,0.2); margin: 0.5rem 0;"/>
-        <p style="color: rgba(255,255,255,0.55); font-size: 0.85rem; margin: 0 0 1rem;">200 CHF Regular</p>
+        <p style="color: rgba(255,255,255,0.4); text-decoration: line-through; font-size: 0.8rem; margin: 0 0 1rem;">180 CHF Early Bird</p>
         <a onclick="openModalWithTicket('returning')" style="display: block; background: #FF4D4D; color: #fff; font-family: 'Anton'; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; padding: 0.7rem 1rem; border-radius: 50px; text-decoration: none; text-transform: uppercase; cursor: pointer;">🎟️ Secure Your Ticket</a>
     </div>
-    <div style="background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 1.2rem 1.8rem; text-align: center; min-width: 200px;">
+    <div style="background: rgba(255,255,255,0.04); border: 2px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 1.2rem 1.8rem; text-align: center; min-width: 200px; position: relative;">
+        <span style="position: absolute; top: -10px; right: 10px; background: #ff2a5f; color: #fff; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 10px; text-transform: uppercase;">Early Bird Sold Out</span>
         <p style="color: #aaa; font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 0.6rem;">🆕 New Participants</p>
-        <p style="margin: 0; color: #fff; font-size: 0.9rem;"><span style="color: #fff; font-size: 1.6rem; font-weight: 900;">200 CHF</span></p>
-        <p style="color: #aaa; font-size: 0.75rem; font-weight: 600; margin: 0.1rem 0 0.6rem;">Early Bird</p>
+        <p style="margin: 0; color: #fff; font-size: 0.9rem;"><span style="color: #fff; font-size: 1.8rem; font-weight: 900;">220 CHF</span></p>
+        <p style="color: #aaa; font-size: 0.75rem; font-weight: 600; margin: 0.1rem 0 0.6rem;">Regular Ticket</p>
         <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0.5rem 0;"/>
-        <p style="color: rgba(255,255,255,0.55); font-size: 0.85rem; margin: 0 0 1rem;">220 CHF Regular</p>
+        <p style="color: rgba(255,255,255,0.4); text-decoration: line-through; font-size: 0.8rem; margin: 0 0 1rem;">200 CHF Early Bird</p>
         <a onclick="openModalWithTicket('new')" style="display: block; background: rgba(255,255,255,0.1); color: #fff; font-family: 'Anton'; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; padding: 0.7rem 1rem; border-radius: 50px; text-decoration: none; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); cursor: pointer;">🎟️ Secure Your Ticket</a>
     </div>
 </div>
@@ -471,13 +473,13 @@
 <div style="display: flex; gap: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
     <div id="ticketReturning" onclick="selectTicket('returning')" style="flex: 1; min-width: 130px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 0.8rem; text-align: center; cursor: pointer; transition: all 0.25s ease; opacity: 0.45;">
         <p style="color: #FF4D4D; font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 0.35rem;">🎫 Multi-Lab Deal</p>
-        <p style="color: #FF4D4D; font-size: 1.3rem; font-weight: 900; margin: 0;">180 CHF</p>
-        <p style="color: rgba(255,255,255,0.5); font-size: 0.72rem; margin: 0.1rem 0 0;">Early Bird · 200 Regular</p>
+        <p style="color: #FF4D4D; font-size: 1.4rem; font-weight: 900; margin: 0;">200 CHF</p>
+        <p style="color: rgba(255,255,255,0.5); font-size: 0.72rem; margin: 0.1rem 0 0;">Regular Ticket (Early Bird Sold Out)</p>
     </div>
     <div id="ticketNew" onclick="selectTicket('new')" style="flex: 1; min-width: 130px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 0.8rem; text-align: center; cursor: pointer; transition: all 0.25s ease; opacity: 0.45;">
         <p style="color: #aaa; font-size: 0.62rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin: 0 0 0.35rem;">🆕 New</p>
-        <p style="color: #fff; font-size: 1.3rem; font-weight: 900; margin: 0;">200 CHF</p>
-        <p style="color: rgba(255,255,255,0.5); font-size: 0.72rem; margin: 0.1rem 0 0;">Early Bird · 220 Regular</p>
+        <p style="color: #fff; font-size: 1.4rem; font-weight: 900; margin: 0;">220 CHF</p>
+        <p style="color: rgba(255,255,255,0.5); font-size: 0.72rem; margin: 0.1rem 0 0;">Regular Ticket (Early Bird Sold Out)</p>
     </div>
 </div>
 <p id="ticketError" style="color: #ff6b6b; font-size: 0.8rem; text-align: center; margin: -1rem 0 1rem; display: none;">Please select a ticket type above.</p>
