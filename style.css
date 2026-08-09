@@ -1524,10 +1524,13 @@ textarea.form-input {
 .bio-hero-bg {
     position: absolute;
     inset: 0;
-    background: url('media/isma-irene-hero.jpg') center top / cover no-repeat;
+    background-position: center top !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     opacity: 0.5;
-    transform: scale(1.1);
-    animation: zoomIn 20s infinite alternate;
+    transform-origin: top center;
+    transform: scale(1);
+    animation: zoomIn 25s infinite alternate;
 }
 
 .bio-hero-bg.michael-mayra {
@@ -1911,7 +1914,7 @@ textarea.form-input {
     }
 
     100% {
-        transform: scale(1.1);
+        transform: scale(1.04);
     }
 }
 
