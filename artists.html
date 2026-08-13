@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Our Artists & Partners | MasteryLab</title>
+    <link href="style.css?v=10" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="media/favicon.png" rel="icon" type="image/png" />
+    <style>
+        .artist-section-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            margin-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .artist-section-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(214,0,28,0.5), transparent);
+        }
+
+        /* Gold gradient for Natalia (Official Partner) */
+        .partner-highlight::before {
+            background: linear-gradient(90deg, transparent, rgba(230,175,21,0.6), transparent) !important;
+        }
+        
+        .info-pill {
+            display: inline-block;
+            background: rgba(214, 0, 28, 0.1);
+            color: #ff4d4d;
+            border: 1px solid rgba(214, 0, 28, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .partner-pill {
+            background: rgba(230, 175, 21, 0.1) !important;
+            color: #e6af15 !important;
+            border: 1px solid rgba(230, 175, 21, 0.4) !important;
+        }
+
+        .image-collage {
+            position: relative;
+            height: 100%;
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-collage img {
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-collage img:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 900px) {
+            .artist-section-wrapper {
+                padding: 2rem;
+            }
+            .grid-2 > div {
+                order: 0 !important;
+            }
+            .image-collage {
+                min-height: auto;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body style="background: #050505; color: white;">
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+        <div class="container">
+            <a class="logo" href="/">
+                <picture>
+                    <source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp" />
+                    <source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp" />
+                    <source srcset="media/logo-wings-large.webp" type="image/webp" />
+                    <img alt="MasteryLab Logo" fetchpriority="high" src="media/logo-wings.webp" />
+                </picture>
+            </a>
+            <div class="nav-links">
+                <a class="nav-btn-outline ticket-shape" href="/" style="border-color: #555; color: #fff;">BACK TO HOME</a>
+                <a class="nav-btn-outline ticket-shape" href="dance-outfit" style="color: var(--color-primary); border-color: var(--color-primary); box-shadow: 0 0 10px rgba(214,0,28,0.3);">DANCE OUTFIT</a>
+                <a class="nav-btn-outline ticket-shape" href="artists" style="color: #e6af15; border-color: #e6af15; box-shadow: 0 0 10px rgba(230,175,21,0.3);">OUR ARTISTS</a>
+                <a class="nav-btn-outline ticket-shape" href="partners" style="color: white; border-color: white;">PARTNERS</a>
+                <a class="nav-btn-outline ticket-shape" href="what-is-masterylab">What is MasteryLab?</a>
+                <a class="nav-btn-outline ticket-shape" href="education-journal">EDUCATION JOURNAL</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button aria-label="Toggle navigation" class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section style="min-height: 40vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding-top: 120px; padding-bottom: 60px;">
+        <div class="container text-center" style="position: relative; z-index: 2;">
+            <span class="text-gradient-red" style="font-family: 'Outfit'; letter-spacing: 4px; font-weight: 700;">WORLD-CLASS MASTERS</span>
+            <h1 style="font-family: 'Anton'; font-size: clamp(3.5rem, 8vw, 6rem); line-height: 0.9; margin: 1rem 0;">
+                <span class="glow-white-premium">MEET OUR</span><br />
+                <span class="glow-red-premium">ARTISTS</span>
+            </h1>
+            <p style="font-size: 1.2rem; color: #aaa; max-width: 700px; margin: 1.5rem auto 0; font-weight: 300; line-height: 1.6;">
+                MasteryLab brings together world-renowned instructors and industry pioneers to offer premier dance education. Meet the elite artists behind our continuous training programs.
+            </p>
+        </div>
+        <!-- Background Effect -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(214,0,28,0.08) 0%, transparent 70%); pointer-events: none;"></div>
+    </section>
+
+    <!-- Artists Section -->
+    <section style="padding: 20px 0 100px;">
+        <div class="container">
+            
+            <!-- Michael & Mayra -->
+            <div class="artist-section-wrapper">
+                <div class="grid-2" style="align-items: center; gap: 4rem;">
+                    <div class="image-collage">
+                        <img src="media/michael_mayra_new.webp" alt="Michael & Mayra" />
+                    </div>
+                    <div>
+                        <span class="info-pill">Technique Lab Directors</span>
+                        <h2 class="glow-white-premium" style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem; line-height: 1;">
+                            MICHAEL & MAYRA</h2>
+                        <p style="font-size: 1rem; color: #D6001C; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            International Instructors | Creators of Dance Healing
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">
+                            Based in Spain, Michael and Mayra are world-renowned Bachata instructors celebrated for their academic and structured approach to dance pedagogy.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2rem; border-left: 2px solid #D6001C; padding-left: 1.2rem;">
+                            They focus on connection mechanics, styling, and body movement, providing students with standard-defining technical precision.
+                        </p>
+                        <a class="btn-primary" href="michael-mayra-vol2">EXPLORE M&M LAB</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Micka -->
+            <div class="artist-section-wrapper">
+                <div class="grid-2" style="align-items: center; gap: 4rem;">
+                    <div style="order: 2;" class="image-collage">
+                        <img src="media/micka_new.webp" alt="Micka" />
+                    </div>
+                    <div style="order: 1;">
+                        <span class="info-pill">Men Style Lab Director</span>
+                        <h2 class="glow-white-premium" style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem; line-height: 1;">
+                            MICKA</h2>
+                        <p style="font-size: 1rem; color: #D6001C; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Men Style Pioneer & Coach
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">
+                            Micka is a powerhouse in the Latin dance scene, known for his unique styling, dynamic musicality, and clean instructional breakdown.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2rem; border-left: 2px solid #D6001C; padding-left: 1.2rem;">
+                            He guides the Men Style Dance Lab, providing male dancers with styling techniques, attitude, footwork, and core confidence on the dancefloor.
+                        </p>
+                        <a class="btn-primary" href="men-style-lab">EXPLORE MEN STYLE LAB</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Angela Mariano -->
+            <div class="artist-section-wrapper">
+                <div class="grid-2" style="align-items: center; gap: 4rem;">
+                    <div class="image-collage">
+                        <img src="media/angela_mariano_new.webp" alt="Angela Mariano" />
+                    </div>
+                    <div>
+                        <span class="info-pill">Dominican Bachata Director</span>
+                        <h2 class="glow-white-premium" style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem; line-height: 1;">
+                            ÁNGELA MARIANO</h2>
+                        <p style="font-size: 1rem; color: #D6001C; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Dominican Bachata Specialist | Ladies Styler
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">
+                            Born in Puglia, Italy, Ángela began dancing at the age of 5. Her extensive training spans ballroom & Latin, contemporary, street, hip-hop, lyrical jazz, modern, Afro-Cuban salsa, Dominican Bachata, and Russian ballet.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2rem; border-left: 2px solid #D6001C; padding-left: 1.2rem;">
+                            She is a renowned ladies style specialist whose Dominican Bachata curriculum focuses on authentic rhythm, hip movements, cultural roots, and connection.
+                        </p>
+                        <a class="btn-primary" href="ladies-mastery">EXPLORE LADIES STYLE LAB</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Xidan -->
+            <div class="artist-section-wrapper">
+                <div class="grid-2" style="align-items: center; gap: 4rem;">
+                    <div style="order: 2;" class="image-collage">
+                        <img src="media/xidan_new.webp" alt="Xidan" />
+                    </div>
+                    <div style="order: 1;">
+                        <span class="info-pill">Bachata Sensual Director</span>
+                        <h2 class="glow-white-premium" style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem; line-height: 1;">
+                            XIDAN</h2>
+                        <p style="font-size: 1rem; color: #D6001C; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Bachata Sensual Specialist | Ladies Styler
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">
+                            Xidan has shared her passion for Bachata for 12 years. Her teaching focuses on elegant body movement, clean technique, musicality, styling, and confidence — helping dancers make their movement feel as good as it looks.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2rem; border-left: 2px solid #D6001C; padding-left: 1.2rem;">
+                            With a smooth and modern style inspired by Bachata Sensual and other dance influences, Xidan guides students to move with fluid styling, control, and authentic expression.
+                        </p>
+                        <a class="btn-primary" href="ladies-mastery">EXPLORE LADIES STYLE LAB</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ale & Xidan -->
+            <div class="artist-section-wrapper">
+                <div class="grid-2" style="align-items: center; gap: 4rem;">
+                    <div class="image-collage">
+                        <img src="media/ale_xidan_new.webp" alt="Ale & Xidan" />
+                    </div>
+                    <div>
+                        <span class="info-pill">Dancers Lab Directors</span>
+                        <h2 class="glow-white-premium" style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem; line-height: 1;">
+                            ALE & XIDAN</h2>
+                        <p style="font-size: 1rem; color: #D6001C; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            International Artists & Instructors
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">
+                            Ale & Xidan bring a fresh energy and creative partnerwork styling to the Bachata Dancers Lab.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2rem; border-left: 2px solid #D6001C; padding-left: 1.2rem;">
+                            Known for their dynamic classes and outstanding social dance skills, they teach styling, connection, and high-energy partnerwork.
+                        </p>
+                        <a class="btn-primary" href="ale-xidan">EXPLORE ALE & XIDAN LAB</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aitor & Sara -->
+            <div class="artist-section-wrapper">
+                <div class="grid-2" style="align-items: center; gap: 4rem;">
+                    <div style="order: 2;" class="image-collage">
+                        <img src="media/aitor-sara.webp" alt="Aitor & Sara" />
+                    </div>
+                    <div style="order: 1;">
+                        <span class="info-pill">Dancers Lab Directors</span>
+                        <h2 class="glow-white-premium" style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem; line-height: 1;">
+                            AITOR & SARA</h2>
+                        <p style="font-size: 1rem; color: #D6001C; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Sensual Bachata Specialists | International Instructors
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">
+                            Known internationally for their unique style, flow, and absolute precision, Aitor & Sara are one of the most exciting couples in the Bachata Sensual scene.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2rem; border-left: 2px solid #D6001C; padding-left: 1.2rem;">
+                            Their training focuses on clean leader-follower technique, advanced sensual body waves, styling, social dance secrets, and creative musical flow.
+                        </p>
+                        <a class="btn-primary" href="bachata-dancers-lab">EXPLORE DANCERS LAB</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Natalia Lopez (OFFICIAL PARTNER & ARTIST) -->
+            <div class="artist-section-wrapper partner-highlight">
+                <div class="grid-2" style="align-items: center; gap: 4rem;">
+                    <div class="image-collage">
+                        <img src="media/natalia_lopez_new.webp" alt="Natalia Lopez" />
+                    </div>
+                    <div>
+                        <span class="info-pill partner-pill">Official Partner & Artist</span>
+                        <h2 class="glow-white-premium" style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem; line-height: 1; color: #e6af15;">
+                            NATALIA LOPEZ</h2>
+                        <p style="font-size: 1rem; color: #e6af15; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Main Partner | Director of Area 4 Dance Center
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">
+                            Based in Baden, Switzerland, Natalia Lopez is a multi-talented stage performer, dancer, singer, and international coach directing the Area 4 Dance Center.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2rem; border-left: 2px solid #e6af15; padding-left: 1.2rem;">
+                            As our primary partner, Natalia collaborates closely with MasteryLab to host exceptional weekend intensives and support local dance development.
+                        </p>
+                        <a class="btn-primary" href="partners" style="background: transparent; border: 1px solid #e6af15; color: #e6af15;">VIEW PARTNERS PAGE</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.05); background: #000;">
+        <div class="container">
+            <div class="grid-3" style="margin-bottom: 3rem; gap: 3rem;">
+                <div>
+                    <img alt="MasteryLab" src="media/logo-wings.png" style="width: 150px; margin-bottom: 1.5rem;" />
+                    <p style="color: #888; line-height: 1.6;">
+                        High-level, continuous dance educational lab offering intensive weekend programs.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: white; font-family: 'Anton'; letter-spacing: 1px; margin-bottom: 1.5rem;">QUICK LINKS</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.8rem;"><a href="/" style="color: #888; text-decoration: none; transition: color 0.3s;">Home</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="what-is-masterylab" style="color: #888; text-decoration: none; transition: color 0.3s;">About</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="/#programs" style="color: #888; text-decoration: none; transition: color 0.3s;">Programs</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="dance-outfit" style="color: #888; text-decoration: none; transition: color 0.3s;">Outfit</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="partners" style="color: #888; text-decoration: none; transition: color 0.3s;">Partners</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="artists" style="color: #e6af15; text-decoration: none; transition: color 0.3s;">Artists</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; font-family: 'Anton'; letter-spacing: 1px; margin-bottom: 1.5rem;">CONTACT</h4>
+                    <p style="color: #888; margin-bottom: 0.5rem;">Email: info@masterylab.ch</p>
+                    <p style="color: #888; margin-bottom: 0.5rem;">Location: Basel, Switzerland</p>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                        <a href="https://instagram.com/masterylab.ch" target="_blank" style="color: white; font-size: 1.5rem; opacity: 0.7; transition: opacity 0.3s;">IG</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;">
+                <p style="color: #444;">© 2024 MasteryLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
