@@ -3268,3 +3268,38 @@ a.btn-book-now .ticket-icon {
         gap: 6rem;
     }
 }
+
+/* =========================================
+   SINGLE NAV LINK LAYOUT (GO BACK BUTTONS)
+   ========================================= */
+
+/* Prevent overlap on desktop/tablet: position the single nav link to the left */
+@media (min-width: 769px) {
+    .nav-links:not(:has(a:nth-child(2))) {
+        position: absolute !important;
+        left: clamp(1.5rem, 4vw, 4rem) !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin-left: 0 !important;
+        display: flex !important;
+    }
+}
+
+/* On mobile, if there is only a single nav link (e.g. GO BACK), show it directly on the right and hide the hamburger menu */
+@media (max-width: 768px) {
+    /* Hide the mobile menu button since there's no menu needed */
+    .navbar:has(.nav-links:not(:has(a:nth-child(2)))) .mobile-menu-btn {
+        display: none !important;
+    }
+    
+    /* Always display the single nav link directly on the right */
+    .nav-links:not(:has(a:nth-child(2))) {
+        display: flex !important;
+        position: static !important;
+        margin-left: auto !important;
+        padding: 0 !important;
+        background: transparent !important;
+        width: auto !important;
+        flex-direction: row !important;
+    }
+}
