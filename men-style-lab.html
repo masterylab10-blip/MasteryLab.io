@@ -433,7 +433,11 @@
     </div>
 </div>
 <p id="ticketError" style="color: #ff6b6b; font-size: 0.8rem; text-align: center; margin: -1rem 0 1rem; display: none;">Please select a ticket type above.</p>
-<form id="regForm">
+<form action="https://formsubmit.co/masterylab1.0@gmail.com" id="regForm" method="POST">
+<input name="_next" type="hidden" value="registration-thank-you" />
+<input name="_captcha" type="hidden" value="false" />
+<input name="_template" type="hidden" value="table" />
+<input name="_subject" type="hidden" value="New Men Style Lab Registration!" />
 <input name="type" type="hidden" value="MenStyle"/>
 <input id="ticketTypeInput" name="ticket_type" type="hidden" value=""/>
 <div class="form-group" style="margin-bottom: 1rem;">
@@ -581,18 +585,24 @@
                 const targetStripeLink = stripeLinks[ticketType] || stripeLinks['new'];
                 const formData = new FormData(localRegForm);
 
+                // Submit to Google Sheets in background
                 fetch(googleScriptURL, {
                     method: 'POST',
                     body: formData,
                     mode: 'no-cors'
-                })
-                    .then(() => {
-                        window.location.href = targetStripeLink;
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        window.location.href = targetStripeLink;
-                    });
+                });
+
+                // Submit to FormSubmit in background (No-CORS) to send email
+                fetch(localRegForm.action, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                });
+
+                // Redirect to Stripe payment
+                setTimeout(() => {
+                    window.location.href = targetStripeLink;
+                }, 600);
             });
         }
 

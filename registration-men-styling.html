@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Secure Your Spot | Men Style Lab | MasteryLab</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Favicon -->
+    <link href="media/favicon.png" rel="icon" type="image/png" />
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        .registration-page {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 0 60px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #050505;
+        }
+
+        .bg-image {
+            position: absolute;
+            inset: 0;
+            background: url('media/mastery_lab_particles_hero.webp') center center/cover no-repeat;
+            opacity: 0.4;
+            filter: blur(5px);
+            z-index: 1;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, #050505 100%);
+            z-index: 2;
+        }
+
+        .registration-container {
+            position: relative;
+            z-index: 3;
+            max-width: 950px;
+            margin: 0 auto;
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 15px rgba(214, 0, 28, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .registration-container {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a class="logo" href="/">
+                <picture>
+                    <source media="(max-width: 480px)" srcset="media/logo-wings-small.webp" type="image/webp" />
+                    <source media="(max-width: 800px)" srcset="media/logo-wings-medium.webp" type="image/webp" />
+                    <source srcset="media/logo-wings-large.webp" type="image/webp" /><img alt="MasteryLab Logo"
+                        fetchpriority="high" src="media/logo-wings.webp" />
+                </picture>
+            </a>
+            <!-- Mobile Menu Button -->
+            <button aria-label="Toggle navigation" class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a class="nav-btn-outline ticket-shape" href="#" onclick="history.back(); return false;">GO BACK</a>
+            </div>
+        </div>
+    </nav>
+    <main class="registration-page">
+        <div class="bg-image"></div>
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="registration-container">
+                <!-- Benefits Section -->
+                <div class="auth-benefits" style="margin-bottom: 3rem; text-align: center;">
+                    <h1 class="text-gradient"
+                        style="font-family: 'Anton'; font-size: 3.5rem; text-transform: uppercase; margin-bottom: 1rem;">
+                        WHY JOIN MASTERYLAB?</h1>
+                    <p style="color: #ccc; margin-bottom: 2rem;">Unlock exclusive resources and level up your body control, footwork, and masculine styling.</p>
+                    <div class="benefit-grid"
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: left;">
+                        <div class="benefit-card"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <h3>Track Progress</h3>
+                            <p style="font-size: 0.9rem; color: #aaa;">Keep a record of all the labs and workshops you've completed.</p>
+                        </div>
+                        <div class="benefit-card"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <h3>Exclusive Content</h3>
+                            <p style="font-size: 0.9rem; color: #aaa;">Access study materials, music playlists, and technique notes.</p>
+                        </div>
+                        <div class="benefit-card"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <h3>Community</h3>
+                            <p style="font-size: 0.9rem; color: #aaa;">Connect with other dedicated leaders and instructors.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;"></div>
+                <h1 class="text-gradient-red"
+                    style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 0.5rem; text-transform: uppercase;">
+                    SECURE YOUR SPOT
+                </h1>
+                <p style="text-align: center; color: #aaa; margin-bottom: 2.5rem; font-size: 1.1rem; font-weight: 300;">
+                    MEN STYLE LAB - WITH MICKA
+                </p>
+                <form action="https://formsubmit.co/masterylab1.0@gmail.com" id="menRegForm" method="POST">
+                    <input name="_next" type="hidden" value="registration-thank-you" />
+                    <input name="_captcha" type="hidden" value="false" />
+                    <input name="_template" type="hidden" value="table" />
+                    <input name="_subject" type="hidden" value="New Men Style Lab Registration!" />
+                    <input name="type" type="hidden" value="MenStyle" />
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">Full Name</label>
+                        <input class="form-input" id="firstName" name="first_name" required="" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="city">City of Residence</label>
+                        <input class="form-input" id="city" name="city" required="" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="role">Role in Scene</label>
+                        <select class="form-input" id="role" name="role" required="" style="appearance: none;">
+                            <option disabled="" selected="" value="">Select your role</option>
+                            <option style="color: black;" value="Dancer">Dancer</option>
+                            <option style="color: black;" value="Teacher">Teacher</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="dance_role">Role (Leader or Follower)</label>
+                        <select class="form-input" id="dance_role" name="dance_role" required="" style="appearance: none;">
+                            <option style="color: black;" value="Leader">Leader</option>
+                            <option style="color: black;" value="Follower">Follower</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input class="form-input" id="email" name="email" required="" type="email" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="whatsapp">WhatsApp Number</label>
+                        <input class="form-input" id="whatsapp" name="whatsapp" required="" type="tel" />
+                    </div>
+                    <button class="btn-primary" id="submitBtn"
+                        style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4);"
+                        type="submit">
+                        CONFIRM REGISTRATION
+                    </button>
+                    <p
+                        style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 1.5rem; line-height: 1.4;">
+                        By proceeding, you agree to our <a href="terms-of-service"
+                            style="color: #ff6b6b; text-decoration: underline;">Terms &amp; Conditions</a>. <br />
+                        <span style="display: block; margin-top: 10px; color: #ff6b6b;">(This ticket is not refundable,
+                            it can be transferred to another person or replaced with another lab from the program)</span>
+                    </p>
+                </form>
+                <script>
+                    const regForm = document.querySelector('form');
+                    const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxU27erApehiGH1835Er5GUun9rX0m4uzjIYLUMRGZQTheEUqbTPfVQL1dcJ9r2qWM1/exec';
+
+                    if (regForm) {
+                        regForm.addEventListener('submit', function (e) {
+                            e.preventDefault();
+                            const btn = document.getElementById('submitBtn');
+                            if (btn) btn.innerText = 'Submitting...';
+
+                            const formData = new FormData(regForm);
+                            const data = new URLSearchParams();
+                            for (const pair of formData) {
+                                data.append(pair[0], pair[1]);
+                            }
+
+                            // Compatibility Mirroring
+                            const fullName = formData.get('first_name') || '';
+                            const nameParts = fullName.trim().split(/\s+/);
+                            data.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
+                            data.append('phone', formData.get('whatsapp') || '');
+                            data.append('address', formData.get('city') || '');
+                            data.append('type', 'MenStyle');
+
+                            // Submit to Google Sheets in background
+                            navigator.sendBeacon(googleScriptURL, data);
+
+                            // Submit to FormSubmit in background (No-CORS)
+                            fetch(regForm.action, {
+                                method: 'POST',
+                                mode: 'no-cors',
+                                body: formData
+                            });
+
+                            // Redirect to thank you page
+                            const finalLink = document.querySelector('input[name="_next"]').value;
+                            setTimeout(() => {
+                                window.location.href = finalLink;
+                            }, 800);
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer
+        style="padding: 3rem 0; text-align: center; background: #000; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <p style="color: #444;">© 2025 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
