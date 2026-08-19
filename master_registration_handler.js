@@ -76,14 +76,34 @@ function doPost(e) {
         var notes = data.notes || '';
         var status = "⏳ PENDING";
 
-        // Headers: Timestamp, Full Name, Address, City, Role, Dance Role, Email, WhatsApp, Track, Level, Notes, Status
-        sheet.appendRow([timestamp, fullName, address, city, role, danceRole, email, whatsapp, track, level, notes, status]);
+        // --- MenStyle-specific row format ---
+        // Headers: Timestamp, First Name, Last Name, Phone, Email, Role, Ticket Price, Status, Ticket Kind
+        if (type === 'MenStyle') {
+            var firstName = data.first_name || data.firstName || 'N/A';
+            var lastName = data.last_name || data.lastName || 'N/A';
+            var ticketType = data.ticket_type || 'N/A';
+            var ticketPrice = data.ticket_price || 'N/A';
 
-        var subject = "🚀 New Registration [" + type + "]: " + fullName;
+            sheet.appendRow([timestamp, firstName, lastName, whatsapp, email, role, ticketPrice, status, ticketType]);
+
+        } else {
+            // --- Default row format for all other events ---
+            // Headers: Timestamp, Full Name, Address, City, Role, Dance Role, Email, WhatsApp, Track, Level, Notes, Status
+            sheet.appendRow([timestamp, fullName, address, city, role, danceRole, email, whatsapp, track, level, notes, status]);
+        }
+
+        var displayName = (type === 'MenStyle') ? (data.first_name || data.firstName || '') + ' ' + (data.last_name || data.lastName || '') : fullName;
+        var subject = "🚀 New Registration [" + type + "]: " + displayName;
         var body = "New registration for MasteryLab " + type + "!\n\n" +
-            "Name: " + fullName + "\n" +
+            "Name: " + displayName + "\n" +
             "Email: " + email + "\n" +
-            "Status: " + status + "\n\n" +
+            "Phone: " + whatsapp + "\n" +
+            "Role: " + role + "\n";
+        if (type === 'MenStyle') {
+            body += "Ticket: " + (data.ticket_type || 'N/A') + "\n" +
+                    "Price: " + (data.ticket_price || 'N/A') + "\n";
+        }
+        body += "Status: " + status + "\n\n" +
             "The sheet will update to PAID automatically when they finish Stripe.";
 
         ADMIN_EMAILS.forEach(function (recipient) {
@@ -116,12 +136,19 @@ function handleStripePayment(event) {
                 var sheet = sheets[s];
                 var dataRows = sheet.getDataRange().getValues();
 
-                // We expect Email in Column G (Index 6)
+                // Determine email column index based on sheet type
+                // MenStyle: Email in Column E (Index 4)
+                // Others:   Email in Column G (Index 6)
+                var emailColIndex = (key === 'MenStyle') ? 4 : 6;
+                // MenStyle: Status in Column H (Index 7)
+                // Others:   Status in Column L (Index 11)
+                var statusColNumber = (key === 'MenStyle') ? 8 : 12;
+
                 for (var i = 1; i < dataRows.length; i++) {
-                    var rowEmail = dataRows[i][6];
+                    var rowEmail = dataRows[i][emailColIndex];
                     if (rowEmail && rowEmail.toString().toLowerCase().trim() === customerEmail.toLowerCase().trim()) {
-                        // Update Status in Column L (Index 11)
-                        sheet.getRange(i + 1, 12).setValue("✅ PAID");
+                        // Update Status column
+                        sheet.getRange(i + 1, statusColNumber).setValue("✅ PAID");
 
                         // Notify Admin
                         var subject = "💰 PAYMENT CONFIRMED: " + dataRows[i][1];
@@ -142,4 +169,44 @@ function handleStripePayment(event) {
     }
 
     return ContentService.createTextOutput("Email not found in sheets").setMimeType(ContentService.MimeType.TEXT);
+}
+
+/**
+ * ONE-TIME SETUP: Run this function from the Apps Script editor to create
+ * the correct headers in the MenStyle Lab Google Sheet.
+ * After running, you can delete this function.
+ */
+function setupMenStyleHeaders() {
+    var sheetId = SHEET_CONFIG['MenStyle'];
+    var ss = SpreadsheetApp.openById(sheetId);
+    var sheet = ss.getSheets()[0];
+    
+    var headers = ['Timestamp', 'First Name', 'Last Name', 'Phone', 'Email', 'Role', 'Ticket Price', 'Status', 'Ticket Kind'];
+    
+    // Check if row 1 already has data
+    var existingRow1 = sheet.getRange(1, 1, 1, headers.length).getValues()[0];
+    var hasData = existingRow1.some(function(cell) { return cell !== ''; });
+    
+    if (hasData) {
+        // Insert a new row at top and add headers
+        sheet.insertRowBefore(1);
+    }
+    
+    // Set headers in row 1
+    sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
+    
+    // Format headers: bold, background color, freeze
+    sheet.getRange(1, 1, 1, headers.length)
+        .setFontWeight('bold')
+        .setBackground('#1a1a2e')
+        .setFontColor('#e6af15')
+        .setHorizontalAlignment('center');
+    sheet.setFrozenRows(1);
+    
+    // Auto-resize columns
+    for (var i = 1; i <= headers.length; i++) {
+        sheet.autoResizeColumn(i);
+    }
+    
+    Logger.log('✅ MenStyle headers set up successfully in sheet: ' + ss.getUrl());
 }

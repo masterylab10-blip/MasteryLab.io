@@ -433,13 +433,10 @@
     </div>
 </div>
 <p id="ticketError" style="color: #ff6b6b; font-size: 0.8rem; text-align: center; margin: -1rem 0 1rem; display: none;">Please select a ticket type above.</p>
-<form action="https://formsubmit.co/masterylab1.0@gmail.com" id="regForm" method="POST">
-<input name="_next" type="hidden" value="registration-thank-you" />
-<input name="_captcha" type="hidden" value="false" />
-<input name="_template" type="hidden" value="table" />
-<input name="_subject" type="hidden" value="New Men Style Lab Registration!" />
+<form id="regForm">
 <input name="type" type="hidden" value="MenStyle"/>
 <input id="ticketTypeInput" name="ticket_type" type="hidden" value=""/>
+<input id="ticketPriceInput" name="ticket_price" type="hidden" value=""/>
 <div class="form-group" style="margin-bottom: 1rem;">
 <label class="form-label" for="firstName" style="display: block; color: #aaa; font-size: 0.9rem; margin-bottom: 0.3rem;">First
                         Name</label>
@@ -530,10 +527,17 @@
         }
 
         // Ticket selection logic
+        // Ticket pricing map
+        const ticketPricing = {
+            'returning': { price: '150 CHF', label: 'Multi-Lab Deal (150 CHF)' },
+            'new':       { price: '180 CHF', label: 'New Participant (180 CHF)' }
+        };
+
         function selectTicket(type) {
             const returning = document.getElementById('ticketReturning');
             const newCard = document.getElementById('ticketNew');
             const input = document.getElementById('ticketTypeInput');
+            const priceInput = document.getElementById('ticketPriceInput');
             const error = document.getElementById('ticketError');
             if (type === 'returning') {
                 returning.style.opacity = '1';
@@ -554,7 +558,10 @@
                 returning.style.border = '1px solid rgba(255,255,255,0.08)';
                 returning.style.boxShadow = 'none';
             }
-            input.value = type;
+            // Set ticket type label and price
+            const ticket = ticketPricing[type] || ticketPricing['new'];
+            input.value = ticket.label;
+            priceInput.value = ticket.price;
             if (error) error.style.display = 'none';
         }
 
@@ -569,7 +576,8 @@
         if (localRegForm) {
             localRegForm.addEventListener('submit', function (e) {
                 e.preventDefault();
-                const ticketType = document.getElementById('ticketTypeInput').value;
+                const ticketTypeInput = document.getElementById('ticketTypeInput');
+                const ticketType = ticketTypeInput.value;
                 if (!ticketType) {
                     const error = document.getElementById('ticketError');
                     if (error) error.style.display = 'block';
@@ -582,27 +590,23 @@
                     btn.style.opacity = '0.7';
                 }
 
-                const targetStripeLink = stripeLinks[ticketType] || stripeLinks['new'];
+                // Determine Stripe link from the raw ticket type
+                const rawTicketType = ticketType.indexOf('Multi-Lab') !== -1 ? 'returning' : 'new';
+                const targetStripeLink = stripeLinks[rawTicketType] || stripeLinks['new'];
                 const formData = new FormData(localRegForm);
 
-                // Submit to Google Sheets in background
                 fetch(googleScriptURL, {
                     method: 'POST',
                     body: formData,
                     mode: 'no-cors'
-                });
-
-                // Submit to FormSubmit in background (No-CORS) to send email
-                fetch(localRegForm.action, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: formData
-                });
-
-                // Redirect to Stripe payment
-                setTimeout(() => {
-                    window.location.href = targetStripeLink;
-                }, 600);
+                })
+                    .then(() => {
+                        window.location.href = targetStripeLink;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        window.location.href = targetStripeLink;
+                    });
             });
         }
 
