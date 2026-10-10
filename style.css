@@ -539,6 +539,10 @@ h6 {
             gap: 16px;
             grid-template-columns: 1fr 1fr 1fr 220px 1fr 1fr 1fr;
         }
+        .nav-links:has(a.memories-nav-link) {
+            gap: 8px;
+            grid-template-columns: 1fr 1fr 1fr 220px 1fr 1fr 1fr 1fr;
+        }
         .nav-links:has(a:nth-child(3))::before {
             width: 220px !important;
             min-width: 220px !important;
@@ -555,6 +559,10 @@ h6 {
             gap: 8px;
             grid-template-columns: 1fr 1fr 1fr 180px 1fr 1fr 1fr;
         }
+        .nav-links:has(a.memories-nav-link) {
+            gap: 5px;
+            grid-template-columns: 1fr 1fr 1fr 180px 1fr 1fr 1fr 1fr;
+        }
         .nav-links:has(a:nth-child(3))::before {
             width: 180px !important;
             min-width: 180px !important;
@@ -565,6 +573,10 @@ h6 {
             letter-spacing: 0.2px !important;
             padding: 0 0.5rem !important;
         }
+        .nav-links:has(a.memories-nav-link) a {
+            font-size: 0.64rem !important;
+            padding: 0 0.3rem !important;
+        }
     }
     
     /* Grid Column Assignments for 6 links */
@@ -574,6 +586,39 @@ h6 {
     .nav-links:has(a:nth-child(6)) a:nth-child(4) { grid-column: 5; }
     .nav-links:has(a:nth-child(6)) a:nth-child(5) { grid-column: 6; }
     .nav-links:has(a:nth-child(6)) a:nth-child(6) { grid-column: 7; }
+
+    /* Seven-link header: three links on each side of the centered logo,
+       with Memories as a compact red-accented final action. */
+    .nav-links:has(a.memories-nav-link) {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) 260px repeat(4, minmax(0, 1fr));
+        gap: 10px;
+    }
+    .nav-links:has(a.memories-nav-link) a { min-width: 0; font-size: 0.78rem !important; letter-spacing: 0.4px !important; }
+    @media (max-width: 1199px) {
+        .nav-links:has(a.memories-nav-link) {
+            grid-template-columns: repeat(3, minmax(0, 1fr)) 220px repeat(4, minmax(0, 1fr));
+            gap: 5px;
+        }
+        .nav-links:has(a.memories-nav-link) a { font-size: 0.62rem !important; letter-spacing: 0 !important; padding-left: 0.2rem !important; padding-right: 0.2rem !important; }
+    }
+    @media (max-width: 991px) {
+        .nav-links:has(a.memories-nav-link) {
+            grid-template-columns: repeat(3, minmax(0, 1fr)) 180px repeat(4, minmax(0, 1fr));
+        }
+    }
+    .nav-links:has(a.memories-nav-link)::before { grid-column: 4 !important; }
+    .nav-links:has(a.memories-nav-link) a:nth-child(1) { grid-column: 1; }
+    .nav-links:has(a.memories-nav-link) a:nth-child(2) { grid-column: 2; }
+    .nav-links:has(a.memories-nav-link) a:nth-child(3) { grid-column: 3; }
+    .nav-links:has(a.memories-nav-link) a:nth-child(4) { grid-column: 5; }
+    .nav-links:has(a.memories-nav-link) a:nth-child(5) { grid-column: 6; }
+    .nav-links:has(a.memories-nav-link) a:nth-child(6) { grid-column: 7; }
+    .nav-links:has(a.memories-nav-link) a:nth-child(7) {
+        grid-column: 8;
+        color: #fff !important;
+        border-color: var(--color-primary) !important;
+        box-shadow: 0 0 12px rgba(214, 0, 28, 0.22);
+    }
 
     /* Grid Column Assignments for 5 links */
     .nav-links:not(:has(a:nth-child(6))):has(a:nth-child(5)) a:nth-child(1) { grid-column: 1; }
@@ -592,6 +637,55 @@ h6 {
     .nav-links:not(:has(a:nth-child(4))):has(a:nth-child(3)) a:nth-child(1) { grid-column: 1; }
     .nav-links:not(:has(a:nth-child(4))):has(a:nth-child(3)) a:nth-child(2) { grid-column: 3; }
     .nav-links:not(:has(a:nth-child(4))):has(a:nth-child(3)) a:nth-child(3) { grid-column: 5; }
+
+    /* Stack the complete ticket navigation evenly below the centered logo. */
+    .navbar .container {
+        height: 148px !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 0.35rem;
+        padding-top: 0.1rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+    .navbar .container > .logo {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        flex: 0 0 auto;
+    }
+    .navbar .logo-wordmark { height: 62px; }
+    .navbar .container > .nav-links,
+    .navbar .container > .nav-links:has(a:nth-child(3)) {
+        position: static !important;
+        display: flex !important;
+        grid-template-columns: none !important;
+        align-items: stretch !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        height: 46px !important;
+        gap: clamp(0.35rem, 1vw, 1rem) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+    .navbar .container > .nav-links::before { display: none !important; }
+    .navbar .container > .nav-links > a,
+    .navbar .container > .nav-links:has(a:nth-child(3)) > a {
+        position: static !important;
+        grid-column: auto !important;
+        flex: 1 1 0 !important;
+        min-width: 0 !important;
+        width: auto !important;
+        height: 46px !important;
+        padding: 0 0.35rem !important;
+        font-size: clamp(0.58rem, 0.78vw, 0.86rem) !important;
+        letter-spacing: clamp(0px, 0.045vw, 0.7px) !important;
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+    .hero { padding-top: 148px; box-sizing: border-box; }
 }
 
 .logo {
@@ -603,28 +697,16 @@ h6 {
     margin-right: auto;
 }
 
-.logo picture {
-    display: inline-flex;
-    align-items: center;
-    line-height: 0;
-}
-
-.logo img,
-.logo picture img {
-    height: 140px !important;
-    width: auto !important;
-    max-width: none !important;
-    margin-top: -30px;
-    margin-bottom: -45px;
-    filter: drop-shadow(0 0 15px rgba(214, 0, 28, 0.6));
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.logo-wordmark {
     display: block;
+    width: auto;
+    height: 54px;
+    max-width: min(48vw, 420px);
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-.logo:hover img,
-.logo:hover picture img {
-    transform: scale(1.05);
-}
+.logo:hover .logo-wordmark { transform: scale(1.04); }
 
 .nav-links {
     display: flex;
@@ -728,12 +810,7 @@ h6 {
         padding: 0 var(--spacing-sm);
     }
 
-    .logo img,
-    .logo picture img {
-        height: 80px !important;
-        margin-top: -10px;
-        margin-bottom: -15px;
-    }
+    .logo-wordmark { height: 44px; max-width: min(62vw, 300px); }
 
     .nav-links {
         gap: 0.4rem;
@@ -2337,12 +2414,7 @@ textarea.form-input {
         font-size: 0.85rem;
     }
 
-    .logo img,
-    .logo picture img {
-        height: 80px !important;
-        margin-top: -10px;
-        margin-bottom: -15px;
-    }
+    .logo-wordmark { height: 44px; max-width: min(62vw, 300px); }
 
     /* Artist Profiles & Cards */
     .bio-image-wrapper {

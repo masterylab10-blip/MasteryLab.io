@@ -463,4 +463,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     injectEducationJournalLink();
 
+    // Memories gallery shortcut in the shared site navigation.
+    function injectMemoriesLink() {
+        const navLinks = document.querySelector('.nav-links');
+        if (!navLinks || navLinks.querySelector('a[href*="memories"]')) return;
+
+        // Keep focused utility/auth headers compact; this belongs in the full site nav.
+        if (navLinks.querySelectorAll('a').length < 3) return;
+
+        const memoriesLink = document.createElement('a');
+        memoriesLink.href = 'memories.html';
+        memoriesLink.className = 'nav-btn-outline ticket-shape memories-nav-link';
+        memoriesLink.textContent = 'MEMORIES';
+        memoriesLink.setAttribute('aria-label', 'Memories photo galleries');
+        navLinks.appendChild(memoriesLink);
+    }
+    injectMemoriesLink();
+
 });
