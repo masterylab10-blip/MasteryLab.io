@@ -2,7 +2,7 @@
 (() => {
   const labs = {
     mm: { title: 'Michael & Mayra Lab', date: '23–24 May 2026', artists: 'Michael & Mayra', image: 'media/michael-mayra-covers-medium.webp' },
-    styling: { title: 'Men & Lady Styling Lab', date: '12–13 September 2026', artists: 'Micka, Angela Mariano & Xidan', image: 'media/menstyle_lab_cover.webp' }
+    styling: { title: 'Men & Lady Styling Lab', date: '12–13 September 2026', artists: 'Micka, Angela Mariano & Xidan', image: 'media/feedback-styling-2026.png' }
   };
   const form = document.getElementById('feedback-form');
   const steps = [...form.querySelectorAll('.step')];
@@ -62,9 +62,8 @@
     selectedLab = value;
     const lab = labs[value];
     const image = document.getElementById('story-image');
-    image.hidden = value === 'styling';
-    document.getElementById('story-styling-art').hidden = value !== 'styling';
     image.src = lab.image;
+    document.querySelector('.story-photo').classList.toggle('styling-photo', value === 'styling');
     image.alt = lab.title;
     document.getElementById('story-lab').textContent = lab.title.toUpperCase();
     document.getElementById('artist-intro').textContent = value === 'mm'
