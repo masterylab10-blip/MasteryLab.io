@@ -146,17 +146,17 @@
   let activeCollection = '';
   let visibleCount = pageSize;
   const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const driveMemoriesFolder = 'https://drive.google.com/drive/folders/1NPd7NfJHxvMvpDjUwCbLVVI715myQD3d?usp=share_link';
   const photoImageUrl = photo => photo.driveId ? `https://lh3.googleusercontent.com/d/${encodeURIComponent(photo.driveId)}=w1600` : photo.thumb;
-  const photoDownloadUrl = photo => photo.driveUrl || driveMemoriesFolder;
+  const photoDownloadUrl = photo => photo.driveId
+    ? `https://drive.google.com/uc?export=download&id=${encodeURIComponent(photo.driveId)}`
+    : photo.src;
   function downloadPhoto(photo, button) {
     if (!photo) return;
-    window.open(photoDownloadUrl(photo), '_blank', 'noopener,noreferrer');
     const originalLabel = button.textContent;
-    button.textContent = 'Opened Google Drive ↗';
+    button.textContent = 'Starting download…';
     setTimeout(() => {
       if (button.isConnected) button.textContent = originalLabel;
-    }, 3000);
+    }, 2500);
   }
   const currentPhotos = () => photos.filter(photo => photo.day === activeDay && photo.collection === activeCollection);
   function showLightboxPhoto() {
@@ -173,9 +173,9 @@
     lightboxRail.querySelector('[aria-current="true"]')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
     lightboxDownload.href = photoDownloadUrl(photo);
     lightboxDownload.textContent = 'Download original ↓';
-    lightboxDownload.target = '_blank';
-    lightboxDownload.rel = 'noopener noreferrer';
-    lightboxDownload.removeAttribute('download');
+    lightboxDownload.removeAttribute('target');
+    lightboxDownload.removeAttribute('rel');
+    lightboxDownload.download = photo.fileName;
     const disabled = lightboxPhotos.items.length < 2;
     lightbox.querySelector('.memories-lightbox-prev').disabled = disabled;
     lightbox.querySelector('.memories-lightbox-next').disabled = disabled;
@@ -218,16 +218,15 @@
       const label = `${photo.collection} · ${photo.fileName}`;
       const imageUrl = photo.driveId ? `https://lh3.googleusercontent.com/d/${encodeURIComponent(photo.driveId)}=w900` : photo.thumb;
       const downloadUrl = photoDownloadUrl(photo);
-      const downloadAttribute = ' target="_blank" rel="noopener noreferrer"';
-      const downloadLabel = 'Open originals in Google Drive';
+      const downloadAttribute = ` download="${escapeHtml(photo.fileName)}"`;
+      const downloadLabel = 'Download original';
       return `<article class="memories-card"><a class="memories-photo" href="${photo.src}" target="_blank" rel="noopener" aria-label="Open ${escapeHtml(label)}"><img src="${imageUrl}" referrerpolicy="no-referrer" alt="${escapeHtml(`MasteryLab ${photo.collection} event photo`) }" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></a><div class="memories-card-info"><div><strong>${escapeHtml(photo.collection)}</strong><small>${escapeHtml(photo.fileName)}</small></div><a class="memories-download" href="${downloadUrl}" data-photo-src="${escapeHtml(photo.src)}"${downloadAttribute}>${downloadLabel}</a></div></article>`;
     }).join('') : '<div class="memories-empty">No photos are available in this collection yet.</div>';
     grid.querySelectorAll('.memories-photo').forEach(link => link.addEventListener('click', event => {
       event.preventDefault();
       openLightbox(link.getAttribute('href'));
     }));
-    grid.querySelectorAll('.memories-download').forEach(link => link.addEventListener('click', event => {
-      event.preventDefault();
+    grid.querySelectorAll('.memories-download').forEach(link => link.addEventListener('click', () => {
       downloadPhoto(photos.find(photo => photo.src === link.dataset.photoSrc), link);
     }));
     more.innerHTML = shown.length < selectedPhotos.length ? `<button type="button">Load more photos</button>` : '';
@@ -241,8 +240,7 @@
   lightbox.querySelector('.memories-lightbox-close').addEventListener('click', () => lightbox.close());
   lightbox.querySelector('.memories-lightbox-prev').addEventListener('click', () => moveLightbox(-1));
   lightbox.querySelector('.memories-lightbox-next').addEventListener('click', () => moveLightbox(1));
-  lightboxDownload.addEventListener('click', event => {
-    event.preventDefault();
+  lightboxDownload.addEventListener('click', () => {
     downloadPhoto(lightboxPhotos.items[lightboxPhotos.index], lightboxDownload);
   });
   document.getElementById('memories-back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
