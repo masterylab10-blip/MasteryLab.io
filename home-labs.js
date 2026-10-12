@@ -17,12 +17,12 @@
   const index=Math.min(chapters.length-1,Math.floor(progress*chapters.length));
   if(index===current&&desktop.matches)return;current=index;
   chapters.forEach((chapter,i)=>{
-   const active=!desktop.matches||i===index;chapter.classList.toggle('is-current',active);chapter.inert=!active;
+   const active=!desktop.matches||i<=index;chapter.classList.toggle('is-current',active);chapter.inert=!active;
    if(!active)chapter.setAttribute('aria-hidden','true');else chapter.removeAttribute('aria-hidden');
   });
   controls.forEach(button=>button.disabled=Number(button.dataset.direction)<0?index===0:index===chapters.length-1);
   counter.textContent=`${index+1} / ${chapters.length}`;
-  label.textContent=desktop.matches?(index<3?'The moments we made':'The moments ahead'):'Past. Present. What’s next.';
+  label.textContent=desktop.matches?'The moments ahead':'Past. Present. What’s next.';
  }
  function schedule(){if(!queued){queued=true;requestAnimationFrame(update);}}
  controls.forEach(button=>button.addEventListener('click',()=>{
