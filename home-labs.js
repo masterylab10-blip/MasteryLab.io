@@ -13,7 +13,7 @@
   const distance=section.offsetHeight-innerHeight;
   const progress=desktop.matches?Math.max(0,Math.min(1,-section.getBoundingClientRect().top/Math.max(1,distance))):0;
   section.style.setProperty('--journey-progress',`${progress*100}%`);
-  section.style.setProperty('--logo-edge-offset',String(-progress*400));
+  section.style.setProperty('--logo-edge-offset',String(-progress*100));
   const index=Math.min(chapters.length-1,Math.floor(progress*chapters.length));
   if(index===current&&desktop.matches)return;current=index;
   chapters.forEach((chapter,i)=>{
