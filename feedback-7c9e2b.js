@@ -1,8 +1,8 @@
 'use strict';
 (() => {
   const labs = {
-    mm: { title: 'Michael & Mayra Lab', date: '23–24 May 2026', artists: 'Michael & Mayra', image: 'media/michael_mayra_hero_new.webp' },
-    styling: { title: 'Men & Lady Styling Lab', date: '12–13 September 2026', artists: 'Micka, Ramon, Gloria & Angela — plus Angela & Xidan for Sunday Lady Styling', image: 'media/menstyle_lab_cover.webp' }
+    mm: { title: 'Michael & Mayra Lab', date: '23–24 May 2026', artists: 'Michael & Mayra', image: 'media/michael-mayra-covers-medium.webp' },
+    styling: { title: 'Men & Lady Styling Lab', date: '12–13 September 2026', artists: 'Micka, Angela Mariano & Xidan', image: 'media/menstyle_lab_cover.webp' }
   };
   const form = document.getElementById('feedback-form');
   const steps = [...form.querySelectorAll('.step')];
@@ -62,6 +62,8 @@
     selectedLab = value;
     const lab = labs[value];
     const image = document.getElementById('story-image');
+    image.hidden = value === 'styling';
+    document.getElementById('story-styling-art').hidden = value !== 'styling';
     image.src = lab.image;
     image.alt = lab.title;
     document.getElementById('story-lab').textContent = lab.title.toUpperCase();
@@ -75,7 +77,13 @@
     }
     updateReview();
   }
-  form.querySelectorAll('input[name="lab"]').forEach(input => input.addEventListener('change', () => updateLab(input.value)));
+  form.querySelectorAll('input[name="lab"]').forEach(input => {
+    input.addEventListener('change', () => { updateLab(input.value); showStep(1); });
+    // Selecting the same Lab again after going back also opens its questions.
+    input.addEventListener('click', () => {
+      if (step === 0 && selectedLab === input.value) { updateLab(input.value); showStep(1); }
+    });
+  });
   const identityFields = document.getElementById('identity-fields');
   const nameInput = document.getElementById('respondent-name');
   const emailInput = document.getElementById('respondent-email');
@@ -185,8 +193,9 @@
     document.getElementById('step-label').textContent = `${String(index+1).padStart(2,'0')} / ${steps[index].dataset.title.toUpperCase()}`;
     document.getElementById('step-count').textContent = `${index+1} OF ${steps.length}`;
     document.getElementById('progress-fill').style.width = `${((index+1)/steps.length)*100}%`;
-    back.hidden = index === 0; next.hidden = index === steps.length-1; submit.hidden = index !== steps.length-1;
-    next.innerHTML = index === 0 ? 'Let’s begin <span>→</span>' : 'Continue <span>→</span>';
+    document.querySelector('.form-nav').hidden = index === 0;
+    back.hidden = index === 0; next.hidden = index === 0 || index === steps.length-1; submit.hidden = index !== steps.length-1;
+    next.innerHTML = 'Continue <span>→</span>';
     document.getElementById('nav-note').textContent = index === 0 ? 'YOUR WORDS MAKE A DIFFERENCE' : 'EVERY ANSWER IS OPTIONAL';
     status.textContent = '';
     if (index === steps.length-1) updateReview();
@@ -253,5 +262,6 @@
   if (labs[initialLab]) {
     form.querySelector(`input[name="lab"][value="${initialLab}"]`).checked = true;
     updateLab(initialLab);
+    showStep(1, false);
   }
 })();
