@@ -2,7 +2,7 @@
 (() => {
   const labs = {
     mm: { title: 'Michael & Mayra Lab', date: '23–24 May 2026', artists: 'Michael & Mayra', image: 'media/michael-mayra-covers-medium.webp' },
-    styling: { title: 'Men & Lady Styling Lab', date: '12–13 September 2026', artists: 'Micka, Angela Mariano & Xidan', image: 'media/feedback-styling-2026.png' }
+    styling: { title: 'Men & Lady Styling Lab', date: '12–13 September 2026', artists: 'Micka, Angela Mariano & Xidan', image: 'media/feedback-photos/PANA3695-large.webp' }
   };
   const form = document.getElementById('feedback-form');
   const steps = [...form.querySelectorAll('.step')];
@@ -60,6 +60,7 @@
     if (!labs[value]) return;
     const changed = selectedLab !== value;
     selectedLab = value;
+    form.querySelectorAll('[data-lab-memory]').forEach(memory => { memory.hidden = value !== 'styling'; });
     const lab = labs[value];
     const image = document.getElementById('story-image');
     image.src = lab.image;
