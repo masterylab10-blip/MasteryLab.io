@@ -6,3 +6,6 @@
 
 /* Keep the original title artwork; alternate class photos within the review. */
 .story-photo.styling-photo{width:146px;height:146px}.story-photo.styling-photo img,.lab-card:has(input[value="styling"]) .lab-art img{object-fit:contain}@media(max-width:750px){.story-photo.styling-photo{width:104px;height:104px}}@media(max-width:480px){.story-photo.styling-photo{width:90px;height:90px}}
+
+/* Preserve the full frame so faces are never clipped by the review layout. */
+.question-memory img,.question-memory.portrait img{width:100%;height:auto;max-height:600px;object-fit:contain;object-position:center;background:#0b0d10}.question-memory figcaption{position:static;background:#0b0d10;padding:10px 16px;color:#d9dde3}.question-memory{background:#0b0d10}@media(max-width:480px){.question-memory img,.question-memory.portrait img{height:auto;max-height:480px}}
