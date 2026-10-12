@@ -29,7 +29,7 @@
   function initRating(container, name, question, saved = '') {
     const id = `rating-${++ratingId}`;
     container.classList.add('rating');
-    container.innerHTML = `<div class="rating-top"><label for="${id}">${escapeHtml(question)}</label><output id="${id}-output" for="${id}" aria-live="polite">—<small>/10</small></output></div><input class="range" type="range" id="${id}" min="1" max="10" step="1" value="5" aria-describedby="${id}-hint"><input type="hidden" name="${escapeHtml(name)}" value=""><div class="range-labels"><span>1 · Not at all / needs improvement</span><span>10 · Absolutely / excellent</span></div><p class="rating-hint" id="${id}-hint">Move the slider to rate, or leave it unanswered.</p><button type="button" class="clear-rating" hidden>Clear rating</button>`;
+    container.innerHTML = `<div class="rating-top"><label for="${id}">${escapeHtml(question)}</label><output id="${id}-output" for="${id}" aria-live="polite">—<small>/10</small></output></div><input class="range" type="range" id="${id}" min="1" max="10" step="1" value="1" aria-describedby="${id}-hint"><input type="hidden" name="${escapeHtml(name)}" value=""><div class="range-labels"><span>1 · Not at all / needs improvement</span><span>10 · Absolutely / excellent</span></div><p class="rating-hint" id="${id}-hint">Move the slider to rate, or leave it unanswered.</p><button type="button" class="clear-rating" hidden>Clear rating</button>`;
     const slider = container.querySelector('.range');
     const hidden = container.querySelector('input[type="hidden"]');
     const output = container.querySelector('output');
@@ -44,14 +44,14 @@
       if (name === 'Teaching and artist energy') teachingAnswers.set(selectedLab, value);
     }
     slider.addEventListener('input', () => update(slider.value));
-    // A click on the middle thumb can select 5 without firing input.
+    // A click on the starting thumb can select 1 without firing input.
     slider.addEventListener('pointerup', () => update(slider.value));
     slider.addEventListener('keydown', event => {
       if (['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End','PageUp','PageDown'].includes(event.key)) {
         requestAnimationFrame(() => update(slider.value));
       }
     });
-    clear.addEventListener('click', () => { slider.value = '5'; update(''); });
+    clear.addEventListener('click', () => { slider.value = '1'; update(''); });
     if (saved) slider.value = saved;
     update(saved);
   }
