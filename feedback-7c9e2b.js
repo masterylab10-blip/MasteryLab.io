@@ -1,8 +1,8 @@
 'use strict';
 (() => {
   const labs = {
-    mm: { title: 'Michael & Mayra Lab', date: '23–24 May 2026', artists: ['Michael', 'Mayra'], image: 'media/michael_mayra_hero_new.webp' },
-    styling: { title: 'Men & Lady Styling Lab', date: '12–13 September 2026', artists: ['Micka', 'Ramon', 'Gloria', 'Angela Mariano', 'Xidan'], image: 'media/menstyle_lab_cover.webp' }
+    mm: { title: 'Michael & Mayra Lab', date: '23–24 May 2026', artists: 'Michael & Mayra', image: 'media/michael_mayra_hero_new.webp' },
+    styling: { title: 'Men & Lady Styling Lab', date: '12–13 September 2026', artists: 'Micka, Ramon, Gloria & Angela — plus Angela & Xidan for Sunday Lady Styling', image: 'media/menstyle_lab_cover.webp' }
   };
   const form = document.getElementById('feedback-form');
   const steps = [...form.querySelectorAll('.step')];
@@ -17,7 +17,7 @@
   let completed = false;
   let furthestStep = 0;
   let ratingId = 0;
-  const artistAnswers = new Map();
+  const teachingAnswers = new Map();
   const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[char]));
   function makeChips(containerId, name, values) {
     const container = document.getElementById(containerId);
@@ -41,7 +41,7 @@
       clear.hidden = !value;
       slider.style.background = value ? `linear-gradient(to right, var(--red) ${((Number(value)-1)/9)*100}%, var(--line) ${((Number(value)-1)/9)*100}%)` : '';
       slider.setAttribute('aria-valuetext', value ? `${value} out of 10` : 'Not rated. Use arrow keys or move the slider to choose a rating.');
-      if (name.startsWith('Artist · ')) artistAnswers.set(name, value);
+      if (name === 'Teaching and artist energy') teachingAnswers.set(selectedLab, value);
     }
     slider.addEventListener('input', () => update(slider.value));
     // A click on the middle thumb can select 5 without firing input.
@@ -56,16 +56,6 @@
     update(saved);
   }
   form.querySelectorAll('[data-rating]').forEach(container => initRating(container, container.dataset.rating, container.dataset.question));
-  function renderArtistRatings() {
-    const container = document.getElementById('artist-ratings');
-    container.replaceChildren();
-    for (const artist of [...form.querySelectorAll('input[name="Artists attended"]:checked')].map(input => input.value)) {
-      const div = document.createElement('div');
-      container.append(div);
-      const key = `Artist · ${artist}`;
-      initRating(div, key, `How would you rate ${artist}’s teaching and energy?`, artistAnswers.get(key) || '');
-    }
-  }
   function updateLab(value) {
     if (!labs[value]) return;
     const changed = selectedLab !== value;
@@ -75,25 +65,17 @@
     image.src = lab.image;
     image.alt = lab.title;
     document.getElementById('story-lab').textContent = lab.title.toUpperCase();
-    document.getElementById('styling-sessions').hidden = value !== 'styling';
-    form.querySelectorAll('input[name="sessions"]').forEach(input => { input.disabled = value !== 'styling'; });
-    document.getElementById('artist-intro').textContent = value === 'mm' ? 'Michael & Mayra brought their technique and energy to the Lab. Tell us what resonated with you.' : 'Micka, Ramon, Gloria, Angela & Xidan — select the artists you actually trained with, then share your experience.';
+    document.getElementById('artist-intro').textContent = value === 'mm'
+      ? 'Michael & Mayra brought their technique and energy to the Lab. Tell us what resonated with you.'
+      : 'From Dominican roots to sensual flow and styling — tell us about the teaching and energy throughout your Lab.';
     if (changed) {
-      artistAnswers.clear();
-      makeChips('artist-options', 'Artists attended', lab.artists);
-      document.getElementById('artist-options').querySelectorAll('input').forEach(input => input.addEventListener('change', renderArtistRatings));
-      renderArtistRatings();
+      initRating(document.getElementById('teaching-rating'), 'Teaching and artist energy',
+        value === 'mm' ? 'How would you rate the teaching and energy of Michael & Mayra?' : 'How would you rate the teaching and energy at the Men & Lady Styling Lab?',
+        teachingAnswers.get(value) || '');
     }
     updateReview();
   }
   form.querySelectorAll('input[name="lab"]').forEach(input => input.addEventListener('change', () => updateLab(input.value)));
-  document.getElementById('styling-sessions').addEventListener('change', () => {
-    const attended = [...form.querySelectorAll('input[name="sessions"]:checked')].map(input => input.value);
-    const sessionArtists = { 'Men Styling': ['Micka','Ramon'], 'Lady Styling Saturday': ['Gloria','Angela Mariano'], 'Lady Styling Sunday': ['Angela Mariano','Xidan'] };
-    const names = new Set(attended.flatMap(session => sessionArtists[session] || []));
-    form.querySelectorAll('input[name="Artists attended"]').forEach(input => { input.checked = names.has(input.value); });
-    renderArtistRatings();
-  });
   const identityFields = document.getElementById('identity-fields');
   const nameInput = document.getElementById('respondent-name');
   const emailInput = document.getElementById('respondent-email');
@@ -131,6 +113,7 @@
     const lab = labs[selectedLab];
     payload.Lab = lab.title;
     payload['Event dates'] = lab.date;
+    payload['Lab artists'] = lab.artists;
     payload._subject = `MasteryLab feedback · ${lab.title}`;
     payload.Identity = raw.get('identity') === 'named' ? 'Named' : 'Anonymous';
     if (payload.Identity === 'Named') {
@@ -233,7 +216,7 @@
     if (!validateStep()) return;
     if (form.querySelector('input[name="_honey"]').value) return;
     const payload = buildPayload();
-    const hasFeedback = Object.keys(payload).some(key => !key.startsWith('_') && !['Lab','Event dates','Identity','Name','email','Permission to contact','Feedback consent','sessions','Artists attended'].includes(key));
+    const hasFeedback = Object.keys(payload).some(key => !key.startsWith('_') && !['Lab','Event dates','Lab artists','Identity','Name','email','Permission to contact','Feedback consent'].includes(key));
     if (!hasFeedback) { status.textContent = 'Please add at least one rating or written answer before sending.'; return; }
     setSending(true);
     const controller = new AbortController();
