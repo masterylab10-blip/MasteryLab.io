@@ -182,6 +182,7 @@
   });
   function showStep(index, focus = true) {
     step = index;
+    document.body.dataset.step = String(index);
     furthestStep = Math.max(furthestStep, index);
     steps.forEach((section, i) => { section.hidden = i !== index; });
     [...dots.children].forEach((button, i) => {
@@ -199,7 +200,7 @@
     status.textContent = '';
     if (index === steps.length-1) updateReview();
     if (focus) {
-      const heading = steps[index].querySelector('h2');
+      const heading = steps[index].querySelector('h1, h2');
       heading.setAttribute('tabindex','-1'); heading.focus({preventScroll:true});
       document.querySelector('.journey').scrollIntoView({behavior:reducedMotion?'instant':'smooth',block:'start'});
     }
@@ -242,6 +243,7 @@
       }
       if (!response.ok || !(result.success === true || result.success === 'true')) throw new Error('Submission not confirmed');
       completed = true;
+      document.body.dataset.step = 'complete';
       form.hidden = true;
       dots.hidden = true;
       document.getElementById('thank-you').hidden = false;
