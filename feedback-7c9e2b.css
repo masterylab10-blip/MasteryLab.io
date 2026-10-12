@@ -12,3 +12,6 @@
 
 /* Landscape frames, with a separate focal point for each supplied photo. */
 .question-memory a{display:block;position:relative;aspect-ratio:16/9;overflow:hidden}.question-memory img,.question-memory.portrait img{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover;object-position:center 50%}.question-memory img[src*="PANA0810"]{object-position:center 42%}.question-memory img[src*="PANA0825"]{object-position:center 48%}.question-memory img[src*="PANA0725"]{object-position:center top}.question-memory img[src*="PANA0975"]{object-position:center 42%}.question-memory img[src*="PANA1179"]{object-position:center 48%}.question-memory img[src*="PANA3695"]{object-position:center 58%}@media(max-width:480px){.question-memory a{aspect-ratio:4/3}.question-memory img,.question-memory.portrait img{height:100%;max-height:none}}
+
+/* Preserve the precise crops provided by the user at every screen width. */
+.question-memory[data-reference-crop] a{aspect-ratio:var(--photo-ratio)}.question-memory[data-reference-crop] img{object-fit:contain;object-position:center}
