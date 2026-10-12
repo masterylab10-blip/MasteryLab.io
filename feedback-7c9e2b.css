@@ -9,3 +9,6 @@
 
 /* Preserve the full frame so faces are never clipped by the review layout. */
 .question-memory img,.question-memory.portrait img{width:100%;height:auto;max-height:600px;object-fit:contain;object-position:center;background:#0b0d10}.question-memory figcaption{position:static;background:#0b0d10;padding:10px 16px;color:#d9dde3}.question-memory{background:#0b0d10}@media(max-width:480px){.question-memory img,.question-memory.portrait img{height:auto;max-height:480px}}
+
+/* Landscape frames, with a separate focal point for each supplied photo. */
+.question-memory a{display:block;position:relative;aspect-ratio:16/9;overflow:hidden}.question-memory img,.question-memory.portrait img{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover;object-position:center 50%}.question-memory img[src*="PANA0810"]{object-position:center 24%}.question-memory img[src*="PANA0825"]{object-position:center 30%}.question-memory img[src*="PANA0725"]{object-position:center top}.question-memory img[src*="PANA0975"]{object-position:center 42%}.question-memory img[src*="PANA1179"]{object-position:center 48%}.question-memory img[src*="PANA3695"]{object-position:center 58%}@media(max-width:480px){.question-memory a{aspect-ratio:4/3}.question-memory img,.question-memory.portrait img{height:100%;max-height:none}}
