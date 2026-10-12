@@ -17,6 +17,7 @@
   let completed = false;
   let furthestStep = 0;
   let ratingId = 0;
+  const reviewId = crypto.randomUUID();
   const teachingAnswers = new Map();
   const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[char]));
   function makeChips(containerId, name, values) {
@@ -228,6 +229,7 @@
     const payload = buildPayload();
     const hasFeedback = Object.keys(payload).some(key => !key.startsWith('_') && !['Lab','Event dates','Lab artists','Identity','Name','email','Permission to contact','Feedback consent'].includes(key));
     if (!hasFeedback) { status.textContent = 'Please add at least one rating or written answer before sending.'; return; }
+    payload['Review ID'] = reviewId;
     setSending(true);
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(),30000);
