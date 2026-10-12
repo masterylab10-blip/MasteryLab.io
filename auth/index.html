@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script src="/clean-urls.js?v=1"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In | MasteryLab</title>
+<link href="/style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&amp;family=Anton&amp;display=swap" rel="stylesheet"/>
+<link href="/media/favicon.png" rel="icon" type="image/png"/>
+<link rel="canonical" href="https://masterylab.ch/auth/">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container">
+<a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+<div class="nav-links">
+<a class="nav-btn-outline ticket-shape" href="#" onclick="history.back(); return false;">GO BACK</a>
+</div>
+</div>
+</nav>
+<!-- Auth Container -->
+<div class="auth-container">
+<div class="auth-card-dark">
+<!-- Tabs -->
+<div class="auth-tabs">
+<button class="auth-tab active" id="tabSignIn" onclick="switchView('signIn')">Sign In</button>
+<button class="auth-tab" id="tabSignUp" onclick="switchView('signUp')">Create Account</button>
+</div>
+<!-- Sign In View -->
+<div id="signInView">
+<form id="signInForm">
+<div style="margin-bottom: 1.5rem;">
+<label class="auth-label-dark" for="signInEmail">EMAIL ADDRESS</label>
+<input class="auth-input-dark" id="signInEmail" required="" type="email"/>
+</div>
+<div style="margin-bottom: 1.5rem;">
+<label class="auth-label-dark" for="signInPassword">PASSWORD</label>
+<input class="auth-input-dark" id="signInPassword" required="" type="password"/>
+</div>
+<button class="btn-auth-red" type="submit">SIGN IN</button>
+</form>
+</div>
+<!-- Sign Up View -->
+<div id="signUpView" style="display: none;">
+<form id="signUpForm">
+<div class="auth-form-grid">
+<!-- Row 1: Names -->
+<div>
+<label class="auth-label-dark" for="signUpFirstName">FIRST NAME</label>
+<input class="auth-input-dark" id="signUpFirstName" required="" type="text"/>
+</div>
+<div>
+<label class="auth-label-dark" for="signUpLastName">LAST NAME</label>
+<input class="auth-input-dark" id="signUpLastName" required="" type="text"/>
+</div>
+<!-- Row 2: Email -->
+<div class="auth-field-full">
+<label class="auth-label-dark" for="signUpEmail">EMAIL ADDRESS</label>
+<input class="auth-input-dark" id="signUpEmail" required="" type="email"/>
+</div>
+<!-- Row 3: City & Role -->
+<div>
+<label class="auth-label-dark" for="signUpCity">CITY OF RESIDENCE</label>
+<input class="auth-input-dark" id="signUpCity" placeholder="e.g. Basel" required="" type="text"/>
+</div>
+<div>
+<label class="auth-label-dark" for="signUpRole">ROLE In Community</label>
+<select class="auth-input-dark" id="signUpRole" required="" style="cursor: pointer;">
+<option disabled="" selected="" value="">Select Role</option>
+<option value="Student">Student</option>
+<option value="Teacher">Teacher</option>
+<option value="Dancer">Dancer</option>
+<option value="Performer">Performer</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<!-- Row 4: WhatsApp -->
+<div class="auth-field-full">
+<label class="auth-label-dark" for="signUpWhatsapp">WHATSAPP NUMBER</label>
+<input class="auth-input-dark" id="signUpWhatsapp" placeholder="+41 79 123 45 67" type="tel"/>
+</div>
+<!-- Row 5: Password -->
+<div class="auth-field-full">
+<label class="auth-label-dark" for="signUpPassword">PASSWORD</label>
+<input class="auth-input-dark" id="signUpPassword" minlength="6" required="" type="password"/>
+</div>
+</div>
+<button class="btn-auth-red" type="submit">REGISTER NOW</button>
+</form>
+</div>
+<!-- Messages -->
+<div id="authMessage" style="margin-top: 1.5rem; text-align: center; font-weight: 600; display: none;">
+</div>
+</div>
+</div>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script>
+        // --- Supabase Config ---
+        const SUPABASE_URL = 'https://enrxmbysgqhyujbdamoa.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucnhtYnlzZ3FoeXVqYmRhbW9hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc1MzA3OTQsImV4cCI6MjA4MzEwNjc5NH0.Fi1NKfk4eU2JUKsSX6bhImJ6mrluJUzZt_dcFqSQxRI';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // --- Authentication Logic ---
+
+        // Get redirect parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectTo = urlParams.get('redirect') || 'registration-bachata-sensual';
+        const track = urlParams.get('track');
+        const level = urlParams.get('level');
+
+        // View Switching
+        function switchView(view) {
+            const signInView = document.getElementById('signInView');
+            const signUpView = document.getElementById('signUpView');
+            const authMessage = document.getElementById('authMessage');
+
+            const tabSignIn = document.getElementById('tabSignIn');
+            const tabSignUp = document.getElementById('tabSignUp');
+
+            authMessage.style.display = 'none';
+
+            if (view === 'signIn') {
+                signInView.style.display = 'block';
+                signUpView.style.display = 'none';
+
+                tabSignIn.classList.add('active');
+                tabSignUp.classList.remove('active');
+            } else {
+                signInView.style.display = 'none';
+                signUpView.style.display = 'block';
+
+                tabSignIn.classList.remove('active');
+                tabSignUp.classList.add('active');
+            }
+        }
+
+        // Message Helper
+        function showMessage(msg, isError = false) {
+            const el = document.getElementById('authMessage');
+            el.textContent = msg;
+            el.style.color = isError ? '#ff6b6b' : '#4cd137';
+            el.style.display = 'block';
+        }
+
+        // --- Sign Up ---
+        document.getElementById('signUpForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const firstName = document.getElementById('signUpFirstName').value.trim();
+            const lastName = document.getElementById('signUpLastName').value.trim();
+            const email = document.getElementById('signUpEmail').value.trim().toLowerCase();
+            const city = document.getElementById('signUpCity').value.trim();
+            const role = document.getElementById('signUpRole').value;
+            const whatsapp = document.getElementById('signUpWhatsapp').value.trim();
+            const password = document.getElementById('signUpPassword').value;
+
+            // Simple validation
+            if (!firstName || !lastName || !email || !password || !city || !role) {
+                showMessage('Please fill in all required fields.', true);
+                return;
+            }
+
+            // 1. Sign Up Auth User
+            const { data, error } = await supabaseClient.auth.signUp({
+                email: email,
+                password: password
+            });
+
+            if (error) {
+                showMessage(error.message, true);
+                return;
+            }
+
+            // 2. Insert into Profiles Table
+            if (data.user) {
+                const { error: profileError } = await supabaseClient
+                    .from('profiles')
+                    .insert([
+                        {
+                            id: data.user.id,
+                            first_name: firstName,
+                            last_name: lastName,
+                            city: city,
+                            role: role,
+                            whatsapp: whatsapp
+                        }
+                    ]);
+
+                if (profileError) {
+                    console.error('Profile creation error:', profileError);
+                    // We continue anyway, as the account is created
+                    if (profileError.code === '42P01') {
+                        // Table doesn't exist hint
+                        showMessage('Account created, but profile failed (Table missing). Contact admin.', true);
+                        return;
+                    }
+                }
+            }
+
+            showMessage('Account created! checking for confirmation...');
+            // Check if session is established (if email confirmation is off)
+            const { data: sessionData } = await supabaseClient.auth.getSession();
+
+            if (!sessionData.session && !error) {
+                showMessage('Please check your email to confirm your account!', false);
+                return;
+            }
+
+            showMessage('Account active! Redirecting...');
+
+            // Redirect
+            let redirectUrl = redirectTo;
+            const params = [];
+            if (track) params.push(`track=${track}`);
+            if (level) params.push(`level=${level}`);
+
+            if (params.length > 0) {
+                redirectUrl += (redirectUrl.includes('?') ? '&' : '?') + params.join('&');
+            }
+
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 1500);
+        });
+
+        // --- Sign In ---
+        document.getElementById('signInForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('signInEmail').value.trim().toLowerCase();
+            const password = document.getElementById('signInPassword').value;
+
+            const { data, error } = await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+            if (error) {
+                showMessage(error.message, true);
+                return;
+            }
+
+            showMessage('Sign in successful! Redirecting...');
+
+            // Redirect
+            let redirectUrl = redirectTo;
+            const params = [];
+            if (track) params.push(`track=${track}`);
+            if (level) params.push(`level=${level}`);
+
+            if (params.length > 0) {
+                redirectUrl += (redirectUrl.includes('?') ? '&' : '?') + params.join('&');
+            }
+
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 1000);
+        });
+
+    </script>
+</body>
+</html>

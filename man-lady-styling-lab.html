@@ -2,21 +2,22 @@
 
 <html lang="en">
 <head>
+<script src="/clean-urls.js?v=1"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Man-Lady Styling Lab | MasteryLab.io</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
-<link rel="preload" href="media/dominican-sensual-cover.webp" as="image" type="image/webp"/>
-<link href="style.css" rel="stylesheet"/>
+<link rel="preload" href="/media/dominican-sensual-cover.webp" as="image" type="image/webp"/>
+<link href="/style.css" rel="stylesheet"/>
 <style>
     /* Men Style Lab Theme Overrides */
     :root {
         --color-primary: #e6af15; /* Warm gold matching flyer */
         --color-primary-dark: #b8880f;
     }
-    
+
     .bio-hero-overlay {
         background: radial-gradient(circle at center, rgba(230,175,21,0.1) 0%, #050505 100%) !important;
     }
@@ -50,7 +51,7 @@
 <body>
 <nav class="navbar">
 <div class="container">
-<a class="logo" href="/"><img class="logo-wordmark" src="media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+<a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
 <!-- Mobile Menu Button -->
 <button aria-label="Toggle navigation" class="mobile-menu-btn">
 <span></span>
@@ -64,7 +65,7 @@
 </nav>
 <!-- Premium Hero Section -->
 <header class="bio-hero" style="height: 100vh; min-height: 100vh; padding-top: 100px; padding-bottom: 4rem;">
-<div class="bio-hero-bg" style="background: url('media/dominican-sensual-cover.webp') center top/cover no-repeat; opacity: 0.65; transform-origin: top center;"></div>
+<div class="bio-hero-bg" style="background: url('/media/dominican-sensual-cover.webp') center top/cover no-repeat; opacity: 0.65; transform-origin: top center;"></div>
 <div class="bio-hero-overlay" style="background: radial-gradient(circle at center, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.92) 100%) !important;"></div>
 <div class="container bio-hero-content">
 <p class="bio-hero-subtitle" style="text-transform: uppercase; letter-spacing: 3px; font-weight: 700; color: #fff;">For the First Time in Switzerland</p>
@@ -82,7 +83,7 @@
 <section class="lab-section" id="micka-gloria">
 <div class="container lab-content" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; margin-top: 4rem; margin-bottom: 4rem;">
 <div class="lab-image" style="flex: 1; min-width: 300px;">
-<img alt="Micka &amp; Gloria" loading="lazy" decoding="async" src="media/micka_gloria.webp" style="width:100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);"/>
+<img alt="Micka &amp; Gloria" loading="lazy" decoding="async" src="/media/micka_gloria.webp" style="width:100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);"/>
 </div>
 <div class="lab-info" style="flex: 1; min-width: 300px;">
 <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Sensual and Fusion Menstyle</span>
@@ -102,7 +103,7 @@
 <section class="lab-section alt" id="ramon-angela" style="background: #0a0a0a; padding-bottom: 4rem; padding-top: 4rem;">
 <div class="container lab-content" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; flex-direction: row-reverse;">
 <div class="lab-image" style="flex: 1; min-width: 300px;">
-<img alt="Ramon &amp; Angela" loading="lazy" decoding="async" src="media/ramon_angela_couple.webp" style="width:100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);"/>
+<img alt="Ramon &amp; Angela" loading="lazy" decoding="async" src="/media/ramon_angela_couple.webp" style="width:100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);"/>
 </div>
 <div class="lab-info" style="flex: 1; min-width: 300px;">
 <span class="text-primary text-uppercase" style="letter-spacing: 2px; font-weight: 700;">Dominican Men-Lady Style</span>
@@ -402,7 +403,7 @@
 </div>
 </footer>
 <!-- Modal for Registration -->
-<script src="script.js"></script>
+<script src="/script.js?v=clean1"></script>
 <!-- Registration Modal -->
 <div class="modal-overlay" id="regModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; justify-content: center; align-items: center; overflow-y: auto; padding: 2rem 1rem;">
 <div class="modal-content" style="background: #111; border: 1px solid #333; border-radius: 20px; max-width: 500px; width: 100%; position: relative; padding: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.8); margin: auto;">
@@ -442,7 +443,7 @@
         function openModalWithTicket(type) {
             const input = document.getElementById('ticketTypeInput');
             const priceInput = document.getElementById('ticketPriceInput');
-            
+
             if (type === 'ladies') {
                 input.value = 'Early Bird Followers';
                 priceInput.value = '240 CHF';
@@ -468,7 +469,7 @@
                 input.value = 'Early Bird Leaders';
                 priceInput.value = '240 CHF';
             }
-            
+
             document.getElementById('regModal').style.display = 'flex';
             document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
         }
@@ -482,15 +483,15 @@
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
             const msg = document.getElementById('formMsg');
-            
+
             btn.innerHTML = 'Processing...';
             btn.disabled = true;
-            
+
             const form = document.getElementById('regForm');
             const formData = new FormData(form);
-            
+
             const googleScriptURL = 'https://script.google.com/macros/s/AKfycbzb8BlBMh5BwOl_Z7QuOdTVWJpjReASpqP4SYn18P4l839fNlZTWo2thNy4gzr2f7aNSA/exec';
-            
+
             fetch(googleScriptURL, {
                 method: 'POST',
                 body: formData
@@ -498,24 +499,24 @@
             .then(response => {
                 msg.style.color = '#4CAF50';
                 msg.innerHTML = 'Registration successful! Redirecting to payment...';
-                
+
                 // Redirect logic
                 const ticketType = document.getElementById('ticketTypeInput').value;
-                
+
                 setTimeout(() => {
                     if (ticketType === 'Early Bird Men') {
-                        window.location.href = 'https://buy.stripe.com/dRm8wRaWi4K8dnI7qWdEs0S';
+                        window.location.href='https://buy.stripe.com/dRm8wRaWi4K8dnI7qWdEs0S';
                     } else if (ticketType === 'Early Bird Couple') {
                         // TODO: Add actual stripe link for couple
-                        window.location.href = '#'; 
+                        window.location.href='#';
                     } else if (ticketType === 'Multi-Deal Men') {
                         // TODO: Add actual stripe link for multi-deal men
-                        window.location.href = '#'; 
+                        window.location.href='#';
                     } else if (ticketType === 'Multi-Deal Ladies') {
                         // TODO: Add actual stripe link for multi-deal ladies
-                        window.location.href = '#'; 
+                        window.location.href='#';
                     } else if (ticketType === 'Early Bird Ladies') {
-                        window.location.href = 'https://buy.stripe.com/8x29AVaWiccAerMfXsdEs0T';
+                        window.location.href='https://buy.stripe.com/8x29AVaWiccAerMfXsdEs0T';
                     } else {
                         closeModal();
                         btn.innerHTML = 'Proceed to Payment';

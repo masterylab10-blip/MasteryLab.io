@@ -3,14 +3,15 @@
 <html lang="en">
 
 <head>
+<script src="/clean-urls.js?v=1"></script>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Secure Your Spot | M&amp;M Technique Lab Vol. 2 | MasteryLab</title>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap" rel="stylesheet" />
-    <link href="media/favicon.png" rel="icon" type="image/png" />
-    <link href="style.css" rel="stylesheet" />
+    <link href="/media/favicon.png" rel="icon" type="image/png" />
+    <link href="/style.css" rel="stylesheet" />
     <style>
         .registration-page {
             position: relative;
@@ -25,7 +26,7 @@
         .bg-image {
             position: absolute;
             inset: 0;
-            background: url('media/michael-mayra-bg.jpg') center 20%/cover no-repeat;
+            background: url('/media/michael-mayra-bg.jpg') center 20%/cover no-repeat;
             opacity: 0.4;
             filter: blur(5px);
             z-index: 1;
@@ -88,12 +89,12 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a class="logo" href="/"><img class="logo-wordmark" src="media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+            <a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
             <button aria-label="Toggle navigation" class="mobile-menu-btn">
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links">
-                <a class="nav-btn-outline ticket-shape" href="michael-mayra-vol2.html">GO BACK</a>
+                <a class="nav-btn-outline ticket-shape" href="/michael-mayra-vol2/">GO BACK</a>
             </div>
         </div>
     </nav>
@@ -222,15 +223,15 @@
 
                     <!-- TWINT Option Button (First) -->
                     <div class="twint-option-container" style="margin-top: 1.5rem; text-align: center;">
-                        <a href="https://go.twint.ch/1/e/tw?tw=acq.GQ4DcpYaS4SHNwL1x4kiZ0rPxdE1493urtldIW4gEM69VxgU6LzF9DpIJUFtzh36" 
-                           target="_blank" 
-                           class="twint-pay-btn" 
+                        <a href="https://go.twint.ch/1/e/tw?tw=acq.GQ4DcpYaS4SHNwL1x4kiZ0rPxdE1493urtldIW4gEM69VxgU6LzF9DpIJUFtzh36"
+                           target="_blank"
+                           class="twint-pay-btn"
                            style="display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 1.2rem; background: #000; border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; text-decoration: none; box-sizing: border-box; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-family: 'Anton', sans-serif; letter-spacing: 1px;">
                             <span style="color: #fff; font-size: 1.2rem; font-weight: 700; margin-right: 10px; text-transform: uppercase;">PAY WITH</span>
-                            <img src="media/twint-logo.svg" alt="TWINT" style="height: 24px; width: auto;" />
+                            <img src="/media/twint-logo.svg" alt="TWINT" style="height: 24px; width: auto;" />
                         </a>
                     </div>
-                    
+
                     <div style="display: flex; align-items: center; justify-content: center; margin: 1.5rem 0 1rem 0;">
                         <span style="height: 1px; background: rgba(255,255,255,0.1); flex-grow: 1;"></span>
                         <span style="margin: 0 10px; font-size: 0.8rem; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Or</span>
@@ -252,7 +253,7 @@
                         }
                     </style>
                     <p style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 1.5rem; line-height: 1.4;">
-                        By proceeding, you agree to our <a href="terms-of-service.html" style="color: #e6af15; text-decoration: underline;">Terms &amp; Conditions</a>.<br />
+                        By proceeding, you agree to our <a href="/terms-of-service/" style="color: #e6af15; text-decoration: underline;">Terms &amp; Conditions</a>.<br />
                         We will contact you with payment instructions after registration, or you can choose to pay directly with TWINT above.<br />
                         <span style="display: block; margin-top: 10px; color: #ff6b6b;">(This ticket is not refundable — it can be transferred to another person or replaced with another MasteryLab lab)</span>
                     </p>
@@ -268,7 +269,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="/script.js?v=clean1"></script>
     <script>
         const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxD5-eeAdqD1XgQrAlaISpddtnLPJ5Txu9qLdzNGkOo7ajn5DjEyvK7DZ5FdmHsGvGv/exec';
 
@@ -335,7 +336,7 @@
             partnerInputs.forEach(input => {
                 input.required = true;
             });
-            
+
             // Add automatic role synchronization for the couple
             danceRoleSelect.addEventListener('change', function() {
                 if (danceRoleSelect.value === 'Leader') {
@@ -344,7 +345,7 @@
                     partnerDanceRoleSelect.value = 'Leader';
                 }
             });
-            
+
             partnerDanceRoleSelect.addEventListener('change', function() {
                 if (partnerDanceRoleSelect.value === 'Leader') {
                     danceRoleSelect.value = 'Follower';
@@ -369,7 +370,7 @@
             btn.disabled = true;
 
             const formData = new FormData(regForm);
-            
+
             // 1. Map fields to match new Google Sheet columns
             const data = new URLSearchParams();
             data.append('full_name', formData.get('first_name') || '');
@@ -404,7 +405,7 @@
                     partnerData.append('amount', config.type + ' (Partner)' || '');
                     partnerData.append('level', config.type + ' (Partner)' || ''); // mapping for scripts reading level
                     partnerData.append('type', 'MM'); // specify event type for master sheet router
-                    
+
                     await fetch(googleScriptURL, {
                         method: 'POST',
                         mode: 'no-cors',
@@ -434,7 +435,7 @@
                                 <span style="color: #e6af15; font-weight: 700;">${config.type}</span><br/><br/>
                                 We will contact you on WhatsApp or Email<br/>with payment details shortly. 🔥
                             </p>
-                            <a href="michael-mayra-vol2.html" style="display: inline-block; margin-top: 2rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, #e6af15, #b8880f); color: #000; border-radius: 50px; font-family: 'Anton'; font-size: 1.1rem; letter-spacing: 1px; text-decoration: none;">BACK TO LAB PAGE</a>
+                            <a href="/michael-mayra-vol2/" style="display: inline-block; margin-top: 2rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, #e6af15, #b8880f); color: #000; border-radius: 50px; font-family: 'Anton'; font-size: 1.1rem; letter-spacing: 1px; text-decoration: none;">BACK TO LAB PAGE</a>
                         </div>`;
                 }, 400);
             }

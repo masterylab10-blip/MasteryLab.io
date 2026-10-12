@@ -105,7 +105,7 @@ function handleStripeWebhook(event) {
 function buildTicketEmail(name, email, ticketNum, amount, currency, ticketType) {
     return '<!DOCTYPE html><html><body style="background:#111; color:#fff; font-family:Arial; padding:20px;">' +
         '<div style="max-width:600px; margin:auto; background:#1a1a1a; padding:40px; border-radius:15px; border:1px solid #333;">' +
-        '<img src="' + EVENT.image + '" width="100%" style="border-radius:10px; margin-bottom:20px;">' +
+        '<img src="/' + EVENT.image + '" width="100%" style="border-radius:10px; margin-bottom:20px;">' +
         '<h1 style="color:' + EVENT.color + '; margin:0;">' + EVENT.name + '</h1>' +
         '<p style="font-size:20px; font-weight:bold; margin:10px 0;">' + ticketType + '</p>' +
         '<p><strong>Name:</strong> ' + name + '</p>' +

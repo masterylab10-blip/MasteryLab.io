@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<script src="/clean-urls.js?v=1"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Secure Your Spot | M&amp;M Technique Lab Vol. 2 | MasteryLab</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap" rel="stylesheet" />
+    <link href="/media/favicon.png" rel="icon" type="image/png" />
+    <link href="/style.css" rel="stylesheet" />
+    <style>
+        .registration-page {
+            position: relative;
+            min-height: 100vh;
+            padding: 120px 0 60px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #050505;
+        }
+
+        .bg-image {
+            position: absolute;
+            inset: 0;
+            background: url('/media/michael-mayra-bg.jpg') center 20%/cover no-repeat;
+            opacity: 0.4;
+            filter: blur(5px);
+            z-index: 1;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, #050505 100%);
+            z-index: 2;
+        }
+
+        .registration-container {
+            position: relative;
+            z-index: 3;
+            max-width: 950px;
+            margin: 0 auto;
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(15px);
+            padding: 4rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 0 0 15px rgba(230, 175, 21, 0.15);
+        }
+
+        /* Ticket badge */
+        .ticket-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e6af15, #b8880f);
+            color: #000;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-family: 'Anton', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 20px rgba(230,175,21,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .registration-page { padding: 80px 0 40px; }
+            .registration-container { padding: 1.5rem; margin: 0 0.75rem; border-radius: 15px; }
+            .auth-benefits h1 { font-size: 2rem !important; line-height: 1.2 !important; }
+            .benefit-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+            .benefit-card { padding: 1rem !important; }
+            .text-gradient-gold { font-size: 2rem !important; line-height: 1.2 !important; }
+            .form-group { margin-bottom: 1rem; }
+            .form-input { font-size: 1rem; padding: 0.8rem; }
+            .btn-primary { font-size: 1rem !important; padding: 1rem !important; }
+        }
+
+        @media (max-width: 480px) {
+            .registration-container { padding: 1rem; margin: 0 0.5rem; }
+            .auth-benefits h1 { font-size: 1.75rem !important; }
+            .text-gradient-gold { font-size: 1.75rem !important; }
+        }
+    </style>
+<link rel="canonical" href="https://masterylab.ch/registration-michael-mayra-vol2/">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+            <button aria-label="Toggle navigation" class="mobile-menu-btn">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links">
+                <a class="nav-btn-outline ticket-shape" href="/michael-mayra-vol2/">GO BACK</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="registration-page">
+        <div class="bg-image"></div>
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="registration-container">
+
+                <!-- Benefits Section -->
+                <div class="auth-benefits" style="margin-bottom: 3rem; text-align: center;">
+                    <h1 class="text-gradient" style="font-family: 'Anton'; font-size: 3.5rem; text-transform: uppercase; margin-bottom: 1rem;">
+                        WHY JOIN M&amp;M TECHNIQUE LAB VOL. 2?
+                    </h1>
+                    <p style="color: #ccc; margin-bottom: 2rem;">An exclusive weekend intensive in Baden — beyond regular workshops.</p>
+                    <div class="benefit-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: left;">
+                        <div class="benefit-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(230,175,21,0.2);">
+                            <h3 style="color: #e6af15;">Body Mechanics</h3>
+                            <p style="font-size: 1rem; color: #aaa;">Master the technical foundations of how your body moves in Bachata.</p>
+                        </div>
+                        <div class="benefit-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(230,175,21,0.2);">
+                            <h3 style="color: #e6af15;">Connection</h3>
+                            <p style="font-size: 1rem; color: #aaa;">Refine the invisible language between leader and follower.</p>
+                        </div>
+                        <div class="benefit-card" style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(230,175,21,0.2);">
+                            <h3 style="color: #e6af15;">Movement Quality</h3>
+                            <p style="font-size: 1rem; color: #aaa;">Elevate your overall dance understanding and artistic expression.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 3rem 0;"></div>
+
+                <!-- Ticket Badge (dynamic) -->
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <div class="ticket-badge" id="ticketBadge">🎟️ TICKET REGISTRATION</div>
+                </div>
+
+                <h1 class="text-gradient-gold" id="formTitle"
+                    style="font-family: 'Anton'; font-size: 3rem; text-align: center; margin-bottom: 0.5rem; text-transform: uppercase; background: linear-gradient(135deg, #e6af15, #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                    SECURE YOUR SPOT
+                </h1>
+                <p style="text-align: center; color: #aaa; margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 300;" id="formSubtitle">
+                    M&amp;M TECHNIQUE LAB VOL. 2 — BADEN, 19–20 SEPT 2026
+                </p>
+                <p style="text-align: center; color: #e6af15; font-weight: 700; font-size: 1.1rem; margin-bottom: 2.5rem;" id="ticketPrice"></p>
+
+                <form id="mmVol2RegForm">
+                    <!-- Hidden fields -->
+                    <input type="hidden" name="ticket_type" id="ticketTypeField" value="" />
+                    <input type="hidden" name="lab" value="M&M Technique Lab Vol. 2 — Baden 19-20 Sept 2026" />
+                    <input type="hidden" name="_subject" value="New M&M Vol.2 Registration!" />
+
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">Full Name</label>
+                        <input class="form-input" id="firstName" name="first_name" placeholder="Your full name" required="" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="address">Residential Address</label>
+                        <input class="form-input" id="address" name="address" placeholder="Street, Number, Postal Code" required="" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="city">City of Residence</label>
+                        <input class="form-input" id="city" name="city" required="" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="role">Role in Scene</label>
+                        <select class="form-input" id="role" name="role" required="" style="appearance: none;">
+                            <option disabled="" selected="" value="">Select your role</option>
+                            <option style="color: black;" value="Dancer">Dancer</option>
+                            <option style="color: black;" value="Teacher">Teacher</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="danceRoleGroup">
+                        <label class="form-label" for="dance_role">Role (Leader or Follower)</label>
+                        <select class="form-input" id="dance_role" name="dance_role" required="" style="appearance: none;">
+                            <option disabled="" selected="" value="">Select Leader or Follower</option>
+                            <option style="color: black;" value="Leader">Leader</option>
+                            <option style="color: black;" value="Follower">Follower</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input class="form-input" id="email" name="email" required="" type="email" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="whatsapp">WhatsApp Number</label>
+                        <input class="form-input" id="whatsapp" name="whatsapp" required="" type="tel" />
+                    </div>
+
+                    <!-- Partner Section (Only shown for Couple Ticket) -->
+                    <div id="partnerSection" style="display: none; margin-top: 2.5rem; border-top: 1px dashed rgba(230, 175, 21, 0.3); padding-top: 2.5rem; margin-bottom: 1.5rem;">
+                        <h3 style="font-family: 'Anton', sans-serif; font-size: 1.6rem; color: #e6af15; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px;">
+                            <span>👫</span> Partner's Information (Second Person)
+                        </h3>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerFirstName">Partner's Full Name</label>
+                            <input class="form-input" id="partnerFirstName" name="partner_first_name" placeholder="Partner's full name" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerRole">Partner's Role in Scene</label>
+                            <select class="form-input" id="partnerRole" name="partner_role" style="appearance: none;">
+                                <option disabled="" selected="" value="">Select partner's role</option>
+                                <option style="color: black;" value="Dancer">Dancer</option>
+                                <option style="color: black;" value="Teacher">Teacher</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerDanceRole">Partner's Dance Role</label>
+                            <select class="form-input" id="partnerDanceRole" name="partner_dance_role" style="appearance: none;">
+                                <option disabled="" selected="" value="">Select Leader or Follower</option>
+                                <option style="color: black;" value="Leader">Leader</option>
+                                <option style="color: black;" value="Follower">Follower</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerEmail">Partner's Email Address</label>
+                            <input class="form-input" id="partnerEmail" name="partner_email" placeholder="partner@example.com" type="email" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="partnerWhatsapp">Partner's WhatsApp Number</label>
+                            <input class="form-input" id="partnerWhatsapp" name="partner_whatsapp" placeholder="Partner's WhatsApp number" type="tel" />
+                        </div>
+                    </div>
+
+                    <!-- TWINT Option Button (First) -->
+                    <div class="twint-option-container" style="margin-top: 1.5rem; text-align: center;">
+                        <a href="https://go.twint.ch/1/e/tw?tw=acq.GQ4DcpYaS4SHNwL1x4kiZ0rPxdE1493urtldIW4gEM69VxgU6LzF9DpIJUFtzh36"
+                           target="_blank"
+                           class="twint-pay-btn"
+                           style="display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 1.2rem; background: #000; border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; text-decoration: none; box-sizing: border-box; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-family: 'Anton', sans-serif; letter-spacing: 1px;">
+                            <span style="color: #fff; font-size: 1.2rem; font-weight: 700; margin-right: 10px; text-transform: uppercase;">PAY WITH</span>
+                            <img src="/media/twint-logo.svg" alt="TWINT" style="height: 24px; width: auto;" />
+                        </a>
+                    </div>
+
+                    <div style="display: flex; align-items: center; justify-content: center; margin: 1.5rem 0 1rem 0;">
+                        <span style="height: 1px; background: rgba(255,255,255,0.1); flex-grow: 1;"></span>
+                        <span style="margin: 0 10px; font-size: 0.8rem; color: #666; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Or</span>
+                        <span style="height: 1px; background: rgba(255,255,255,0.1); flex-grow: 1;"></span>
+                    </div>
+
+                    <!-- Credit Card Submit Button (Second) -->
+                    <button class="btn-primary" id="submitBtn"
+                        style="width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: linear-gradient(135deg, #e6af15, #b8880f); color: #000; font-weight: 800; box-shadow: 0 10px 30px rgba(230,175,21,0.4); font-family: 'Anton'; letter-spacing: 1px;"
+                        type="submit">
+                        PAY WITH CREDIT CARD
+                    </button>
+                    <style>
+                        .twint-pay-btn:hover {
+                            background: rgba(255, 255, 255, 0.08) !important;
+                            border-color: rgba(255, 255, 255, 0.25) !important;
+                            transform: translateY(-2px);
+                            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                        }
+                    </style>
+                    <p style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 1.5rem; line-height: 1.4;">
+                        By proceeding, you agree to our <a href="/terms-of-service/" style="color: #e6af15; text-decoration: underline;">Terms &amp; Conditions</a>.<br />
+                        We will contact you with payment instructions after registration, or you can choose to pay directly with TWINT above.<br />
+                        <span style="display: block; margin-top: 10px; color: #ff6b6b;">(This ticket is not refundable — it can be transferred to another person or replaced with another MasteryLab lab)</span>
+                    </p>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <footer style="padding: 3rem 0; text-align: center; background: #000; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <p style="color: #444;">© 2026 MasteryLab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/script.js?v=clean1"></script>
+    <script>
+        const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxD5-eeAdqD1XgQrAlaISpddtnLPJ5Txu9qLdzNGkOo7ajn5DjEyvK7DZ5FdmHsGvGv/exec';
+
+        // --- Ticket config based on URL param ---
+        const ticketConfigs = {
+            couple: {
+                badge: '👫 COUPLE TICKET — EARLY BIRD',
+                title: 'REGISTER AS A COUPLE',
+                subtitle: 'M&M TECHNIQUE LAB — BADEN',
+                price: 'Early Bird Price: CHF 420 per couple (Regular CHF 480)',
+                type: 'Early Bird Couple — CHF 420',
+                showDanceRole: false,
+                stripeLink: 'https://buy.stripe.com/28E00l6G2dgE0AWbHcdEs0u'
+            },
+            follower: {
+                badge: '🌸 SOLO FOLLOWER — EARLY BIRD',
+                title: 'REGISTER AS FOLLOWER',
+                subtitle: 'M&M TECHNIQUE LAB — BADEN',
+                price: 'Early Bird Price: CHF 220 (Regular CHF 250)',
+                type: 'Early Bird Solo Follower — CHF 220',
+                showDanceRole: true,
+                presetDanceRole: 'Follower',
+                stripeLink: 'https://buy.stripe.com/9B69AV0hE1xW4Rc3aGdEs0x'
+            },
+            leader: {
+                badge: '⚡ SOLO LEADER — EARLY BIRD',
+                title: 'REGISTER AS LEADER',
+                subtitle: 'M&M TECHNIQUE LAB — BADEN',
+                price: 'Early Bird Price: CHF 220 (Regular CHF 250)',
+                type: 'Early Bird Solo Leader — CHF 220',
+                showDanceRole: true,
+                presetDanceRole: 'Leader',
+                stripeLink: 'https://buy.stripe.com/7sY9AV6G2b8w3N8aD8dEs0y'
+            }
+        };
+
+        // Read URL param
+        const params = new URLSearchParams(window.location.search);
+        const ticketParam = params.get('ticket') || 'couple';
+        const config = ticketConfigs[ticketParam] || ticketConfigs['couple'];
+
+        // Apply config to page
+        document.getElementById('ticketBadge').innerText = config.badge;
+        document.getElementById('formTitle').innerText = config.title;
+        document.getElementById('formSubtitle').innerText = config.subtitle;
+        document.getElementById('ticketPrice').innerText = config.price;
+        document.getElementById('ticketTypeField').value = config.type;
+
+        // Handle dance role field
+        const danceRoleGroup = document.getElementById('danceRoleGroup');
+        const danceRoleSelect = document.getElementById('dance_role');
+        if (config.presetDanceRole) {
+            danceRoleSelect.value = config.presetDanceRole;
+            danceRoleGroup.style.display = 'none'; // hidden since it's already set
+        }
+
+        // Toggle partner section and set required state
+        const partnerSection = document.getElementById('partnerSection');
+        const partnerInputs = partnerSection.querySelectorAll('input, select');
+        const partnerDanceRoleSelect = document.getElementById('partnerDanceRole');
+
+        if (ticketParam === 'couple') {
+            partnerSection.style.display = 'block';
+            partnerInputs.forEach(input => {
+                input.required = true;
+            });
+
+            // Add automatic role synchronization for the couple
+            danceRoleSelect.addEventListener('change', function() {
+                if (danceRoleSelect.value === 'Leader') {
+                    partnerDanceRoleSelect.value = 'Follower';
+                } else if (danceRoleSelect.value === 'Follower') {
+                    partnerDanceRoleSelect.value = 'Leader';
+                }
+            });
+
+            partnerDanceRoleSelect.addEventListener('change', function() {
+                if (partnerDanceRoleSelect.value === 'Leader') {
+                    danceRoleSelect.value = 'Follower';
+                } else if (partnerDanceRoleSelect.value === 'Follower') {
+                    danceRoleSelect.value = 'Leader';
+                }
+            });
+        } else {
+            partnerSection.style.display = 'none';
+            partnerInputs.forEach(input => {
+                input.required = false;
+                input.value = '';
+            });
+        }
+
+        // --- Form Submit ---
+        const regForm = document.getElementById('mmVol2RegForm');
+        regForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.innerText = 'Processing...';
+            btn.disabled = true;
+
+            const formData = new FormData(regForm);
+
+            // 1. Map fields to match new Google Sheet columns
+            const data = new URLSearchParams();
+            data.append('full_name', formData.get('first_name') || '');
+            data.append('phone', formData.get('whatsapp') || '');
+            data.append('email', formData.get('email') || '');
+            data.append('role', formData.get('dance_role') || '');
+            data.append('teacher_or_dancer', formData.get('role') || '');
+            data.append('address', formData.get('address') || '');
+            data.append('city', formData.get('city') || '');
+            data.append('amount', config.type || '');
+            data.append('level', config.type || ''); // mapping for scripts reading level
+            data.append('type', 'MM'); // specify event type for master sheet router
+
+            try {
+                // Submit first person to Google Sheets using robust fetch (no-cors)
+                await fetch(googleScriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: data
+                });
+
+                // 2. If Couple Ticket, submit the partner's info as a second row to Google Sheets
+                if (ticketParam === 'couple') {
+                    const partnerData = new URLSearchParams();
+                    partnerData.append('full_name', formData.get('partner_first_name') || '');
+                    partnerData.append('phone', formData.get('partner_whatsapp') || '');
+                    partnerData.append('email', formData.get('partner_email') || '');
+                    partnerData.append('role', formData.get('partner_dance_role') || '');
+                    partnerData.append('teacher_or_dancer', formData.get('partner_role') || '');
+                    partnerData.append('address', formData.get('address') || '');
+                    partnerData.append('city', formData.get('city') || '');
+                    partnerData.append('amount', config.type + ' (Partner)' || '');
+                    partnerData.append('level', config.type + ' (Partner)' || ''); // mapping for scripts reading level
+                    partnerData.append('type', 'MM'); // specify event type for master sheet router
+
+                    await fetch(googleScriptURL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: partnerData
+                    });
+                }
+            } catch (error) {
+                console.error('Error submitting to Google Sheets:', error);
+            }
+
+            // 3. Redirect to Stripe or show success message
+            if (config.stripeLink) {
+                btn.innerText = 'Redirecting to payment...';
+                setTimeout(() => {
+                    window.location.href = config.stripeLink;
+                }, 400);
+            } else {
+                // No Stripe yet → show success message
+                setTimeout(() => {
+                    regForm.innerHTML = `
+                        <div style="text-align: center; padding: 3rem 1rem;">
+                            <div style="font-size: 5rem; margin-bottom: 1.5rem;">✅</div>
+                            <h2 style="font-family: 'Anton'; color: #e6af15; font-size: 2.5rem; margin-bottom: 1rem;">YOU'RE REGISTERED!</h2>
+                            <p style="color: #ccc; font-size: 1.2rem; line-height: 1.8; max-width: 500px; margin: 0 auto;">
+                                We've received your registration for<br/>
+                                <strong style="color: #fff;">M&M Technique Lab Vol. 2</strong><br/>
+                                <span style="color: #e6af15; font-weight: 700;">${config.type}</span><br/><br/>
+                                We will contact you on WhatsApp or Email<br/>with payment details shortly. 🔥
+                            </p>
+                            <a href="/michael-mayra-vol2/" style="display: inline-block; margin-top: 2rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, #e6af15, #b8880f); color: #000; border-radius: 50px; font-family: 'Anton'; font-size: 1.1rem; letter-spacing: 1px; text-decoration: none;">BACK TO LAB PAGE</a>
+                        </div>`;
+                }, 400);
+            }
+        });
+    </script>
+</body>
+
+</html>

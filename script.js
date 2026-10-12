@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentPath = window.location.pathname;
             // If the current path is exactly '/registration-bachata-sensual', redirect to the version without .html
             if (currentPath === '/registration-bachata-sensual') {
-                window.location.href = '/registration-bachata-sensual';
+                window.location.href='/registration-bachata-sensual';
                 return; // Stop further execution
             }
-            const isHomePage = currentPath === '/' || currentPath.endsWith('index.html');
+            const isHomePage = currentPath === '/';
 
             if (isHomePage) {
                 e.preventDefault();
@@ -74,8 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Form Submission (Only for index.html modal form)
-        const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || window.location.pathname === '';
+        // Form Submission (Only for / modal form)
+        const isHomePage = window.location.pathname === '/' || window.location.pathname === '';
         if (regForm && isHomePage) {
             regForm.addEventListener('submit', function (e) {
                 e.preventDefault();
@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function injectEducationJournalLink() {
         // Only inject on Home Page
         const currentPath = window.location.pathname;
-        const isHomePage = currentPath === '/' || currentPath.endsWith('index.html');
+        const isHomePage = currentPath === '/';
         if (!isHomePage) return;
 
         const navLinks = document.querySelector('.nav-links');
@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (navLinks.innerHTML.includes('education-journal')) return;
 
             const journalLink = document.createElement('a');
-            journalLink.href = 'education-journal';
+            journalLink.href='/education-journal';
             journalLink.className = 'nav-btn-outline ticket-shape';
             journalLink.textContent = 'EDUCATION JOURNAL'; // Uppercase to match style
             journalLink.style.marginLeft = '1rem';
@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navLinks.querySelectorAll('a').length < 3) return;
 
         const memoriesLink = document.createElement('a');
-        memoriesLink.href = 'memories.html';
+        memoriesLink.href='/memories/';
         memoriesLink.className = 'nav-btn-outline ticket-shape memories-nav-link';
         memoriesLink.textContent = 'MEMORIES';
         memoriesLink.setAttribute('aria-label', 'Memories photo galleries');

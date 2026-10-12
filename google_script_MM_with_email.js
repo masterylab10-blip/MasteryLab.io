@@ -270,7 +270,7 @@ function buildTicketEmail(name, email, ticketNum, amount, currency, eventInfo, t
 
         // Header Banner with Logo
         '<tr><td style="background: linear-gradient(135deg, ' + accentColor + ' 0%, #1a1a1a 100%); padding: 30px 40px; text-align:center;">' +
-        '<img src="' + SITE_URL + '/media/logo-wings.png" alt="MasteryLab" width="80" style="width:80px; height:auto; display:inline-block; margin-bottom:10px;">' +
+        '<img src="/' + SITE_URL + '/media/logo-wings.png" alt="MasteryLab" width="80" style="width:80px; height:auto; display:inline-block; margin-bottom:10px;">' +
         '<h1 style="margin:0; color:#fff; font-size:28px; letter-spacing:2px;">MASTERYLAB</h1>' +
         '<p style="margin:5px 0 0; color:rgba(255,255,255,0.7); font-size:13px; letter-spacing:3px; text-transform:uppercase;">OFFICIAL EVENT TICKET</p>' +
         '</td></tr>' +

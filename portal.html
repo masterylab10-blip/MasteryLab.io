@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+<script src="/clean-urls.js?v=1"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>My Portal | MasteryLab</title>
@@ -10,9 +11,9 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
 <!-- Favicon -->
-<link href="media/favicon.png" rel="icon" type="image/png"/>
+<link href="/media/favicon.png" rel="icon" type="image/png"/>
 <!-- Custom CSS -->
-<link href="style.css" rel="stylesheet"/>
+<link href="/style.css" rel="stylesheet"/>
 <style>
         .portal-header {
             display: flex;
@@ -47,7 +48,7 @@
 <!-- Navigation -->
 <nav class="navbar">
 <div class="container">
-<a class="logo" href="/"><img class="logo-wordmark" src="media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+<a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
 <div class="nav-links">
 <a href="#">Portal</a>
 <a href="#" onclick="logoutUser()">Logout</a>
@@ -75,14 +76,14 @@
 <div class="data-card">
 <h3 class="text-primary">Your Labs</h3>
 <p style="margin-top: 1rem;">You have not registered for any labs yet.</p>
-<a class="btn btn-primary" href="/#contact.html" style="margin-top: 1rem;">Browse Labs</a>
+<a class="btn btn-primary" href="/#contact" style="margin-top: 1rem;">Browse Labs</a>
 </div>
 </div>
 </div>
 </main>
 <!-- Supabase SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
+<script src="/supabase.js?v=clean1"></script>
 <script>
         // Protect Route & Load Data
         window.addEventListener('load', async () => {

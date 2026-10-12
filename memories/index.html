@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="/clean-urls.js?v=1"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Relive MasteryLab styling labs. Browse the event photo galleries and download the original full-resolution images.">
+<meta name="theme-color" content="#050505">
+<title>Memories | MasteryLab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="/style.css?v=16" rel="stylesheet">
+<link href="/media/favicon.png" rel="icon" type="image/png">
+<style>
+.memories-page{min-height:100vh;background:#050505;color:#fff;padding-top:148px}
+.memories-hero{padding:clamp(3rem,8vw,7rem) 1.25rem 3rem;text-align:center;background:radial-gradient(ellipse at 50% 0,rgba(214,0,28,.19),transparent 58%)}
+.memories-kicker{color:#d6001c;font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.memories-hero h1{font-family:'Anton',sans-serif;font-size:clamp(3.5rem,10vw,7.5rem);line-height:.95;text-transform:uppercase;margin:1rem 0 .75rem}
+.memories-hero p{max-width:680px;margin:0 auto;color:#b0b0b0;font-size:1rem;line-height:1.7;font-weight:300}
+.memories-hero .memories-photo-credit{margin-top:.65rem;color:#e3b85c;font-size:.78rem;font-weight:500;letter-spacing:.08em}
+.memories-rule{width:48px;height:3px;background:#d6001c;margin:1.7rem auto 0}
+.memories-shell{width:min(1440px,100%);margin:auto;padding:0 clamp(1rem,4vw,3.5rem) 5rem}
+.memories-events{display:flex;justify-content:center;flex-wrap:wrap;gap:.75rem;padding:0 0 1.5rem;border-bottom:1px solid rgba(255,255,255,.12)}
+.memories-event{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.035);color:#fff;padding:.9rem 1.25rem;cursor:pointer;text-align:left;transition:transform .2s,border-color .2s,color .2s}
+.memories-event:hover{transform:translateY(-2px);border-color:#d6001c}
+.memories-event[aria-selected="true"]{border-color:#d6001c;color:#fff;background:linear-gradient(135deg,rgba(255,0,51,.2),rgba(214,0,28,.07));box-shadow:0 0 15px rgba(255,0,51,.15)}
+.memories-event strong{display:block;font:1.15rem 'Anton',sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.memories-event span{display:block;margin-top:.25rem;color:#aaa;font-size:.76rem}
+.memories-toolbar{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin:2rem 0 1.15rem}
+.memories-toolbar h2{margin:.35rem 0 0;font:clamp(1.8rem,4vw,2.7rem) 'Anton',sans-serif;text-transform:uppercase}
+.memories-count{color:#aaa;font-size:.85rem;white-space:nowrap}
+.memories-filters{display:flex;gap:.55rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.memories-filter{border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(255,255,255,.035);color:#c8c8c8;padding:.55rem .9rem;font:600 .78rem 'Outfit',sans-serif;cursor:pointer}
+.memories-filter:hover,.memories-filter[aria-pressed="true"]{border-color:#d6001c;color:#fff;background:rgba(214,0,28,.16)}
+.memories-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
+.memories-card{overflow:hidden;min-width:0;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:#101010}
+.memories-photo{display:block;position:relative;aspect-ratio:4/5;overflow:hidden;background:#161616}
+.memories-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.memories-card:hover .memories-photo img{transform:scale(1.035)}
+.memories-card-info{display:flex;align-items:center;justify-content:space-between;gap:.7rem;padding:.8rem}
+.memories-card-info div{min-width:0}.memories-card-info strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.85rem}
+.memories-card-info small{display:block;color:#999;margin-top:.22rem;font-size:.7rem}
+.memories-download{flex:none;display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 .7rem;border:1px solid #d6001c;border-radius:4px;color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.memories-download:hover{background:#d6001c}
+.memories-empty{grid-column:1/-1;border:1px solid rgba(255,255,255,.12);padding:3rem 1rem;text-align:center;color:#aaa}
+.memories-more{display:flex;justify-content:center;padding:2rem 0 0}
+.memories-more button{border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;padding:.85rem 1.5rem;font:700 .8rem 'Outfit',sans-serif;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.memories-more button:hover{border-color:#d6001c;color:#d6001c}
+.memories-note{margin:1.5rem 0 0;color:#888;text-align:center;font-size:.76rem}
+.memories-footer{border-top:1px solid rgba(255,255,255,.1);padding:1.5rem clamp(1rem,4vw,3.5rem);color:#888;text-align:center;font-size:.8rem}
+.memories-more{align-items:center;gap:.75rem;flex-wrap:wrap}
+.memories-back-to-top{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:46px;padding:.75rem 1.15rem;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:linear-gradient(145deg,#171717,#0c0c0c);color:#fff;font:700 .78rem 'Outfit',sans-serif;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 24px rgba(0,0,0,.28);cursor:pointer;transition:border-color .2s,background .2s,transform .2s,box-shadow .2s}
+.memories-back-to-top:hover{border-color:#d6001c;background:linear-gradient(145deg,rgba(214,0,28,.2),#111);transform:translateY(-2px);box-shadow:0 10px 26px rgba(214,0,28,.16)}
+.memories-back-to-top-icon{display:grid;place-items:center;width:1.65rem;height:1.65rem;border-radius:50%;background:#d6001c;font-size:1rem;line-height:1}
+.memories-back-to-top:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.memories-lightbox{width:min(94vw,1400px);height:min(94vh,1000px);max-width:none;max-height:none;padding:0;border:1px solid rgba(255,255,255,.2);background:#080808;color:#fff;overflow:hidden}
+.memories-lightbox::backdrop{background:rgba(0,0,0,.94);backdrop-filter:blur(5px)}
+.memories-lightbox-inner{height:100%;display:flex;flex-direction:column}
+.memories-lightbox-top,.memories-lightbox-bottom{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 1rem}
+.memories-lightbox-top{border-bottom:1px solid rgba(255,255,255,.12);color:#aaa;font-size:.8rem}
+.memories-lightbox-back{display:inline-flex;align-items:center;gap:.55rem;min-height:40px;padding:0 .9rem;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font:600 .76rem 'Outfit',sans-serif;letter-spacing:.04em;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.memories-lightbox-back:hover{background:#d6001c;border-color:#d6001c;transform:translateY(-1px)}
+.memories-lightbox-bottom{border-top:1px solid rgba(255,255,255,.12)}
+.memories-lightbox-title{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#ddd;font-size:.82rem}
+.memories-lightbox-viewer{display:flex;flex:1;min-height:0;background:#030303}
+.memories-lightbox-stage{position:relative;display:flex;align-items:center;justify-content:center;flex:1;min-width:0;min-height:0;background:radial-gradient(ellipse at center,#151515 0,#030303 68%)}
+.memories-lightbox-image{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.memories-lightbox-control{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:rgba(0,0,0,.65);color:#fff;font:400 2rem/1 'Outfit',sans-serif;cursor:pointer}
+.memories-lightbox-control:hover{border-color:#d6001c;background:#d6001c}
+.memories-lightbox-stage .memories-lightbox-control{position:absolute;top:50%;transform:translateY(-50%)}
+.memories-lightbox-prev{left:1rem}.memories-lightbox-next{right:1rem}
+.memories-lightbox-rail{display:flex;flex-direction:column;gap:.55rem;width:94px;flex:none;overflow-y:auto;overscroll-behavior:contain;padding:.8rem .65rem;border-left:1px solid rgba(255,255,255,.1);background:rgba(16,16,16,.92);scrollbar-width:thin;scrollbar-color:rgba(214,0,28,.75) rgba(255,255,255,.07)}
+.memories-lightbox-thumb{position:relative;display:block;flex:none;width:100%;aspect-ratio:4/5;overflow:hidden;padding:0;border:1px solid rgba(255,255,255,.12);border-radius:9px;background:#111;opacity:.62;cursor:pointer;transition:opacity .18s,border-color .18s,transform .18s}
+.memories-lightbox-thumb:hover{opacity:1;transform:scale(1.04)}
+.memories-lightbox-thumb[aria-current="true"]{opacity:1;border:2px solid #ed1833;box-shadow:0 0 15px rgba(237,24,51,.35)}
+.memories-lightbox-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.memories-lightbox-download{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 1rem;border:1px solid #d6001c;border-radius:4px;color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+.memories-lightbox-download:hover{background:#d6001c}
+@media(max-width:1000px){.memories-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.memories-page{padding-top:70px}.memories-toolbar{align-items:start;flex-direction:column}.memories-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.memories-card-info{align-items:start;flex-direction:column}.memories-download{width:100%}.memories-event{flex:1;min-width:150px}}
+@media(max-width:600px){.memories-lightbox{width:100vw;height:100dvh;border:0}.memories-lightbox-inner{height:100dvh}.memories-lightbox-control{width:40px;height:40px}.memories-lightbox-prev{left:.5rem}.memories-lightbox-next{right:.5rem}.memories-lightbox-top,.memories-lightbox-bottom{padding:.7rem}.memories-lightbox-title{font-size:.72rem}.memories-lightbox-viewer{flex-direction:column}.memories-lightbox-stage{flex:1}.memories-lightbox-rail{flex-direction:row;width:100%;height:91px;overflow-x:auto;overflow-y:hidden;padding:.55rem .65rem;border-left:0;border-top:1px solid rgba(255,255,255,.1)}.memories-lightbox-thumb{width:52px;height:68px;aspect-ratio:auto}}
+@media(max-width:380px){.memories-grid{grid-template-columns:1fr}}
+</style>
+<link rel="canonical" href="https://masterylab.ch/memories/">
+</head>
+<body>
+<a class="skip-to-content" href="#main-content">Skip to main content</a>
+<nav class="navbar">
+  <div class="container">
+    <a class="logo" href="/" aria-label="MasteryLab home"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+    <button aria-label="Toggle navigation" class="mobile-menu-btn"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a class="nav-btn-outline ticket-shape" href="/hotels/" style="color:#00d26a;border-color:#00d26a;box-shadow:0 0 10px rgba(0,210,106,.3)">HOTELS &amp; STAY</a>
+      <a class="nav-btn-outline ticket-shape" href="/dance-outfit/" style="color:var(--color-primary);border-color:var(--color-primary);box-shadow:0 0 10px rgba(214,0,28,.3)">DANCE OUTFIT</a>
+      <a class="nav-btn-outline ticket-shape" href="/artists/" style="color:#e6af15;border-color:#e6af15;box-shadow:0 0 10px rgba(230,175,21,.3)">OUR ARTISTS</a>
+      <a class="nav-btn-outline ticket-shape" href="/partners/" style="color:white;border-color:white">PARTNERS</a>
+      <a class="nav-btn-outline ticket-shape" href="/what-is-masterylab/">What is MasteryLab?</a>
+    </div>
+  </div>
+</nav>
+<main id="main-content" class="memories-page">
+  <header class="memories-hero"><div class="memories-kicker">The moments that move us</div><h1>Memories</h1><p>Relive the people, movement and energy from our labs. Choose an event, find your photos and download the original in full resolution.</p><p class="memories-photo-credit">Photography by Sheila</p><div class="memories-rule"></div></header>
+  <section class="memories-shell" aria-label="MasteryLab photo collections">
+    <div class="memories-events" role="tablist" aria-label="Choose an event">
+      <button class="memories-event" type="button" role="tab" data-day="saturday" aria-selected="true"><strong>Men &amp; Lady Styling</strong><span>Saturday · 12 September 2026</span></button>
+      <button class="memories-event" type="button" role="tab" data-day="sunday" aria-selected="false"><strong>Lady Styling</strong><span>Sunday · 13 September 2026</span></button>
+    </div>
+    <div class="memories-toolbar"><div><div class="memories-kicker" id="memories-day-label">Saturday · 12 September 2026</div><h2 id="memories-event-title">Men &amp; Lady Styling Lab</h2></div><div class="memories-count" id="memories-count" aria-live="polite">Loading photos…</div></div>
+    <div class="memories-filters" id="memories-filters" aria-label="Filter by photo collection"></div>
+    <div class="memories-grid" id="memories-grid" aria-live="polite"></div>
+    <div class="memories-more" id="memories-more"><div id="memories-load-more"></div><button class="memories-back-to-top" id="memories-back-to-top" type="button" aria-label="Back to top"><span class="memories-back-to-top-icon" aria-hidden="true">↑</span><span>Back to top</span></button></div>
+    <p class="memories-note">Downloads are the original full-resolution photographs.</p>
+  </section>
+</main>
+<footer class="memories-footer">MasteryLab · Memories · Captured together, kept forever.</footer>
+<dialog class="memories-lightbox" id="memories-lightbox" aria-label="Photo viewer">
+  <div class="memories-lightbox-inner">
+    <div class="memories-lightbox-top"><span id="memories-lightbox-position" aria-live="polite"></span><button class="memories-lightbox-back memories-lightbox-close" type="button" aria-label="Back to photos">← <span>Back to photos</span></button></div>
+    <div class="memories-lightbox-viewer">
+      <div class="memories-lightbox-stage">
+        <button class="memories-lightbox-control memories-lightbox-prev" type="button" aria-label="Previous photo">‹</button>
+        <img class="memories-lightbox-image" id="memories-lightbox-image" alt="">
+        <button class="memories-lightbox-control memories-lightbox-next" type="button" aria-label="Next photo">›</button>
+      </div>
+      <aside class="memories-lightbox-rail" id="memories-lightbox-rail" aria-label="Browse photos"></aside>
+    </div>
+    <div class="memories-lightbox-bottom"><span class="memories-lightbox-title" id="memories-lightbox-title"></span><a class="memories-lightbox-download" id="memories-lightbox-download" download>Download original ↓</a></div>
+  </div>
+</dialog>
+<script>
+(() => {
+  const pageSize = 24;
+  const grid = document.getElementById('memories-grid');
+  const filters = document.getElementById('memories-filters');
+  const count = document.getElementById('memories-count');
+  const more = document.getElementById('memories-load-more');
+  const lightbox = document.getElementById('memories-lightbox');
+  const lightboxImage = document.getElementById('memories-lightbox-image');
+  const lightboxTitle = document.getElementById('memories-lightbox-title');
+  const lightboxDownload = document.getElementById('memories-lightbox-download');
+  const lightboxPosition = document.getElementById('memories-lightbox-position');
+  const lightboxRail = document.getElementById('memories-lightbox-rail');
+  const lightboxPhotos = { items: [], index: 0 };
+  const tabs = [...document.querySelectorAll('.memories-event')];
+  let photos = [];
+  let activeDay = 'saturday';
+  let activeCollection = '';
+  let visibleCount = pageSize;
+  const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const photoImageUrl = photo => photo.driveId ? `https://lh3.googleusercontent.com/d/${encodeURIComponent(photo.driveId)}=w1600` : photo.thumb;
+  const photoDownloadUrl = photo => photo.driveId
+    ? `https://drive.google.com/uc?export=download&id=${encodeURIComponent(photo.driveId)}`
+    : photo.src;
+  function downloadPhoto(photo, button) {
+    if (!photo) return;
+    const originalLabel = button.textContent;
+    button.textContent = 'Starting download…';
+    setTimeout(() => {
+      if (button.isConnected) button.textContent = originalLabel;
+    }, 2500);
+  }
+  const currentPhotos = () => photos.filter(photo => photo.day === activeDay && photo.collection === activeCollection);
+  function showLightboxPhoto() {
+    const photo = lightboxPhotos.items[lightboxPhotos.index];
+    if (!photo) return;
+    lightboxImage.referrerPolicy = 'no-referrer';
+    lightboxImage.src = photoImageUrl(photo);
+    lightboxImage.alt = `${photo.collection} · ${photo.fileName}`;
+    lightboxTitle.textContent = `${photo.collection} · ${photo.fileName}`;
+    lightboxPosition.textContent = `${lightboxPhotos.index + 1} / ${lightboxPhotos.items.length}`;
+    lightboxRail.querySelectorAll('.memories-lightbox-thumb').forEach((button, index) => {
+      button.setAttribute('aria-current', String(index === lightboxPhotos.index));
+    });
+    lightboxRail.querySelector('[aria-current="true"]')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    lightboxDownload.href = photoDownloadUrl(photo);
+    lightboxDownload.textContent = 'Download original ↓';
+    lightboxDownload.removeAttribute('target');
+    lightboxDownload.removeAttribute('rel');
+    lightboxDownload.download = photo.fileName;
+    const disabled = lightboxPhotos.items.length < 2;
+    lightbox.querySelector('.memories-lightbox-prev').disabled = disabled;
+    lightbox.querySelector('.memories-lightbox-next').disabled = disabled;
+  }
+  function openLightbox(src) {
+    lightboxPhotos.items = currentPhotos();
+    lightboxPhotos.index = Math.max(0, lightboxPhotos.items.findIndex(photo => photo.src === src));
+    lightboxRail.innerHTML = lightboxPhotos.items.map((photo, index) => `<button class="memories-lightbox-thumb" type="button" data-photo-index="${index}" aria-label="Open ${escapeHtml(photo.fileName)}"><img src="${photo.thumb}" alt="" loading="lazy" decoding="async"></button>`).join('');
+    lightboxRail.querySelectorAll('.memories-lightbox-thumb').forEach(button => button.addEventListener('click', () => {
+      lightboxPhotos.index = Number(button.dataset.photoIndex);
+      showLightboxPhoto();
+    }));
+    showLightboxPhoto();
+    if (!lightbox.open) lightbox.showModal();
+  }
+  function moveLightbox(direction) {
+    if (!lightboxPhotos.items.length) return;
+    lightboxPhotos.index = (lightboxPhotos.index + direction + lightboxPhotos.items.length) % lightboxPhotos.items.length;
+    showLightboxPhoto();
+  }
+  function renderFilters(dayPhotos) {
+    const collections = [...new Set(dayPhotos.map(photo => photo.collection))];
+    if (!collections.includes(activeCollection)) activeCollection = collections[0] || '';
+    filters.innerHTML = collections.map(collection => {
+      const collectionCount = dayPhotos.filter(photo => photo.collection === collection).length;
+      return `<button class="memories-filter" type="button" data-collection="${escapeHtml(collection)}" aria-pressed="${activeCollection === collection}">${escapeHtml(collection)} <span>(${collectionCount})</span></button>`;
+    }).join('');
+    filters.querySelectorAll('button').forEach(button => button.addEventListener('click', () => { activeCollection = button.dataset.collection; visibleCount = pageSize; render(); }));
+  }
+  function render() {
+    const dayPhotos = photos.filter(photo => photo.day === activeDay);
+    const tab = tabs.find(item => item.dataset.day === activeDay);
+    document.getElementById('memories-day-label').textContent = tab.querySelector('span').textContent;
+    document.getElementById('memories-event-title').textContent = dayPhotos[0]?.event || 'Lab Memories';
+    renderFilters(dayPhotos);
+    const selectedPhotos = currentPhotos();
+    count.textContent = `${selectedPhotos.length} ${selectedPhotos.length === 1 ? 'photo' : 'photos'}`;
+    const shown = selectedPhotos.slice(0, visibleCount);
+    grid.innerHTML = shown.length ? shown.map(photo => {
+      const label = `${photo.collection} · ${photo.fileName}`;
+      const imageUrl = photo.driveId ? `https://lh3.googleusercontent.com/d/${encodeURIComponent(photo.driveId)}=w900` : photo.thumb;
+      const downloadUrl = photoDownloadUrl(photo);
+      const downloadAttribute = ` download="${escapeHtml(photo.fileName)}"`;
+      const downloadLabel = 'Download original';
+      return `<article class="memories-card"><a class="memories-photo" href="${photo.src}" target="_blank" rel="noopener" aria-label="Open ${escapeHtml(label)}"><img src="${imageUrl}" referrerpolicy="no-referrer" alt="${escapeHtml(`MasteryLab ${photo.collection} event photo`) }" loading="lazy" decoding="async" width="${photo.width}" height="${photo.height}"></a><div class="memories-card-info"><div><strong>${escapeHtml(photo.collection)}</strong><small>${escapeHtml(photo.fileName)}</small></div><a class="memories-download" href="${downloadUrl}" data-photo-src="${escapeHtml(photo.src)}"${downloadAttribute}>${downloadLabel}</a></div></article>`;
+    }).join('') : '<div class="memories-empty">No photos are available in this collection yet.</div>';
+    grid.querySelectorAll('.memories-photo').forEach(link => link.addEventListener('click', event => {
+      event.preventDefault();
+      openLightbox(link.getAttribute('href'));
+    }));
+    grid.querySelectorAll('.memories-download').forEach(link => link.addEventListener('click', () => {
+      downloadPhoto(photos.find(photo => photo.src === link.dataset.photoSrc), link);
+    }));
+    more.innerHTML = shown.length < selectedPhotos.length ? `<button type="button">Load more photos</button>` : '';
+    more.querySelector('button')?.addEventListener('click', () => { visibleCount += pageSize; render(); });
+  }
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    activeDay = tab.dataset.day; activeCollection = ''; visibleCount = pageSize;
+    tabs.forEach(item => item.setAttribute('aria-selected', String(item === tab)));
+    render();
+  }));
+  lightbox.querySelector('.memories-lightbox-close').addEventListener('click', () => lightbox.close());
+  lightbox.querySelector('.memories-lightbox-prev').addEventListener('click', () => moveLightbox(-1));
+  lightbox.querySelector('.memories-lightbox-next').addEventListener('click', () => moveLightbox(1));
+  lightboxDownload.addEventListener('click', () => {
+    downloadPhoto(lightboxPhotos.items[lightboxPhotos.index], lightboxDownload);
+  });
+  document.getElementById('memories-back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  lightbox.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
+  document.addEventListener('keydown', event => {
+    if (!lightbox.open) return;
+    if (event.key === 'ArrowLeft') { event.preventDefault(); moveLightbox(-1); }
+    if (event.key === 'ArrowRight') { event.preventDefault(); moveLightbox(1); }
+  });
+  fetch('/media/memories/manifest.json?v=5').then(response => { if (!response.ok) throw new Error('Gallery manifest unavailable'); return response.json(); }).then(data => { photos = data.map(photo => ({...photo, src: new URL(photo.src, window.location.origin + '/').href, thumb: new URL(photo.thumb, window.location.origin + '/').href})); render(); }).catch(() => { count.textContent = 'Gallery unavailable'; grid.innerHTML = '<div class="memories-empty">The photo collection could not be loaded. Please try again later.</div>'; });
+})();
+</script>
+<script src="/script.js?v=clean1" defer></script>
+</body>
+</html>

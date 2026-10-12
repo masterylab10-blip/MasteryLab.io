@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<script src="/clean-urls.js?v=1"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Register | MasteryLab Portal</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Outfit:wght@300;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Favicon -->
+<link href="/media/favicon.png" rel="icon" type="image/png"/>
+<!-- Custom CSS -->
+<link href="/style.css" rel="stylesheet"/>
+<link rel="canonical" href="https://masterylab.ch/register/">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container">
+<a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+<!-- Mobile Menu Button -->
+<button aria-label="Toggle navigation" class="mobile-menu-btn">
+<span></span>
+<span></span>
+<span></span>
+</button>
+<div class="nav-links">
+<a class="nav-btn-outline ticket-shape" href="#" onclick="history.back(); return false;">GO BACK</a>
+</div>
+</div>
+</nav>
+<main class="auth-page">
+<div class="container">
+<!-- Benefits Section -->
+<div class="auth-benefits">
+<h1 class="text-gradient">WHY JOIN MASTERYLAB?</h1>
+<p class="hero-desc">Create your dancer profile to unlock exclusive resources and track your progress.
+                </p>
+<div class="benefit-grid">
+<div class="benefit-card">
+<h3>Track Progress</h3>
+<p>Keep a record of all the labs and workshops you've completed.</p>
+</div>
+<div class="benefit-card">
+<h3>Exclusive Content</h3>
+<p>Access study materials, music playlists, and technique notes.</p>
+</div>
+<div class="benefit-card">
+<h3>Community</h3>
+<p>Connect with other dedicated dancers and instructors.</p>
+</div>
+</div>
+</div>
+<!-- Registration Form -->
+<div class="auth-form-container">
+<h2 class="text-center text-primary" style="margin-bottom: 2rem;">CREATE ACCOUNT</h2>
+<form action="#" method="POST">
+<div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0;">
+<div class="form-group">
+<label class="form-label">First Name</label>
+<input class="form-input" id="firstName" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label">Last Name</label>
+<input class="form-input" id="lastName" required="" type="text"/>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Email Address</label>
+<input class="form-input" id="email" required="" type="email"/>
+</div>
+<div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0;">
+<div class="form-group">
+<label class="form-label">City of Residence</label>
+<input class="form-input" id="city" placeholder="e.g. Basel" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label">Role in Community</label>
+<select class="form-input" id="role" required="" style="-webkit-appearance: none; appearance: none; cursor: pointer;">
+<option disabled="" selected="" value="">Select your role</option>
+<option value="student">Student</option>
+<option value="teacher">Teacher</option>
+<option value="performer">Performer</option>
+<option value="other">Other</option>
+</select>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Whatsapp Number</label>
+<input class="form-input" id="whatsapp" placeholder="+41 79 123 45 67" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label class="form-label">Password</label>
+<input class="form-input" id="password" required="" type="password"/>
+</div>
+<div class="form-group" style="margin-top: 2rem;">
+<button class="btn btn-primary" id="submitBtn" style="width: 100%; border-radius: 8px;" type="submit">Register Now</button>
+</div>
+<p style="font-size: 0.85rem; color: #666; text-align: center; margin-top: 1rem;">
+                        By creating an account, you agree to our <a href="/terms-of-service/" style="color: #ff6b6b; text-decoration: underline;">Terms of Service</a>.
+                    </p>
+</form>
+<div class="auth-footer">
+                    Already have an account? <a href="/login/">Log in here</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer id="contact">
+<div class="container">
+<div class="footer-logo text-primary">MASTERYLAB</div>
+<p class="copy">© 2024 MasteryLab. All rights reserved.</p>
+</div>
+</footer>
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase.js?v=clean1"></script>
+<script>
+        const registerForm = document.querySelector('form');
+        const submitBtn = document.getElementById('submitBtn');
+
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // UI Loading State
+            const originalBtnText = submitBtn.innerText;
+            submitBtn.innerText = "Creating Account...";
+            submitBtn.disabled = true;
+
+            // Collect Data
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const city = document.getElementById('city').value;
+            const role = document.getElementById('role').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const password = document.getElementById('password').value;
+
+            // Metadata object
+            const metadata = {
+                first_name: firstName,
+                last_name: lastName,
+                city: city,
+                role: role,
+                whatsapp: whatsapp
+            };
+
+            try {
+                // Call Supabase Helper
+                const { data, error } = await window.registerUser(email, password, metadata);
+
+                if (error) {
+                    throw error;
+                }
+
+                alert("Registration Successful! Please check your email to confirm your account.");
+                // Optional: Redirect to login or home
+                window.location.href='/login';
+
+            } catch (err) {
+                console.error("Registration Error:", err);
+                alert("Error: " + err.message);
+            } finally {
+                submitBtn.innerText = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

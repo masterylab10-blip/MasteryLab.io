@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/clean-urls.js?v=1"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Official Partners | MasteryLab</title>
+    <link href="/style.css?v=15" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;600&display=swap"
+        rel="stylesheet" />
+    <link href="/media/favicon.png" rel="icon" type="image/png" />
+    <style>
+        .partner-section-wrapper {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            margin-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-section-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(214,0,28,0.5), transparent);
+        }
+
+        .info-pill {
+            display: inline-block;
+            background: rgba(214, 0, 28, 0.1);
+            color: #ff4d4d;
+            border: 1px solid rgba(214, 0, 28, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            color: #bbb;
+            font-size: 1rem;
+        }
+
+        .feature-list li svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+            color: #D6001C;
+        }
+
+        .image-collage {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .image-collage img {
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: transform 0.5s ease;
+        }
+
+        .image-collage img:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 900px) {
+            .partner-section-wrapper {
+                padding: 2rem;
+            }
+            .grid-2 > div {
+                order: 0 !important;
+            }
+            .image-collage {
+                min-height: auto;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+<link rel="canonical" href="https://masterylab.ch/partners/">
+</head>
+
+<body style="background: #050505; color: white;">
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(0,0,0,0.8); backdrop-filter: blur(10px);">
+        <div class="container">
+            <a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+            <div class="nav-links">
+                <a class="nav-btn-outline ticket-shape" href="/" style="border-color: #555; color: #fff;">BACK TO HOME</a>
+                <a class="nav-btn-outline ticket-shape" href="/dance-outfit/" style="color: var(--color-primary); border-color: var(--color-primary); box-shadow: 0 0 10px rgba(214,0,28,0.3);">DANCE OUTFIT</a>
+                <a class="nav-btn-outline ticket-shape" href="/artists/" style="color: #e6af15; border-color: #e6af15; box-shadow: 0 0 10px rgba(230,175,21,0.3);">OUR ARTISTS</a>
+                <a class="nav-btn-outline ticket-shape" href="/partners/" style="color: white; border-color: white;">PARTNERS</a>
+                <a class="nav-btn-outline ticket-shape" href="/what-is-masterylab/">What is MasteryLab?</a>
+                <a class="nav-btn-outline ticket-shape" href="/education-journal/">EDUCATION JOURNAL</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button aria-label="Toggle navigation" class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section style="min-height: 40vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding-top: 120px; padding-bottom: 60px;">
+        <div class="container text-center" style="position: relative; z-index: 2;">
+            <span class="text-gradient-red" style="font-family: 'Outfit'; letter-spacing: 4px; font-weight: 700;">COLLABORATION & COMMUNITY</span>
+            <h1 style="font-family: 'Anton'; font-size: clamp(3.5rem, 8vw, 6rem); line-height: 0.9; margin: 1rem 0;">
+                <span class="glow-white-premium">OFFICIAL</span><br />
+                <span class="glow-red-premium">PARTNERS</span>
+            </h1>
+            <p style="font-size: 1.2rem; color: #aaa; max-width: 700px; margin: 1.5rem auto 0; font-weight: 300; line-height: 1.6;">
+                MasteryLab is proud to collaborate with industry-leading organizations and visionary artists. Together, we elevate the standard of dance education and performance.
+            </p>
+        </div>
+        <!-- Background Effect -->
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(214,0,28,0.08) 0%, transparent 70%); pointer-events: none;"></div>
+    </section>
+
+    <!-- Partners Section -->
+    <section style="padding: 20px 0 100px;">
+        <div class="container">
+
+            <!-- Area 4 Dance Center -->
+            <div class="partner-section-wrapper">
+                <div class="grid-2" style="align-items: center; gap: 4rem;">
+                    <div style="text-align: center; background: rgba(0,0,0,0.3); padding: 3rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.02);">
+                        <img src="/media/partner-area4-logo.png" alt="Area 4 Dance Center" style="max-width: 250px; width: 100%; height: auto; filter: drop-shadow(0 0 25px rgba(255,255,255,0.1)); margin-bottom: 2rem;" />
+
+                        <div style="background: rgba(214,0,28,0.05); border: 1px solid rgba(214,0,28,0.2); padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                            <h4 style="color: white; font-family: 'Anton'; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 0.5rem;">VISIT THE STUDIO</h4>
+                            <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 0;">Mellingerstrasse 2<br/>5400 Baden, Switzerland</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="info-pill">Tanzschule in Baden</span>
+                        <h2 class="glow-white-premium" style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 1rem; line-height: 1;">
+                            AREA 4 DANCE CENTER</h2>
+
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">
+                            Located in the heart of Baden, just a 5-minute walk from the SBB train station, Area 4 Dance Center is a premier dance school directed by international artist Natalia Lopez.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2rem; border-left: 2px solid #D6001C; padding-left: 1.2rem;">
+                            <em>"Offering top-tier dance classes and more for women and children. All levels and ages are warmly welcome. <strong>Erlebe deine Leidenschaft neu!</strong>"</em>
+                        </p>
+
+                        <h4 style="color: white; font-family: 'Outfit'; font-weight: 600; letter-spacing: 1px; margin-bottom: 1rem;">WEEKLY DANCE CLASSES</h4>
+                        <ul class="feature-list">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Salsa Ladystyle</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Bachata Sensual</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Heels</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Reggaeton & Afro</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Flamenco & Tango</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Ballet & Pilates</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Aerodance & Salsation</li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Bachata Footwork & Menstyle</li>
+                        </ul>
+
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem;">
+                            <a class="btn-primary" href="https://area4dancecenter.ch/" target="_blank" rel="noopener noreferrer">DISCOVER SCHEDULE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Natalia Lopez -->
+            <div class="partner-section-wrapper">
+                <div class="grid-2" style="align-items: center; gap: 4rem;">
+
+                    <div style="order: 2;">
+                        <div class="image-collage">
+                            <img src="/media/partner-natalia-photo.jpg" alt="Natalia Lopez Performing" style="width: 100%; height: auto; display: block; position: relative; z-index: 2;" />
+
+                            <!-- Floating Logo Badge -->
+                            <div style="position: absolute; bottom: -20px; right: 20px; background: rgba(20,20,20,0.95); padding: 15px 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); z-index: 3; box-shadow: 0 10px 30px rgba(0,0,0,0.5); backdrop-filter: blur(10px);">
+                                <img src="/media/partner-natalia-logo.png" alt="Natalia Lopez Logo" style="height: 45px; width: auto; filter: brightness(1.2);" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="order: 1;">
+                        <span class="info-pill">International Artist</span>
+                        <h2 class="glow-white-premium" style="font-family: 'Anton'; font-size: 3rem; margin-bottom: 0.5rem; line-height: 1;">
+                            NATALIA LOPEZ</h2>
+                        <p style="font-size: 1rem; color: #D6001C; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">
+                            Performance Artist | Choreographer | Coach
+                        </p>
+
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #ccc; margin-bottom: 1.5rem;">
+                            Based in Baden, Switzerland, Natalia has been conquering audiences around the world since 2009. She is a multi-talented stage performer, dancer, singer, and international instructor.
+                        </p>
+
+                        <div style="background: rgba(0,0,0,0.4); padding: 2rem; border-radius: 16px; border-left: 3px solid #D6001C; margin-bottom: 2rem;">
+                            <p style="font-size: 1.1rem; line-height: 1.7; color: white; margin-bottom: 1rem; font-style: italic;">
+                                "Nothing compares to the magical thrill of going on stage and taking people’s breath away, and that’s exactly what I love to do each time I perform."
+                            </p>
+                            <p style="font-size: 0.95rem; color: #888; margin-bottom: 0; text-transform: uppercase; letter-spacing: 1px;">— Natalia Lopez</p>
+                        </div>
+
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: #aaa; margin-bottom: 2rem;">
+                            Her artistic career has been created through immense passion, dedication, and self-awareness. Natalia brings world-class experience to her teachings and performances, inspiring the next generation of dancers.
+                        </p>
+
+                        <a class="btn-primary" href="https://www.natalianllopez.com/" target="_blank" rel="noopener noreferrer">VISIT OFFICIAL WEBSITE</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="padding: 4rem 0 2rem; border-top: 1px solid rgba(255,255,255,0.05); background: #000;">
+        <div class="container">
+            <div class="grid-3" style="margin-bottom: 3rem; gap: 3rem;">
+                <div>
+                    <img alt="MasteryLab" src="/media/logo-wings.png" style="width: 150px; margin-bottom: 1.5rem;" />
+                    <p style="color: #888; line-height: 1.6;">
+                        High-level, continuous dance educational lab offering intensive weekend programs.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: white; font-family: 'Anton'; letter-spacing: 1px; margin-bottom: 1.5rem;">QUICK LINKS</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.8rem;"><a href="/" style="color: #888; text-decoration: none; transition: color 0.3s;">Home</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="/what-is-masterylab/" style="color: #888; text-decoration: none; transition: color 0.3s;">About</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="/#programs" style="color: #888; text-decoration: none; transition: color 0.3s;">Programs</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="/dance-outfit/" style="color: #888; text-decoration: none; transition: color 0.3s;">Outfit</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="/partners/" style="color: #D6001C; text-decoration: none; transition: color 0.3s;">Partners</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: white; font-family: 'Anton'; letter-spacing: 1px; margin-bottom: 1.5rem;">CONTACT</h4>
+                    <p style="color: #888; margin-bottom: 0.5rem;">Email: info@masterylab.ch</p>
+                    <p style="color: #888; margin-bottom: 0.5rem;">Location: Basel, Switzerland</p>
+                    <div style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                        <a href="https://instagram.com/masterylab.ch" target="_blank" style="color: white; font-size: 1.5rem; opacity: 0.7; transition: opacity 0.3s;">IG</a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem;">
+                <p style="color: #444;">© 2024 MasteryLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="/script.js?v=clean1"></script>
+</body>
+</html>

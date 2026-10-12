@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/clean-urls.js?v=1"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MasteryLab - Dance Outfit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        :root {
+            --outfit-red: #d6001c;
+            --outfit-neon: #ff2a5f;
+            --outfit-bg: #050505;
+        }
+        body {
+            background-color: var(--outfit-bg);
+            color: #fff;
+        }
+        .outfit-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        .outfit-hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('/media/dance-outfit-hero-v2.png') center center / cover no-repeat;
+            opacity: 0.4;
+            filter: grayscale(20%) contrast(1.2);
+            animation: slowPan 20s infinite alternate linear;
+        }
+        .outfit-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, #050505 100%);
+        }
+        .outfit-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 2rem;
+        }
+        .neon-title {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            color: transparent;
+            -webkit-text-stroke: 2px var(--outfit-neon);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 0;
+            line-height: 1;
+            text-shadow: 0 0 30px rgba(255, 42, 95, 0.4);
+            animation: neonPulse 2s infinite alternate;
+        }
+        .neon-title-solid {
+            color: #fff;
+            -webkit-text-stroke: 0;
+        }
+        .outfit-subtitle {
+            font-size: 1.5rem;
+            color: #a0a0a0;
+            margin-top: 1.5rem;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+        .btn-neon-glow {
+            background: transparent;
+            color: #fff;
+            border: 2px solid var(--outfit-neon);
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255,42,95,0.3), inset 0 0 10px rgba(255,42,95,0.3);
+            text-transform: uppercase;
+        }
+        .btn-neon-glow:hover {
+            background: var(--outfit-neon);
+            color: #000;
+            box-shadow: 0 0 40px rgba(255,42,95,0.6);
+            transform: translateY(-3px);
+        }
+
+        @keyframes neonPulse {
+            0% { filter: drop-shadow(0 0 10px rgba(255,42,95,0.3)); }
+            100% { filter: drop-shadow(0 0 30px rgba(255,42,95,0.8)); }
+        }
+        @keyframes slowPan {
+            0% { transform: scale(1.05) translateY(0); }
+            100% { transform: scale(1.1) translateY(-20px); }
+        }
+
+        .outfit-grid {
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .outfit-card {
+            background: rgba(20,20,25,0.6);
+            border: 1px solid rgba(255,42,95,0.2);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+        .outfit-card:hover {
+            border-color: var(--outfit-neon);
+            box-shadow: 0 15px 40px rgba(255,42,95,0.2);
+            transform: translateY(-10px);
+        }
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 10px var(--outfit-neon));
+        }
+    </style>
+<link rel="canonical" href="https://masterylab.ch/dance-outfit/">
+</head>
+<body>
+    <nav class="navbar" style="background: rgba(5,5,5,0.8); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,42,95,0.2);">
+        <div class="container">
+            <a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+            <div class="nav-links">
+                <a class="nav-btn-outline ticket-shape" href="/hotels/" style="color: #00d26a; border-color: #00d26a; box-shadow: 0 0 10px rgba(0,210,106,0.3);">HOTELS & STAY</a>
+                <a class="nav-btn-outline ticket-shape" href="/" style="border-color: #555; color: #fff;">BACK TO HOME</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Hero Header: DANCE WITH STYLE -->
+    <header class="outfit-hero" style="min-height: 48vh; padding: 4rem 1rem 2rem;">
+        <div class="outfit-hero-bg"></div>
+        <div class="outfit-hero-overlay"></div>
+        <div class="outfit-content">
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,42,95,0.15); color: #ff2a5f; border: 1.5px solid rgba(255,42,95,0.5); padding: 0.4rem 1.4rem; border-radius: 50px; font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; box-shadow: 0 0 25px rgba(255,42,95,0.4);">
+                <span>🔥</span> <span>OFFICIAL FOOTWEAR COLLECTION</span>
+            </div>
+            <h1 class="neon-title" style="font-size: clamp(3.5rem, 8vw, 6rem); letter-spacing: 2px; margin-bottom: 0.5rem;">DANCE WITH STYLE</h1>
+            <p class="outfit-subtitle" style="max-width: 700px; margin: 0 auto 1.5rem; font-size: 1.15rem; color: #bbb;">
+                Engineered specifically for smooth spins, pivots, and effortless slides with authentic suede soles.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <span style="background: rgba(0, 210, 106, 0.15); border: 1px solid #00d26a; color: #00d26a; font-weight: 700; font-size: 0.85rem; padding: 5px 14px; border-radius: 20px;">🇨🇭 Instant TWINT & Bank Transfer</span>
+                <span style="background: rgba(255, 42, 95, 0.15); border: 1px solid #ff2a5f; color: #ff2a5f; font-weight: 800; font-size: 0.85rem; padding: 5px 14px; border-radius: 20px;">🏷️ 100 CHF Flat Price</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Straight Ahead: Shoe Tickets Grid -->
+    <section id="panamio-promo" style="background: #0a0a0f; position: relative; padding: 3rem 0 5rem;">
+        <div class="container" style="text-align: center;">
+
+            <!-- Interactive Shoe Models Grid (Enlarged Premium Tickets) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; max-width: 1280px; margin: 0 auto 3.5rem;">
+
+                <!-- Model 1: Panda -->
+                <div style="background: rgba(18,18,24,0.85); border: 1.5px solid rgba(255,42,95,0.3); border-radius: 24px; padding: 2.2rem 1.8rem; text-align: center; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#ff2a5f'; this.style.boxShadow='0 25px 50px rgba(255,42,95,0.25)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,42,95,0.3)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.6)';">
+                    <div style="height: 240px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; position: relative; border-radius: 18px; background: radial-gradient(circle at center, rgba(255,42,95,0.08) 0%, transparent 70%);">
+                        <span style="position: absolute; top: 10px; right: 10px; z-index: 10; background: #ff2a5f; color: #000; font-family: 'Anton'; font-size: 0.9rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.5px; box-shadow: 0 0 20px rgba(255,42,95,0.8);">-10% OFF</span>
+                        <img src="/media/panamio_panda_bg.png" alt="Panamio Panda" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8)); position: relative; z-index: 1;">
+                    </div>
+                    <h3 style="color: #fff; font-family: 'Anton'; font-size: 1.9rem; margin: 0 0 0.5rem; letter-spacing: 1px;">PANDA EDITION</h3>
+                    <p style="color: #bbb; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; min-height: 45px;">Iconic high-contrast black & white styling with pro-grade authentic suede spin sole.</p>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <span style="color: #ff2a5f; font-weight: 800; font-size: 1.9rem; font-family: 'Anton'; letter-spacing: 0.5px;">100 CHF</span>
+                        <span style="color: #666; text-decoration: line-through; font-size: 1.2rem; font-weight: 500;">110 CHF</span>
+                    </div>
+                    <a href="/order-panamio/" style="display: block; background: #ff2a5f; border: 1px solid #ff2a5f; color: #000; font-family: 'Anton'; letter-spacing: 1px; font-weight: 700; padding: 1rem; border-radius: 14px; text-decoration: none; font-size: 1.1rem; box-shadow: 0 0 20px rgba(255,42,95,0.4); transition: all 0.25s;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 0 30px rgba(255,42,95,0.7)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(255,42,95,0.4)';">SELECT & ORDER PANDA</a>
+                </div>
+
+                <!-- Model 2: Pure White -->
+                <div style="background: rgba(18,18,24,0.85); border: 1.5px solid rgba(255,42,95,0.3); border-radius: 24px; padding: 2.2rem 1.8rem; text-align: center; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#ff2a5f'; this.style.boxShadow='0 25px 50px rgba(255,42,95,0.25)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,42,95,0.3)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.6)';">
+                    <div style="height: 240px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; position: relative; border-radius: 18px; background: radial-gradient(circle at center, rgba(255,42,95,0.08) 0%, transparent 70%);">
+                        <span style="position: absolute; top: 10px; right: 10px; z-index: 10; background: #ff2a5f; color: #000; font-family: 'Anton'; font-size: 0.9rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.5px; box-shadow: 0 0 20px rgba(255,42,95,0.8);">-10% OFF</span>
+                        <img src="/media/panamio_pure_white_bg.png" alt="Panamio Pure White" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8)); position: relative; z-index: 1;">
+                    </div>
+                    <h3 style="color: #fff; font-family: 'Anton'; font-size: 1.9rem; margin: 0 0 0.5rem; letter-spacing: 1px;">PURE WHITE</h3>
+                    <p style="color: #bbb; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; min-height: 45px;">Clean minimalist dance sneaker with high airflow mesh and ultra-flexible chassis.</p>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <span style="color: #ff2a5f; font-weight: 800; font-size: 1.9rem; font-family: 'Anton'; letter-spacing: 0.5px;">100 CHF</span>
+                        <span style="color: #666; text-decoration: line-through; font-size: 1.2rem; font-weight: 500;">110 CHF</span>
+                    </div>
+                    <a href="/order-panamio/" style="display: block; background: #ff2a5f; border: 1px solid #ff2a5f; color: #000; font-family: 'Anton'; letter-spacing: 1px; font-weight: 700; padding: 1rem; border-radius: 14px; text-decoration: none; font-size: 1.1rem; box-shadow: 0 0 20px rgba(255,42,95,0.4); transition: all 0.25s;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 0 30px rgba(255,42,95,0.7)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(255,42,95,0.4)';">SELECT & ORDER WHITE</a>
+                </div>
+
+                <!-- Model 3: Shadow Black -->
+                <div style="background: rgba(18,18,24,0.85); border: 1.5px solid rgba(255,42,95,0.3); border-radius: 24px; padding: 2.2rem 1.8rem; text-align: center; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#ff2a5f'; this.style.boxShadow='0 25px 50px rgba(255,42,95,0.25)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,42,95,0.3)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.6)';">
+                    <div style="height: 240px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; position: relative; border-radius: 18px; background: radial-gradient(circle at center, rgba(255,42,95,0.08) 0%, transparent 70%);">
+                        <span style="position: absolute; top: 10px; right: 10px; z-index: 10; background: #ff2a5f; color: #000; font-family: 'Anton'; font-size: 0.9rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.5px; box-shadow: 0 0 20px rgba(255,42,95,0.8);">-10% OFF</span>
+                        <img src="/media/panamio_shadow_bg.png" alt="Panamio Shadow Black" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8)); position: relative; z-index: 1;">
+                    </div>
+                    <h3 style="color: #fff; font-family: 'Anton'; font-size: 1.9rem; margin: 0 0 0.5rem; letter-spacing: 1px;">SHADOW BLACK</h3>
+                    <p style="color: #bbb; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; min-height: 45px;">All-black stealth edition with custom heel cushion for hours of intense social dance.</p>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <span style="color: #ff2a5f; font-weight: 800; font-size: 1.9rem; font-family: 'Anton'; letter-spacing: 0.5px;">100 CHF</span>
+                        <span style="color: #666; text-decoration: line-through; font-size: 1.2rem; font-weight: 500;">110 CHF</span>
+                    </div>
+                    <a href="/order-panamio/" style="display: block; background: #ff2a5f; border: 1px solid #ff2a5f; color: #000; font-family: 'Anton'; letter-spacing: 1px; font-weight: 700; padding: 1rem; border-radius: 14px; text-decoration: none; font-size: 1.1rem; box-shadow: 0 0 20px rgba(255,42,95,0.4); transition: all 0.25s;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 0 30px rgba(255,42,95,0.7)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(255,42,95,0.4)';">SELECT & ORDER SHADOW</a>
+                </div>
+
+                <!-- Model 4: Stealth Edition -->
+                <div style="background: rgba(18,18,24,0.85); border: 1.5px solid rgba(255,42,95,0.3); border-radius: 24px; padding: 2.2rem 1.8rem; text-align: center; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.6);" onmouseover="this.style.transform='translateY(-10px)'; this.style.borderColor='#ff2a5f'; this.style.boxShadow='0 25px 50px rgba(255,42,95,0.25)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,42,95,0.3)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.6)';">
+                    <div style="height: 240px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; position: relative; border-radius: 18px; background: radial-gradient(circle at center, rgba(255,42,95,0.08) 0%, transparent 70%);">
+                        <span style="position: absolute; top: 10px; right: 10px; z-index: 10; background: #ff2a5f; color: #000; font-family: 'Anton'; font-size: 0.9rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.5px; box-shadow: 0 0 20px rgba(255,42,95,0.8);">-10% OFF</span>
+                        <img src="/media/panamio_stealth_bg.png" alt="Panamio Stealth" style="max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8)); position: relative; z-index: 1;">
+                    </div>
+                    <h3 style="color: #fff; font-family: 'Anton'; font-size: 1.9rem; margin: 0 0 0.5rem; letter-spacing: 1px;">STEALTH EDITION</h3>
+                    <p style="color: #bbb; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; min-height: 45px;">Urban dance profile with optimized pivot zone for effortless sensual isolations.</p>
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <span style="color: #ff2a5f; font-weight: 800; font-size: 1.9rem; font-family: 'Anton'; letter-spacing: 0.5px;">100 CHF</span>
+                        <span style="color: #666; text-decoration: line-through; font-size: 1.2rem; font-weight: 500;">110 CHF</span>
+                    </div>
+                    <a href="/order-panamio/" style="display: block; background: #ff2a5f; border: 1px solid #ff2a5f; color: #000; font-family: 'Anton'; letter-spacing: 1px; font-weight: 700; padding: 1rem; border-radius: 14px; text-decoration: none; font-size: 1.1rem; box-shadow: 0 0 20px rgba(255,42,95,0.4); transition: all 0.25s;" onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 0 30px rgba(255,42,95,0.7)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(255,42,95,0.4)';">SELECT & ORDER STEALTH</a>
+                </div>
+
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <a href="/order-panamio/" class="btn-neon-glow" style="background: var(--outfit-neon); color: #000; box-shadow: 0 0 35px rgba(255,42,95,0.5); padding: 1.3rem 3.5rem; font-family: 'Anton', sans-serif; font-size: 1.4rem; letter-spacing: 1.5px; border-radius: 50px; text-decoration: none; display: inline-block;">GO TO SECURE ORDER & TWINT CHECKOUT</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apparel Coming Soon -->
+    <section id="collection" style="background: #050505; position: relative; padding: 4rem 0; border-top: 1px solid rgba(255,42,95,0.15);">
+        <div class="container" style="text-align: center; margin-bottom: 2.5rem;">
+            <h2 style="font-family: 'Anton'; font-size: 2.5rem; color: #fff; margin-bottom: 0.5rem;">MORE STREETWEAR DROPPING SOON</h2>
+            <p style="color: var(--outfit-neon); font-size: 1.1rem; font-weight: 700; letter-spacing: 2px;">COMING FALL 2026</p>
+        </div>
+
+        <div class="outfit-grid">
+            <div class="outfit-card">
+                <div class="card-icon">🔥</div>
+                <h3 style="font-family: 'Anton'; font-size: 1.8rem; margin-bottom: 1rem; color: #fff;">STREETWEAR TOPS</h3>
+                <p style="color: #a0a0a0; line-height: 1.6;">Breathable, athletic-fit tops featuring the iconic MasteryLab red wings. Designed to look sharp on and off the dance floor.</p>
+            </div>
+            <div class="outfit-card">
+                <div class="card-icon">👟</div>
+                <h3 style="font-family: 'Anton'; font-size: 1.8rem; margin-bottom: 1rem; color: #fff;">MOVEMENT PANTS</h3>
+                <p style="color: #a0a0a0; line-height: 1.6;">High-stretch tactical cargo pants for ultimate freedom. Perfect for sensual isolations and dynamic leading.</p>
+            </div>
+            <div class="outfit-card">
+                <div class="card-icon">🖤</div>
+                <h3 style="font-family: 'Anton'; font-size: 1.8rem; margin-bottom: 1rem; color: #fff;">LAB ACCESSORIES</h3>
+                <p style="color: #a0a0a0; line-height: 1.6;">Premium wristbands, caps, and towels to keep you looking fresh through those 9-hour intensive workshops.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: #020202; padding: 4rem 0; text-align: center; border-top: 1px solid rgba(255,42,95,0.1);">
+        <p style="color: #555; font-size: 0.9rem;">&copy; 2026 MasteryLab. All rights reserved.</p>
+    </footer>
+</body>
+</html>

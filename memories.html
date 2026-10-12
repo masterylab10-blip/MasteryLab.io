@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script src="/clean-urls.js?v=1"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Relive MasteryLab styling labs. Browse the event photo galleries and download the original full-resolution images.">
@@ -9,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="style.css?v=16" rel="stylesheet">
-<link href="media/favicon.png" rel="icon" type="image/png">
+<link href="/style.css?v=16" rel="stylesheet">
+<link href="/media/favicon.png" rel="icon" type="image/png">
 <style>
 .memories-page{min-height:100vh;background:#050505;color:#fff;padding-top:148px}
 .memories-hero{padding:clamp(3rem,8vw,7rem) 1.25rem 3rem;text-align:center;background:radial-gradient(ellipse at 50% 0,rgba(214,0,28,.19),transparent 58%)}
@@ -86,14 +87,14 @@
 <a class="skip-to-content" href="#main-content">Skip to main content</a>
 <nav class="navbar">
   <div class="container">
-    <a class="logo" href="/" aria-label="MasteryLab home"><img class="logo-wordmark" src="media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+    <a class="logo" href="/" aria-label="MasteryLab home"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
     <button aria-label="Toggle navigation" class="mobile-menu-btn"><span></span><span></span><span></span></button>
     <div class="nav-links">
-      <a class="nav-btn-outline ticket-shape" href="hotels.html" style="color:#00d26a;border-color:#00d26a;box-shadow:0 0 10px rgba(0,210,106,.3)">HOTELS &amp; STAY</a>
-      <a class="nav-btn-outline ticket-shape" href="dance-outfit.html" style="color:var(--color-primary);border-color:var(--color-primary);box-shadow:0 0 10px rgba(214,0,28,.3)">DANCE OUTFIT</a>
-      <a class="nav-btn-outline ticket-shape" href="artists.html" style="color:#e6af15;border-color:#e6af15;box-shadow:0 0 10px rgba(230,175,21,.3)">OUR ARTISTS</a>
-      <a class="nav-btn-outline ticket-shape" href="partners.html" style="color:white;border-color:white">PARTNERS</a>
-      <a class="nav-btn-outline ticket-shape" href="what-is-masterylab.html">What is MasteryLab?</a>
+      <a class="nav-btn-outline ticket-shape" href="/hotels/" style="color:#00d26a;border-color:#00d26a;box-shadow:0 0 10px rgba(0,210,106,.3)">HOTELS &amp; STAY</a>
+      <a class="nav-btn-outline ticket-shape" href="/dance-outfit/" style="color:var(--color-primary);border-color:var(--color-primary);box-shadow:0 0 10px rgba(214,0,28,.3)">DANCE OUTFIT</a>
+      <a class="nav-btn-outline ticket-shape" href="/artists/" style="color:#e6af15;border-color:#e6af15;box-shadow:0 0 10px rgba(230,175,21,.3)">OUR ARTISTS</a>
+      <a class="nav-btn-outline ticket-shape" href="/partners/" style="color:white;border-color:white">PARTNERS</a>
+      <a class="nav-btn-outline ticket-shape" href="/what-is-masterylab/">What is MasteryLab?</a>
     </div>
   </div>
 </nav>
@@ -250,9 +251,9 @@
     if (event.key === 'ArrowLeft') { event.preventDefault(); moveLightbox(-1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); moveLightbox(1); }
   });
-  fetch('media/memories/manifest.json?v=5').then(response => { if (!response.ok) throw new Error('Gallery manifest unavailable'); return response.json(); }).then(data => { photos = data; render(); }).catch(() => { count.textContent = 'Gallery unavailable'; grid.innerHTML = '<div class="memories-empty">The photo collection could not be loaded. Please try again later.</div>'; });
+  fetch('/media/memories/manifest.json?v=5').then(response => { if (!response.ok) throw new Error('Gallery manifest unavailable'); return response.json(); }).then(data => { photos = data.map(photo => ({...photo, src: new URL(photo.src, window.location.origin + '/').href, thumb: new URL(photo.thumb, window.location.origin + '/').href})); render(); }).catch(() => { count.textContent = 'Gallery unavailable'; grid.innerHTML = '<div class="memories-empty">The photo collection could not be loaded. Please try again later.</div>'; });
 })();
 </script>
-<script src="script.js?v=3" defer></script>
+<script src="/script.js?v=clean1" defer></script>
 </body>
 </html>

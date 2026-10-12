@@ -9,7 +9,7 @@
 //   4. Click Save, then Deploy -> New deployment
 //   5. Choose "Web app", set "Who has access" to "Anyone"
 //   6. Click Deploy, copy the Web App URL
-//   7. Replace GOOGLE_SCRIPT_URL in registration-men-styling.html with that URL
+//   7. Replace GOOGLE_SCRIPT_URL in /registration-men-styling/ with that URL
 // ============================================================
 
 var SHEET_ID   = '1KqkjtG-hdxDeMxroK9wOMWJuKQ3Qhfm5cEmUklELg7Y';
