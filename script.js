@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function injectDynamicPricingMOM() {
         // Only on Michael & Mayra page
         const isMMPage = window.location.href.includes('michael-mayra') && !window.location.href.includes('registration-');
-        if (!isMMPage) return;
+        if (!isMMPage || window.location.pathname.includes('michael-mayra-show-team-2027')) return;
 
         const ctaBtn = document.querySelector('.btn-cta-inviting');
         if (!ctaBtn) return;
