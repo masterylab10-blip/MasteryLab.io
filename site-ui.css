@@ -132,11 +132,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 .nav-ticket-group {display:contents;}
 @media (min-width:1280px) {
-  .home-page .navbar .container {display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:24px;width:100%;max-width:1800px;}
+  .home-page .navbar .container {display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:24px;width:100%;max-width:none;padding-inline:24px;}
   .home-page .navbar .logo {grid-column:2;grid-row:1;justify-self:center;}
-  .home-page .navbar .logo-wordmark {width:180px;}
+  .home-page .navbar .logo-wordmark {width:clamp(240px,23vw,380px);max-width:100%;}
   .home-page .navbar .nav-links {display:contents;}
   .home-page .nav-ticket-group {display:flex;gap:8px;align-items:center;min-width:0;grid-row:1;}
-  .home-page .nav-ticket-left {grid-column:1;justify-content:flex-end;}
-  .home-page .nav-ticket-right {grid-column:3;justify-content:flex-start;}
+  .home-page .nav-ticket-left {grid-column:1;justify-content:flex-start;}
+  .home-page .nav-ticket-right {grid-column:3;justify-content:flex-end;}
 }
