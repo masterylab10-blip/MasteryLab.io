@@ -140,3 +140,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .home-page .nav-ticket-left {grid-column:1;justify-content:flex-start;}
   .home-page .nav-ticket-right {grid-column:3;justify-content:flex-end;}
 }
+
+.weekend-heading {text-align:center;margin-bottom:3rem;}
+.weekend-heading h2 {font-size:clamp(2rem,4vw,3.5rem);color:#ff4050;line-height:1.15;}
