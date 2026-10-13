@@ -90,3 +90,42 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .event-artists {display:inline-block;font-size:.6em;color:#ddd;margin-top:1rem;}
 .event-year {display:inline-block;border:1px solid var(--accent);padding:.4rem 1rem;border-radius:6px;font-family:var(--font-heading);letter-spacing:3px;margin-bottom:1rem;color:white;}
 .bio-hero .btn-primary {background:#c90e27 !important;color:#fff !important;box-shadow:none !important;border-radius:8px;}
+
+/* Phone and tablet layouts keep the same ticket identity without squeezing content. */
+@media (min-width:768px) and (max-width:1100px) {
+  .season-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .lab-content {gap:2rem;}
+  .lab-info h2 {font-size:clamp(2.5rem,5vw,4rem);line-height:1.08;}
+  .hero-cards {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:1279px) {
+  .navbar .nav-links.is-open {justify-content:stretch;gap:12px;}
+  .navbar .nav-links.is-open > a {flex:1 1 calc(50% - 12px);min-height:48px;padding:12px;}
+}
+@media (max-width:900px) {
+  .order-page .order-container {padding:clamp(20px,4vw,36px) !important;margin-inline:0;}
+  .order-page .order-layout {grid-template-columns:minmax(0,1fr) !important;gap:2rem !important;}
+  .order-layout > * {min-width:0;}
+  .order-page .product-title {font-size:clamp(2rem,7vw,3.5rem) !important;}
+}
+@media (max-width:767px) {
+  .season-grid {grid-template-columns:minmax(0,1fr);gap:20px;}
+  .season-card {padding:28px;clip-path:polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);}
+  .lab-info h2 {font-size:clamp(2rem,9vw,3.4rem);line-height:1.08;}
+  .lab-info p {font-size:1rem;line-height:1.65;}
+  .lab-section {padding-block:3rem;}
+  .lab-content,.lab-section.alt .lab-content {gap:1.5rem;}
+  .lab-image img {max-width:100%;height:auto;}
+  .order-page {padding-top:calc(var(--nav-height) + 24px);}
+  .order-page .grid-3 {grid-template-columns:minmax(0,1fr) !important;}
+  .order-page input,.order-page select,.order-page textarea {font-size:16px !important;min-height:48px;}
+  .order-page button[type="submit"],.mm-register button {width:100%;white-space:normal;line-height:1.35;min-height:48px;}
+  .mm-register .form-grid {grid-template-columns:minmax(0,1fr);}
+  .mm-register {padding:20px;}
+}
+@media (max-width:380px) {
+  :root {--page-gutter:16px;}
+  .navbar .container {gap:12px;}
+  .logo-wordmark {max-width:48vw;}
+  .navbar .nav-links.is-open > a {flex-basis:100%;}
+}
