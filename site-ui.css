@@ -39,12 +39,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .event-summary {display:flex; flex-wrap:wrap; justify-content:center; gap:10px 20px; margin:1rem auto 2rem; color:#fff; font-size:1rem;}
 .event-summary span {padding:.4rem .8rem; border:1px solid rgba(255,255,255,.25); border-radius:6px; background:rgba(0,0,0,.35);}
 .season-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px; margin-block:3rem;}
-.season-card {padding:28px;background:var(--surface);border:1px solid var(--color-border);border-radius:var(--radius);display:flex;flex-direction:column;gap:10px;min-width:0;}
-.season-card .event-date {font-family:var(--font-heading);font-size:1.4rem;color:var(--accent);line-height:1.3;}
+.season-card {--lab-accent:#ff4054;padding:32px;background:var(--surface);border:1px solid rgba(255,255,255,.65);border-radius:0;clip-path:polygon(8% 0,100% 0,100% 85%,92% 100%,0 100%,0 15%);display:flex;flex-direction:column;gap:10px;min-width:0;}
+.season-card[data-event-id^="teachers-"] {--lab-accent:#73b6ff;}
+.season-card[data-event-id^="mm-technique-"] {--lab-accent:#f2c34f;}
+.season-card[data-event-id^="mm-show-team-"] {--lab-accent:#bd98ff;}
+.season-card[data-event-id^="styling-"] {--lab-accent:#5dd8c4;}
+.season-card .event-date {font-family:var(--font-heading);font-size:1.4rem;color:var(--lab-accent);line-height:1.3;}
 .season-card h3 {font-size:1.55rem;line-height:1.2;}
 .season-card .artists {color:#ddd;font-weight:500;}
 .season-card .description {font-size:.95rem;color:var(--color-text-muted);line-height:1.6;margin-bottom:1rem;}
-.season-card .event-link {margin-top:auto;color:var(--accent);font-family:var(--font-heading);min-height:44px;display:inline-flex;align-items:center;}
+.season-card .event-link {margin-top:auto;color:var(--lab-accent);font-family:var(--font-heading);min-height:44px;display:inline-flex;align-items:center;}
 @media (max-width:1279px) {
   .navbar:not(:has(.nav-links > a:only-child)) .mobile-menu-btn {display:block;}
   .navbar:not(:has(.nav-links > a:only-child)) .nav-links {display:none;position:absolute;top:100%;left:0;width:100%;padding:16px var(--page-gutter);background:#09090d;box-shadow:0 12px 24px #0009;max-height:calc(100svh - var(--nav-height));overflow-y:auto;flex-wrap:wrap;}
