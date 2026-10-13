@@ -142,4 +142,4 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 .weekend-heading {text-align:center;margin-bottom:3rem;}
-.weekend-heading h2 {font-size:clamp(2rem,4vw,3.5rem);color:#ff4050;line-height:1.15;}
+.weekend-heading h2 {display:inline-block;font-size:clamp(2rem,4vw,3.5rem);color:#dce9ff;background:#17375f;border:1px solid #315d91;padding:.55em .8em;line-height:1.15;}
