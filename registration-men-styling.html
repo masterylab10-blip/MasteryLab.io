@@ -63,12 +63,17 @@
             }
         }
     </style>
+<script src="/site-forms.js?v=20261013"></script>
+<link rel="stylesheet" href="/site-ui.css?v=20261013">
+<script src="/site-ui.js?v=20261013" defer></script>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="Secure Your Spot | Men Style Lab. Explore information and details from MasteryLab in Switzerland.">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="container">
-            <a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+            <a class="logo" href="/"><img decoding="async" height="486" width="2683" class="logo-wordmark" src="/media/site-optimized/logo-wordmark-d19671-960.webp" alt="MasteryLab" fetchpriority="high" srcset="/media/site-optimized/logo-wordmark-d19671-480.webp 480w, /media/site-optimized/logo-wordmark-d19671-960.webp 960w, /media/site-optimized/logo-wordmark-d19671-1600.webp 1600w" sizes="(max-width: 767px) 90vw, 700px"></a>
             <!-- Mobile Menu Button -->
             <button aria-label="Toggle navigation" class="mobile-menu-btn">
                 <span></span>
@@ -76,7 +81,7 @@
                 <span></span>
             </button>
             <div class="nav-links">
-                <a class="nav-btn-outline ticket-shape" href="#" onclick="history.back(); return false;">GO BACK</a>
+                <a class="nav-btn-outline ticket-shape" href="/">GO BACK</a>
             </div>
         </div>
     </nav>
@@ -126,7 +131,7 @@
                     <input name="type" type="hidden" value="MenStyle" />
 
                     <div class="form-group">
-                        <label class="form-label" for="firstName">Full Name</label>
+                        <label class="form-label" for="firstName">First name</label>
                         <input class="form-input" id="firstName" name="first_name" required="" type="text" />
                     </div>
                     <div class="form-group">
@@ -156,7 +161,7 @@
                         <label class="form-label" for="whatsapp">WhatsApp Number</label>
                         <input class="form-input" id="whatsapp" name="whatsapp" required="" type="tel" />
                     </div>
-                    <button class="btn-primary" id="submitBtn"
+                    <button class="btn btn-primary" id="submitBtn"
                         style="margin-top: 1.5rem; width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4);"
                         type="submit">
                         CONFIRM REGISTRATION
@@ -168,7 +173,7 @@
                         <span style="display: block; margin-top: 10px; color: #ff6b6b;">(This ticket is not refundable,
                             it can be transferred to another person or replaced with another lab from the program)</span>
                     </p>
-                </form>
+                <div class="form-group"><label>Family name<input type="text" class="form-input" name="last_name" required maxlength="300"></label></div><div class="form-group"><label>Full address (street, postcode, city, country)<input type="text" class="form-input" name="address" required maxlength="300"></label></div></form>
                 <script>
                     const regForm = document.querySelector('form');
                     const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxU27erApehiGH1835Er5GUun9rX0m4uzjIYLUMRGZQTheEUqbTPfVQL1dcJ9r2qWM1/exec';
@@ -188,26 +193,14 @@
                             // Compatibility Mirroring
                             const fullName = formData.get('first_name') || '';
                             const nameParts = fullName.trim().split(/\s+/);
-                            data.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
+                            data.set('last_name', formData.get('last_name') || '');
                             data.append('phone', formData.get('whatsapp') || '');
-                            data.append('address', formData.get('city') || '');
+                            data.set('address', formData.get('address') || '');
                             data.append('type', 'MenStyle');
 
-                            // Submit to Google Sheets in background
-                            navigator.sendBeacon(googleScriptURL, data);
+                            e.preventDefault();
+                            SiteForms.dual(regForm, googleScriptURL, data, btn);
 
-                            // Submit to FormSubmit in background (No-CORS)
-                            fetch(regForm.action, {
-                                method: 'POST',
-                                mode: 'no-cors',
-                                body: formData
-                            });
-
-                            // Redirect to thank you page
-                            const finalLink = document.querySelector('input[name="_next"]').value;
-                            setTimeout(() => {
-                                window.location.href = finalLink;
-                            }, 800);
                         });
                     }
                 </script>
@@ -221,7 +214,7 @@
             <p style="color: #444;">© 2025 MasteryLab. All rights reserved.</p>
         </div>
     </footer>
-    <script src="/script.js?v=clean1"></script>
+    <script src="/script.js?v=fix1"></script>
 </body>
 
 </html>

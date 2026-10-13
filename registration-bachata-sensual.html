@@ -136,12 +136,17 @@
             }
         }
     </style>
+<script src="/site-forms.js?v=20261013"></script>
+<link rel="stylesheet" href="/site-ui.css?v=20261013">
+<script src="/site-ui.js?v=20261013" defer></script>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="Secure Your Spot | Bachata Sensual Lab. Explore information and details from MasteryLab in Switzerland.">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="container">
-            <a class="logo" href="/"><img class="logo-wordmark" src="/media/logo-wordmark.png" alt="MasteryLab" fetchpriority="high"></a>
+            <a class="logo" href="/"><img decoding="async" height="486" width="2683" class="logo-wordmark" src="/media/site-optimized/logo-wordmark-d19671-960.webp" alt="MasteryLab" fetchpriority="high" srcset="/media/site-optimized/logo-wordmark-d19671-480.webp 480w, /media/site-optimized/logo-wordmark-d19671-960.webp 960w, /media/site-optimized/logo-wordmark-d19671-1600.webp 1600w" sizes="(max-width: 767px) 90vw, 700px"></a>
             <!-- Mobile Menu Button -->
             <button aria-label="Toggle navigation" class="mobile-menu-btn">
                 <span></span>
@@ -149,7 +154,7 @@
                 <span></span>
             </button>
             <div class="nav-links">
-                <a class="nav-btn-outline ticket-shape" href="#" onclick="history.back(); return false;">GO BACK</a>
+                <a class="nav-btn-outline ticket-shape" href="/">GO BACK</a>
             </div>
         </div>
     </nav>
@@ -202,7 +207,7 @@
                     <input name="_captcha" type="hidden" value="false" />
                     <input name="_next" type="hidden" value="https://buy.stripe.com/4gMaEZ8Oab8w83oaD8dEs0g" />
                     <div class="form-group">
-                        <label class="form-label" for="firstName">Full Name</label>
+                        <label class="form-label" for="firstName">First name</label>
                         <input class="form-input" id="firstName" name="first_name" required="" type="text" />
                     </div>
                     <div class="form-group">
@@ -239,25 +244,13 @@
                                 // Compatibility Mirroring for Apps Script
                                 const fullName = formData.get('first_name') || '';
                                 const nameParts = fullName.trim().split(/\s+/);
-                                data.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
+                                data.set('last_name', formData.get('last_name') || '');
                                 data.append('phone', formData.get('whatsapp') || '');
                                 data.append('type', track === 'teachers' ? 'TEACHER' : 'BSL');
 
-                                // Submit to Google Sheets in background
-                                navigator.sendBeacon(googleScriptURL, data);
+                                e.preventDefault();
+                            SiteForms.dual(regForm, googleScriptURL, data, btn);
 
-                                // Submit to FormSubmit in background (No-CORS)
-                                fetch(regForm.action, {
-                                    method: 'POST',
-                                    mode: 'no-cors',
-                                    body: formData
-                                });
-
-                                // Redirect manually to bypass any FormSubmit issues
-                                const finalLink = document.querySelector('input[name="_next"]').value;
-                                setTimeout(() => {
-                                    window.location.href = finalLink;
-                                }, 600);
 
                                 e.preventDefault();
                             });
@@ -326,7 +319,7 @@
                            class="twint-pay-btn"
                            style="display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 1.2rem; background: #000; border: 1px solid rgba(255,255,255,0.15); border-radius: 50px; text-decoration: none; box-sizing: border-box; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5); font-family: 'Anton', sans-serif; letter-spacing: 1px;">
                             <span style="color: #fff; font-size: 1.2rem; font-weight: 700; margin-right: 10px; text-transform: uppercase;">PAY WITH</span>
-                            <img src="/media/twint-logo.svg" alt="TWINT" style="height: 24px; width: auto;" />
+                            <img width="140" height="46" src="/media/twint-logo.svg" alt="TWINT" style="height: 24px; width: auto;" />
                         </a>
                     </div>
 
@@ -337,7 +330,7 @@
                     </div>
 
                     <!-- Credit Card Submit Button (Second) -->
-                    <button class="btn-primary" id="submitBtn"
+                    <button class="btn btn-primary" id="submitBtn"
                         style="width: 100%; padding: 1.2rem; font-size: 1.2rem; border-radius: 50px; border: none; cursor: pointer; background: #D6001C; color: white; font-weight: 800; box-shadow: 0 10px 30px rgba(214,0,28,0.4); transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); transform-style: preserve-3d; perspective: 1000px; position: relative;"
                         type="submit">
                         <span style="display: block; transform: translateZ(10px);">PAY WITH CREDIT CARD</span>
@@ -363,7 +356,7 @@
                             it
                             can be transferred to another person or replaced with another lab from the program)</span>
                     </p>
-                </form>
+                <div class="form-group"><label>Family name<input type="text" class="form-input" name="last_name" required maxlength="300"></label></div></form>
             </div>
         </div>
     </main>
@@ -374,7 +367,7 @@
             <p style="color: #444;">© 2025 MasteryLab. All rights reserved.</p>
         </div>
     </footer>
-    <script src="/script.js?v=clean1"></script>
+    <script src="/script.js?v=fix1"></script>
     <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
     <script>
         // --- Supabase Config ---
@@ -523,7 +516,7 @@
                 We’re setting it up—once it’s ready, you’ll get an email to create your profile so you and your teachers
                 can track your level and progress, with support from organizers.
             </p>
-            <button class="btn-primary" id="paramsCloseBtn"
+            <button class="btn btn-primary" id="paramsCloseBtn"
                 style="margin-top: 1.5rem; width: 100%; border: none; cursor: pointer; font-size: 1.2rem; padding: 1rem; text-transform: uppercase; letter-spacing: 1px; background: #D6001C; color: white; box-shadow: 0 0 20px rgba(214, 0, 28, 0.6), 0 0 40px rgba(214, 0, 28, 0.4); text-shadow: 0 0 10px rgba(255,255,255,0.5);">GOT
                 IT</button>
         </div>

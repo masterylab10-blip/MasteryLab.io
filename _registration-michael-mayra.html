@@ -204,7 +204,7 @@
 
 
                     <div class="form-group">
-                        <label class="form-label" for="firstName">Full Name</label>
+                        <label class="form-label" for="firstName">First name</label>
                         <input class="form-input" id="firstName" name="first_name" required="" type="text" />
                     </div>
                     <div class="form-group">
@@ -296,7 +296,7 @@
                             it
                             can be transferred to another person or replaced with another lab from the program)</span>
                     </p>
-                </form>
+                <div class="form-group"><label>Family name<input type="text" class="form-input" name="last_name" required maxlength="300"></label></div></form>
                 <script>
                     const regForm = document.querySelector('form');
                     const googleScriptURL = 'https://script.google.com/macros/s/AKfycbxU27erApehiGH1835Er5GUun9rX0m4uzjIYLUMRGZQTheEUqbTPfVQL1dcJ9r2qWM1/exec';
@@ -316,9 +316,9 @@
                             // Compatibility Mirroring
                             const fullName = formData.get('first_name') || '';
                             const nameParts = fullName.trim().split(/\s+/);
-                            data.append('last_name', nameParts.length > 1 ? nameParts.slice(1).join(' ') : '');
+                            data.set('last_name', formData.get('last_name') || '');
                             data.append('phone', formData.get('whatsapp') || '');
-                            data.append('address', formData.get('city') || '');
+                            data.set('address', formData.get('address') || '');
                             data.append('type', 'MM');
 
                             // Submit to Google Sheets in background

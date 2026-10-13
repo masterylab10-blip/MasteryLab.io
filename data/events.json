@@ -1,0 +1,100 @@
+[
+  {
+    "id": "dancers-2027",
+    "title": "Bachata Sensual Dancers Lab",
+    "artists": "Ale & Xidan · Aitor & Sara",
+    "dateLabel": "6–7 February 2027",
+    "url": "/bachata-dancers-lab/",
+    "description": "Bachata Sensual technique, body movement, connection and partnerwork.",
+    "startDate": "2027-02-06",
+    "endDate": "2027-02-07"
+  },
+  {
+    "id": "teachers-feb-2027",
+    "title": "Teachers Education Lab",
+    "artists": "Christina & Rebeca",
+    "dateLabel": "27–28 February 2027",
+    "url": "/bachata-teachers-lab/",
+    "description": "8 hours of teacher certification training and anatomical pedagogy.",
+    "startDate": "2027-02-27",
+    "endDate": "2027-02-28"
+  },
+  {
+    "id": "mm-technique-may-2027",
+    "title": "M&M Technique Lab Vol. 3",
+    "artists": "Michael & Mayra",
+    "dateLabel": "8–9 May 2027",
+    "url": "/michael-mayra-2027/",
+    "description": "9 hours of technical training, body control and partner movement mechanics.",
+    "startDate": "2027-05-08",
+    "endDate": "2027-05-09",
+    "bookingStatus": "open",
+    "tickets": {
+      "couple": {
+        "price": 420,
+        "limit": 3,
+        "checkout": "https://buy.stripe.com/28E3cx7K64K8erM5iOdEs0U"
+      },
+      "follower": {
+        "price": 220,
+        "limit": 3,
+        "checkout": "https://buy.stripe.com/fZucN70hE3G4bfA8v0dEs0V"
+      },
+      "leader": {
+        "price": 220,
+        "limit": 2,
+        "checkout": "https://buy.stripe.com/eVq5kF3tQ3G46Zk5iOdEs0W"
+      }
+    }
+  },
+  {
+    "id": "mm-show-team-2027",
+    "title": "M&M Show Team Lab",
+    "artists": "Michael & Mayra",
+    "dateLabel": "15–16 May 2027",
+    "url": "/michael-mayra-show-team-2027/",
+    "description": "4 hours of intensive bootcamp plus 6 hours of show team choreography and stage training.",
+    "startDate": "2027-05-15",
+    "endDate": "2027-05-16",
+    "bookingStatus": "enquiry"
+  },
+  {
+    "id": "teachers-jun-2027",
+    "title": "Teachers Education Lab",
+    "artists": "Christina & Rebeca",
+    "dateLabel": "June 2027 · weekend to be confirmed",
+    "url": "/bachata-teachers-lab/",
+    "description": "8 hours of teacher methodology, partner mechanics and pedagogy. Planned for 12–13 or 19–20 June."
+  },
+  {
+    "id": "styling-2027",
+    "title": "Men & Lady Styling Lab",
+    "artists": "Micka · Gloria · Ramon · Angela",
+    "dateLabel": "26–27 June 2027",
+    "url": "/man-lady-styling-lab/",
+    "description": "Sensual, Fusion and Dominican styling for men and ladies.",
+    "startDate": "2027-06-26",
+    "endDate": "2027-06-27"
+  },
+  {
+    "id": "mm-technique-sep-2027",
+    "title": "M&M Technique Lab Vol. 2",
+    "artists": "Michael & Mayra",
+    "dateLabel": "18–19 September 2027",
+    "url": "/michael-mayra-technique-vol2-2027/",
+    "description": "9 hours exploring connection, lead and follow, musicality and partnerwork flow.",
+    "startDate": "2027-09-18",
+    "endDate": "2027-09-19",
+    "bookingStatus": "enquiry"
+  },
+  {
+    "id": "teachers-oct-2027",
+    "title": "Teachers Education Lab",
+    "artists": "Christina & Rebeca",
+    "dateLabel": "9–10 October 2027",
+    "url": "/bachata-teachers-lab/",
+    "description": "8 hours of intermediate and advanced Sensual teaching methodology.",
+    "startDate": "2027-10-09",
+    "endDate": "2027-10-10"
+  }
+]

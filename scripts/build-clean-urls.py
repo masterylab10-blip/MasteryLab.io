@@ -3,6 +3,8 @@
 from pathlib import Path
 import re
 ROOT=Path(__file__).resolve().parent.parent
+from site_metadata import build
+build(ROOT)
 pages=[p for p in ROOT.glob('*.html') if not p.name.startswith('_')]
 routes={p.name:('/' if p.name=='index.html' else '/'+p.stem+'/') for p in pages}
 def links(text):
@@ -37,6 +39,12 @@ for p in pages:
     if not re.search(r'<link[^>]+rel=[\"\']canonical',text,re.I) and 'noindex' not in text.lower():
         text=text.replace('</head>',f'<link rel="canonical" href="https://masterylab.ch{routes[p.name]}">\n</head>',1)
     destination.write_text(text)
+# Legacy redirects are generated from the same route inventory.
+import json
+route_names=[p.stem for p in pages if p.name!='index.html']
+redirect_script=(ROOT/'clean-urls.js').read_text()
+redirect_script=re.sub(r'const routes = new Set\(\[[\s\S]*?\]\);','const routes = new Set('+json.dumps(route_names)+');',redirect_script)
+(ROOT/'clean-urls.js').write_text(redirect_script)
 p=ROOT/'sitemap.xml';text=p.read_text()
 for name,route in routes.items():
     text=text.replace('https://masterylab.ch/'+name,'https://masterylab.ch'+route)

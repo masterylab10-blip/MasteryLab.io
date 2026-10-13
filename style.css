@@ -21,8 +21,8 @@
     --glass-blur: blur(10px);
 
     /* --- Typography --- */
-    --font-heading: 'Anton', sans-serif;
-    --font-body: 'Outfit', sans-serif;
+    --font-heading: "Anton", sans-serif;
+    --font-body: "Outfit", sans-serif;
 
     --text-hero: clamp(3.5rem, 9vw, 6.5rem);
     --text-h1: clamp(2.75rem, 5.5vw, 4.5rem);
@@ -175,13 +175,13 @@ h6 {
     max-width: 1000px;
 }
 
-@media (max-width: 1024px) {
+@media  (max-width: 1024px) {
     .grid-3 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 768px) {
+@media  (max-width: 768px) {
     .grid-3 {
         grid-template-columns: 1fr;
     }
@@ -349,7 +349,7 @@ h6 {
 }
 
 .btn-hero-artistic::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -401,7 +401,7 @@ h6 {
 }
 
 .btn-cta-inviting::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -443,291 +443,91 @@ h6 {
    HEADER & NAVIGATION
    ========================================= */
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 0.5rem 0;
-    /* Slightly tighter navbar */
-    background: rgba(5, 5, 5, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    max-width: 100% !important;
-    padding: 0 clamp(1.5rem, 4vw, 4rem) !important;
-    box-sizing: border-box;
-}
 
-@media (min-width: 769px) {
-    .navbar .container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 80px;
-    }
-    .logo {
-        position: absolute !important;
-        left: 50% !important;
-        transform: translate(-50%, -10px) !important;
-        z-index: 1001;
-        margin: 0 !important;
-    }
-    
+
+
+@media  (min-width: 769px) {
+
+
+
     /* Apply split layout only when there are 3 or more navigation links */
-    .nav-links:has(a:nth-child(3)) {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr 1fr 260px 1fr 1fr 1fr;
-        justify-content: center !important;
-        align-items: center;
-        width: 100%;
-        height: 80px;
-        margin-left: 0 !important;
-        box-sizing: border-box;
-    }
-    
+
+
     /* Logo spacer pseudo-element grid item to prevent the center column from shrinking */
-    .nav-links:has(a:nth-child(3))::before {
-        content: "";
-        display: block !important;
-        grid-column: 4 !important;
-        height: 1px !important;
-        pointer-events: none;
-    }
-    
-    .nav-links:has(a:nth-child(3)) a {
-        position: static !important;
-        transform: none !important;
-        display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        white-space: nowrap;
-        box-sizing: border-box;
-        width: 100% !important;
-        font-weight: 700 !important;
-        text-transform: uppercase;
-        margin: 0 !important;
-    }
-    
+
+
+
+
     /* Spacing & Sizes by screen width */
-    @media (min-width: 1200px) {
-        .nav-links:has(a:nth-child(3)) {
-            gap: 24px;
-        }
-        .nav-links:has(a:nth-child(3))::before {
-            width: 260px !important;
-            min-width: 260px !important;
-        }
-        .nav-links:has(a:nth-child(3)) a {
-            height: 52px !important;
-            font-size: 0.88rem !important;
-            letter-spacing: 0.8px !important;
-        }
-    }
-    
-    @media (max-width: 1199px) and (min-width: 992px) {
-        .nav-links:has(a:nth-child(3)) {
-            gap: 16px;
-            grid-template-columns: 1fr 1fr 1fr 220px 1fr 1fr 1fr;
-        }
-        .nav-links:has(a.memories-nav-link) {
-            gap: 8px;
-            grid-template-columns: 1fr 1fr 1fr 220px 1fr 1fr 1fr 1fr;
-        }
-        .nav-links:has(a:nth-child(3))::before {
-            width: 220px !important;
-            min-width: 220px !important;
-        }
-        .nav-links:has(a:nth-child(3)) a {
-            height: 48px !important;
-            font-size: 0.78rem !important;
-            letter-spacing: 0.5px !important;
-        }
-    }
-    
-    @media (max-width: 991px) {
-        .nav-links:has(a:nth-child(3)) {
-            gap: 8px;
-            grid-template-columns: 1fr 1fr 1fr 180px 1fr 1fr 1fr;
-        }
-        .nav-links:has(a.memories-nav-link) {
-            gap: 5px;
-            grid-template-columns: 1fr 1fr 1fr 180px 1fr 1fr 1fr 1fr;
-        }
-        .nav-links:has(a:nth-child(3))::before {
-            width: 180px !important;
-            min-width: 180px !important;
-        }
-        .nav-links:has(a:nth-child(3)) a {
-            height: 42px !important;
-            font-size: 0.7rem !important;
-            letter-spacing: 0.2px !important;
-            padding: 0 0.5rem !important;
-        }
-        .nav-links:has(a.memories-nav-link) a {
-            font-size: 0.64rem !important;
-            padding: 0 0.3rem !important;
-        }
-    }
-    
+
+
+
+
+
+
     /* Grid Column Assignments for 6 links */
-    .nav-links:has(a:nth-child(6)) a:nth-child(1) { grid-column: 1; }
-    .nav-links:has(a:nth-child(6)) a:nth-child(2) { grid-column: 2; }
-    .nav-links:has(a:nth-child(6)) a:nth-child(3) { grid-column: 3; }
-    .nav-links:has(a:nth-child(6)) a:nth-child(4) { grid-column: 5; }
-    .nav-links:has(a:nth-child(6)) a:nth-child(5) { grid-column: 6; }
-    .nav-links:has(a:nth-child(6)) a:nth-child(6) { grid-column: 7; }
+
+
+
+
+
+
 
     /* Seven-link header: three links on each side of the centered logo,
        with Memories as a compact red-accented final action. */
-    .nav-links:has(a.memories-nav-link) {
-        grid-template-columns: repeat(3, minmax(0, 1fr)) 260px repeat(4, minmax(0, 1fr));
-        gap: 10px;
-    }
-    .nav-links:has(a.memories-nav-link) a { min-width: 0; font-size: 0.78rem !important; letter-spacing: 0.4px !important; }
-    @media (max-width: 1199px) {
-        .nav-links:has(a.memories-nav-link) {
-            grid-template-columns: repeat(3, minmax(0, 1fr)) 220px repeat(4, minmax(0, 1fr));
-            gap: 5px;
-        }
-        .nav-links:has(a.memories-nav-link) a { font-size: 0.62rem !important; letter-spacing: 0 !important; padding-left: 0.2rem !important; padding-right: 0.2rem !important; }
-    }
-    @media (max-width: 991px) {
-        .nav-links:has(a.memories-nav-link) {
-            grid-template-columns: repeat(3, minmax(0, 1fr)) 180px repeat(4, minmax(0, 1fr));
-        }
-    }
-    .nav-links:has(a.memories-nav-link)::before { grid-column: 4 !important; }
-    .nav-links:has(a.memories-nav-link) a:nth-child(1) { grid-column: 1; }
-    .nav-links:has(a.memories-nav-link) a:nth-child(2) { grid-column: 2; }
-    .nav-links:has(a.memories-nav-link) a:nth-child(3) { grid-column: 3; }
-    .nav-links:has(a.memories-nav-link) a:nth-child(4) { grid-column: 5; }
-    .nav-links:has(a.memories-nav-link) a:nth-child(5) { grid-column: 6; }
-    .nav-links:has(a.memories-nav-link) a:nth-child(6) { grid-column: 7; }
-    .nav-links:has(a.memories-nav-link) a:nth-child(7) {
-        grid-column: 8;
-        color: #fff !important;
-        border-color: var(--color-primary) !important;
-        box-shadow: 0 0 12px rgba(214, 0, 28, 0.22);
-    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     /* Grid Column Assignments for 5 links */
-    .nav-links:not(:has(a:nth-child(6))):has(a:nth-child(5)) a:nth-child(1) { grid-column: 1; }
-    .nav-links:not(:has(a:nth-child(6))):has(a:nth-child(5)) a:nth-child(2) { grid-column: 3; }
-    .nav-links:not(:has(a:nth-child(6))):has(a:nth-child(5)) a:nth-child(3) { grid-column: 5; }
-    .nav-links:not(:has(a:nth-child(6))):has(a:nth-child(5)) a:nth-child(4) { grid-column: 6; }
-    .nav-links:not(:has(a:nth-child(6))):has(a:nth-child(5)) a:nth-child(5) { grid-column: 7; }
-    
+
+
+
+
+
+
     /* Grid Column Assignments for 4 links */
-    .nav-links:not(:has(a:nth-child(5))):has(a:nth-child(4)) a:nth-child(1) { grid-column: 1; }
-    .nav-links:not(:has(a:nth-child(5))):has(a:nth-child(4)) a:nth-child(2) { grid-column: 3; }
-    .nav-links:not(:has(a:nth-child(5))):has(a:nth-child(4)) a:nth-child(3) { grid-column: 5; }
-    .nav-links:not(:has(a:nth-child(5))):has(a:nth-child(4)) a:nth-child(4) { grid-column: 7; }
+
+
+
+
 
     /* Grid Column Assignments for 3 links */
-    .nav-links:not(:has(a:nth-child(4))):has(a:nth-child(3)) a:nth-child(1) { grid-column: 1; }
-    .nav-links:not(:has(a:nth-child(4))):has(a:nth-child(3)) a:nth-child(2) { grid-column: 3; }
-    .nav-links:not(:has(a:nth-child(4))):has(a:nth-child(3)) a:nth-child(3) { grid-column: 5; }
+
+
+
 
     /* Stack the complete ticket navigation evenly below the centered logo. */
-    .navbar .container {
-        height: 148px !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        gap: 0.35rem;
-        padding-top: 0.1rem !important;
-        padding-bottom: 0.5rem !important;
-    }
-    .navbar .container > .logo {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        margin: 0 !important;
-        flex: 0 0 auto;
-    }
-    .navbar .logo-wordmark { height: 62px; }
-    .navbar .container > .nav-links,
-    .navbar .container > .nav-links:has(a:nth-child(3)) {
-        position: static !important;
-        display: flex !important;
-        grid-template-columns: none !important;
-        align-items: stretch !important;
-        justify-content: space-between !important;
-        width: 100% !important;
-        height: 46px !important;
-        gap: clamp(0.35rem, 1vw, 1rem) !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow: visible !important;
-    }
-    .navbar .container > .nav-links::before { display: none !important; }
-    .navbar .container > .nav-links > a,
-    .navbar .container > .nav-links:has(a:nth-child(3)) > a {
-        position: static !important;
-        grid-column: auto !important;
-        flex: 1 1 0 !important;
-        min-width: 0 !important;
-        width: auto !important;
-        height: 46px !important;
-        padding: 0 0.35rem !important;
-        font-size: clamp(0.58rem, 0.78vw, 0.86rem) !important;
-        letter-spacing: clamp(0px, 0.045vw, 0.7px) !important;
-        line-height: 1.1;
-        white-space: nowrap;
-    }
+
+
+
+
+
+
     .hero { padding-top: 148px; box-sizing: border-box; }
 }
 
-.logo {
-    position: relative;
-    z-index: 1001;
-    display: inline-flex;
-    align-items: center;
-    flex-shrink: 0;
-    margin-right: auto;
-}
 
-.logo-wordmark {
-    display: block;
-    width: auto;
-    height: 54px;
-    max-width: min(48vw, 420px);
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
 
-.logo:hover .logo-wordmark { transform: scale(1.04); }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: clamp(0.75rem, 1.5vw, 1.5rem);
-    margin-left: 2.5rem;
-}
 
-.nav-links a {
-    font-weight: 500;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.8;
-}
 
-.nav-links a:hover,
-.nav-links a.active {
-    opacity: 1;
-    color: var(--color-primary);
-}
+
+
+
+
+
+
 
 
 
@@ -750,7 +550,7 @@ h6 {
 }
 
 .nav-btn-primary::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: -100%;
@@ -799,26 +599,16 @@ h6 {
     opacity: 1 !important;
 }
 
-@media (max-width: 768px) {
-    .navbar {
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-    }
+@media  (max-width: 768px) {
 
-    .navbar .container {
-        height: 60px;
-        padding: 0 var(--spacing-sm);
-    }
 
-    .logo-wordmark { height: 44px; max-width: min(62vw, 300px); }
 
-    .nav-links {
-        gap: 0.4rem;
-    }
 
-    .nav-links::before {
-        display: none !important;
-    }
+
+
+
+
+
 
     .nav-btn-primary,
     .nav-btn-outline {
@@ -849,49 +639,11 @@ h6 {
 }
 
 /* Scroll Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 0.5rem;
-    /* Move below the cards area */
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    /* Ensure it doesn't span full width */
-    max-width: 100px;
-    /* Constrain width */
-    gap: 0.5rem;
-    opacity: 0.8;
-    /* Increased base opacity for clarity */
-    animation: fadeIn 2s ease forwards;
-    z-index: 999;
-    /* Ensure it's above everything including footer */
-    pointer-events: auto;
-    cursor: pointer;
-    text-decoration: none;
-    /* Remove underline from link */
-}
 
-.scroll-indicator span {
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-}
 
-.scroll-indicator .arrow {
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid var(--color-primary);
-    border-bottom: 2px solid var(--color-primary);
-    transform: rotate(45deg);
-    animation: bounce 2s infinite;
-}
+
+
+
 
 @keyframes bounce {
 
@@ -942,33 +694,11 @@ h6 {
     opacity: 0.5;
 }
 
-.hero-content {
-    text-align: center;
-    width: 100%;
-    max-width: var(--container-width);
-    z-index: 1;
-    padding: 0 var(--spacing-sm);
-    margin-bottom: 2rem;
-}
 
-.hero-cards {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-md);
-    margin: 0 auto;
-    width: auto;
-    animation: fadeInUp 1s ease 0.6s backwards;
-}
 
-.hero-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: clamp(1rem, 5vh, 4rem) 2rem clamp(2rem, 8vh, 6rem) 2rem;
-    background: linear-gradient(to top, var(--color-bg) 0%, transparent 100%);
-    z-index: 10;
-}
+
+
+
 
 .hero-cta-group {
     display: flex;
@@ -981,75 +711,27 @@ h6 {
     animation: fadeInUp 1s ease 0.8s backwards;
 }
 
-.hero-card {
-    background: linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(25, 10, 10, 0.9));
-    padding: clamp(0.8rem, 2vh, 1.2rem) clamp(1rem, 2vw, 2.5rem);
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 2px solid var(--color-primary);
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    min-width: 180px;
-    max-width: 350px;
-    /* Prevent cards from getting too wide on desktop */
-    flex: 1 1 auto;
-    animation: cardWavePulse 3s ease-in-out infinite;
-}
+
 
 /* Wave flows left → right across all 4 cards */
-.hero-card:nth-child(1) {
-    animation-delay: 0s;
-}
 
-.hero-card:nth-child(2) {
-    animation-delay: 0.3s;
-}
 
-.hero-card:nth-child(3) {
-    animation-delay: 0.6s;
-}
 
-.hero-card:nth-child(4) {
-    animation-delay: 0.9s;
-}
 
-.hero-card:hover {
-    transform: translateY(-5px);
-    border-bottom-width: 3px;
-    border-bottom-color: #ff1a3d;
-    box-shadow: 0 12px 35px rgba(214, 0, 28, 0.2), 0 4px 15px rgba(0, 0, 0, 0.3);
-    animation-play-state: paused;
-}
+
+
+
+
+
 
 /* Shine sweep on hover */
-.hero-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
-    transition: left 0.6s ease;
-}
 
-.hero-card:hover::before {
-    left: 150%;
-}
 
-.hero-card h3 {
-    font-size: clamp(1rem, 1.5vw, 1.4rem);
-    margin-bottom: 0.2rem;
-    letter-spacing: 1px;
-}
 
-.hero-card p {
-    font-size: 0.95rem;
-    opacity: 0.6;
-    margin: 0;
-}
+
+
+
+
 
 @keyframes cardWavePulse {
 
@@ -1084,33 +766,21 @@ h6 {
 
 
 
-@media (max-height: 750px) and (min-width: 769px) {
+@media  (max-height: 750px) and (min-width: 769px) {
     .hero {
         min-height: 450px;
     }
 
-    .hero-footer {
-        padding-top: 1rem;
-        padding-bottom: 2rem;
-    }
 
-    .hero-card {
-        padding: 0.6rem 1rem;
-        min-width: 150px;
-    }
 
-    .hero-card h3 {
-        font-size: 1rem;
-    }
 
-    .hero-card p {
-        font-size: 0.75rem;
-        display: none;
-        /* Hide descriptions on very short landscape to save space */
-    }
+
+
+
+
 }
 
-@media (max-width: 768px) {
+@media  (max-width: 768px) {
     .hero {
         height: 100dvh;
         /* Dynamic viewport height for mobile browsers */
@@ -1127,79 +797,28 @@ h6 {
         object-position: center center;
     }
 
-    .hero-content {
-        padding: 0 1rem;
-        margin-bottom: 2rem;
-        flex-grow: 1;
-        /* Allow content to take available space */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+
 
     /* Show footer/cards on mobile now */
-    .hero-footer {
-        display: block;
-        position: relative;
-        /* Change from absolute to relative if needed, or keep absolute bottom */
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 1rem 0.5rem 2rem 0.5rem;
-        /* Reduce padding */
-        background: linear-gradient(to top, var(--color-bg) 10%, transparent 100%);
-    }
 
-    .hero-cards {
-        display: grid !important;
-        grid-template-columns: 1fr;
-        /* Stack vertically or use 2x2 with empty space? Stacking is safer for mobile clarity with 3 labs */
-        gap: 0.5rem;
-        width: 100%;
-        max-width: 90%;
-        margin: 0 auto;
-    }
 
-    .hero-card {
-        padding: 0.8rem;
-        text-align: center;
-    }
 
-    .hero-card h3 {
-        font-size: 0.9rem;
-        /* Smaller font */
-        margin-bottom: 0.2rem;
-    }
 
-    .hero-card p {
-        font-size: 0.75rem;
-        /* Smaller font */
-        margin-bottom: 0;
-        display: none;
-        /* Optionally hide subtitle to save space, or keep it tiny */
-    }
+
+
+
+
+
 
     /* Adjust Scroll Indicator position to be under cards */
-    .scroll-indicator {
-        display: flex;
-        opacity: 0.9;
-        bottom: 0.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1001;
-        /* Above footer overlay */
-    }
 
-    .scroll-indicator span {
-        font-size: 0.7rem;
-        /* Smaller text */
-    }
+
+
 }
 
-/* Hide scroll indicator by default on desktop if needed, 
+/* Hide scroll indicator by default on desktop if needed,
    but it looks good as a subtle hint. */
-/* Hide scroll indicator by default on desktop if needed, 
+/* Hide scroll indicator by default on desktop if needed,
    but it looks good as a subtle hint. */
 /* @media (min-width: 769px) {
     .scroll-indicator {
@@ -1283,7 +902,7 @@ h6 {
     /* Reset text direction */
 }
 
-@media (max-width: 968px) {
+@media  (max-width: 968px) {
     .lab-content {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
@@ -1528,7 +1147,7 @@ textarea.form-input {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-@media (max-width: 768px) {
+@media  (max-width: 768px) {
     .contact-form-container {
         padding: 2rem;
     }
@@ -1618,7 +1237,7 @@ textarea.form-input {
 }
 
 .benefit-card::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, transparent 100%);
@@ -1682,7 +1301,7 @@ textarea.form-input {
     max-width: 95%;
 }
 
-@media (max-width: 768px) {
+@media  (max-width: 768px) {
     .benefits-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -1751,17 +1370,17 @@ textarea.form-input {
 }
 
 .bio-hero-bg.michael-mayra {
-    background-image: url('media/michael_mayra_hero_new.jpg');
+    background-image: url("media/michael_mayra_hero_new.jpg");
     background-position: center top;
 }
 
 .bio-hero-bg.michael-mayra-vol2 {
-    background-image: url('media/mym-vol2-cover.jpg');
+    background-image: url("media/mym-vol2-cover.jpg");
     background-position: center top;
 }
 
 .bio-hero-bg.dance-booster {
-    background-image: url('media/dance_booster_lab_1.png');
+    background-image: url("media/dance_booster_lab_1.png");
     background-position: center top;
 }
 
@@ -1829,7 +1448,7 @@ textarea.form-input {
 
 .bio-cta-subtitle::before,
 .bio-cta-subtitle::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     width: 40px;
@@ -2135,7 +1754,7 @@ textarea.form-input {
     }
 }
 
-@media (max-width: 768px) {
+@media  (max-width: 768px) {
     .bio-hero {
         height: auto;
         padding: 8rem 0 4rem 0;
@@ -2313,7 +1932,7 @@ textarea.form-input {
    ========================================= */
 
 /* --- Tablet (768px - 1024px) --- */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media  (min-width: 768px) and (max-width: 1024px) {
     :root {
         --text-hero: 4rem;
         --text-h1: 3rem;
@@ -2326,7 +1945,7 @@ textarea.form-input {
 }
 
 /* --- Mobile (< 768px) --- */
-@media (max-width: 767px) {
+@media  (max-width: 767px) {
     :root {
         --text-hero: 2.5rem;
         --text-h1: 2rem;
@@ -2372,41 +1991,14 @@ textarea.form-input {
     }
 
     /* Navigation Responsive */
-    .mobile-menu-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        cursor: pointer;
-        z-index: 100;
-        background: transparent;
-        border: none;
-        padding: 0;
-    }
 
-    .mobile-menu-btn span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: white;
-        border-radius: 3px;
-        transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    }
+
+
 
     /* Navigation */
-    .navbar .container {
-        padding: 0 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-    }
 
-    .nav-links {
-        display: none;
-        /* Hidden by default on mobile, toggled by JS */
-    }
+
+
 
     .nav-btn-outline,
     .nav-btn-primary {
@@ -2414,7 +2006,7 @@ textarea.form-input {
         font-size: 0.85rem;
     }
 
-    .logo-wordmark { height: 44px; max-width: min(62vw, 300px); }
+
 
     /* Artist Profiles & Cards */
     .bio-image-wrapper {
@@ -2446,16 +2038,7 @@ textarea.form-input {
     }
 }
 
-@media (min-width: 768px) {
-    .mobile-menu-btn {
-        display: none;
-    }
 
-    .nav-links {
-        display: flex !important;
-        /* Always show on desktop */
-    }
-}
 
 /* =========================================
    GOLD SHINY EFFECTS
@@ -2542,7 +2125,7 @@ textarea.form-input {
     padding: 0.5rem 1rem;
     border-radius: 50px;
     cursor: pointer;
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
     font-weight: 500;
     font-size: 0.9rem;
     transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -2586,7 +2169,7 @@ textarea.form-input {
     color: #aaa;
     padding: 0.8rem 1rem;
     cursor: pointer;
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
     font-size: 0.9rem;
     border-radius: 8px;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -2603,7 +2186,7 @@ textarea.form-input {
 }
 
 /* Mobile responsive adjustments */
-@media (max-width: 768px) {
+@media  (max-width: 768px) {
     .language-switcher {
         margin-left: 0;
         margin-top: 1rem;
@@ -2684,7 +2267,7 @@ textarea.form-input {
 }
 
 .auth-title {
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 2.5rem;
     color: var(--color-primary);
     /* Red */
@@ -2713,7 +2296,7 @@ textarea.form-input {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
 }
 
 .auth-input-dark {
@@ -2723,7 +2306,7 @@ textarea.form-input {
     color: #fff;
     padding: 1rem;
     border-radius: 8px;
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
     font-size: 1rem;
     transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -2742,7 +2325,7 @@ textarea.form-input {
 .btn-auth-red {
     background: var(--color-primary);
     color: white;
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 1.2rem;
     text-transform: uppercase;
     padding: 1rem;
@@ -2781,7 +2364,7 @@ textarea.form-input {
     color: var(--color-primary);
 }
 
-@media (max-width: 600px) {
+@media  (max-width: 600px) {
     .auth-form-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -2813,7 +2396,7 @@ textarea.form-input {
     background: transparent;
     border: none;
     color: #888;
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -2833,7 +2416,7 @@ textarea.form-input {
 }
 
 .auth-tab.active::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -1px;
     /* Overlap border */
@@ -2908,7 +2491,7 @@ textarea.form-input {
 
 /* Wings Overlay for Christina & Rebeca */
 .photo-frame.wings::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -25%;
     /* Hangs below the frame */
@@ -2917,7 +2500,7 @@ textarea.form-input {
     width: 140%;
     /* Wider than the frame */
     height: 150px;
-    background: url('media/logo-wings.png') no-repeat center bottom;
+    background: url("media/logo-wings.png") no-repeat center bottom;
     background-size: contain;
     z-index: 20;
     pointer-events: none;
@@ -2954,7 +2537,7 @@ textarea.form-input {
 }
 
 .pricing-col h3 {
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 1.8rem;
     color: white;
     margin-bottom: 1.5rem;
@@ -2976,7 +2559,7 @@ textarea.form-input {
 }
 
 .pricing-features li::before {
-    content: '✓';
+    content: "✓";
     color: var(--color-primary);
     font-weight: bold;
     margin-right: 0.8rem;
@@ -3006,7 +2589,7 @@ textarea.form-input {
 .mm-price-tag {
     font-size: 2rem;
     color: white;
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
 }
 
 .mm-progress-bar {
@@ -3042,7 +2625,7 @@ textarea.form-input {
 }
 
 .follow-up-card::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -3086,7 +2669,7 @@ textarea.form-input {
 }
 
 .journal-title {
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 1.5rem;
     color: white;
     margin-bottom: 1rem;
@@ -3122,7 +2705,7 @@ textarea.form-input {
     justify-content: center;
     gap: 0.8rem;
     padding: 1rem 2.5rem;
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 1.2rem;
     text-transform: uppercase;
     color: white;
@@ -3137,7 +2720,7 @@ textarea.form-input {
 }
 
 .btn-book-now::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -3184,7 +2767,7 @@ a.btn-book-now {
     justify-content: center !important;
     gap: 0.8rem !important;
     padding: 1rem 2.5rem !important;
-    font-family: 'Anton', sans-serif !important;
+    font-family: "Anton", sans-serif !important;
     font-size: 1.2rem !important;
     text-transform: uppercase !important;
     color: white !important;
@@ -3202,7 +2785,7 @@ a.btn-book-now {
 
 /* Clear any conflicting ::before content */
 a.btn-book-now::before {
-    content: '' !important;
+    content: "" !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -3269,7 +2852,7 @@ a.btn-book-now .ticket-icon {
     position: absolute;
     bottom: -10px;
     right: 15px;
-    font-family: 'Anton', sans-serif;
+    font-family: "Anton", sans-serif;
     font-size: 7rem;
     color: rgba(255, 255, 255, 0.04);
     line-height: 1;
@@ -3289,7 +2872,7 @@ a.btn-book-now .ticket-icon {
 }
 
 .numbered-card-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: "Outfit", sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     color: white;
@@ -3302,7 +2885,7 @@ a.btn-book-now .ticket-icon {
 /* =========================================
    SMALL PHONE BREAKPOINT (480px)
    ========================================= */
-@media (max-width: 480px) {
+@media  (max-width: 480px) {
     :root {
         --spacing-xl: 3rem;
         --spacing-lg: 2rem;
@@ -3331,7 +2914,7 @@ a.btn-book-now .ticket-icon {
 /* =========================================
    LARGE DESKTOP BREAKPOINT (1200px+)
    ========================================= */
-@media (min-width: 1200px) {
+@media  (min-width: 1200px) {
     .container {
         padding: 0 3rem;
     }
@@ -3346,143 +2929,42 @@ a.btn-book-now .ticket-icon {
    ========================================= */
 
 /* Prevent overlap on desktop/tablet: position the single nav link to the left */
-@media (min-width: 769px) {
-    .nav-links:not(:has(a:nth-child(2))) {
-        position: absolute !important;
-        left: clamp(1.5rem, 4vw, 4rem) !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        margin-left: 0 !important;
-        display: flex !important;
-    }
-}
+
 
 /* On mobile, if there is only a single nav link (e.g. GO BACK), show it directly on the right and hide the hamburger menu */
-@media (max-width: 768px) {
+@media  (max-width: 768px) {
     /* Hide the mobile menu button since there's no menu needed */
-    .navbar:has(.nav-links:not(:has(a:nth-child(2)))) .mobile-menu-btn {
-        display: none !important;
-    }
-    
+
+
     /* Always display the single nav link directly on the right */
-    .nav-links:not(:has(a:nth-child(2))) {
-        display: flex !important;
-        position: static !important;
-        margin-left: auto !important;
-        padding: 0 !important;
-        background: transparent !important;
-        width: auto !important;
-        flex-direction: row !important;
-    }
+
 }
 
 /* Keep the wordmark on the homepage; inner pages use a compact top-right action. */
-body:not(.home-page) .navbar .logo {
-    display: none !important;
-}
 
-@media (min-width: 769px) {
+
+@media  (min-width: 769px) {
     /* The old single-link header reserved a large centered logo row. */
-    .navbar:has(.nav-links:not(:has(a:nth-child(2)))) .container {
-        height: 80px !important;
-        flex-direction: row !important;
-        justify-content: flex-end !important;
-        gap: 0 !important;
-    }
 
-    .navbar:has(.nav-links:not(:has(a:nth-child(2)))) .nav-links:not(:has(a:nth-child(2))) {
-        position: static !important;
-        flex: 0 0 auto !important;
-        left: auto !important;
-        right: auto !important;
-        top: auto !important;
-        transform: none !important;
-        width: auto !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        justify-content: flex-end !important;
-    }
 
-    .navbar:has(.nav-links:not(:has(a:nth-child(2)))) .nav-links > a {
-        flex: 0 0 auto !important;
-        width: auto !important;
-    }
+
+
+
 
     /* Expand multi-link inner-page navigation across the header after removing
        the centered logo slot. */
-    body:not(.home-page) .navbar:has(.nav-links a:nth-child(2)) .container {
-        height: 80px !important;
-        flex-direction: row !important;
-        justify-content: flex-end !important;
-    }
 
-    body:not(.home-page) .navbar:has(.nav-links a:nth-child(2)) .nav-links {
-        position: static !important;
-        display: flex !important;
-        grid-template-columns: none !important;
-        justify-content: flex-end !important;
-        width: auto !important;
-        height: auto !important;
-        gap: clamp(0.5rem, 1.2vw, 1.25rem) !important;
-        margin: 0 0 0 auto !important;
-        padding: 0 !important;
-    }
 
-    body:not(.home-page) .navbar:has(.nav-links a:nth-child(2)) .nav-links::before {
-        display: none !important;
-    }
 
-    body:not(.home-page) .navbar:has(.nav-links a:nth-child(2)) .nav-links > a {
-        position: static !important;
-        flex: 0 0 auto !important;
-        grid-column: auto !important;
-        width: auto !important;
-        height: 44px !important;
-        font-size: clamp(0.62rem, 0.85vw, 0.88rem) !important;
-        padding: 0 0.6rem !important;
-    }
+
+
+
+
 
     /* A single internal-page action stays compact in the upper-right corner. */
-    body:not(.home-page) .navbar .container:has(> .nav-links > a:only-child) {
-        height: 80px !important;
-        flex-direction: row !important;
-        justify-content: flex-end !important;
-    }
 
-    body:not(.home-page) .navbar .container > .nav-links:has(> a:only-child) {
-        position: absolute !important;
-        top: 50% !important;
-        right: clamp(1.5rem, 4vw, 4rem) !important;
-        left: auto !important;
-        transform: translateY(-50%) !important;
-        display: flex !important;
-        flex: 0 0 auto !important;
-        width: max-content !important;
-        height: auto !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
 
-    body:not(.home-page) .navbar .container > .nav-links:has(> a:only-child) > a {
-        position: static !important;
-        flex: 0 0 auto !important;
-        width: auto !important;
-        height: 44px !important;
-        padding: 0 1.5rem !important;
-    }
-}
 
-@media (max-width: 768px) {
-    .navbar:has(.nav-links:not(:has(a:nth-child(2)))) .container {
-        height: 60px !important;
-        flex-direction: row !important;
-        justify-content: flex-end !important;
-    }
 
-    .navbar:has(.nav-links:not(:has(a:nth-child(2)))) .nav-links:not(:has(a:nth-child(2))) > a {
-        flex: 0 0 auto !important;
-        width: auto !important;
-        height: 44px !important;
-    }
+
 }

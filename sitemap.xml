@@ -1,63 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://masterylab.ch/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/memories/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/what-is-masterylab/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/projects/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/michael-mayra-2027/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/men-style-lab/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/ale-xidan/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/ladies-mastery/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/bachata-sensual-lab/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/register/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/login/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://masterylab.ch/portal/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
+<url><loc>https://masterylab.ch/</loc></url>
+<url><loc>https://masterylab.ch/ale-xidan/</loc></url>
+<url><loc>https://masterylab.ch/artists/</loc></url>
+<url><loc>https://masterylab.ch/bachata-dancers-lab/</loc></url>
+<url><loc>https://masterylab.ch/bachata-sensual-lab/</loc></url>
+<url><loc>https://masterylab.ch/bachata-teachers-lab/</loc></url>
+<url><loc>https://masterylab.ch/dance-outfit/</loc></url>
+<url><loc>https://masterylab.ch/education-journal/</loc></url>
+<url><loc>https://masterylab.ch/hotels/</loc></url>
+<url><loc>https://masterylab.ch/isma-irene/</loc></url>
+<url><loc>https://masterylab.ch/ladies-mastery/</loc></url>
+<url><loc>https://masterylab.ch/man-lady-styling-lab/</loc></url>
+<url><loc>https://masterylab.ch/memories/</loc></url>
+<url><loc>https://masterylab.ch/men-style-lab/</loc></url>
+<url><loc>https://masterylab.ch/michael-mayra-2027/</loc></url>
+<url><loc>https://masterylab.ch/michael-mayra-show-team-2027/</loc></url>
+<url><loc>https://masterylab.ch/michael-mayra-technique-vol2-2027/</loc></url>
+<url><loc>https://masterylab.ch/michael-mayra-vol2/</loc></url>
+<url><loc>https://masterylab.ch/partners/</loc></url>
+<url><loc>https://masterylab.ch/privacy-policy/</loc></url>
+<url><loc>https://masterylab.ch/projects/</loc></url>
+<url><loc>https://masterylab.ch/terms-of-service/</loc></url>
+<url><loc>https://masterylab.ch/what-is-masterylab/</loc></url>
 </urlset>

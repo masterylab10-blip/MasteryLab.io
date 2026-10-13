@@ -1,117 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scroll for anchor links
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+        anchor.addEventListener('click', function (event) {
+            const hash = this.getAttribute('href');
+            if (!hash || hash === '#') return;
+            const target = document.getElementById(decodeURIComponent(hash.slice(1)));
+            if (!target) return;
+            event.preventDefault();
+            target.scrollIntoView({behavior: reducedMotion.matches ? 'instant' : 'smooth'});
+            history.replaceState(null, '', hash);
         });
     });
-
-    // Logo Click Behavior: Smooth Scroll to Top if on Home Page
-    const logo = document.querySelector('.logo');
-    if (logo) {
-        logo.addEventListener('click', function (e) {
-            const currentPath = window.location.pathname;
-            // If the current path is exactly '/registration-bachata-sensual', redirect to the version without .html
-            if (currentPath === '/registration-bachata-sensual') {
-                window.location.href='/registration-bachata-sensual';
-                return; // Stop further execution
-            }
-            const isHomePage = currentPath === '/';
-
-            if (isHomePage) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-
-    // Mobile Menu Toggle (Simple version)
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
-
-    if (mobileBtn) {
+    if (mobileBtn && navLinks) {
+        navLinks.id ||= 'site-navigation';
+        mobileBtn.setAttribute('aria-controls', navLinks.id);
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        const closeMenu = () => { navLinks.classList.remove('is-open'); mobileBtn.setAttribute('aria-expanded', 'false'); };
         mobileBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.background = 'rgba(10, 10, 15, 0.95)';
-                navLinks.style.padding = '2rem';
-            }
+            const open = navLinks.classList.toggle('is-open');
+            mobileBtn.setAttribute('aria-expanded', String(open));
         });
+        navLinks.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+        document.addEventListener('keydown', event => { if (event.key === 'Escape' && navLinks.classList.contains('is-open')) {closeMenu(); mobileBtn.focus();} });
+        matchMedia('(min-width: 1280px)').addEventListener('change', closeMenu);
     }
-
-    // Modal Logic
     const modal = document.getElementById('regModal');
-    const openBtns = document.querySelectorAll('a[href="#book"]');
-    const closeBtn = document.getElementById('closeModal');
-    const regForm = document.getElementById('regForm');
-
     if (modal) {
-        openBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.style.display = 'flex';
-            });
-        });
-
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-
-        // Form Submission (Only for / modal form)
-        const isHomePage = window.location.pathname === '/' || window.location.pathname === '';
-        if (regForm && isHomePage) {
-            regForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                const formData = {
-                    firstName: document.getElementById('firstName').value,
-                    lastName: document.getElementById('lastName').value,
-                    city: document.getElementById('city').value,
-                    role: document.getElementById('role').value,
-                    email: document.getElementById('email').value,
-                    whatsapp: document.getElementById('whatsapp').value
-                };
-
-                // 1. DATA SAVING: Send to Google Sheets (Silent Background)
-                const googleSheetUrl = "https://script.google.com/macros/s/AKfycbxbleUuZYNKhQhW87bakoOiRSCKB2cW-AiH0dxnoq7J9y43Q8feTvY1Sji_9_wm_T8/exec";
-
-                fetch(googleSheetUrl, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    cache: 'no-cache',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    redirect: 'follow',
-                    body: JSON.stringify(formData),
-                    keepalive: true
-                });
-
-                // 2. EMAIL & REDIRECT: Trigger Native FormSubmit (Visual Foreground)
-                setTimeout(() => {
-                    this.submit();
-                }, 300);
-            });
-        }
+        document.querySelectorAll('a[href="#book"]').forEach(button => button.addEventListener('click', event => {
+            event.preventDefault(); modal.style.display = 'flex';
+        }));
+        const close = () => { modal.style.display = 'none'; document.body.style.overflow = ''; };
+        const closeBtn = document.getElementById('closeModal');
+        if (closeBtn) closeBtn.addEventListener('click', close);
+        modal.addEventListener('click', event => { if (event.target === modal) close(); });
     }
-
     // Intersection Observer for fade-in animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -289,195 +213,5 @@ document.addEventListener('DOMContentLoaded', () => {
         if (partnerHeader) partnerHeader.textContent = t.partners;
     }
 
-    // =========================================
-    // TASK 1: GLOBAL PRICING COMPONENT (Injector)
-    // =========================================
-    function injectPricingComponent() {
-        // Only on Bachata pages (Sensual, Teachers, Dancers)
-        if (!window.location.href.includes('bachata-') && !window.location.href.includes('registration-bachata')) return;
-
-        // broader selector for both buttons and overview cards
-        const bookButtons = document.querySelectorAll('.btn-book-now, a[href*="registration-bachata"]');
-        const overviewSection = document.querySelector('#training-tracks .grid-2');
-
-        // Determine Price based on Page
-        let price = "250 CHF";
-        if (window.location.href.includes('bachata-dancers')) {
-            price = "170 CHF";
-        } else if (window.location.href.includes('bachata-teachers')) {
-            price = "350 CHF";
-        }
-
-        const pricingHTML = `
-        <div class="pricing-component" style="justify-content: center;">
-            <div class="pricing-col" style="border-color: rgba(214, 0, 28, 0.4); max-width: 800px; margin: 0 auto; flex: none; width: 100%; text-align: center;">
-                <div style="font-size: 4rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--color-primary); font-family: 'Anton', sans-serif;">${price}</div>
-                <h3 style="margin-bottom: 2rem; font-size: 3rem; line-height: 1;">WHAT YOU GET with this price</h3>
-                <ul class="pricing-features" style="display: inline-block; text-align: left; font-size: 1.3rem;">
-                    <li style="margin-bottom: 1rem;">Multiple Hours of High-Level Education with main artists</li>
-                    <li style="margin-bottom: 1rem;">Spain-Level Training Material</li>
-                    <li style="margin-bottom: 1rem;">Follow-Up Program Between Labs</li>
-                    <li style="margin-bottom: 1rem;">Professional Media (High-Quality Video)</li>
-                    <li style="margin-bottom: 1rem;">50% Discount on Party Tickets</li>
-                    <li style="margin-bottom: 1rem;">High-Quality Dance Background (Stand Out in Today’s Scene)</li>
-                    <li style="margin-bottom: 1rem;">Access to Professional Dance Community</li>
-                    <li style="margin-bottom: 1rem;">50% Discount on Other Labs</li>
-                    <li style="color: var(--color-primary); margin-bottom: 1rem;">Certification Included (after completing full 3-part program)</li>
-                </ul>
-            </div>
-        </div>
-        `;
-
-        // Case 1: Overview Page - Insert before the grid of cards
-        if (overviewSection && !overviewSection.parentElement.querySelector('.pricing-component')) {
-            const wrapper = document.createElement('div');
-            wrapper.innerHTML = pricingHTML;
-            // Add some specific styling for the overview
-            const inner = wrapper.querySelector('.pricing-component');
-            if (inner) {
-                inner.style.maxWidth = '900px';
-                inner.style.margin = '0 auto 4rem auto';
-            }
-            overviewSection.parentNode.insertBefore(wrapper, overviewSection);
-        }
-
-        // Case 2: Booking Buttons (Sub-pages)
-        if (bookButtons.length === 0) return;
-
-        bookButtons.forEach(btn => {
-            // Fix: Ensure data-text is set for CSS animations to prevent glitch
-            if (!btn.getAttribute('data-text')) {
-                btn.setAttribute('data-text', btn.textContent.trim());
-            }
-
-            // Find container
-            const container = btn.closest('div');
-
-            if (container) {
-                // Try to find the schedule card in the same parent container or nearby
-                // The structure implies: schedule-card IS A SIBLING of the div containing the button?
-                // Looking at HTML: the button is inside <div style="text-align: center; margin-top: 2rem;">
-                // And that div is a sibling of <div class="schedule-card ...">
-                // So we need to go up one level to find the schedule card.
-
-                const parentOfButtonDiv = container.parentElement;
-                const scheduleCard = parentOfButtonDiv ? parentOfButtonDiv.querySelector('.schedule-card') : null;
-
-                const wrapper = document.createElement('div');
-                wrapper.innerHTML = pricingHTML;
-
-                if (scheduleCard) {
-                    // Insert AFTER schedule card
-                    scheduleCard.parentNode.insertBefore(wrapper, scheduleCard.nextSibling);
-                } else {
-                    // Fallback: Insert before the button container
-                    container.parentNode.insertBefore(wrapper, container);
-                }
-            }
-        });
-    }
-    injectPricingComponent();
-
-    // =========================================
-    // TASK 2: DYNAMIC PRICING (M&M)
-    // =========================================
-    function injectDynamicPricingMOM() {
-        // Only on Michael & Mayra page
-        const isMMPage = window.location.href.includes('michael-mayra') && !window.location.href.includes('registration-');
-        if (!isMMPage || window.location.pathname.includes('michael-mayra-show-team-2027')) return;
-
-        const ctaBtn = document.querySelector('.btn-cta-inviting');
-        if (!ctaBtn) return;
-
-        const price = "220 CHF";
-
-        const dynamicHTML = `
-        <div class="mm-pricing-status" style="margin-bottom: 3rem;">
-            <div class="mm-spots-remaining">PRICE PER TICKET</div>
-            <div class="mm-price-tag">220 CHF</div>
-        </div>
-        
-        <div class="pricing-component" style="justify-content: center; margin-bottom: 4rem;">
-            <div class="pricing-col" style="border-color: rgba(230, 175, 21, 0.4); max-width: 800px; margin: 0 auto; flex: none; width: 100%; text-align: center;">
-                <h3 style="margin-bottom: 2rem; font-size: 3rem; line-height: 1;">WHAT YOU GET with this price</h3>
-                <ul class="pricing-features" style="display: inline-block; text-align: left; font-size: 1.3rem;">
-                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Not 2, not 4, but 9 HOURS of High-Level Education with main artists</li>
-                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>M&M world class -Level Training Material</li>
-                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Follow-Up Program Between Labs</li>
-                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>50% Discount on Party Tickets</li>
-                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>High-Quality Dance Background (Stand Out in Today’s Scene)</li>
-                    <li style="margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Access to Professional Dance Community</li>
-                    <li style="color: #e6af15; margin-bottom: 1rem; position: relative; padding-left: 2.5rem;"><span style="color: #e6af15; position: absolute; left: 0;">✔</span>Certification Included</li>
-                </ul>
-            </div>
-        </div>
-        `;
-
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = dynamicHTML;
-
-        // Insert after Technical Pillars section if it exists, otherwise fallback to CTA
-        const pillarsSection = document.querySelector('.bio-pillars-container');
-        if (pillarsSection) {
-            pillarsSection.parentNode.insertBefore(wrapper, pillarsSection.nextSibling);
-            // Add consistent spacing to match layout (same distance to ticket)
-            wrapper.style.marginBottom = '6rem';
-            wrapper.style.marginTop = '6rem';
-        } else {
-            const parent = ctaBtn.parentElement;
-            parent.insertBefore(wrapper, ctaBtn);
-        }
-    }
-    injectDynamicPricingMOM();
-
-    // =========================================
-    // TASK 5: EDUCATION JOURNAL NAV (Injector)
-    // =========================================
-    function injectEducationJournalLink() {
-        // Only inject on Home Page
-        const currentPath = window.location.pathname;
-        const isHomePage = currentPath === '/';
-        if (!isHomePage) return;
-
-        const navLinks = document.querySelector('.nav-links');
-        if (navLinks) {
-            // Check if already exists
-            if (navLinks.innerHTML.includes('education-journal')) return;
-
-            const journalLink = document.createElement('a');
-            journalLink.href='/education-journal';
-            journalLink.className = 'nav-btn-outline ticket-shape';
-            journalLink.textContent = 'EDUCATION JOURNAL'; // Uppercase to match style
-            journalLink.style.marginLeft = '1rem';
-            journalLink.style.borderColor = 'rgba(255,255,255,0.3)';
-
-            // Insert adjacent to "What is MasteryLab" (nav-btn-outline)
-            const whatIsLink = navLinks.querySelector('a[href*="what-is-masterylab"]');
-
-            if (whatIsLink) {
-                navLinks.insertBefore(journalLink, whatIsLink.nextSibling);
-            } else {
-                navLinks.appendChild(journalLink);
-            }
-        }
-    }
-    injectEducationJournalLink();
-
-    // Memories gallery shortcut in the shared site navigation.
-    function injectMemoriesLink() {
-        const navLinks = document.querySelector('.nav-links');
-        if (!navLinks || navLinks.querySelector('a[href*="memories"]')) return;
-
-        // Keep focused utility/auth headers compact; this belongs in the full site nav.
-        if (navLinks.querySelectorAll('a').length < 3) return;
-
-        const memoriesLink = document.createElement('a');
-        memoriesLink.href='/memories/';
-        memoriesLink.className = 'nav-btn-outline ticket-shape memories-nav-link';
-        memoriesLink.textContent = 'MEMORIES';
-        memoriesLink.setAttribute('aria-label', 'Memories photo galleries');
-        navLinks.appendChild(memoriesLink);
-    }
-    injectMemoriesLink();
 
 });
