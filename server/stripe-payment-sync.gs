@@ -13,6 +13,10 @@ function stripeRead(path) {
  if(response.getResponseCode()!==200) throw new Error('Stripe read failed: '+response.getResponseCode());
  return JSON.parse(response.getContentText());
 }
+function auditApprovedPaymentLinks() {
+ const links=stripeRead('payment_links?limit=100');
+ links.data.filter(link=>APPROVED_CHECKOUTS[link.url]).forEach(link=>console.log(JSON.stringify({id:link.id,url:link.url,active:link.active,limit:link.restrictions && link.restrictions.completed_sessions ? link.restrictions.completed_sessions.limit : null})));
+}
 function setupStripeSync() {
  const links=stripeRead('payment_links?limit=100');
  const mapping={};
