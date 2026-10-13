@@ -143,3 +143,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 .weekend-heading {text-align:center;margin-bottom:3rem;}
 .weekend-heading h2 {display:inline-block;font-size:clamp(2rem,4vw,3.5rem);color:#dce9ff;background:#17375f;border:1px solid #315d91;padding:.55em .8em;line-height:1.15;}
+
+/* Featured current-weekend Lab. */
+.weekend-feature {position:relative;background:radial-gradient(ellipse at 75% 45%,rgba(28,68,118,.28),transparent 65%),linear-gradient(180deg,#060c16,#05070c);border-top:1px solid #315d91;border-bottom:1px solid #24466f;padding-block:clamp(3rem,6vw,6rem);}
+.weekend-feature .weekend-heading h2 {background:transparent;border:0;padding:0;color:#dce9ff;letter-spacing:.04em;text-shadow:0 0 32px rgba(93,151,229,.28);}
+.weekend-heading::before {content:"THIS WEEKEND AT MASTERYLAB";display:block;color:#83a9dc;font:600 .75rem 'Outfit',sans-serif;letter-spacing:.2em;margin-bottom:1rem;}
+.weekend-heading::after {content:"";display:block;width:80px;height:3px;background:#4278bc;margin:1.5rem auto 0;box-shadow:0 0 20px #315d91;}
+.weekend-feature .lab-image img {border:1px solid #315d91;box-shadow:0 0 50px rgba(32,77,139,.22);}
+.weekend-feature .lab-info > .btn {border-color:#83a9dc;color:#dce9ff;background:rgba(23,55,95,.35);}
+.weekend-feature .lab-info > .btn:hover {background:#17375f;}
+@media(max-width:767px){.weekend-feature .weekend-heading{margin-bottom:2rem;}.weekend-heading::before{font-size:.65rem;letter-spacing:.14em;}}
