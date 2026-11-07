@@ -7,18 +7,19 @@ def build(root):
     cards=[]
     for event in events:
         e={key:html.escape(str(value),quote=True)for key,value in event.items()}
-        cards.append(f'''<article class="season-card" data-event-id="{e['id']}"><p class="event-date">{e['dateLabel']}</p><h3>{e['title']}</h3><p class="artists">{e['artists']}</p><p class="description">{e['description']}</p><a class="event-link" href="{e['url']}">EXPLORE THE LAB →</a></article>''')
+        price = f'<p class="static-ticket-price">{e["priceLabel"]}</p>' if e.get("priceLabel") else ""
+        cards.append(f'''<article class="season-card" data-event-id="{e['id']}"><p class="event-date">{e['dateLabel']}</p><h3>{e['title']}</h3><p class="artists">{e['artists']}</p><p class="description">{e['description']}</p>{price}<a class="event-link" href="{e['url']}">EXPLORE THE LAB →</a></article>''')
     homepage=root/'index.html';s=homepage.read_text()
     s=re.sub(r'<!-- EVENTS_GRID_START -->[\s\S]*?<!-- EVENTS_GRID_END -->','<!-- EVENTS_GRID_START -->\n<div class="season-grid">\n'+'\n'.join(cards)+'\n</div>\n<!-- EVENTS_GRID_END -->',s)
     homepage.write_text(s)
     explicit={
-      'bachata-dancers-lab':'Bachata Sensual Dancers Lab with Ale & Xidan and Aitor & Sara. 6–7 February 2027 at Area4 Dance Center in Baden, Switzerland.',
-      'man-lady-styling-lab':'Men & Lady Styling Lab with Micka, Gloria, Ramon and Angela. 26–27 June 2027 in Baden. Explore Sensual, Fusion and Dominican styling.',
-      'bachata-teachers-lab':'Bachata Sensual Teachers Education with Christina & Rebeca. Explore certification levels, training weekends and applications in Baden.',
-      'bachata-sensual-lab':'Explore MasteryLab Bachata Sensual programs for dancers and teachers, with training and certification in Baden, Switzerland.',
-      'michael-mayra-2027':'M&M Technique Lab with Michael & Mayra: 8–9 May 2027 in Baden. 9 hours of technique, connection and partnerwork. View passes and enquire.',
-      'michael-mayra-show-team-2027':'M&M Show Team Lab: 15–16 May 2027 in Baden. 4 hours of bootcamp and 6 hours of choreography and stage training with Michael & Mayra.',
-      'michael-mayra-technique-vol2-2027':'M&M Technique Lab Vol. 2: 18–19 September 2027 in Baden. 9 hours of connection, musicality and partnerwork with Michael & Mayra.',
+      'bachata-dancers-lab':'Bachata Sensual Dancers Lab with Ale & Xidan and Aitor & Sara. 6–7 February 2027. Locations coming soon.',
+      'man-lady-styling-lab':'Men & Lady Styling Lab with Micka, Gloria, Ramon and Angela. 26–27 June 2027. Explore Sensual, Fusion and Dominican styling.',
+      'bachata-teachers-lab':'Bachata Sensual Teachers Education with Christina & Rebeca. Explore certification levels, training weekends and applications.',
+      'bachata-sensual-lab':'Explore MasteryLab Bachata Sensual programs for dancers and teachers, with training and certification.',
+      'michael-mayra-2027':'M&M Technique Lab with Michael & Mayra: 8–9 May 2027. 9 hours of technique, connection and partnerwork. View passes and enquire.',
+      'michael-mayra-show-team-2027':'M&M Show Team Lab: 15–16 May 2027. 4 hours of bootcamp and 6 hours of choreography and stage training with Michael & Mayra.',
+      'michael-mayra-technique-vol2-2027':'M&M Technique Lab Vol. 2: 18–19 September 2027. 9 hours of connection, musicality and partnerwork with Michael & Mayra.',
       'artists':'Meet the international artists teaching at MasteryLab. Discover their backgrounds, dance styles and upcoming training in Switzerland.',
       'memories':'Relive MasteryLab through our event photo gallery. Browse moments from our dance intensives and download your favourite photographs.',
       'what-is-masterylab':'Discover MasteryLab: dance intensives focused on technique, connection, personal growth and community in Baden, Switzerland.',
@@ -58,7 +59,7 @@ def build(root):
       # Add clear event summary near the headline, using shared confirmed facts.
       event=next((event for event in events if event['url']==route),None)
       if event and slug.startswith('michael-mayra') and 'class="event-summary"'not in s:
-        summary=f'<div class="event-summary"><span>{html.escape(event["dateLabel"])}</span><span>Area4 Dance Center · Baden</span><span>{"10 hours"if"show-team"in slug else"9 hours"}</span></div>'
+        summary=f'<div class="event-summary"><span>{html.escape(event["dateLabel"])}</span><span>Locations coming soon</span><span>{"10 hours"if"show-team"in slug else"9 hours"}</span></div>'
         s=s.replace('</h1>','</h1>\n'+summary,1)
       page.write_text(s)
     sitemap='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+''.join('<url><loc>https://masterylab.ch'+route+'</loc></url>\n'for route in sorted(public))+'</urlset>\n'
