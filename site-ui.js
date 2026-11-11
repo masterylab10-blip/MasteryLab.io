@@ -1,15 +1,18 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', () => {
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const phone = matchMedia('(max-width: 767px)');
   const videos = [...document.querySelectorAll('video[data-desktop-src],video[data-decorative]')];
   const updateVideo = () => videos.forEach(video => {
     if (motion.matches || navigator.connection?.saveData) { video.pause(); video.removeAttribute('autoplay'); return; }
     if (!video.dataset.desktopSrc) { video.play().catch(() => {}); return; }
-    const source = matchMedia('(max-width: 767px)').matches ? video.dataset.mobileSrc : video.dataset.desktopSrc;
+    const source = phone.matches ? (video.dataset.mobileSrc || video.dataset.desktopSrc) : video.dataset.desktopSrc;
     if (video.getAttribute('src') !== source) { video.src = source; video.load(); }
     video.play().catch(() => {});
   });
-  motion.addEventListener('change', updateVideo); updateVideo();
+  motion.addEventListener('change', updateVideo);
+  phone.addEventListener('change', updateVideo);
+  updateVideo();
   document.querySelectorAll('[id$="Modal"], [id$="modal"]').forEach(modal => {
     if (!modal.querySelector('input,button,textarea,select')) return;
     modal.setAttribute('role', 'dialog'); modal.setAttribute('aria-modal', 'true');

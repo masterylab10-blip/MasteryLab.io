@@ -1,6 +1,6 @@
 /** May 2027 M&M Vol. 3 registrations. Never exposes participant records. */
 const MM_SHEET_ID = '1RRQr5cs3DJ0LzrW2w9ZBTU-AyOQAkA3c_39MmbXWSss';
-const MM_TICKETS = {couple:{amount:420,label:'Early Bird Couple'},follower:{amount:220,label:'Early Bird Follower'},leader:{amount:220,label:'Early Bird Leader'}};
+const MM_TICKETS = {couple:{amount:480,label:'Regular Couple'},follower:{amount:250,label:'Regular Solo — Follower'},leader:{amount:250,label:'Regular Solo — Leader'}};
 const DANCERS_SHEET_ID = '1JbEl2qeZDTqTfnhFonCA3XM1dAdYS3u9AiC5w00s9zc';
 const SHOES_SHEET_ID = '1G-tRM9FeNTfdj6jv2jSB3jVJ56GnCm9JPeKgiwPSBfw';
 function doGet() {return reply({service:'MasteryLab registration receiver',ready:true,version:2});}
@@ -13,7 +13,7 @@ function doPost(e) {
   if (p.service==='shoes') return saveShoeOrder(p);
   const dancers=p.service==='dancers';
   if (p.service && !['mm','dancers'].includes(p.service)) return reply({result:'error'});
-  const ticket=dancers ? ({solo:{amount:220,label:'Early Bird Solo'},couple:{amount:420,label:'Early Bird Couple'}})[p.ticket] : MM_TICKETS[p.ticket];
+  const ticket=dancers ? ({solo:{amount:250,label:'Regular Solo'},couple:{amount:480,label:'Regular Couple'}})[p.ticket] : MM_TICKETS[p.ticket];
   const email=String(p.email || '').trim();
   const first=String(p.first_name || '').trim(), last=String(p.last_name || '').trim();
   const partner=[p.partner_first_name,p.partner_last_name].filter(Boolean).join(' ').trim();

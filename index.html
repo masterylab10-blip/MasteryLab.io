@@ -56,11 +56,44 @@
         </style>
 <script src="/site-forms.js?v=20261013"></script>
 <link rel="stylesheet" href="/site-ui.css?v=20261013">
-<script src="/site-ui.js?v=20261013" defer></script>
+<script src="/site-ui.js?v=responsive-header" defer></script>
 <link rel="canonical" href="https://masterylab.ch/">
 <style>
+.home-page #about.hero {
+    display: block;
+    height: auto;
+    min-height: 0;
+    padding: var(--nav-height) 0 0;
+    background: #090909;
+}
+#about > video.hero-bg {
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    margin-inline: auto;
+}
+#about > .hero-overlay { display: none; }
+#about > .hero-footer {
+    position: static;
+    display: block;
+    padding-block: clamp(12px, 2vw, 28px);
+}
+@media (min-width: 1280px) {
+    .home-page .navbar .nav-ticket-group { gap: clamp(4px, .5vw, 8px); }
+    .home-page .navbar .nav-ticket-group a { padding-inline: clamp(6px, .6vw, 12px); }
+}
 @media (max-width: 767px) {
-    #about > video.hero-bg { object-fit: contain; object-position: center; }
+    #about > video.hero-bg {
+        width: min(100%, 540px);
+        aspect-ratio: 3 / 4;
+    }
+    #about .hero-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 380px) {
+    #about .hero-cards { grid-template-columns: minmax(0, 1fr); }
 }
 </style>
 </head>
