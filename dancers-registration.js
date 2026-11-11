@@ -2,8 +2,8 @@
 window.DancersRegistration = (() => {
   const receiver = 'https://script.google.com/macros/s/AKfycbxqC3P4HnDN4mciabiBoxaUfYOEtRyQZT2RDB1H-4vvrpsNda1QCymGk9FJ2KcT_jY2/exec';
   const tickets = {
-    couple:'https://buy.stripe.com/3cIbJ3aWi3G4abw26CdEs0Y',
-    solo:'https://buy.stripe.com/aFa4gBaWi1xW97sdPkdEs0X'
+    couple:'https://buy.stripe.com/3cI5kF2pM0tS5Vg9z4dEs0Z',
+    solo:'https://buy.stripe.com/cNi4gB1lIb8wcjE8v0dEs10'
   };
   let form, select, reference;
   function partnerFields() {

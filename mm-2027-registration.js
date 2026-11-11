@@ -2,9 +2,8 @@
 window.MMRegistration = (() => {
   const receiver = 'https://script.google.com/macros/s/AKfycbxqC3P4HnDN4mciabiBoxaUfYOEtRyQZT2RDB1H-4vvrpsNda1QCymGk9FJ2KcT_jY2/exec';
   const tickets = {
-    couple:'https://buy.stripe.com/28E3cx7K64K8erM5iOdEs0U',
-    follower:'https://buy.stripe.com/fZucN70hE3G4bfA8v0dEs0V',
-    leader:'https://buy.stripe.com/eVq5kF3tQ3G46Zk5iOdEs0W'
+    follower:'https://buy.stripe.com/aFa3cxd4qdgE6Zk12ydEs11',
+    leader:'https://buy.stripe.com/aFa3cxd4qdgE6Zk12ydEs11'
   };
   let form, select, reference;
   function partnerFields() {
