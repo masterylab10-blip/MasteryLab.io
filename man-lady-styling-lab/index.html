@@ -359,14 +359,14 @@
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%, 14rem),1fr));gap:1rem;">
     <article>
       <h3>Regular Ticket — Solo</h3>
-      <p><strong style="font-size:2rem;color:#e6af15;">CHF 260</strong></p>
+      <p><strong style="font-size:2rem;color:#e6af15;">CHF 250</strong></p>
       <p>One Leader or Follower.</p>
       <button type="button" class="btn btn-primary" onclick="openModalWithTicket('regular_solo')">REGISTER SOLO</button>
     </article>
     <article>
       <h3>Regular Ticket — Couple</h3>
       <p><strong style="font-size:2rem;color:#e6af15;">CHF 480</strong></p>
-      <p>One Leader and one Follower. Save CHF 10 per person compared with the previous CHF 500 couple price.</p>
+      <p>One Leader and one Follower. Save CHF 10 per person compared with two solo tickets.</p>
       <button type="button" class="btn btn-primary" onclick="openModalWithTicket('regular_couple')">REGISTER AS A COUPLE</button>
     </article>
   </div>
@@ -447,13 +447,13 @@
                 priceInput.value = '190 CHF';
             } else if (type === 'regular_solo') {
                 input.value = 'Regular Solo';
-                priceInput.value = '260 CHF';
+                priceInput.value = '250 CHF';
             } else if (type === 'regular_ladies') {
                 input.value = 'Regular Followers';
-                priceInput.value = '260 CHF';
+                priceInput.value = '250 CHF';
             } else if (type === 'regular_men') {
                 input.value = 'Regular Leaders';
-                priceInput.value = '260 CHF';
+                priceInput.value = '250 CHF';
             } else if (type === 'regular_couple') {
                 input.value = 'Regular Couple';
                 priceInput.value = '480 CHF';
