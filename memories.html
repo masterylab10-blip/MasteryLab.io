@@ -125,7 +125,7 @@
     <div class="memories-events" role="tablist" aria-label="Choose an event">
       <button class="memories-event" type="button" role="tab" data-day="saturday" aria-selected="true"><strong>Men &amp; Lady Styling</strong><span>Saturday · 12 September 2026</span></button>
       <button class="memories-event" type="button" role="tab" data-day="sunday" aria-selected="false"><strong>Lady Styling</strong><span>Sunday · 13 September 2026</span></button>
-      <button class="memories-event" type="button" role="tab" data-day="michael-mayra" aria-selected="false"><strong>Michael &amp; Mayra Lab</strong><span>6 collections</span></button>
+      <button class="memories-event" type="button" role="tab" data-day="michael-mayra" aria-selected="false"><strong>Michael &amp; Mayra Lab</strong><span>5 collections</span></button>
       <button class="memories-event" type="button" role="tab" data-day="teachers-education" aria-selected="false"><strong>Teachers Education Lab</strong><span>4 collections</span></button>
     </div>
     <div class="memories-toolbar"><div><div class="memories-kicker" id="memories-day-label">Saturday · 12 September 2026</div><h2 id="memories-event-title">Men &amp; Lady Styling Lab</h2></div><div class="memories-count" id="memories-count" aria-live="polite">Loading photos…</div></div>
@@ -281,7 +281,7 @@
   };
   Promise.allSettled([
     readGallery('/media/memories/manifest.json?v=5'),
-    readGallery('/media/memories/drive-albums.json?v=1').then(rows => rows.map(
+    readGallery('/media/memories/drive-albums.json?v=2').then(rows => rows.map(
       ([day, event, collection, fileName, driveId]) => ({
         day, event, collection, fileName, driveId, width: 900, height: 600,
         src: `https://drive.google.com/file/d/${encodeURIComponent(driveId)}/view`,
