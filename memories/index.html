@@ -125,6 +125,8 @@
     <div class="memories-events" role="tablist" aria-label="Choose an event">
       <button class="memories-event" type="button" role="tab" data-day="saturday" aria-selected="true"><strong>Men &amp; Lady Styling</strong><span>Saturday · 12 September 2026</span></button>
       <button class="memories-event" type="button" role="tab" data-day="sunday" aria-selected="false"><strong>Lady Styling</strong><span>Sunday · 13 September 2026</span></button>
+      <button class="memories-event" type="button" role="tab" data-day="michael-mayra" aria-selected="false"><strong>Michael &amp; Mayra Lab</strong><span>6 collections</span></button>
+      <button class="memories-event" type="button" role="tab" data-day="teachers-education" aria-selected="false"><strong>Teachers Education Lab</strong><span>4 collections</span></button>
     </div>
     <div class="memories-toolbar"><div><div class="memories-kicker" id="memories-day-label">Saturday · 12 September 2026</div><h2 id="memories-event-title">Men &amp; Lady Styling Lab</h2></div><div class="memories-count" id="memories-count" aria-live="polite">Loading photos…</div></div>
     <div class="memories-filters" id="memories-filters" aria-label="Filter by photo collection"></div>
@@ -272,7 +274,26 @@
     if (event.key === 'ArrowLeft') { event.preventDefault(); moveLightbox(-1); }
     if (event.key === 'ArrowRight') { event.preventDefault(); moveLightbox(1); }
   });
-  fetch('/media/memories/manifest.json?v=5').then(response => { if (!response.ok) throw new Error('Gallery manifest unavailable'); return response.json(); }).then(data => { photos = data.map(photo => ({...photo, src: new URL(photo.src, window.location.origin + '/').href, thumb: new URL(photo.thumb, window.location.origin + '/').href})); render(); }).catch(() => { count.textContent = 'Gallery unavailable'; grid.innerHTML = '<div class="memories-empty">The photo collection could not be loaded. Please try again later.</div>'; });
+  const readGallery = async url => {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Gallery manifest unavailable');
+    return response.json();
+  };
+  Promise.allSettled([
+    readGallery('/media/memories/manifest.json?v=5'),
+    readGallery('/media/memories/drive-albums.json?v=1').then(rows => rows.map(
+      ([day, event, collection, fileName, driveId]) => ({
+        day, event, collection, fileName, driveId, width: 900, height: 600,
+        src: `https://drive.google.com/file/d/${encodeURIComponent(driveId)}/view`,
+        thumb: `https://lh3.googleusercontent.com/d/${encodeURIComponent(driveId)}=w320`
+      })
+    ))
+  ]).then(results => {
+    photos = results.flatMap(result => result.status === 'fulfilled' ? result.value : [])
+      .map(photo => ({...photo, src: new URL(photo.src, location.origin + '/').href,
+        thumb: new URL(photo.thumb, location.origin + '/').href}));
+    render();
+  });
 })();
 </script>
 <script src="/script.js?v=fix1" defer></script>
