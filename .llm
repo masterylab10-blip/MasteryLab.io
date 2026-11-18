@@ -1,0 +1,29 @@
+# MasteryLab Project Context
+
+## Overview
+MasteryLab is a premier dance training platform in Zurich, Switzerland, focusing on Bachata, Sensual, and Lady Style.
+The website serves as a landing page for labs (workshops), a registration portal for students, and a hub for community updates.
+
+## Tech Stack
+- **Frontend**: HTML5, CSS3 (Custom Design), JavaScript (Vanilla)
+- **Backend/Database**: Supabase (Auth & Database), Google Sheets (Backup via App Script)
+- **Forms**: FormSubmit.co & Google Apps Script
+- **Hosting**: GitHub Pages / Static Hosting requiring Clean URLs (no .html extensions)
+
+## Key Files
+- `index.html`: Main landing page with Hero section and Lab overviews.
+- `style.css`: Core styling (Variables, Reset, Components).
+- `script.js`: Main interactivity (Mobile menu, Modals, Form handling).
+- `supabase.js`: Auth helper built on Supabase SDK.
+- `michael-mayra.html`: Specific event landing page.
+- `register.html` / `login.html` / `portal.html`: Auth flows.
+
+## Design System
+- **Colors**: Black (#050505), Electric Red (#D6001C), White text.
+- **Fonts**: 'Anton' (Headings), 'Outfit' (Body).
+- **Vibe**: Electric, Artistic, Premium, High-Energy.
+
+## Protocols
+- **Images**: WebP format, lazy loading (except Hero).
+- **SEO**: Clean URLs, Semantic HTML, Meta descriptions.
+- **Automation**: Google Sheets integration for leads.

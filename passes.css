@@ -1,0 +1,156 @@
+.pass-page { margin:0; background:#f7f4f0; color:#252122; font-family:Anton,Impact,sans-serif; line-height:1.5; }
+.pass-page * { box-sizing:border-box; }
+.pass-page a { color:inherit; text-underline-offset:4px; }
+.pass-page main,.pass-nav,.pass-footer { width:min(1120px,calc(100% - 48px)); margin:auto; }
+.pass-nav { display:flex; align-items:center; justify-content:space-between; padding:30px 0; border-bottom:1px solid #ded7d3; gap:20px; }
+.wordmark { font-weight:700; letter-spacing:.04em; text-decoration:none; font-size:19px; }
+.wordmark span { display:block; font-size:10px; letter-spacing:.16em; font-weight:400; text-transform:uppercase; }
+.pass-nav > a:last-child { font-size:13px; text-decoration:none; }
+.pass-intro { text-align:center; padding:64px 0 50px; }
+.eyebrow { font-size:10px; font-weight:700; letter-spacing:.17em; color:#a52b3c; }
+.pass-intro h1 { font-family:Anton,Impact,sans-serif; font-size:clamp(44px,5.7vw,76px); font-weight:400; letter-spacing:-.035em; line-height:1.05; margin:18px 0; }
+.pass-intro h1 em,.pass-next h2 em { color:#c91432; font-weight:400; }
+.pass-intro > p:last-child { color:#72676a; font-size:15px; }
+.pass-builder { display:grid; grid-template-columns:1.2fr 1fr; gap:64px; padding-bottom:64px; align-items:start; }
+.section-heading h2 { font-size:21px; margin:0 0 6px; font-weight:500; }
+.section-heading p { font-size:12px; color:#72676a; margin:0 0 24px; }
+.pass-choices fieldset { border:0; padding:0; margin:0; display:grid; gap:9px; }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.pass-option { position:relative; display:flex; align-items:center; gap:13px; padding:16px; border:1px solid #ded7d3; border-radius:10px; background:#fffdfb; cursor:pointer; }
+.pass-option:has(input:checked) { border-color:#c91432; background:#fbe9e9; box-shadow:0 0 0 1px #c91432; }
+.pass-option input { accent-color:#c91432; width:16px; height:16px; margin:0; flex-shrink:0; }
+.option-count { font-family:Anton,Impact,sans-serif; font-size:30px; width:25px; text-align:center; }
+.option-name { flex:1; }
+.option-name strong { display:block; font-size:14px; font-weight:600; }
+.pass-option small { display:block; color:#796166; font-size:11px; margin-top:3px; }
+.option-price { text-align:right; font-size:15px; font-weight:600; white-space:nowrap; }
+.choice-note { font-size:11px; color:#72676a; margin-top:17px; max-width:44ch; }
+.pass-summary { background:#291b20; color:#fff8f4; padding:32px; border-radius:16px; }
+.summary-top { display:flex; justify-content:space-between; gap:10px; font-size:9px; letter-spacing:.1em; color:#ffbbc5; padding-bottom:28px; border-bottom:1px solid #63434e; }
+.pass-summary h2 { font-family:Anton,Impact,sans-serif; font-size:39px; font-weight:400; margin:25px 0 0; }
+.summary-description { color:#dcc8ce; font-size:13px; min-height:39px; margin:6px 0 20px; }
+.summary-price { font-size:18px; margin:0; }
+.summary-price strong { font-family:Anton,Impact,sans-serif; font-size:70px; font-weight:400; line-height:1; letter-spacing:-.04em; }
+.summary-person { font-size:12px; color:#dcc8ce; margin:8px 0 25px; }
+.pass-summary dl { border-top:1px solid #63434e; padding-top:18px; margin-bottom:24px; }
+.pass-summary dl > div { display:flex; justify-content:space-between; gap:12px; margin:10px 0; font-size:12px; }
+.pass-summary dt { color:#dcc8ce; }
+.pass-summary dd { margin:0; text-align:right; }
+.pass-page .pass-action { display:flex; justify-content:space-between; align-items:center; min-height:48px; padding:14px 18px; background:#d6001c; color:#ffffff; text-decoration:none; font-size:13px; font-weight:600; border-radius:7px; }
+.pass-action:hover { background:#b80018; }
+.summary-note { color:#dcc8ce; font-size:11px; line-height:1.6; margin:14px 0 0; }
+.pass-next { display:grid; grid-template-columns:1fr 1.2fr; gap:60px; padding:48px 0; border-top:1px solid #ded7d3; }
+.pass-next h2 { font-family:Anton,Impact,sans-serif; font-size:46px; font-weight:400; line-height:1.05; margin:16px 0; }
+.pass-next ol { margin:0; padding-left:20px; }
+.pass-next li { padding-left:12px; margin-bottom:22px; font-size:14px; }
+.pass-next li::marker { color:#a52b3c; }
+.pass-next p { color:#796166; font-size:13px; margin:5px 0; }
+.pass-terms { padding:30px 0 45px; border-top:1px solid #ded7d3; }
+.pass-terms h2 { font-size:16px; font-weight:500; }
+.pass-terms > div { display:grid; grid-template-columns:repeat(3,1fr); gap:35px; color:#796166; font-size:12px; }
+.pass-footer { display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; border-top:1px solid #ded7d3; padding:26px 0; }
+.pass-footer > span { color:#796166; font-size:12px; }
+.pass-page a:focus-visible,.pass-option:focus-within { outline:3px solid #c91432; outline-offset:4px; }
+.ml-pass-promo { box-sizing:border-box; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; width:min(1160px,calc(100% - 32px)); margin:32px auto; padding:28px; background:#fbe9e9; color:#291b20; border-radius:12px; font-family:Arial,sans-serif; }
+.ml-pass-promo strong { font-size:24px; }.ml-pass-promo p { margin:8px 0 0; color:#795058; }
+.ml-pass-promo .ml-button { background:#291b20; color:#fff; padding:15px 22px; border-radius:6px; text-decoration:none; font-weight:600; }
+@media(max-width:800px) { .pass-builder { gap:25px; grid-template-columns:1fr 1fr; }.pass-summary { padding:24px; }.option-count { display:none; }.pass-option { padding:13px; gap:9px; } }
+@media(max-width:600px) { .pass-builder,.pass-next { grid-template-columns:1fr; gap:28px; }.pass-intro { padding:40px 0 35px; }.desktop-break { display:none; }.pass-terms > div { grid-template-columns:1fr; gap:0; }.option-count { display:block; }.pass-summary { padding:28px; }.pass-next { padding:35px 0; } }
+
+/* Clearer pass names, prices and supporting information. */
+.pass-page { font-weight:400; letter-spacing:.025em; }
+.pass-page strong,.pass-page h1,.pass-page h2,.option-price,.wordmark { font-weight:400; }
+.pass-intro h1 { font-size:clamp(38px,5vw,64px); letter-spacing:0; line-height:1.15; }
+.pass-intro h1 em,.pass-next h2 em { font-style:normal; }
+.pass-intro > p:last-child { font-size:17px; line-height:1.7; }
+.eyebrow { font-size:12px; font-weight:400; }
+.section-heading h2 { font-size:25px; }
+.section-heading p { font-size:14px; }
+.option-name strong { font-size:18px; font-weight:400; }
+.pass-option small { font-size:13px; line-height:1.5; }
+.option-price { font-size:21px; }
+.choice-note { font-size:14px; max-width:none; line-height:1.7; }
+.summary-top { font-size:12px; }
+.pass-summary h2 { font-size:36px; line-height:1.2; }
+.summary-description { font-size:15px; line-height:1.7; min-height:0; }
+.summary-price { font-size:23px; }
+.summary-price strong { font-size:76px; letter-spacing:0; }
+.summary-person,.pass-summary dl > div { font-size:15px; }
+.pass-page .pass-action { font-size:16px; font-weight:400; }
+.summary-note { font-size:13px; line-height:1.8; }
+.pass-next h2 { font-size:40px; line-height:1.2; }
+.pass-next li { font-size:18px; }
+.pass-next p,.pass-terms > div { font-size:15px; line-height:1.8; }
+.pass-terms h2 { font-size:21px; }
+.pass-footer > span { font-size:14px; }
+@media(max-width:800px) and (min-width:601px) { .option-name strong { font-size:16px; } .option-price { font-size:18px; } }
+@media(max-width:380px) { .option-count { display:none; } .option-name strong { font-size:16px; } .option-price { font-size:18px; } }
+.abo-embedded { padding:20px 24px; scroll-margin-top:110px; }
+.abo-inner { max-width:1120px; margin:auto; }
+.abo-embedded .pass-intro h2 { font-family:Anton,Impact,sans-serif; font-size:clamp(36px,6vw,64px); color:#252122; margin:10px 0; }
+.abo-embedded fieldset { min-width:0; }
+.abo-announcement { position:fixed; top:calc(var(--nav-height,84px) + 12px); right:24px; z-index:990; width:min(340px,calc(100% - 48px)); padding:24px; background:#fff6f0; color:#291b20; border:1px solid #d6001c; border-radius:12px; box-shadow:0 12px 40px #0005; font-family:Outfit,Arial,sans-serif; }
+.abo-announcement[hidden] { display:none; }
+.abo-announcement > span { display:block; color:#b80018; font-size:12px; font-weight:700; letter-spacing:.1em; }
+.abo-announcement strong { display:block; font-size:24px; line-height:1.2; margin:12px 0; }
+.abo-announcement p { font-size:14px; margin-bottom:16px; }
+.abo-announcement > a { display:block; background:#d6001c; color:white; padding:12px; border-radius:6px; text-align:center; text-decoration:none; font-weight:700; }
+.abo-dismiss { position:absolute; right:4px; top:4px; background:transparent; color:#291b20; border:0; width:36px; height:36px; font-size:25px; cursor:pointer; }
+.abo-announcement a:focus-visible,.abo-dismiss:focus-visible { outline:3px solid #291b20; outline-offset:3px; }
+/* MasteryLab brand colors and identity. */
+.pass-page { background:#050505; color:#fff; }
+.pass-brand-logo { display:block; width:230px; max-width:100%; height:auto; }
+.pass-nav { border-color:#333; }
+.pass-page .eyebrow,.pass-intro h1 em,.pass-next h2 em { color:#ff405a; }
+.pass-intro > p:last-child,.section-heading p,.choice-note,.pass-next p,.pass-terms > div,.pass-footer > span { color:#bdbdbd; }
+.pass-option { background:#141414; border-color:#424242; color:#fff; }
+.pass-option:has(input:checked) { background:#321017; border-color:#ff405a; box-shadow:0 0 0 1px #ff405a; }
+.pass-option input { accent-color:#d6001c; }
+.pass-option small { color:#c7c7c7; }
+.pass-summary { background:#151515; border:1px solid #444; border-top:4px solid #d6001c; color:#fff; }
+.summary-top { color:#ff7385; border-color:#444; }
+.summary-description,.summary-person,.pass-summary dt,.summary-note { color:#c7c7c7; }
+.pass-summary dl { border-color:#444; }
+.pass-page .pass-action { background:#d6001c; color:#fff; }
+.pass-page .pass-action:hover { background:#b80018; }
+.pass-next,.pass-terms,.pass-footer { border-color:#333; }
+.pass-next li::marker { color:#ff7385; }
+.pass-page a:focus-visible,.pass-option:focus-within { outline-color:#fff; }
+.abo-embedded .pass-intro h2 { color:#fff; }
+.ml-pass-promo { background:#171717; border:1px solid #444; border-left:4px solid #d6001c; color:#fff; }
+.ml-pass-promo p { color:#ccc; }
+.ml-pass-promo .ml-button { background:#d6001c; color:#fff; }
+.abo-announcement { background:#151515; color:#fff; border-color:#d6001c; }
+.abo-announcement > span { color:#ff7385; }
+.abo-dismiss { color:#fff; }
+.abo-announcement a:focus-visible,.abo-dismiss:focus-visible { outline-color:#fff; }
+@media(max-width:600px) { .pass-brand-logo { width:180px; } .pass-nav { gap:16px; } .pass-nav > a:last-child { max-width:110px; text-align:right; } }
+
+.pass-intro > p:last-child { max-width:700px; margin-inline:auto; }
+.abo-embedded .pass-intro h2 em { color:#ff405a; font-style:normal; }
+.pass-choices .pass-labs { margin-top:30px; }
+.pass-labs legend { font-size:24px; margin-bottom:12px; }
+#lab-selection-status { font-size:16px; color:#ff7385; margin:0 0 12px; }
+.pass-lab-option { display:flex; gap:12px; align-items:flex-start; padding:14px 0; border-bottom:1px solid #333; cursor:pointer; }
+.pass-lab-option input { margin-top:6px; accent-color:#d6001c; width:18px; height:18px; flex-shrink:0; }
+.pass-lab-option strong { display:block; font-size:17px; }
+.pass-lab-option small { display:block; color:#bdbdbd; font-size:13px; margin-top:4px; }
+.pass-lab-option:has(input:disabled) { opacity:.45; cursor:default; }
+#summary-labs { padding-left:18px; font-size:14px; }
+#summary-labs li { margin:10px 0; }
+.pass-action[aria-disabled="true"] { opacity:.55; cursor:not-allowed; }
+#lab-dialog { width:min(650px,calc(100% - 32px)); max-height:85svh; padding:24px; background:#151515; color:white; border:1px solid #555; border-radius:14px; overflow:auto; font-family:Anton,Impact,sans-serif; }
+#lab-dialog::backdrop { background:#000b; }
+.lab-dialog-header { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.lab-dialog-header h2 { font-size:27px; margin:0; }
+#close-lab-dialog { background:transparent; border:0; color:#fff; font-size:30px; width:44px; height:44px; cursor:pointer; }
+#lab-dialog .pass-labs { border:0; padding:0; margin:18px 0; }
+#lab-dialog .pass-labs legend { display:none; }
+.pass-page button.pass-action { border:0; font-family:inherit; width:100%; cursor:pointer; }
+.pass-page button.pass-action:disabled { opacity:.5; cursor:not-allowed; }
+.edit-labs { margin-top:24px; }
+.ml-offer-list { display:flex; flex-wrap:wrap; gap:8px 24px; list-style:none; padding:0; margin:16px 0 8px; max-width:800px; }
+.ml-offer-list li { color:#eee; font-size:15px; line-height:1.6; }
+.ml-pass-promo > div { flex:1 1 500px; }
+.ml-pass-promo > .ml-button { flex-shrink:0; }
+.ml-pass-promo .ml-offer-list + p { font-size:13px; color:#aaa; }

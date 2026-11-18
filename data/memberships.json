@@ -1,0 +1,34 @@
+{
+  "season": 2027,
+  "plans": {
+    "flex": {
+      "name": "MASTERY FLEX",
+      "price": 630,
+      "regular": 750,
+      "saving": 120,
+      "count": 2,
+      "hours": null,
+      "coupleDiscountPerPerson": 10
+    },
+    "pro": {
+      "name": "MASTERY PRO",
+      "price": 1000,
+      "regular": 1250,
+      "saving": 250,
+      "count": 3,
+      "hours": null,
+      "coupleDiscountPerPerson": 15
+    },
+    "unlimited": {
+      "name": "MASTERY UNLIMITED",
+      "price": 1170,
+      "regular": 1500,
+      "saving": 330,
+      "count": 4,
+      "hours": null,
+      "coupleDiscountPerPerson": 20
+    }
+  },
+  "checkoutLinks": {},
+  "catalogConfirmed": false
+}
