@@ -176,3 +176,24 @@
 .abo-footer-note a { color:#ff7385; text-decoration:none; }
 @media(max-width:900px) { .abo-grid { grid-template-columns:repeat(2,1fr); } }
 @media(max-width:600px) { .abo-grid { grid-template-columns:1fr; } .abo-card { min-height:230px; } .abo-footer-note { align-items:flex-start; flex-direction:column; } .abo-section-heading h2 { font-size:27px; } }
+
+.abo-select-button { border:0; width:100%; padding:14px 16px; background:#d6001c; color:#fff; border-radius:7px; text-align:center; cursor:pointer; font:600 15px/1.2 Arial,sans-serif; transition:background .2s,transform .2s; }
+.abo-select-button:hover { background:#b80018; transform:translateY(-2px); }
+#lab-dialog { width:min(680px,calc(100% - 32px)); max-height:85svh; padding:28px; background:#151515; color:#fff; border:1px solid #555; border-top:4px solid #d6001c; border-radius:14px; overflow:auto; font-family:Arial,sans-serif; }
+#lab-dialog::backdrop { background:#000b; }
+.lab-dialog-header { display:flex; align-items:flex-start; justify-content:space-between; gap:20px; }
+.lab-dialog-header h2 { margin:6px 0 0; font:36px/1.1 Anton,Impact,sans-serif; }
+#close-lab-dialog { background:transparent; border:0; color:#fff; font-size:30px; width:42px; height:42px; cursor:pointer; }
+.lab-dialog-help { color:#c7c7c7; font-size:15px; line-height:1.5; margin:14px 0 20px; }
+#lab-dialog .pass-labs { border:0; padding:0; margin:0; }
+#lab-dialog .pass-labs legend { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.pass-lab-option { display:flex; gap:12px; align-items:flex-start; padding:14px 0; border-bottom:1px solid #333; cursor:pointer; }
+.pass-lab-option input { margin-top:5px; accent-color:#d6001c; width:18px; height:18px; flex-shrink:0; }
+.pass-lab-option strong { display:block; font-size:16px; font-weight:600; }
+.pass-lab-option small { display:block; color:#bdbdbd; font-size:13px; margin-top:4px; }
+.pass-lab-option:has(input:disabled) { opacity:.45; cursor:default; }
+.lab-dialog-footer { display:flex; align-items:center; gap:16px; margin-top:22px; }
+#lab-selection-status { flex:1; color:#ff7385; font-size:14px; }
+#continue-to-checkout { border:0; min-width:190px; cursor:pointer; }
+#continue-to-checkout:disabled { opacity:.45; cursor:not-allowed; }
+@media(max-width:600px){ #lab-dialog{padding:22px}.lab-dialog-footer{align-items:stretch; flex-direction:column}.abo-select-button{font-size:16px} }
