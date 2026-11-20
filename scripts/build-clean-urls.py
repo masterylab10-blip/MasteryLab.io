@@ -30,7 +30,7 @@ for p in list(ROOT.glob('*.js'))+pages:
     if p.suffix=='.html':
         # Shared script handles old .html entrypoints; it does nothing on clean routes.
         if '/clean-urls.js' not in updated:
-            updated=re.sub(r'(<head\b[^>]*>)',r'\1\n<script src="/clean-urls.js?v=1"></script>',updated,count=1,flags=re.I)
+            updated=re.sub(r'(<head\b[^>]*>)',r'\1\n<script src="/clean-urls.js?v=3"></script>',updated,count=1,flags=re.I)
     if updated!=original:p.write_text(updated)
 for p in pages:
     if p.name=='index.html':continue
