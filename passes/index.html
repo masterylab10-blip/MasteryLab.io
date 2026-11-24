@@ -13,14 +13,14 @@
 <body class="pass-page">
 <header class="pass-nav"><a class="wordmark" href="/" aria-label="MasteryLab home"><img class="pass-brand-logo" src="/media/site-optimized/logo-wordmark-d19671-960.webp" alt="MasteryLab" width="960" height="174"></a><a href="/#schedule-2027">Explore the Labs ↗</a></header>
 <main class="abo-page">
-<section class="pass-intro"><p class="eyebrow">MASTERYLAB · YEARLY ABOS</p><h1>Choose your pass.<br><em>Choose your labs.</em></h1><p>Select a 3-, 4-, or 5-lab pass, then choose the exact labs you want to attend. Your selection is carried into checkout.</p></section>
+<section class="pass-intro"><p class="eyebrow">MASTERYLAB · YEARLY ABOS</p><h1>Choose your pass.<br><em>Choose your labs.</em></h1><p>Select a 3- or 4-lab pass, then choose the exact labs you want to attend. Your selection is carried into checkout.</p></section>
 <section class="abo-section" aria-labelledby="season-passes"><div class="abo-section-heading"><span>01</span><div><h2 id="season-passes">Season passes</h2><p>One payment for the full pass.</p></div></div><div class="abo-grid">
-<article class="abo-card "><span class="abo-kind">3 LABS</span><h3>Master Pro</h3><p>A focused season across three selected labs.</p><button class="abo-select-button" type="button" data-pass="pro" data-checkout="https://buy.stripe.com/3cIcN74xUa4s1F09z4dEs1j">Choose labs</button></article><article class="abo-card "><span class="abo-kind">4 LABS</span><h3>Master Elite</h3><p>Go deeper with four selected labs.</p><button class="abo-select-button" type="button" data-pass="elite" data-checkout="https://buy.stripe.com/6oU3cx5BY6Sg0AWeTodEs1k">Choose labs</button></article><article class="abo-card abo-card-featured"><span class="abo-kind">5 LABS · COMPLETE</span><h3>Master Complete</h3><p>The complete five-lab season pass.</p><button class="abo-select-button" type="button" data-pass="complete" data-checkout="https://buy.stripe.com/8x27sNc0m1xW97sdPkdEs1l">Choose labs</button></article>
+<article class="abo-card "><span class="abo-kind">3 LABS</span><h3>Master Pro</h3><p>A focused season across three selected labs.</p><button class="abo-select-button" type="button" data-pass="pro" data-checkout="https://buy.stripe.com/3cIcN74xUa4s1F09z4dEs1j">Choose labs</button></article><article class="abo-card "><span class="abo-kind">4 LABS</span><h3>Master Elite</h3><p>Go deeper with four selected labs.</p><button class="abo-select-button" type="button" data-pass="elite" data-checkout="https://buy.stripe.com/6oU3cx5BY6Sg0AWeTodEs1k">Choose labs</button></article>
 </div></section>
 <section class="abo-section abo-section-installments" aria-labelledby="payment-passes"><div class="abo-section-heading"><span>02</span><div><h2 id="payment-passes">Two-payment passes</h2><p>Split your pass into two payments.</p></div></div><div class="abo-grid">
-<article class="abo-card "><span class="abo-kind">3 LABS · 2 PAYMENTS</span><h3>Master Pro</h3><p>Three-lab pass with a flexible two-payment checkout.</p><button class="abo-select-button" type="button" data-pass="pro-2" data-checkout="https://buy.stripe.com/9B65kF2pMfoM4Rc12ydEs1p">Choose labs</button></article><article class="abo-card "><span class="abo-kind">4 LABS · 2 PAYMENTS</span><h3>Master Elite</h3><p>Four-lab pass with a flexible two-payment checkout.</p><button class="abo-select-button" type="button" data-pass="elite-2" data-checkout="https://buy.stripe.com/3cI8wRc0m3G4fvQfXsdEs1o">Choose labs</button></article><article class="abo-card abo-card-featured"><span class="abo-kind">5 LABS · 2 PAYMENTS</span><h3>Master Complete</h3><p>The complete five-lab pass with a flexible two-payment checkout.</p><button class="abo-select-button" type="button" data-pass="complete-2" data-checkout="https://buy.stripe.com/5kQaEZaWi2C083ocLgdEs1n">Choose labs</button></article>
+<article class="abo-card "><span class="abo-kind">3 LABS · 2 PAYMENTS</span><h3>Master Pro</h3><p>Three-lab pass with a flexible two-payment checkout.</p><button class="abo-select-button" type="button" data-pass="pro-2" data-checkout="https://buy.stripe.com/9B65kF2pMfoM4Rc12ydEs1p">Choose labs</button></article><article class="abo-card "><span class="abo-kind">4 LABS · 2 PAYMENTS</span><h3>Master Elite</h3><p>Four-lab pass with a flexible two-payment checkout.</p><button class="abo-select-button" type="button" data-pass="elite-2" data-checkout="https://buy.stripe.com/3cI8wRc0m3G4fvQfXsdEs1o">Choose labs</button></article>
 </div></section>
-<section class="abo-footer-note"><strong>Choose the pass first, then select your exact labs.</strong><a href="/#contact">Need help? Talk to MasteryLab ↗</a></section>
+<section class="abo-footer-note"><strong>Choose the pass first, then select your exact labs.</strong><span>Master Complete will return when the next lab is announced.</span><a href="/#contact">Need help? Talk to MasteryLab ↗</a></section>
 </main>
 <footer class="pass-footer"><a class="wordmark" href="/">MASTERYLAB</a><span>Your journey. Your choice. Your mastery.</span></footer>
 <dialog id="lab-dialog" aria-labelledby="lab-dialog-title">
@@ -33,15 +33,13 @@
   const labs = [
     {id:'dancers-feb',name:'Bachata Sensual Dancers Lab',date:'6–7 February 2027'},
     {id:'mm-vol3-may',name:'M&M Technique Lab Vol. 3',date:'8–9 May 2027'},
-    {id:'teachers-june',name:'Teachers Education Lab',date:'June 2027 · date to be confirmed'},
     {id:'styling-june',name:'Men & Ladies Styling Lab',date:'26–27 June 2027'},
     {id:'mm-vol2-september',name:'M&M Technique Lab Vol. 2',date:'18–19 September 2027'},
-    {id:'teachers-october',name:'Teachers Education Lab',date:'9–10 October 2027'}
   ];
   const dialog=document.getElementById('lab-dialog'), options=document.getElementById('lab-options'), status=document.getElementById('lab-selection-status'), help=document.getElementById('lab-dialog-help'), form=document.getElementById('lab-selection-form'), go=document.getElementById('continue-to-checkout');
   let active=null, selected=[];
-  const limitFor = id => id.startsWith('pro') ? 3 : id.startsWith('elite') ? 4 : 5;
-  const passName = id => id.startsWith('pro') ? 'Master Pro' : id.startsWith('elite') ? 'Master Elite' : 'Master Complete';
+  const limitFor = id => id.startsWith('pro') ? 3 : 4;
+  const passName = id => id.startsWith('pro') ? 'Master Pro' : 'Master Elite';
   function render() {
     options.innerHTML=labs.map(l=>'<label class="pass-lab-option"><input type="checkbox" value="'+l.id+'"><span><strong>'+l.name+'</strong><small>'+l.date+'</small></span></label>').join('');
     options.querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
