@@ -89,12 +89,13 @@
 .abo-inner { max-width:1120px; margin:auto; }
 .abo-embedded .pass-intro h2 { font-family:Anton,Impact,sans-serif; font-size:clamp(36px,6vw,64px); color:#252122; margin:10px 0; }
 .abo-embedded fieldset { min-width:0; }
-.abo-announcement { position:fixed; top:calc(var(--nav-height,84px) + 12px); right:24px; z-index:990; width:min(340px,calc(100% - 48px)); padding:24px; background:#fff6f0; color:#291b20; border:1px solid #d6001c; border-radius:12px; box-shadow:0 12px 40px #0005; font-family:Outfit,Arial,sans-serif; }
+.abo-announcement { position:fixed; top:calc(var(--nav-height,84px) + 18px); right:24px; z-index:990; width:min(300px,calc(100% - 40px)); padding:28px 26px 24px; background:#151515; color:#fff; border:1px solid #d6001c; border-radius:18px; box-shadow:0 18px 50px #0008; font-family:Outfit,Arial,sans-serif; }
 .abo-announcement[hidden] { display:none; }
-.abo-announcement > span { display:block; color:#b80018; font-size:12px; font-weight:700; letter-spacing:.1em; }
-.abo-announcement strong { display:block; font-size:24px; line-height:1.2; margin:12px 0; }
-.abo-announcement p { font-size:14px; margin-bottom:16px; }
-.abo-announcement > a { display:block; background:#d6001c; color:white; padding:12px; border-radius:6px; text-align:center; text-decoration:none; font-weight:700; }
+.abo-announcement > span { display:block; color:#ff7385; font-size:11px; font-weight:700; letter-spacing:.16em; }
+.abo-announcement strong { display:block; font-size:32px; line-height:1.05; letter-spacing:-.03em; margin:18px 0 12px; }
+.abo-announcement p { font-size:15px; color:#bdbdbd; margin:0 0 22px; }
+.abo-announcement > a { display:block; background:#e40024; color:white; padding:13px 14px; border-radius:9px; text-align:center; text-decoration:none; font-weight:700; transition:transform .2s ease,background .2s ease; }
+.abo-announcement > a:hover { background:#ff1237; transform:translateY(-1px); }
 .abo-dismiss { position:absolute; right:4px; top:4px; background:transparent; color:#291b20; border:0; width:36px; height:36px; font-size:25px; cursor:pointer; }
 .abo-announcement a:focus-visible,.abo-dismiss:focus-visible { outline:3px solid #291b20; outline-offset:3px; }
 /* MasteryLab brand colors and identity. */
